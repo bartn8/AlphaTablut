@@ -100,7 +100,7 @@ class TablutNNet(NeuralNet):
         """
 
         print("Training step: {0}".format(self.training_steps))
-        history = self.nnet.fit(data_function(args.batch_size), batch_size=args.batch_size, epochs=args.epochs, initial_epoch=self.training_steps)
+        history = self.nnet.fit(data_function(args.batch_size), epochs=args.epochs, initial_epoch=self.training_steps)
 
         self.training_steps += args.epochs
 
