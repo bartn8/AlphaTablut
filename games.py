@@ -272,6 +272,9 @@ class Game:
     need to set the .initial attribute to the initial state; this can
     be done in the constructor."""
 
+    def input_shape(self):
+        raise NotImplementedError
+
     def actions(self, state):
         """Return a list of the allowable moves at this point."""
         raise NotImplementedError

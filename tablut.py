@@ -154,6 +154,9 @@ class AshtonTablut(Game):
         moves = self.legal_actions(self.initial)
         self.initial = GameState(to_move='W', utility=0, board=initialBoard.copy(), moves=moves)
 
+    def input_shape():
+        return (9,9,4)
+
     def actions(self, state):
         """Legal moves are any square not yet taken."""
         return state.moves

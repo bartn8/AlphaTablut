@@ -173,17 +173,17 @@ class TreeResNetBuilder():
         tower_output = res_tower[-1][0]
 
         #Final part
-        flatten1 = Flatten()(tower_output)
-        dense = Dense(units=64, activation="relu")(flatten1)
+        res_block = basic_residual_block(filters=filters)(tower_output)
+        flatten1 = Flatten()(res_block)
+        dense = Dense(units=256, activation="relu")(flatten1)
         out_value = Dense(units=num_outputs, activation="tanh")(dense)
-
 
         model = Model(inputs=input_array, outputs=out_value)
         
         return model
 
     @staticmethod
-    def build_treeresnet_3(input_shape, num_outputs):
+    def build_treeresnet_32(input_shape, num_outputs):
         return TreeResNetBuilder.build(input_shape, num_outputs, 32)
 
 
@@ -193,8 +193,23 @@ def my_dataset():
         yield [i]
 
 if __name__ == '__main__':
-    model = TreeResNetBuilder.build_treeresnet_3((3,3,9,9), 1)
+    model = TreeResNetBuilder.build_treeresnet_32((2,4,9,9), 1)
     #q_model = tfmot.quantization.keras.quantize_model(model)
+
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.003),
+                          loss=tf.keras.losses.MeanSquaredError(),
+                          metrics=[tf.keras.metrics.Mean()])
+
+    a = np.zeros((4,9,9), dtype=np.float32)
+    a = tf.reshape(a, (-1, 9, 9, 4))
+    print(a.shape)
+
+
+    start = time.time()
+    print(model([a,a]))
+    print("tf inference:{0} ms".format((time.time()-start)*1000))
+
+    #model.save('tablut')
 
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
@@ -216,8 +231,18 @@ if __name__ == '__main__':
     input_data = np.array(np.random.random_sample(input_shape), dtype=np.float32)
     interpreter.set_tensor(input_details[0]['index'], input_data)
 
-    interpreter.invoke()
+    input_shape = input_details[1]['shape']
+    input_data = np.array(np.random.random_sample(input_shape), dtype=np.float32)
+    interpreter.set_tensor(input_details[1]['index'], input_data)
 
-    startTime = time.time()
-    interpreter.invoke()
-    print("Inference time: {0} ms, Input details: {1}, Output details: {2}".format((time.time()-startTime)*1000, input_details, output_details))
+    n = 100
+    sum = 0
+
+    for i in range(n):
+
+        startTime = time.time()
+        interpreter.invoke()
+        deltaTime = time.time()-startTime
+        sum += deltaTime
+
+    print("Inference time: {0} ms ({3} invokes), Input details: {1}, Output details: {2}".format((sum/n)*1000, input_details, output_details, n))
