@@ -1,6 +1,47 @@
-
 from games import Game, GameState
 import numpy as np
+import os
+import datetime
+
+class TablutConfig:
+
+    def __init__(self):
+        self.seed = 0  # Seed for numpy, torch and the game
+
+        ### Game
+        self.observation_shape = (4, 9, 9)  # Dimensions of the game observation, must be 3D (channel, height, width). For a 1D array, please reshape it to (1, 1, length of array)
+        self.action_space = list(range(6561))  # Fixed list of all possible actions. You should only edit the length
+        self.players = list(range(2))  # List of players. You should only edit the length
+        self.moves_for_draw = 10
+
+        #Network
+        self.num_filters = 32
+
+        ### Self-Play
+        self.num_workers = 8  # Number of simultaneous threads/workers self-playing to feed the replay buffer
+        self.threads_per_worker = 2
+        self.max_moves = 50  # Maximum number of moves if game is not finished before
+        self.max_depth = 2
+
+        # Exploration noise
+        self.enable_noise_on_training = True
+        self.noise_mean = 0.0
+        self.noise_deviation = 0.1
+
+        ### Training
+        self.results_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "/results", os.path.basename(__file__)[:-3], datetime.datetime.now().strftime("%Y-%m-%d--%H-%M-%S"))  # Path to store the model weights and TensorBoard logs
+        self.save_model = True  # Save the checkpoint in results_path as model.checkpoint
+        self.training_steps = 300000  # Total number of training steps (ie weights update according to a batch)
+        self.batch_size = 512  # Number of parts of games to train on at each training step
+        self.checkpoint_interval = 100  # Number of training steps before using the model for self-playing
+        self.value_loss_weight = 0.25  # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
+        self.epochs = 10
+
+        self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
+        self.weight_decay = 1e-4  # L2 weights regularization
+
+        # Exponential learning rate schedule
+        self.lr_init = 0.003  # Initial learning rate
 
 
 #Celle non calpestabili: citadels, trono 1 calpestabili 0
@@ -147,15 +188,13 @@ initialBoard[2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                   [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)
         
+initialBoard[3] = whiteContraints
 
 class AshtonTablut(Game):
     def __init__(self):
         self.initial = GameState(to_move='W', utility=0, board=initialBoard.copy(), moves=[])
-        moves = self.legal_actions(self.initial)
+        moves = self.legal_actions(self.initial.to_move, self.initial.board)
         self.initial = GameState(to_move='W', utility=0, board=initialBoard.copy(), moves=moves)
-
-    def input_shape():
-        return (9,9,4)
 
     def actions(self, state):
         """Legal moves are any square not yet taken."""
@@ -166,41 +205,42 @@ class AshtonTablut(Game):
         if move not in state.moves:
             return state  # Illegal move has no effect
         
-        playerBoard = board[0 if state.to_move == 'W' else 1]
+        #Copio la board
+        board = state.board.copy()
 
         fromYX = move[0]
         toYX = move[1]
 
         #Controllo se ho mosso il re
-        if state.to-move == 'W':
+        if state.to_move == 'W':
             if board[2][fromYX] == 1:
-                playerBoard = board[2]
+                move_board = board[2]
+            else:
+                move_board = board[0]
+        else:
+            move_board = board[1]
 
-        playerBoard = playerBoard.copy()
-
-        tmp = playerBoard[fromYX]
-        playerBoard[fromYX] = 0
-        playerBoard[toYX] = tmp
+        tmp = move_board[fromYX]
+        move_board[fromYX] = 0
+        move_board[toYX] = tmp
 
         eaten = 0
 
         #Controllo se mangio pedine
         if state.to_move == 'W':
-            playerBoard, eaten = self.check_white_eat(playerBoard)
+            eaten = self.check_white_eat(board, move)
         else:
-            playerBoard, eaten = self.check_black_eat(playerBoard)
+            eaten = self.check_black_eat(board, move)
 
         to_move = 'W' if state.to_move == 'B' else 'B'
-        moves = self.legal_actions(to_move, playerBoard)
-
-        winCheck = self.have_winner(playerBoard) or len(moves) == 0
-
+        moves = self.legal_actions(to_move, board)
+        
+        winCheck = self.have_winner(board, state.to_move) or len(moves) == 0
         utility = 0
-
         if winCheck:
-            utility = 1 if to_move == 'W' else -1
+            utility = 1 if state.to_move == 'W' else -1
 
-        return GameState(to_move=to_move, utility=utility, board=playerBoard, moves=moves)
+        return GameState(to_move=to_move, utility=utility, board=board, moves=moves)
 
     def utility(self, state, player):
         """Return the value to player; 1 for win, -1 for loss, 0 otherwise."""
@@ -208,7 +248,7 @@ class AshtonTablut(Game):
 
     def terminal_test(self, state):
         """A state is terminal if it is won or there are no empty squares."""
-        return state.utility != 0 or len(state.moves) == 0
+        return state.utility == -1 or state.utility == 1 or len(state.moves) == 0
 
     def display(self, state):
         """Print or otherwise display the state."""
@@ -381,7 +421,7 @@ class AshtonTablut(Game):
             board[0, y, x+1] = 0
             captured +=1
 
-        return board, captured
+        return captured
 
     #La board viene modificata!
     def check_white_eat(self, board, move):#Controllo se il bianco mangia dei pedoni neri
@@ -418,32 +458,13 @@ class AshtonTablut(Game):
             board[1, y, x+1] = 0
             captured +=1
 
-        return board, captured
+        return captured
 
-    def have_draw(self, board):
-        if self.stepsWithoutCapturing < 10:
-            return False
-        #Controllo se ho un certo numero di stati ripetuti
-        trovati = 0
-        for boardCached in self.drawQueue:
-            if np.array_equal(board, boardCached):
-                trovati +=1
-        
-        if trovati > 0:
-            return True
-
-        return False
-
-    def have_winner(self, board):
-        #White Check
-        if self.white_win_check(board):
-            return True
-
-        #Black Check
-        if self.black_win_check(board):
-            return True
-
-        return False
+    def have_winner(self, board, player):
+        if player == 'W':
+            return self.white_win_check(board)
+        else:
+            self.black_win_check(board)
 
     def white_win_check(self, board):
         #Controllo che il Re sia in un bordo della board
@@ -482,3 +503,5 @@ class AshtonTablut(Game):
                 return True
 
         return False
+
+

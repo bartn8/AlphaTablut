@@ -1,26 +1,16 @@
-
 import os
 import sys
 import time
+import json
 
 import numpy as np
-
 import tensorflow as tf
 
 from treeresnet import TreeResNetBuilder
 
-import json
+from tablut import TablutConfig
 
 #https://github.com/suragnair/alpha-zero-general
-
-args = dotdict({
-    'lr': 0.003,
-    'training_steps': 10000,
-    'epochs': 10,
-    'batch_size': 64,
-    'checkpoint_interval': 50,
-    'num_filters': 32
-})
 
 
 class NeuralNet():
@@ -79,16 +69,16 @@ class NeuralNet():
 
 
 class TablutNNet(NeuralNet):
-    def __init__(self, game, restoreFromCheckpoint = False):
-        self.input_shape = game.input_shape()
+    def __init__(self, restoreFromCheckpoint = False):
+        self.config = TablutConfig()
 
         if restoreFromCheckpoint:
             self.load_checkpoint()
         else:
 
-            self.nnet = TreeResNetBuilder.build(self.input_shape, 1, args.num_filters)
+            self.nnet = TreeResNetBuilder.build(self.config.observation_shape, 1, self.config.num_filters)
 
-            self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=args.lr),
+            self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.lr_init,
                           loss=tf.keras.losses.MeanSquaredError(),
                           metrics=[tf.keras.metrics.Mean()])
 
@@ -100,11 +90,11 @@ class TablutNNet(NeuralNet):
         """
 
         print("Training step: {0}".format(self.training_steps))
-        history = self.nnet.fit(data_function(args.batch_size), epochs=args.epochs, initial_epoch=self.training_steps)
+        self.history = self.nnet.fit(data_function(self.config.batch_size), epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps)
 
-        self.training_steps += args.epochs
+        self.training_steps += self.config.epochs
 
-        if self.training_steps % args.checkpoint_interval == 0:
+        if self.training_steps % self.config.checkpoint_interval == 0:
             self.save_checkpoint()
             self.tflite_optimization()
 
@@ -117,8 +107,8 @@ class TablutNNet(NeuralNet):
         """
 
         #preparing input
-        board0 = tf.reshape(board0, (-1, self.input_shape[1], self.input_shape[2], self.input_shape[0]))
-        board1 = tf.reshape(board1, (-1, self.input_shape[1], self.input_shape[2], self.input_shape[0]))
+        board0 = tf.reshape(board0, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
+        board1 = tf.reshape(board1, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
 
         # run
         v = self.nnet([board0, board1])
@@ -137,8 +127,8 @@ class TablutNNet(NeuralNet):
 
 
         #preparing input
-        boards0 = tf.reshape(boards0, (boards0.shape[0], self.input_shape[1], self.input_shape[2], self.input_shape[0]))
-        boards1 = tf.reshape(boards1, (boards1.shape[0], self.input_shape[1], self.input_shape[2], self.input_shape[0]))
+        boards0 = tf.reshape(boards0, (boards0.shape[0], self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
+        boards1 = tf.reshape(boards1, (boards1.shape[0], self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
 
         v = self.nnet.predict([boards0, boards1])
 
@@ -156,7 +146,7 @@ class TablutNNet(NeuralNet):
         if self.nnet is not None:
             self.nnet.save(filepath)
 
-            data = {'training_steps': self.training_steps, 'input_shape': self.input_shape}
+            data = {'training_steps': self.training_steps, 'history': self.history, 'config': self.config}
 
             with open(os.path.join(folder, filename+".data"), "w") as f:
                 json.dump(data, f)
@@ -170,7 +160,8 @@ class TablutNNet(NeuralNet):
         with open(os.path.join(folder, filename+".data"), "r") as f:
             data = json.load(f)
             self.training_steps = data['training_steps']
-            self.input_shape = data['input_shape']
+            self.config = data['config']
+            self.history = data['history']
 
 
     def tflite_optimization(self, filename='tablut.tflite'):

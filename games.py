@@ -171,54 +171,98 @@ def alpha_beta_cutoff_search(state, game, d=4, cutoff_test=None, eval_fn=None):
             best_action = a
     return best_action
 
-def alpha_beta_time_search(state, game, t=55, cutoff_test = None, eval_fn=None):
+def key_function(x):
+    return x[1]
+
+def alpha_beta_time_search(state, game, d=10, t=55, cutoff_test = None, eval_fn=None):
     """Search game to determine best action; use alpha-beta pruning.
     This version cuts off search using time and uses an evaluation function."""
 
     player = game.to_move(state)
 
     # Functions used by alpha_beta
-    def max_value(state, alpha, beta, depth, startTime):
-        if cutoff_test(state, startTime):
-            return eval_fn(state), depth
-        v = -np.inf
-        for a in game.actions(state):
-            v = max(v, min_value(game.result(state, a), alpha, beta, depth + 1, startTime))
-            if v >= beta:
-                return v, depth
-            alpha = max(alpha, v)
-        return v, depth
+    def max_value(parent_state, state, player, alpha, beta, depth, startTime):
+        if cutoff_test(state, depth, startTime):
+            return eval_fn(parent_state, state, player), depth
 
-    def min_value(state, alpha, beta, depth, startTime):
-        if cutoff_test(state, startTime):
-            return eval_fn(state), depth
-        v = np.inf
+        v = -np.inf
+        child_depth = depth
+        children = []
+
         for a in game.actions(state):
-            v = min(v, max_value(game.result(state, a), alpha, beta, depth + 1, startTime))
+            next_state = game.result(state, a)
+            children.append((next_state, eval_fn(state, next_state, player)))
+
+        sorted(children, key=key_function, reverse=True)
+
+        for next_state, evaluation in children:            
+            next_v, next_depth = min_value(state, next_state, player, alpha, beta, depth + 1, startTime)
+            child_depth = max(child_depth, next_depth)
+            v = max(v, next_v)
+
+            if v >= beta:
+                return v, child_depth
+
+            alpha = max(alpha, v)
+
+        return v, child_depth
+
+    def min_value(parent_state, state, player, alpha, beta, depth, startTime):
+        if cutoff_test(state, depth, startTime):
+            return eval_fn(parent_state, state, player), depth
+
+        v = np.inf
+        child_depth = depth
+        children = []
+
+        for a in game.actions(state):
+            next_state = game.result(state, a)
+            children.append((next_state, eval_fn(state, next_state, player)))
+
+        sorted(children, key=key_function)
+        
+        for next_state, evaluation in children:            
+            next_v, next_depth = max_value(state, next_state, player, alpha, beta, depth + 1, startTime)
+            child_depth = max(child_depth, next_depth)
+            
+            v = min(v, next_v)
+
             if v <= alpha:
-                return v, depth
+                return v, child_depth
+
             beta = min(beta, v)
-        return v, depth
+
+        return v, child_depth
 
     # Body of alpha_beta_cutoff_search starts here:
     # The default test cuts off after a time treshold t or at a terminal state
-    cutoff_test = (cutoff_test or (lambda state, time: (time.time()-time) > t or game.terminal_test(state)))
-    eval_fn = eval_fn or (lambda state: game.utility(state, player))
+    cutoff_test = (cutoff_test or (lambda state, depth, start_time: depth > d or (time.time()-start_time) > t or game.terminal_test(state)))
+    eval_fn = eval_fn or (lambda parent_state, state, player: game.utility(state, player))
     best_score = -np.inf
     beta = np.inf
     best_action = None
+    best_next_state = None
     best_depth = None
 
     #Start time now
     startTime = time.time()
 
+    children = []
+
     for a in game.actions(state):
-        v, depth = min_value(game.result(state, a), best_score, beta, 1, startTime)
+        next_state = game.result(state, a)
+        children.append((next_state, eval_fn(state, next_state, player), a))
+
+    sorted(children, key=key_function)
+
+    for next_state, evaluation, a in children:
+        v, depth = min_value(state, next_state, player, best_score, beta, 1, startTime)
         if v > best_score:
+            best_next_state = next_state
             best_score = v
             best_action = a
             best_depth = depth
-    return best_action, best_score, best_depth, (time.time()-startTime)
+    return best_next_state, best_action, best_score, best_depth, (time.time()-startTime)
 
 # ______________________________________________________________________________
 # Players for Games
@@ -271,9 +315,6 @@ class Game:
     successors or you can inherit their default methods. You will also
     need to set the .initial attribute to the initial state; this can
     be done in the constructor."""
-
-    def input_shape(self):
-        raise NotImplementedError
 
     def actions(self, state):
         """Return a list of the allowable moves at this point."""

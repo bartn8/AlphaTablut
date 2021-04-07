@@ -29,6 +29,9 @@ class ActionBuffer:
         if (board0.shape, board1.shape) != (self.input_shape, self.input_shape):
             raise Exception("Board shape mismatch")
 
+        if np.array_equal(board0, board1):
+            pass
+
         action_hash = hash(board0.tobytes()+board1.tobytes())
 
         with self._lock:
