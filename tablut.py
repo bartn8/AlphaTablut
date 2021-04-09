@@ -1,6 +1,7 @@
 from games import Game, GameState
 import numpy as np
 import os
+import time
 import datetime
 
 class TablutConfig:
@@ -62,57 +63,67 @@ blackContraints = np.zeros((9, 9, 9, 9), dtype=np.int8)
 #Celle non calpestabili: citadels, trono 1 calpestabili 0
 #Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
 #Maschere speciali per la verifica delle mosse attuabili dal nero
-blackContraints[:,:] = np.array([ [0, 0, 0, 1, 1, 1, 0, 0, 0],
+blackContraints[:,:] = np.array([ [0, 0, 0, 1, 0, 1, 0, 0, 0],
                                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                                            [1, 1, 0, 0, 1, 0, 0, 1, 1],
+                                            [0, 1, 0, 0, 1, 0, 0, 1, 0],
                                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
                                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                            [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
+                                            [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)
 
 blackContraints[0,3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                                             [1, 1, 0, 0, 1, 0, 0, 1, 1],
+                                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
+                                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)
 
 blackContraints[1,  4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                                             [1, 1, 0, 0, 1, 0, 0, 1, 1],
+                                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)    
+                                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)    
 
-blackContraints[8,3:6] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
+blackContraints[8,3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                                             [1, 1, 0, 0, 1, 0, 0, 1, 1],
+                                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)
 
-blackContraints[7,  4] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
+blackContraints[7,  4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                                             [1, 1, 0, 0, 1, 0, 0, 1, 1],
+                                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 1],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)     
 
-blackContraints[3:6,0] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
+blackContraints[3:6,0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
+                                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                             [0, 0, 0, 0, 0, 0, 0, 0, 1],
+                                             [0, 0, 0, 0, 1, 0, 0, 1, 0],
+                                             [0, 0, 0, 0, 0, 0, 0, 0, 1],
+                                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)
+
+blackContraints[4,  1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -120,47 +131,37 @@ blackContraints[3:6,0] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 1],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
+                                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)  
 
-blackContraints[4,  1] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
+blackContraints[3:6,8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                             [0, 0, 0, 0, 0, 0, 0, 0, 1],
-                                             [0, 0, 0, 0, 1, 0, 0, 1, 1],
-                                             [0, 0, 0, 0, 0, 0, 0, 0, 1],
+                                             [1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                             [0, 1, 0, 0, 1, 0, 0, 0, 0],
+                                             [1, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)  
+                                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)
 
-blackContraints[3:6,8] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
+blackContraints[4,  7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                             [1, 1, 0, 0, 1, 0, 0, 0, 0],
+                                             [0, 1, 0, 0, 1, 0, 0, 0, 0],
                                              [1, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
-
-blackContraints[4,  7] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
-                                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                             [1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                             [1, 1, 0, 0, 1, 0, 0, 0, 0],
-                                             [1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
+                                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)
                                      
 
-initialBoard = np.zeros((4, 9, 9), dtype=np.int8)
+initialBoard = np.zeros((2, 9, 9), dtype=np.int8)
 
 #Board[0]: Bianco altro 0
 initialBoard[0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0], 
                                   [0, 0, 0, 0, 0, 0, 0, 0, 0], 
                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                  [0, 0, 1, 1, 0, 1, 1, 0, 0],
+                                  [0, 0, 1, 1,-1, 1, 1, 0, 0],
                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -177,18 +178,13 @@ initialBoard[1] = np.array([[0, 0, 0, 1, 1, 1, 0, 0, 0],
                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                   [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
 
-#Board[2]: Re 1 altro 0
-initialBoard[2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0], 
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                  [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                  [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)
-        
-initialBoard[3] = whiteContraints
+def convert_board(board):
+    newBoard = np.zeros((4,9,9), dtype=np.int8)
+    newBoard[3] = whiteContraints
+    newBoard[2] = np.where(board[0] == -1, 1, 0)
+    newBoard[1] = board[1]
+    newBoard[0] = np.where(board[0] == 1, 1, 0)
+    return newBoard
 
 class AshtonTablut(Game):
     def __init__(self):
@@ -212,13 +208,7 @@ class AshtonTablut(Game):
         toYX = move[1]
 
         #Controllo se ho mosso il re
-        if state.to_move == 'W':
-            if board[2][fromYX] == 1:
-                move_board = board[2]
-            else:
-                move_board = board[0]
-        else:
-            move_board = board[1]
+        move_board = board[0 if state.to_move == 'W' else 1]
 
         tmp = move_board[fromYX]
         move_board[fromYX] = 0
@@ -233,7 +223,7 @@ class AshtonTablut(Game):
             eaten = self.check_black_eat(board, move)
 
         to_move = 'W' if state.to_move == 'B' else 'B'
-        moves = self.legal_actions(to_move, board)
+        moves = self.legal_actions(board, to_move)
         
         winCheck = self.have_winner(board, state.to_move) or len(moves) == 0
         utility = 0
@@ -253,9 +243,11 @@ class AshtonTablut(Game):
     def display(self, state):
         """Print or otherwise display the state."""
         board = state.board
-        print(-board[0]+board[1]-20*board[2]+10*whiteContraints)
+        white = np.where(board[0] == 1, 1, 0)
+        king = np.where(board[0] == -1, 1, 0)
+        print(-white+board[1]-20*king+10*whiteContraints)
 
-    def legal_actions(self, to_move, board):
+    def legal_actions(self, board, to_move):
         if to_move == 'W':
             return self.legal_actions_white(board)
         else:
@@ -265,7 +257,7 @@ class AshtonTablut(Game):
         legal = []
 
         #Creo una maschera: pedoni, re, cittadelle
-        preMask = board[0] | board[1] | board[2]
+        preMask = board[0] | board[1]
         
         #Seleziono i pedoni del giocatore
         pedoni = np.where(board[1] == 1)
@@ -311,7 +303,7 @@ class AshtonTablut(Game):
         legal = []
 
         #Creo una maschera: pedoni, re, cittadelle
-        mask = board[0] | board[1] | board[2] | whiteContraints
+        mask = board[0] | board[1] | whiteContraints
         
         #Seleziono i pedoni del giocatore
         pedoni = np.where(board[0] == 1)
@@ -349,7 +341,7 @@ class AshtonTablut(Game):
                     break
 
         #Mosse del Re
-        y,x = np.where(board[2] == 1)
+        y,x = np.where(board[0] == -1)
         y,x = int(y), int(x)
         #Seleziono le celle adiacenti (no diagonali)
         #Appena incontro un'ostacolo mi fermo (no salti, nemmeno il trono)
@@ -430,7 +422,7 @@ class AshtonTablut(Game):
 
         #Il re può fare da spalla
         #Le citadels possono fare da spalla
-        allies = board[0] | board[2] | whiteContraints
+        allies = np.where(board[0] != 0, 1, 0) | whiteContraints
         enemies = board[1]
 
         #Seleziono le quattro terne di controllo
@@ -460,20 +452,18 @@ class AshtonTablut(Game):
 
         return captured
 
-    def have_winner(self, board, player):
-        if player == 'W':
-            return self.white_win_check(board)
+    def have_winner(self, board, to_move):
+        if to_move == 'W':
+            return self.white_win_check(board) 
         else:
-            self.black_win_check(board)
+            return self.black_win_check(board)
 
     def white_win_check(self, board):
         #Controllo che il Re sia in un bordo della board
-        top = np.sum(board[2, 0])
-        down = np.sum(board[2, 8])
-        left = np.sum(board[2, :, 0])
-        right = np.sum(board[2, :, 8])
+        y,x = np.where(board[0] == -1)
+        y,x = int(y), int(x)
 
-        return top == 1 or down == 1 or left == 1 or right == 1
+        return x == 0 or x == 8 or y == 0 or y == 8
 
     def black_win_check(self, board):
         #Controllo se il nero ha catturato il re
@@ -482,7 +472,7 @@ class AshtonTablut(Game):
         #Se il re è adiacente al trono allora 3 pedoni che lo circondano
         #Altrimenti catturo come pedone normale (citadels possono fare da nemico)
 
-        king = np.where(board[2] == 1)
+        king = np.where(board[0] == -1)
         
         if king == (4,4):#Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
             if board[1, 3, 4] == 1 and board[1, 4, 3] == 1 and board[1, 4, 5] == 1 and board[1, 5, 4] == 1:
@@ -503,5 +493,4 @@ class AshtonTablut(Game):
                 return True
 
         return False
-
-
+        

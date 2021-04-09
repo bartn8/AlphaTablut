@@ -1,8 +1,8 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig
-from games import alpha_beta_time_search, alpha_beta_cutoff_search, GameState
+from tablut import AshtonTablut, TablutConfig, convert_board
+from games import alpha_beta_cutoff_search, iterative_deepening_alpha_beta_search, random_player, GameState
 import tflite_runtime.interpreter as tflite
 
 import numpy as np
@@ -46,8 +46,8 @@ class SelfPlay():
         return self.hardcoded_eval(state, next_state, player)
 
     def tflite_eval(self, state, next_state, player):
-        board0 = np.reshape(state.board, self.tflite_input_details[0]['shape'])
-        board1 = np.reshape(next_state.board, self.tflite_input_details[1]['shape'])
+        board0 = np.reshape(convert_board(state.board), self.tflite_input_details[0]['shape'])
+        board1 = np.reshape(convert_board(next_state.board), self.tflite_input_details[1]['shape'])
 
         self.interpreter.set_tensor(self.tflite_input_details[0]['index'], board0)
         self.interpreter.set_tensor(self.tflite_input_details[1]['index'], board1)
@@ -60,7 +60,7 @@ class SelfPlay():
 
     def hardcoded_eval(self, state, next_state, player):
         #board0 = state.board
-        board1 = next_state.board
+        board1 = convert_board(next_state.board)
 
         #num_p_w_0 = np.sum(board0[0])
         num_p_w_1 = np.sum(board1[0])
@@ -108,8 +108,7 @@ class SelfPlay():
         king_throne_distance = (king_throne_distance / 4) - 1
         king_black_distance = (king_black_distance/8)-1
 
-
-        if self.game.to_move(state) == 'W':
+        if player == 'W':
             #White
             #Max Pedine white (0.1), Distanza Re-Trono (0.2), Distanza Re-Black (0.3)
             #Min Pedine black (0.1), Distanza Re-Bordo (0.3)
@@ -120,8 +119,7 @@ class SelfPlay():
             #Max Pedine black (0.1), Distanza Re-Bordo (0.3)
             score = -num_p_w_1 * 0.1 + num_p_b_1 * 0.1 + king_edge_distance * 0.3 + -king_throne_distance * 0.1 + -king_black_distance * 0.4
 
-
-        return score if player == 'W' else -score
+        return score
 
     def have_captured(self, state, next_state):
         a = np.sum(state.board[0]) -  np.sum(next_state.board[0])
@@ -145,8 +143,7 @@ class SelfPlay():
     def play(self):
         current_state = self.game.initial
         player = self.game.to_move(current_state)
-        max_moves = self.config.max_moves
-        max_depth = self.config.max_depth        
+        max_moves = self.config.max_moves        
         game_history = [current_state]
 
         print("Start new game. Player: {0}, Time per move: {1} s, Priority: {2}, Max Moves: {3}".format(player, self.time_per_move, self.priority, max_moves))
@@ -156,7 +153,16 @@ class SelfPlay():
 
         i = 0
         while not self.game.terminal_test(current_state) and not have_draw and i < max_moves:
-            best_next_state, best_action, best_score, best_depth, search_time = alpha_beta_time_search(state=current_state, game=self.game, d=max_depth, t=self.time_per_move, eval_fn=self.heuristic_eval)
+            #if i % 2 == 0:
+            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
+            #else:
+            #    st = time.time()
+            #    best_action, best_score, max_depth, nodes_explored = alpha_beta_cutoff_search(current_state, self.game, d=2), 0, 0, 0
+            #    best_next_state, search_time = self.game.result(current_state, best_action), time.time()-st
+            #Random
+            #st = time.time()
+            #best_action, best_score, max_depth, nodes_explored = random_player(self.game, current_state), 0, 0, 0
+            #best_next_state, search_time = self.game.result(current_state, best_action), time.time()-st
 
             captured = self.have_captured(current_state, best_next_state)
             if captured == 0:
@@ -166,7 +172,7 @@ class SelfPlay():
                 self.steps_without_capturing = 0
                 self.draw_queue = []
 
-            print("Game move ({5}): {0} -> {1}, Search time: {2}, Depth: {3}, Score: {4}, Captured: {6}".format(best_action[0], best_action[1], search_time, best_depth, best_score, self.game.to_move(current_state), captured))
+            print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(self.game.to_move(current_state), best_action[0], best_action[1], search_time, max_depth, nodes_explored, best_score, captured))
 
             current_state = best_next_state
             game_history.append(current_state)
@@ -191,5 +197,5 @@ class SelfPlay():
         return self.priority, player, have_draw, self.game.utility(current_state, player), game_history
 
 if __name__ == '__main__':
-    self_play = SelfPlay(0, 1, 5, None)
+    self_play = SelfPlay(0, 1, 10, None)
     self_play.play()

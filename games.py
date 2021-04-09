@@ -174,19 +174,27 @@ def alpha_beta_cutoff_search(state, game, d=4, cutoff_test=None, eval_fn=None):
 def key_function(x):
     return x[1]
 
-def alpha_beta_time_search(state, game, d=10, t=55, cutoff_test = None, eval_fn=None):
+def iterative_deepening_alpha_beta_search(state, game, t=55, cutoff_test = None, eval_fn=None):
     """Search game to determine best action; use alpha-beta pruning.
     This version cuts off search using time and uses an evaluation function."""
 
     player = game.to_move(state)
 
+    current_depth = 0
+    
+    #Metrics
+    iterative_deepening_alpha_beta_search.nodes_explored = 0
+    iterative_deepening_alpha_beta_search.max_depth = 0
+
     # Functions used by alpha_beta
-    def max_value(parent_state, state, player, alpha, beta, depth, startTime):
+    def max_value(parent_state, state, player, alpha, beta, depth, startTime, my_eval):
+        iterative_deepening_alpha_beta_search.nodes_explored += 1
+        iterative_deepening_alpha_beta_search.max_depth = max(iterative_deepening_alpha_beta_search.max_depth, depth)
+
         if cutoff_test(state, depth, startTime):
-            return eval_fn(parent_state, state, player), depth
+            return my_eval
 
         v = -np.inf
-        child_depth = depth
         children = []
 
         for a in game.actions(state):
@@ -196,23 +204,21 @@ def alpha_beta_time_search(state, game, d=10, t=55, cutoff_test = None, eval_fn=
         sorted(children, key=key_function, reverse=True)
 
         for next_state, evaluation in children:            
-            next_v, next_depth = min_value(state, next_state, player, alpha, beta, depth + 1, startTime)
-            child_depth = max(child_depth, next_depth)
-            v = max(v, next_v)
-
+            v = max(min_value(state, next_state, player, alpha, beta, depth + 1, startTime, evaluation),v)
             if v >= beta:
-                return v, child_depth
-
+                return v
             alpha = max(alpha, v)
 
-        return v, child_depth
+        return v
 
-    def min_value(parent_state, state, player, alpha, beta, depth, startTime):
+    def min_value(parent_state, state, player, alpha, beta, depth, startTime, my_eval):
+        iterative_deepening_alpha_beta_search.nodes_explored += 1
+        iterative_deepening_alpha_beta_search.max_depth = max(iterative_deepening_alpha_beta_search.max_depth, depth)
+
         if cutoff_test(state, depth, startTime):
-            return eval_fn(parent_state, state, player), depth
+            return my_eval
 
         v = np.inf
-        child_depth = depth
         children = []
 
         for a in game.actions(state):
@@ -222,27 +228,23 @@ def alpha_beta_time_search(state, game, d=10, t=55, cutoff_test = None, eval_fn=
         sorted(children, key=key_function)
         
         for next_state, evaluation in children:            
-            next_v, next_depth = max_value(state, next_state, player, alpha, beta, depth + 1, startTime)
-            child_depth = max(child_depth, next_depth)
-            
-            v = min(v, next_v)
-
+            v = min(max_value(state, next_state, player, alpha, beta, depth + 1, startTime, evaluation), v)
+             
             if v <= alpha:
-                return v, child_depth
+                return v
 
             beta = min(beta, v)
 
-        return v, child_depth
+        return v
 
-    # Body of alpha_beta_cutoff_search starts here:
+    # Body of iterative_deepening_alpha_beta_search starts here:
     # The default test cuts off after a time treshold t or at a terminal state
-    cutoff_test = (cutoff_test or (lambda state, depth, start_time: depth > d or (time.time()-start_time) > t or game.terminal_test(state)))
+    cutoff_test = (cutoff_test or (lambda state, depth, start_time: depth > current_depth or (time.time()-start_time) > t or game.terminal_test(state)))
     eval_fn = eval_fn or (lambda parent_state, state, player: game.utility(state, player))
     best_score = -np.inf
     beta = np.inf
     best_action = None
     best_next_state = None
-    best_depth = None
 
     #Start time now
     startTime = time.time()
@@ -255,14 +257,16 @@ def alpha_beta_time_search(state, game, d=10, t=55, cutoff_test = None, eval_fn=
 
     sorted(children, key=key_function)
 
-    for next_state, evaluation, a in children:
-        v, depth = min_value(state, next_state, player, best_score, beta, 1, startTime)
-        if v > best_score:
-            best_next_state = next_state
-            best_score = v
-            best_action = a
-            best_depth = depth
-    return best_next_state, best_action, best_score, best_depth, (time.time()-startTime)
+    while (time.time()-startTime) <= t:
+        current_depth +=1
+        for next_state, evaluation, a in children:
+            v = min_value(state, next_state, player, best_score, beta, 1, startTime, evaluation)
+            if v > best_score:
+                best_next_state = next_state
+                best_score = v
+                best_action = a
+
+    return best_next_state, best_action, best_score, iterative_deepening_alpha_beta_search.max_depth, iterative_deepening_alpha_beta_search.nodes_explored, (time.time()-startTime)
 
 # ______________________________________________________________________________
 # Players for Games
