@@ -18,6 +18,8 @@ class SelfPlay():
         self.draw_queue = []
         self.config = TablutConfig()
         self.game = AshtonTablut()
+        self.turn = 0
+        self.game_history = []
         self.interpreter_initialized = False
 
     def init_tflite(self):
@@ -36,9 +38,11 @@ class SelfPlay():
         return True
 
     def heuristic_eval(self, state, next_state, player):
-        utility = self.game.utility(next_state, player)
-        if utility != 0:
-            return utility
+        utility = self.game.utility(state, player)
+        if utility == 1:
+            return (1000 / (self.turn+1)) / 1000
+        elif utility == -1:
+            return -1
 
         if self.interpreter_initialized:
             return self.tflite_eval(state, next_state, player) * self.heuristic_weight + self.hardcoded_eval(state, next_state, player) * (1-self.heuristic_weight)
@@ -59,6 +63,8 @@ class SelfPlay():
         return v if player == 'W' else -v
 
     def hardcoded_eval(self, state, next_state, player):
+        #Spurio's evaluation function
+        
         #board0 = state.board
         board1 = convert_board(next_state.board)
 
@@ -68,58 +74,80 @@ class SelfPlay():
         #num_p_b_0 = np.sum(board0[1])
         num_p_b_1 = np.sum(board1[1])
 
-        y,x = np.where(board1[2] == 1)
-        y,x = int(y), int(x)
+        if player == 'B':
+            count = 0
+
+            #Per ogni pedina bianca conto il numero di pedine nere intorno
+            #Le citadels possono fare da spalla
+            allies = board1[1] | board1[3]
+            enemies = board1[0]
+
+            #Seleziono i pedoni del giocatore
+            pedoni = np.where(enemies == 1)
+            
+            #Ogni pedone vale 1
+            for y,x in zip(pedoni[0], pedoni[1]):
+                #Su
+                for newY in reversed(range(y)):
+                    if allies[newY,x] == 0:
+                        count +=1
+                        break
+                #Giu
+                for newY in range(y+1,9):
+                    if allies[newY,x] == 0:
+                        count +=1
+                        break
+                #Sinistra
+                for newX in reversed(range(x)):
+                    if allies[y,newX] == 0:
+                        count +=1
+                        break
+                #Destra
+                for newX in range(x+1,9):
+                    if allies[y,newX] == 0:
+                        count +=1
+                        break
+            
+            #Re (Vale 5)
+            y,x = np.where(board1[2] == 1)
+            y,x = int(y), int(x)
+            
+            #Su
+            for newY in reversed(range(y)):
+                if allies[newY,x] == 0:
+                    count +=5
+                    break
+            #Giu
+            for newY in range(y+1,9):
+                if allies[newY,x] == 0:
+                    count +=5
+                    break
+            #Sinistra
+            for newX in reversed(range(x)):
+                if allies[y,newX] == 0:
+                    count +=5
+                    break
+            #Destra
+            for newX in range(x+1,9):
+                if allies[y,newX] == 0:
+                    count +=5
+                    break
+
+            if self.turn >= 4:
+                return (num_p_b_1 * 0.7 - num_p_w_1 - count * 6) / 1000
+            else:
+                return (num_p_b_1 * 0.7 - num_p_w_1 - count / 176) / 1000
         
-        king_edge_distance = min(x,y,8-x,8-y)
-        king_throne_distance = abs(x-4)+abs(y-4)
-
-        king_black_distance = 16
-        mask = board1[1] | board1[3]
-
-        #Su
-        for newY in reversed(range(y)):
-            if mask[newY,x] == 1:
-                king_black_distance -= y-newY 
-                break
-
-        #Giu
-        for newY in range(y+1,9):
-            if mask[newY,x] == 1:
-                king_black_distance -= newY-y
-                break
-
-        #Sinistra
-        for newX in reversed(range(x)):
-            if mask[y,newX] == 1:
-                king_black_distance -= x-newX
-                break
-
-        #Destra
-        for newX in range(x+1,9):
-            if mask[y,newX] == 1:
-                king_black_distance -= newX-x
-                break
-
-        #Normalizzazione [-1, 1]
-        num_p_w_1 = (num_p_w_1 / 4) - 1
-        num_p_b_1 = (num_p_b_1 / 8) - 1
-        king_edge_distance = (king_edge_distance / 2) - 1
-        king_throne_distance = (king_throne_distance / 4) - 1
-        king_black_distance = (king_black_distance/8)-1
-
-        if player == 'W':
-            #White
-            #Max Pedine white (0.1), Distanza Re-Trono (0.2), Distanza Re-Black (0.3)
-            #Min Pedine black (0.1), Distanza Re-Bordo (0.3)
-            score = num_p_w_1 * 0.1 + -num_p_b_1 * 0.1 + -king_edge_distance * 0.4 + king_throne_distance * 0.1 + king_black_distance * 0.3
         else:
-            #Black
-            #Min Pedine white (0.1), Distanza Re-Trono (0.2), Distanza Re-Black (0.3)
-            #Max Pedine black (0.1), Distanza Re-Bordo (0.3)
-            score = -num_p_w_1 * 0.1 + num_p_b_1 * 0.1 + king_edge_distance * 0.3 + -king_throne_distance * 0.1 + -king_black_distance * 0.4
+            #Re
+            y,x = np.where(board1[2] == 1)
+            y,x = int(y), int(x)
+            king_edge_distance = min(x,y,8-x,8-y)
 
-        return score
+            if self.turn >= 4:
+                return (num_p_w_1 * 0.7 - king_edge_distance * (17-num_p_b_1) * 0.07 - num_p_b_1) / 1000
+            else:
+                return (num_p_w_1 * 1.2 - king_edge_distance * (17-num_p_b_1) * 0.07 - num_p_b_1) / 1000
 
     def have_captured(self, state, next_state):
         a = np.sum(state.board[0]) -  np.sum(next_state.board[0])
@@ -144,21 +172,21 @@ class SelfPlay():
         current_state = self.game.initial
         player = self.game.to_move(current_state)
         max_moves = self.config.max_moves        
-        game_history = [current_state]
+        self.game_history = [current_state]
 
         print("Start new game. Player: {0}, Time per move: {1} s, Priority: {2}, Max Moves: {3}".format(player, self.time_per_move, self.priority, max_moves))
         start = time.time()
 
         have_draw = False
 
-        i = 0
-        while not self.game.terminal_test(current_state) and not have_draw and i < max_moves:
-            #if i % 2 == 0:
+        self.turn = 0
+        while not self.game.terminal_test(current_state) and not have_draw and self.turn < max_moves:
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
-            #else:
+                
             #    st = time.time()
             #    best_action, best_score, max_depth, nodes_explored = alpha_beta_cutoff_search(current_state, self.game, d=2), 0, 0, 0
             #    best_next_state, search_time = self.game.result(current_state, best_action), time.time()-st
+            
             #Random
             #st = time.time()
             #best_action, best_score, max_depth, nodes_explored = random_player(self.game, current_state), 0, 0, 0
@@ -175,13 +203,13 @@ class SelfPlay():
             print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(self.game.to_move(current_state), best_action[0], best_action[1], search_time, max_depth, nodes_explored, best_score, captured))
 
             current_state = best_next_state
-            game_history.append(current_state)
+            self.game_history.append(current_state)
 
             self.game.display(current_state)
             
             have_draw = self.have_draw(current_state.board)
 
-            i +=1
+            self.turn +=1
 
         end = time.time()
 
@@ -192,10 +220,10 @@ class SelfPlay():
             elif self.game.utility(current_state, player) == -1:
                 result = "LOST"
 
-        print("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s".format(player, result, i, end-start))
+        print("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s".format(player, result, self.turn, end-start))
 
-        return self.priority, player, have_draw, self.game.utility(current_state, player), game_history
+        return self.priority, player, have_draw, self.game.utility(current_state, player), self.game_history
 
 if __name__ == '__main__':
-    self_play = SelfPlay(0, 1, 10, None)
+    self_play = SelfPlay(0, 1, 5, None)
     self_play.play()

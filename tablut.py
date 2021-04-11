@@ -189,7 +189,7 @@ def convert_board(board):
 class AshtonTablut(Game):
     def __init__(self):
         self.initial = GameState(to_move='W', utility=0, board=initialBoard.copy(), moves=[])
-        moves = self.legal_actions(self.initial.to_move, self.initial.board)
+        moves = self.legal_actions(self.initial.board, self.initial.to_move)
         self.initial = GameState(to_move='W', utility=0, board=initialBoard.copy(), moves=moves)
 
     def actions(self, state):
@@ -494,3 +494,41 @@ class AshtonTablut(Game):
 
         return False
         
+if __name__ == '__main__':
+    g = AshtonTablut()
+
+    st = time.time()
+    g.legal_actions_white(g.initial.board)
+    print("White legal actions: {0} ms".format(1000*(time.time()-st)))
+
+    st = time.time()
+    g.legal_actions_black(g.initial.board)
+    print("Black legal actions: {0} ms".format(1000*(time.time()-st)))
+
+    st = time.time()
+    g.result(g.initial, g.initial.moves[0])
+    print("Result: {0} ms".format(1000*(time.time()-st)))
+
+    fake_board = np.zeros((2, 9, 9), dtype=np.int8)
+
+    fake_board[0] = np.array([    [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+                                  [0,-1, 0, 0, 1, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 1, 1, 0, 1, 1, 0, 0],
+                                  [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)
+    
+    fake_board[1] = np.array([    [0, 1, 0, 0, 0, 1, 0, 0, 0], 
+                                  [0, 0, 1, 0, 1, 0, 0, 0, 0], 
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                                  [1, 1, 0, 0, 0, 0, 0, 1, 1],
+                                  [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                  [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
+
+    fake_state = GameState(to_move='B', utility=0, board=fake_board, moves=g.legal_actions(fake_board, 'B'))
