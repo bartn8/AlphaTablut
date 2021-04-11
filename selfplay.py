@@ -1,7 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, convert_board, num_to_coords, coords_to_num
+from tablut import AshtonTablut, TablutConfig, convert_board, num_to_coords, coords_to_num, test
 from games import alpha_beta_cutoff_search, iterative_deepening_alpha_beta_search, random_player, GameState
 import tflite_runtime.interpreter as tflite
 
@@ -41,10 +41,8 @@ class SelfPlay():
 
     def heuristic_eval(self, state, next_state, player):
         utility = self.game.utility(state, player)
-        if utility == 1:
-            return (1000 / (self.turn+1)) / 1000
-        elif utility == -1:
-            return -1
+        if utility != 1:
+            return utility
 
         if self.interpreter_initialized:
             return self.tflite_eval(state, next_state, player) * self.heuristic_weight + self.hardcoded_eval(state, next_state, player) * (1-self.heuristic_weight)
@@ -238,5 +236,6 @@ class SelfPlay():
 
 
 if __name__ == '__main__':
-    self_play = SelfPlay(0, 1, 58, None)
+    test()
+    self_play = SelfPlay(0, 1, 5, None)
     self_play.play()

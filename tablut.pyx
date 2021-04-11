@@ -85,7 +85,7 @@ class TablutConfig:
 # Celle non calpestabili: citadels, trono 1 calpestabili 0
 # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
 
-whiteContraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
+cdef np.ndarray  whiteContraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -95,7 +95,7 @@ whiteContraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
-blackContraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)
+cdef np.ndarray blackContraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)
 
 # Celle non calpestabili: citadels, trono 1 calpestabili 0
 # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
@@ -191,7 +191,7 @@ blackContraints[4,  7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
 
-initialBoard = np.zeros((2, 9, 9), dtype=DTYPE)
+cdef np.ndarray initialBoard = np.zeros((2, 9, 9), dtype=DTYPE)
 
 # Board[0]: Bianco altro 0
 initialBoard[0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -268,51 +268,53 @@ cdef array.array legal_actions_black(np.ndarray[DTYPE_t, ndim=3] board):
     cdef DTYPE_t[:,:] mask
 
     # Seleziono i pedoni del giocatore
-    cdef long[:,:] pedoni = np.argwhere(board[1] == 1)
     cdef long y, x, newY, newX
 
-    for y, x in pedoni:
-        # Seleziono le celle adiacenti (no diagonali)
-        # Appena incontro un'ostacolo mi fermo (no salti, nemmeno il trono)
+    for y in range(9):
+        for x in range(9):
+            if board[1,y,x] != 1:
+                continue
+            # Seleziono le celle adiacenti (no diagonali)
+            # Appena incontro un'ostacolo mi fermo (no salti, nemmeno il trono)
 
-        # Casi specifici per la maschera delle citadels
-        mask = preMask | blackContraints[y, x]
+            # Casi specifici per la maschera delle citadels
+            mask = preMask | blackContraints[y, x]
 
-        # Su
-        newY = y-1
-        while newY >= 0:
-            if mask[newY, x] == 0:
-                legal.append(coords_to_number(y, x, newY, x))
-            else:
-                break
-            newY -=1
+            # Su
+            newY = y-1
+            while newY >= 0:
+                if mask[newY, x] == 0:
+                    legal.append(coords_to_number(y, x, newY, x))
+                else:
+                    break
+                newY -=1
 
-        # Giu
-        newY = y+1
-        while newY < 9:
-            if mask[newY, x] == 0:
-                legal.append(coords_to_number(y, x, newY, x))
-            else:
-                break
-            newY +=1
+            # Giu
+            newY = y+1
+            while newY < 9:
+                if mask[newY, x] == 0:
+                    legal.append(coords_to_number(y, x, newY, x))
+                else:
+                    break
+                newY +=1
 
-        # Sinistra
-        newX = x-1
-        while newX >= 0:
-            if mask[y, newX] == 0:
-                legal.append(coords_to_number(y, x, y, newX))
-            else:
-                break
-            newX -=1
+            # Sinistra
+            newX = x-1
+            while newX >= 0:
+                if mask[y, newX] == 0:
+                    legal.append(coords_to_number(y, x, y, newX))
+                else:
+                    break
+                newX -=1
 
-        # Destra
-        newX = x+1
-        while newX < 9:
-            if mask[y, newX] == 0:
-                legal.append(coords_to_number(y, x, y, newX))
-            else:
-                break
-            newX +=1
+            # Destra
+            newX = x+1
+            while newX < 9:
+                if mask[y, newX] == 0:
+                    legal.append(coords_to_number(y, x, y, newX))
+                else:
+                    break
+                newX +=1
 
     return legal
 
@@ -326,56 +328,60 @@ cdef array.array legal_actions_white(np.ndarray[DTYPE_t, ndim=3] board):
     # Creo una maschera: pedoni, re, cittadelle
     cdef DTYPE_t[:,:] mask = board[0] | board[1] | whiteContraints
 
-    # Seleziono i pedoni del giocatore
-    cdef long[:,:] pedoni = np.argwhere(board[0] == 1)
+    cdef long y, x, newY, newX, kingX, kingY
+    kingX = 4
+    kingY = 4
 
-    # Seleziono il Re
-    cdef long[:,:] king = np.argwhere(board[0] == -1)
+    for y in range(9):
+        for x in range(9):
+            if board[0,y,x] == -1:
+                kingY = y
+                kingX = x
+                continue
+            elif board[0,y,x] != 1:
+                continue
 
-    cdef long y, x, newY, newX
+            # Seleziono le celle adiacenti (no diagonali)
+            # Appena incontro un'ostacolo mi fermo (no salti, nemmeno il trono)
 
-    for y, x in pedoni:
-        # Seleziono le celle adiacenti (no diagonali)
-        # Appena incontro un'ostacolo mi fermo (no salti, nemmeno il trono)
+            # Su
+            newY = y-1
+            while newY >= 0:
+                if mask[newY, x] == 0:
+                    legal.append(coords_to_number(y, x, newY, x))
+                else:
+                    break
+                newY -=1
 
-        # Su
-        newY = y-1
-        while newY >= 0:
-            if mask[newY, x] == 0:
-                legal.append(coords_to_number(y, x, newY, x))
-            else:
-                break
-            newY -=1
+            # Giu
+            newY = y+1
+            while newY < 9:
+                if mask[newY, x] == 0:
+                    legal.append(coords_to_number(y, x, newY, x))
+                else:
+                    break
+                newY +=1
 
-        # Giu
-        newY = y+1
-        while newY < 9:
-            if mask[newY, x] == 0:
-                legal.append(coords_to_number(y, x, newY, x))
-            else:
-                break
-            newY +=1
+            # Sinistra
+            newX = x-1
+            while newX >= 0:
+                if mask[y, newX] == 0:
+                    legal.append(coords_to_number(y, x, y, newX))
+                else:
+                    break
+                newX -=1
 
-        # Sinistra
-        newX = x-1
-        while newX >= 0:
-            if mask[y, newX] == 0:
-                legal.append(coords_to_number(y, x, y, newX))
-            else:
-                break
-            newX -=1
-
-        # Destra
-        newX = x+1
-        while newX < 9:
-            if mask[y, newX] == 0:
-                legal.append(coords_to_number(y, x, y, newX))
-            else:
-                break
-            newX +=1
+            # Destra
+            newX = x+1
+            while newX < 9:
+                if mask[y, newX] == 0:
+                    legal.append(coords_to_number(y, x, y, newX))
+                else:
+                    break
+                newX +=1
 
     # Mosse del Re    
-    y, x = king[0]
+    y, x = kingY, kingX
     # Seleziono le celle adiacenti (no diagonali)
     # Appena incontro un'ostacolo mi fermo (no salti, nemmeno il trono)
 
@@ -422,21 +428,21 @@ cdef array.array legal_actions_white(np.ndarray[DTYPE_t, ndim=3] board):
 # turn off negative index wrapping for entire function
 @cython.wraparound(False)
 # Controllo se il bianco mangia dei pedoni neri
-cdef int check_white_eat(np.ndarray[DTYPE_t, ndim=3] board, int move):
+cdef int check_white_eat(DTYPE_t[:,:,:] board, int move):
     # Dove è finita la pedina bianca che dovrà catturare uno o più pedoni neri?
     cdef (int,int,int,int) c = number_to_coords(move)
     cdef int y = c[2]
     cdef int x = c[3]
     cdef int captured = 0
 
-    cdef DTYPE_t[:,:] allies = np.where(board[0] != 0, 1, 0).astype(DTYPE) | whiteContraints
+    cdef DTYPE_t[:,:] allies = board[0] | whiteContraints
     cdef DTYPE_t[:,:] enemies = board[1]
 
     # Controlli U,D,L,R
-    cdef bint lookUp = allies[y-2, x] == 1 and allies[y-1, x] == 0 and enemies[y-2, x] == 0 and enemies[y-1, x] == 1
-    cdef bint lookDown = allies[y+1, x] == 0 and allies[y+2, x] == 1 and enemies[y+1, x] == 1 and enemies[y+2, x] == 0
-    cdef bint lookLeft = allies[y, x-2] == 1 and allies[y, x-1] == 0 and enemies[y, x-2] == 0 and enemies[y, x-1] == 1
-    cdef bint lookRight = allies[y, x+1] == 0 and allies[y, x+2] == 1 and enemies[y, x+1] == 1 and enemies[y, x+2] == 0
+    cdef bint lookUp = allies[y-2, x] != 0 and allies[y-1, x] == 0 and enemies[y-2, x] == 0 and enemies[y-1, x] == 1
+    cdef bint lookDown = allies[y+1, x] == 0 and allies[y+2, x] != 0 and enemies[y+1, x] == 1 and enemies[y+2, x] == 0
+    cdef bint lookLeft = allies[y, x-2] != 0 and allies[y, x-1] == 0 and enemies[y, x-2] == 0 and enemies[y, x-1] == 1
+    cdef bint lookRight = allies[y, x+1] == 0 and allies[y, x+2] != 0 and enemies[y, x+1] == 1 and enemies[y, x+2] == 0
 
     if lookUp:
         board[1, y-1, x] = 0
@@ -457,9 +463,9 @@ cdef int check_white_eat(np.ndarray[DTYPE_t, ndim=3] board, int move):
 @cython.boundscheck(False)  # turn off bounds-checking for entire function
 # turn off negative index wrapping for entire function
 @cython.wraparound(False)
-# Controllo se il bianco mangia dei pedoni neri
-cdef int check_black_eat(np.ndarray[DTYPE_t, ndim=3] board, int move):
-    # Dove è finita la pedina bianca che dovrà catturare uno o più pedoni neri?
+# Controllo se il nero mangia dei pedoni bianchi
+cdef int check_black_eat(DTYPE_t[:,:,:] board, int move):
+    # Dove è finita la pedina nera che dovrà catturare uno o più pedoni bianchi?
     cdef (int,int,int,int) c = number_to_coords(move)
     cdef int y = c[2]
     cdef int x = c[3]
@@ -492,7 +498,7 @@ cdef int check_black_eat(np.ndarray[DTYPE_t, ndim=3] board, int move):
 @cython.boundscheck(False)  # turn off bounds-checking for entire function
 # turn off negative index wrapping for entire function
 @cython.wraparound(False)
-cdef bint have_winner(np.ndarray[DTYPE_t, ndim=3] board, to_move):
+cdef bint have_winner(DTYPE_t[:,:,:] board, to_move):
     if to_move == 'W':
         return white_win_check(board)
     else:
@@ -502,18 +508,28 @@ cdef bint have_winner(np.ndarray[DTYPE_t, ndim=3] board, to_move):
 @cython.boundscheck(False)  # turn off bounds-checking for entire function
 # turn off negative index wrapping for entire function
 @cython.wraparound(False)
-cdef bint white_win_check(np.ndarray[DTYPE_t, ndim=3] board):
+cdef bint white_win_check(DTYPE_t[:,:,:] board):
     # Controllo che il Re sia in un bordo della board
-    cdef long[:,:] king = np.argwhere(board[0] == -1)
-    cdef long y = king[0][0]
-    cdef long x = king[0][1]
-    return x == 0 or x == 8 or y == 0 or y == 8
+    cdef long y,x
 
+    for y in range(9):
+        if board[0,y,0] == -1:
+            return True
+        if board[0,y,8] == -1:
+            return True    
+    
+    for x in range(9):
+        if board[0,0,x] == -1:
+            return True
+        if board[0,8,x] == -1:
+            return True
+
+    return False
 
 @cython.boundscheck(False)  # turn off bounds-checking for entire function
 # turn off negative index wrapping for entire function
 @cython.wraparound(False)
-cdef bint black_win_check(np.ndarray[DTYPE_t, ndim=3] board):
+cdef bint black_win_check(DTYPE_t[:,:,:] board):
     # Controllo se il nero ha catturato il re
 
     # Se il re è sul trono allora 4
@@ -521,19 +537,19 @@ cdef bint black_win_check(np.ndarray[DTYPE_t, ndim=3] board):
     # Altrimenti catturo come pedone normale (citadels possono fare da nemico)
 
     cdef DTYPE_t[:,:] enemies = board[1] | whiteContraints
-    cdef long[:,:] king = np.argwhere(board[0] == -1)
-    cdef long y = king[0][0]
-    cdef long x = king[0][1]
+    cdef long y,x
 
-    # Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
-    if y == 4 and x == 4:
-        return board[1, 3, 4] == 1 and board[1, 4, 3] == 1 and board[1, 4, 5] == 1 and board[1, 5, 4] == 1
-    # Re adiacente al trono: controllo se sono presenti nemici intorno
-    elif y == 3 and x == 4 or y == 4 and x == 3 or y == 4 and x == 5 or y == 5 and x == 4:
-        return enemies[(y-1),x] == 1 and enemies[y+1, x] == 1 and enemies[y, x-1] == 1 and enemies[y, x+1] == 1
-    # Check cattura normale.
-    else:  
-        return enemies[y-1, x] == 1 and enemies[y+1, x] == 1 or enemies[y, x-1] == 1 and enemies[y, x+1] == 1
+    for y in range(9):
+        for x in range(9):
+            # Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
+            if y==4 and x==4:
+                return board[1, 3, 4] == 1 and board[1, 4, 3] == 1 and board[1, 4, 5] == 1 and board[1, 5, 4] == 1
+            # Re adiacente al trono: controllo se sono presenti nemici intorno
+            elif y == 3 and x == 4 or y == 4 and x == 3 or y == 4 and x == 5 or y == 5 and x == 4:
+                return enemies[(y-1),x] == 1 and enemies[y+1, x] == 1 and enemies[y, x-1] == 1 and enemies[y, x+1] == 1
+            # Check cattura normale.
+            else:  
+                return enemies[y-1, x] == 1 and enemies[y+1, x] == 1 or enemies[y, x-1] == 1 and enemies[y, x+1] == 1
 
 
 def convert_board(board):
@@ -563,7 +579,7 @@ class AshtonTablut(Game):
         cdef np.ndarray[DTYPE_t, ndim = 3] board = state.board.copy()
 
         # Controllo se ho mosso il re
-        cdef np.ndarray[DTYPE_t, ndim = 2] move_board = board[0 if state.to_move == 'W' else 1]
+        cdef DTYPE_t[:,:] move_board = board[0 if state.to_move == 'W' else 1]
 
         cdef (int,int,int,int) c = number_to_coords(move)
         cdef int y0 = c[0]
@@ -622,10 +638,6 @@ def test():
     legal_actions_black(g.initial.board)
     print("Black legal actions: {0} ms".format(1000*(time.time()-st)))
 
-    st = time.time()
-    g.result(g.initial, g.initial.moves[0])
-    print("Result: {0} ms".format(1000*(time.time()-st)))
-
     fake_board = np.zeros((2, 9, 9), dtype=DTYPE)
 
     fake_board[0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -649,7 +661,8 @@ def test():
                               [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
 
     fake_state = GameState(
-        to_move='W', utility=0, board=fake_board, moves=legal_actions(fake_board, 'W'))
+        to_move='B', utility=0, board=fake_board, moves=legal_actions(fake_board, 'B'))
 
-    print(fake_state.moves)
-    #l*729 + k*81 + j*9 + i
+    st = time.time()
+    g.result(fake_state, fake_state.moves[0])
+    print("Result: {0} ms".format(1000*(time.time()-st)))
