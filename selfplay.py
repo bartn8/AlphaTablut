@@ -1,7 +1,8 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, convert_board, num_to_coords, coords_to_num, test, iterative_deepening_alpha_beta_search, GameState
+from tablut import AshtonTablut, TablutConfig, iterative_deepening_alpha_beta_search, test
+
 import tflite_runtime.interpreter as tflite
 
 import numpy as np
@@ -17,7 +18,6 @@ class SelfPlay():
         self.steps_without_capturing = 0
         self.draw_queue = []
         self.config = TablutConfig()
-        self.game = AshtonTablut()
         self.turn = 0
         self.game_history = []
         self.interpreter_initialized = False
@@ -154,8 +154,10 @@ class SelfPlay():
                 return (num_p_w_1 * 1.2 - king_edge_distance * (17-num_p_b_1) * 0.07 - num_p_b_1) / 1000
 
     def have_captured(self, state, next_state):
-        a = np.sum(state.board[0]) - np.sum(next_state.board[0])
-        b = np.sum(state.board[1]) - np.sum(next_state.board[1])
+        board = state.board()
+        next_board = state.board()
+        a = np.sum(board[0]) - np.sum(next_board[0])
+        b = np.sum(board[1]) - np.sum(next_board[1])
         return a+b
 
     def have_draw(self, board):
@@ -173,8 +175,8 @@ class SelfPlay():
         return False
 
     def play(self):
-        current_state = self.game.initial
-        player = self.game.to_move(current_state)
+        current_state = AshtonTablut.get_initial()
+        player = current_state.to_move()
         max_moves = self.config.max_moves
         self.game_history = [current_state]
 
@@ -185,7 +187,7 @@ class SelfPlay():
         have_draw = False
 
         self.turn = 0
-        while not self.game.terminal_test(current_state) and not have_draw and self.turn < max_moves:
+        while not current_state.terminal_test() and not have_draw and self.turn < max_moves:
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
                 state=current_state, cutoff_time=self.time_per_move)
             
@@ -209,14 +211,13 @@ class SelfPlay():
                 self.steps_without_capturing = 0
                 self.draw_queue = []
 
-            best_action = num_to_coords(best_action)
-            print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(self.game.to_move(
-                current_state), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
+            best_action = AshtonTablut.num_to_coords(best_action)
+            print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
 
             current_state = best_next_state
             self.game_history.append(current_state)
 
-            self.game.display(current_state)
+            current_state.display()
 
             have_draw = self.have_draw(current_state.board)
 
