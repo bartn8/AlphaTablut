@@ -1,8 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, convert_board, num_to_coords, coords_to_num, test
-from games import alpha_beta_cutoff_search, iterative_deepening_alpha_beta_search, random_player, GameState
+from tablut import AshtonTablut, TablutConfig, convert_board, num_to_coords, coords_to_num, test, iterative_deepening_alpha_beta_search, GameState
 import tflite_runtime.interpreter as tflite
 
 import numpy as np
@@ -188,7 +187,10 @@ class SelfPlay():
         self.turn = 0
         while not self.game.terminal_test(current_state) and not have_draw and self.turn < max_moves:
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
-                state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
+                state=current_state, cutoff_time=self.time_per_move)
+            
+            #best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
+            #    state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
 
             #    st = time.time()
             #    best_action, best_score, max_depth, nodes_explored = alpha_beta_cutoff_search(current_state, self.game, d=2), 0, 0, 0
