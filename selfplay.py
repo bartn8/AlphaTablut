@@ -1,7 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, iterative_deepening_alpha_beta_search, test
+from tablut import AshtonTablut, TablutConfig, IterativeDeepeningSearch, test
 
 import tflite_runtime.interpreter as tflite
 
@@ -18,7 +18,6 @@ class SelfPlay():
         self.steps_without_capturing = 0
         self.draw_queue = []
         self.config = TablutConfig()
-        self.turn = 0
         self.game_history = []
         self.interpreter_initialized = False
 
@@ -40,7 +39,7 @@ class SelfPlay():
 
     def heuristic_eval(self, state, next_state, player):
         utility = self.game.utility(state, player)
-        if utility != 1:
+        if utility != 0:
             return utility
 
         if self.interpreter_initialized:
@@ -66,96 +65,9 @@ class SelfPlay():
 
         return v if player == 'W' else -v
 
-    def hardcoded_eval(self, state, next_state, player):
-        # Spurio's evaluation function
-
-        #board0 = state.board
-        board1 = convert_board(next_state.board)
-
-        #num_p_w_0 = np.sum(board0[0])
-        num_p_w_1 = np.sum(board1[0])
-
-        #num_p_b_0 = np.sum(board0[1])
-        num_p_b_1 = np.sum(board1[1])
-
-        if player == 'B':
-            count = 0
-
-            # Per ogni pedina bianca conto il numero di pedine nere intorno
-            # Le citadels possono fare da spalla
-            allies = board1[1] | board1[3]
-            enemies = board1[0]
-
-            # Seleziono i pedoni del giocatore
-            pedoni = np.where(enemies == 1)
-
-            # Ogni pedone vale 1
-            for y, x in zip(pedoni[0], pedoni[1]):
-                # Su
-                for newY in reversed(range(y)):
-                    if allies[newY, x] == 0:
-                        count += 1
-                        break
-                # Giu
-                for newY in range(y+1, 9):
-                    if allies[newY, x] == 0:
-                        count += 1
-                        break
-                # Sinistra
-                for newX in reversed(range(x)):
-                    if allies[y, newX] == 0:
-                        count += 1
-                        break
-                # Destra
-                for newX in range(x+1, 9):
-                    if allies[y, newX] == 0:
-                        count += 1
-                        break
-
-            # Re (Vale 5)
-            y, x = np.where(board1[2] == 1)
-            y, x = int(y), int(x)
-
-            # Su
-            for newY in reversed(range(y)):
-                if allies[newY, x] == 0:
-                    count += 5
-                    break
-            # Giu
-            for newY in range(y+1, 9):
-                if allies[newY, x] == 0:
-                    count += 5
-                    break
-            # Sinistra
-            for newX in reversed(range(x)):
-                if allies[y, newX] == 0:
-                    count += 5
-                    break
-            # Destra
-            for newX in range(x+1, 9):
-                if allies[y, newX] == 0:
-                    count += 5
-                    break
-
-            if self.turn >= 4:
-                return (num_p_b_1 * 0.7 - num_p_w_1 - count * 6) / 1000
-            else:
-                return (num_p_b_1 * 0.7 - num_p_w_1 - count / 176) / 1000
-
-        else:
-            # Re
-            y, x = np.where(board1[2] == 1)
-            y, x = int(y), int(x)
-            king_edge_distance = min(x, y, 8-x, 8-y)
-
-            if self.turn >= 4:
-                return (num_p_w_1 * 0.7 - king_edge_distance * (17-num_p_b_1) * 0.07 - num_p_b_1) / 1000
-            else:
-                return (num_p_w_1 * 1.2 - king_edge_distance * (17-num_p_b_1) * 0.07 - num_p_b_1) / 1000
-
     def have_captured(self, state, next_state):
         board = state.board()
-        next_board = state.board()
+        next_board = next_state.board()
         a = np.sum(board[0]) - np.sum(next_board[0])
         b = np.sum(board[1]) - np.sum(next_board[1])
         return a+b
@@ -186,9 +98,10 @@ class SelfPlay():
 
         have_draw = False
 
-        self.turn = 0
-        while not current_state.terminal_test() and not have_draw and self.turn < max_moves:
-            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
+        while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
+            search = IterativeDeepeningSearch()
+
+            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.search(
                 state=current_state, cutoff_time=self.time_per_move)
             
             #best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
@@ -221,21 +134,19 @@ class SelfPlay():
 
             have_draw = self.have_draw(current_state.board)
 
-            self.turn += 1
-
         end = time.time()
 
         result = "DRAW"
         if not have_draw:
-            if self.game.utility(current_state, player) == 1:
+            if current_state.utility(player) == 1:
                 result = "WON"
-            elif self.game.utility(current_state, player) == -1:
+            elif current_state.utility(player) == -1:
                 result = "LOST"
 
         print("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s".format(
-            player, result, self.turn, end-start))
+            player, result, current_state.turn(), end-start))
 
-        return self.priority, player, have_draw, self.game.utility(current_state, player), self.game_history
+        return self.priority, player, have_draw, current_state.utility(player), self.game_history
 
 
 if __name__ == '__main__':
