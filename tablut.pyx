@@ -1,13 +1,15 @@
 #cython: language_level=3
 
 import datetime
-import time
+import time as ptime
 import os
 import random
 
 cimport cython
 
 from posix.time cimport clock_gettime, timespec, CLOCK_REALTIME
+from libc.stdlib cimport srand, rand, RAND_MAX
+from libc.time cimport time
 
 import array
 from cpython cimport array
@@ -19,6 +21,8 @@ cimport numpy as np
 # We now need to fix a datatype for our arrays.
 DTYPE = np.int8
 ctypedef signed char DTYPE_t
+
+srand(time(NULL))
 
 #------------------------------ Tablut Config -------------------------------------------------------
 
@@ -229,7 +233,7 @@ cdef class AshtonTablut:
     cdef np.ndarray _board
     cdef unicode _to_move
     cdef int _utility
-    cdef array.array _moves
+    cdef np.ndarray _moves
     cdef long _turn
     
     def __init__(self, board, to_move, utility, moves, turn = 0):
@@ -256,7 +260,7 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef array.array legal_actions(DTYPE_t[:,:,:] board, unicode to_move):
+    cdef np.ndarray legal_actions(DTYPE_t[:,:,:] board, unicode to_move):
         if to_move == 'W':
             return AshtonTablut.legal_actions_white(board)
         else:
@@ -265,8 +269,11 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef array.array legal_actions_black(DTYPE_t[:,:,:] board):
-        cdef array.array legal = array.array('i')
+    cdef np.ndarray legal_actions_black(DTYPE_t[:,:,:] board):
+        cdef np.ndarray actions = np.zeros((256, ), dtype=np.int32)
+        cdef int[:] legal = actions
+        cdef int i = 0
+        cdef int tmp, r = 0
 
         # Creo una maschera: pedoni, re, cittadelle
         cdef DTYPE_t[:,:] board0 = board[0]
@@ -274,7 +281,7 @@ cdef class AshtonTablut:
         cdef DTYPE_t[:,:,:,:] constraints = blackConstraints
 
         # Seleziono i pedoni del giocatore
-        cdef long y, x, newY, newX
+        cdef int y, x, newY, newX
 
         for y in range(9):
             for x in range(9):
@@ -288,7 +295,8 @@ cdef class AshtonTablut:
                 newY = y-1
                 while newY >= 0:
                     if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[y, x, newY, x] == 0:
-                        legal.append(coords_to_number(y, x, newY, x))
+                        legal[i] = coords_to_number(y, x, newY, x)
+                        i+=1
                     else:
                         break
                     newY -=1
@@ -297,7 +305,8 @@ cdef class AshtonTablut:
                 newY = y+1
                 while newY < 9:
                     if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[y, x, newY, x] == 0:
-                        legal.append(coords_to_number(y, x, newY, x))
+                        legal[i] = coords_to_number(y, x, newY, x)
+                        i+=1
                     else:
                         break
                     newY +=1
@@ -306,7 +315,8 @@ cdef class AshtonTablut:
                 newX = x-1
                 while newX >= 0:
                     if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, x, y, newX] == 0:
-                        legal.append(coords_to_number(y, x, y, newX))
+                        legal[i] = coords_to_number(y, x, y, newX)
+                        i+=1
                     else:
                         break
                     newX -=1
@@ -315,26 +325,38 @@ cdef class AshtonTablut:
                 newX = x+1
                 while newX < 9:
                     if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, x, y, newX] == 0:
-                        legal.append(coords_to_number(y, x, y, newX))
+                        legal[i] = coords_to_number(y, x, y, newX)
+                        i+=1
                     else:
                         break
                     newX +=1
 
-        return legal
+        actions = actions[:i]
 
+        #Shuffle
+        for k in range(i//2):
+            r = int((rand()/RAND_MAX))*(i-1)
+            tmp = legal[i]
+            legal[i] = legal[r]
+            legal[r] = tmp
+
+        return actions
 
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef array.array legal_actions_white(DTYPE_t[:,:,:] board):
-        cdef array.array legal = array.array('i')
+    cdef np.ndarray legal_actions_white(DTYPE_t[:,:,:] board):
+        cdef np.ndarray actions = np.zeros((256, ), dtype=np.int32)
+        cdef int[:] legal = actions
+        cdef int i = 0
+        cdef int tmp, r = 0
 
         # Creo una maschera: pedoni, re, cittadelle
         cdef DTYPE_t[:,:] board0 = board[0]
         cdef DTYPE_t[:,:] board1 = board[1]
         cdef DTYPE_t[:,:] constraints = whiteConstraints
 
-        cdef long y, x, newY, newX, kingX, kingY
+        cdef int y, x, newY, newX, kingX, kingY
         kingX = 4
         kingY = 4
 
@@ -354,7 +376,8 @@ cdef class AshtonTablut:
                 newY = y-1
                 while newY >= 0:
                     if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
-                        legal.append(coords_to_number(y, x, newY, x))
+                        legal[i] = coords_to_number(y, x, newY, x)
+                        i+=1
                     else:
                         break
                     newY -=1
@@ -363,7 +386,8 @@ cdef class AshtonTablut:
                 newY = y+1
                 while newY < 9:
                     if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
-                        legal.append(coords_to_number(y, x, newY, x))
+                        legal[i] = coords_to_number(y, x, newY, x)
+                        i+=1
                     else:
                         break
                     newY +=1
@@ -372,7 +396,8 @@ cdef class AshtonTablut:
                 newX = x-1
                 while newX >= 0:
                     if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
-                        legal.append(coords_to_number(y, x, y, newX))
+                        legal[i] = coords_to_number(y, x, y, newX)
+                        i+=1
                     else:
                         break
                     newX -=1
@@ -381,7 +406,8 @@ cdef class AshtonTablut:
                 newX = x+1
                 while newX < 9:
                     if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
-                        legal.append(coords_to_number(y, x, y, newX))
+                        legal[i] = coords_to_number(y, x, y, newX)
+                        i+=1
                     else:
                         break
                     newX +=1
@@ -395,7 +421,8 @@ cdef class AshtonTablut:
         newY = y-1
         while newY >= 0:
             if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
-                legal.append(coords_to_number(y, x, newY, x))
+                legal[i] = coords_to_number(y, x, newY, x)
+                i+=1
             else:
                 break
             newY -=1
@@ -404,7 +431,8 @@ cdef class AshtonTablut:
         newY = y+1
         while newY < 9:
             if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
-                legal.append(coords_to_number(y, x, newY, x))
+                legal[i] = coords_to_number(y, x, newY, x)
+                i+=1
             else:
                 break
             newY +=1
@@ -413,7 +441,8 @@ cdef class AshtonTablut:
         newX = x-1
         while newX >= 0:
             if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
-                legal.append(coords_to_number(y, x, y, newX))
+                legal[i] = coords_to_number(y, x, y, newX)
+                i+=1
             else:
                 break
             newX -=1
@@ -422,12 +451,22 @@ cdef class AshtonTablut:
         newX = x+1
         while newX < 9:
             if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
-                legal.append(coords_to_number(y, x, y, newX))
+                legal[i] = coords_to_number(y, x, y, newX)
+                i+=1
             else:
                 break
             newX +=1
 
-        return legal
+        actions = actions[:i]
+
+        #Shuffle
+        for k in range(i//2):
+            r = int((rand()/RAND_MAX))*(i-1)
+            tmp = legal[i]
+            legal[i] = legal[r]
+            legal[r] = tmp
+
+        return actions
 
     @cython.boundscheck(False) 
     @cython.wraparound(False)
@@ -570,6 +609,10 @@ cdef class AshtonTablut:
                     else:  
                         return (board1[y-1, x] + constraints[y-1, x] > 0) and (board1[y+1, x] + constraints[y+1, x] > 0) or (board1[y, x-1] + constraints[y, x-1] > 0) and (board1[y, x+1] + constraints[y, x+1] > 0)
 
+    @staticmethod
+    cdef (float, float) get_utility_bounds():
+        return -1.0, 1.0
+
     @cython.boundscheck(False)
     @cython.wraparound(False)
     cdef float hardcoded_eval(self, AshtonTablut parent_state, unicode player):
@@ -580,6 +623,7 @@ cdef class AshtonTablut:
         cdef DTYPE_t[:,:] constraints = whiteConstraints
 
         cdef float count = 0.0
+        cdef float countKing = 0.0
         cdef int kingX = 0, kingY = 0, y, x, newX, newY
         cdef int numpw = 0, numpb = 0
         cdef float score = 0.0
@@ -593,7 +637,7 @@ cdef class AshtonTablut:
                     newY = y-1
                     while newY >= 0:
                         if allies[newY, x]+constraints[newY, x] > 0:
-                            count +=5 / (y-newY)
+                            countKing +=1 / (y-newY)
                             break
                         newY -=1
 
@@ -601,14 +645,14 @@ cdef class AshtonTablut:
                     newY = y+1
                     while newY < 9:
                         if allies[newY, x]+constraints[newY, x] > 0:
-                            count +=5 / (newY-y)
+                            countKing +=1 / (newY-y)
                             break
                         newY +=1
                     # Sinistra
                     newX = x-1
                     while newX >= 0:
                         if allies[y, newX]+constraints[y, newX] > 0:
-                            count +=5 / (x-newX)
+                            countKing +=1 / (x-newX)
                             break
                         newX -=1
 
@@ -616,7 +660,7 @@ cdef class AshtonTablut:
                     newX = x+1
                     while newX < 9:
                         if allies[y, newX]+constraints[y, newX] > 0:
-                            count +=5 / (newX-x)
+                            countKing +=1 / (newX-x)
                             break
                         newX +=1
 
@@ -657,17 +701,18 @@ cdef class AshtonTablut:
                 elif board[1,y,x] == 1:
                     numpb += 1
 
+        king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
+
         if self._to_move == 'W':
-            king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
             if self._turn >= 4:
-                score = (numpw / 4 -1) * 0.05 - (king_edge_distance / 2 -1) * 0.9 - (numpb / 8 -1) * 0.05
+                score = (numpw / 4 -1) * 0.05 - (king_edge_distance / 2 -1) * 0.6 - (numpb / 8 -1) * 0.05 - ((countKing) / 2 -1) * 0.3
             else:
-                score = (numpw / 4 -1) * 0.4 - (king_edge_distance / 2 -1) * 0.2 - (numpb / 8 -1) * 0.4
+                score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
         else:
             if self._turn >= 4:
-                score = (numpb / 4 -1) * 0.05 + (count / 26 -1) * 0.8 - (numpw / 4 -1) * 0.15
+                score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.6 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.2
             else:
-                score = (numpb / 4 -1) * 0.4 + (count / 26 -1) * 0.2 - (numpw / 4 -1) * 0.4
+                score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1
 
         return score if player == 'W' else -score
 
@@ -711,7 +756,7 @@ cdef class AshtonTablut:
 
         cdef int utility = 0
         cdef int eaten = 0
-        cdef array.array moves
+        cdef np.ndarray moves
         cdef bint winCheck
 
         tmp = move_board[y0, x0]
@@ -735,7 +780,7 @@ cdef class AshtonTablut:
         """A state is terminal if it is won or there are no empty squares."""
         return self._utility if player == 'W' else -self._utility
 
-    cpdef int terminal_test(self):
+    cpdef bint terminal_test(self):
         """A state is terminal if it is won or there are no empty squares."""
         return self._utility == -1 or self._utility == 1
 
@@ -750,10 +795,6 @@ cdef class AshtonTablut:
         return self._turn
 
     cpdef eval_fn(self, parent_state, player):
-        cdef int utility = self.utility(player)
-        if utility != 0:
-            return utility
-        
         return self.hardcoded_eval(parent_state, player)
 
     def display(self):
@@ -787,13 +828,14 @@ def random_player(AshtonTablut game):
     return random.choice(game.actions()) if game.actions() else None
 
 #------------------------------ Search -------------------------------------------------------
-cdef class IterativeDeepeningSearch:
+cdef class Search:
 
     cdef long nodes_explored
     cdef long max_depth
     cdef double start_time
     cdef double cutoff_time 
     cdef long current_cutoff_depth 
+    cdef bint heuristic_used
 
     def __init__(self):
         self.nodes_explored = 0
@@ -801,6 +843,7 @@ cdef class IterativeDeepeningSearch:
         self.start_time = 0.0
         self.cutoff_time = 0.0
         self.current_cutoff_depth = 0
+        self.heuristic_used = False
 
     @cython.boundscheck(False)
     @cython.wraparound(False)
@@ -810,19 +853,23 @@ cdef class IterativeDeepeningSearch:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
-        cdef float v
+        cdef float v = -np.inf
         cdef int[:] moves = state.actions()
         cdef int a
+        cdef float utility = 0.0
 
         self.nodes_explored += 1
         self.max_depth = max(self.max_depth, depth)
 
         if self.cutoff_test(state, depth):
-            return state.eval_fn(parent_state, player)
-        
-        v = -np.inf
+            utility = state.utility(player)
+            if utility == 0.0:
+                self.heuristic_used = True
+                return state.eval_fn(parent_state, player)
+            return utility
+                
             
-        for a in moves:            
+        for a in moves:
             next_state = state.result(a)             
             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
             if v >= beta:
@@ -834,7 +881,7 @@ cdef class IterativeDeepeningSearch:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
-        cdef float v
+        cdef float v = np.inf
         cdef int[:] moves = state.actions()
         cdef int a
 
@@ -842,20 +889,23 @@ cdef class IterativeDeepeningSearch:
         self.max_depth = max(self.max_depth, depth)
 
         if self.cutoff_test(state, depth):
-            return state.eval_fn(parent_state, player)
+            utility = state.utility(player)
+            if utility == 0.0:
+                self.heuristic_used = True
+                return state.eval_fn(parent_state, player)
+            return utility
         
-        v = np.inf
-            
-        for a in moves:        
+        for a in moves:
             next_state = state.result(a)           
             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+
             if v <= alpha:
                 return v
             beta = min(beta, v)
 
         return v 
 
-    def search(self, AshtonTablut state, long initial_cutoff_depth=3, double cutoff_time=55.0):
+    def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search using time and uses an evaluation function."""
 
@@ -865,7 +915,50 @@ cdef class IterativeDeepeningSearch:
         cdef float beta = np.inf
         cdef int best_action = 0
 
-        cdef float v = 0
+        cdef float v = np.inf
+        cdef int[:] moves = state.actions()
+        cdef int a = 0
+
+        cdef AshtonTablut best_next_state
+
+        self.cutoff_time = cutoff_time
+        self.current_cutoff_depth = cutoff_depth
+        self.start_time = get_time()
+        self.nodes_explored = 0
+        self.max_depth = 0
+
+        for a in moves:
+            next_state = state.result(a)
+
+            if next_state.utility(player) >= 1.0:
+                return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
+
+            v = self.min_value(state, next_state, player, best_score, beta, 1)
+
+            if v >= 1.0:
+                return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+
+            if v > best_score:
+                best_next_state = next_state
+                best_score = v
+                best_action = a
+
+            print("Action: {0}, score: {1}".format(number_to_coords(a), v))
+        
+        return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+
+
+    def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=5, double cutoff_time=55.0):
+        """Search game to determine best action; use alpha-beta pruning.
+        This version cuts off search using time and uses an evaluation function."""
+
+        cdef unicode player = state.to_move()
+        
+        cdef float best_score = -np.inf
+        cdef float beta = np.inf
+        cdef int best_action = 0
+
+        cdef float v = np.inf
         cdef int[:] moves = state.actions()
         cdef int a = 0
 
@@ -876,22 +969,47 @@ cdef class IterativeDeepeningSearch:
         self.start_time = get_time()
         self.nodes_explored = 0
         self.max_depth = 0
-        
-        while (get_time()-self.start_time) <= self.cutoff_time:
-            for a in moves:
-                next_state = state.result(a) 
+        self.heuristic_used = True
 
-                if next_state.utility(player) == 1:
-                    return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
+        #Pre-check vittoria e ordinamento seguendo la depth precedente
+        def key_function(x):
+            return x[2]
 
-                v = self.min_value(state, next_state, player, best_score, beta, 1)
+        next_states = []
+
+        for a in moves:
+            next_state = state.result(a)
+
+            if next_state.utility(player) >= 1.0:
+                return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
+
+            next_states.append((next_state, a, np.inf))
+
+        while (get_time()-self.start_time) <= self.cutoff_time and self.heuristic_used:
+            best_score = -np.inf
+            self.heuristic_used = False
+            tmp_states = []
+
+            for next_state, a, v_prec in next_states:
+                v = min(self.min_value(state, next_state, player, best_score, beta, 1), v_prec)
+                tmp_states.append((next_state, a, v))
+
+                if v >= 1.0:
+                    return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+
                 if v > best_score:
                     best_next_state = next_state
                     best_score = v
                     best_action = a
             
+            tmp_states = sorted(tmp_states, key=key_function, reverse=True)
+            next_states = tmp_states
             self.current_cutoff_depth += 1
-        
+
+            print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(best_action), best_score, self.nodes_explored))
+            #for a in moves:
+            #    print("Action: {0}, score: {1}".format(number_to_coords(a), v_history[a]))
+
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
 #------------------------------ Utils ---------------------------------------------------------
@@ -953,7 +1071,7 @@ def test():
     print("Time: {0} ms".format(1000*(get_time()-st)))
 
     st = get_time()
-    time.time()
+    ptime.time()
     print("Time: {0} ms".format(1000*(get_time()-st)))
 
     st = get_time()
@@ -961,3 +1079,4 @@ def test():
     print("Result: {0} ms".format(1000*(get_time()-st)))
     print(fake_state.utility('B'))
     fake_state.display()
+    

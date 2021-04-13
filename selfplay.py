@@ -1,7 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, IterativeDeepeningSearch, test
+from tablut import AshtonTablut, TablutConfig, Search, test
 
 import tflite_runtime.interpreter as tflite
 
@@ -15,11 +15,12 @@ class SelfPlay():
         self.priority = priority
         self.time_per_move = time_per_move
         self.model_path = model_path
-        self.steps_without_capturing = 0
         self.draw_queue = []
-        self.config = TablutConfig()
         self.game_history = []
         self.interpreter_initialized = False
+
+        self.config = TablutConfig()
+        self.steps_without_capturing = 0
 
     def init_tflite(self):
         if not os.path.isfile(self.model_path):
@@ -99,10 +100,10 @@ class SelfPlay():
         have_draw = False
 
         while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
-            search = IterativeDeepeningSearch()
+            search = Search()
 
-            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.search(
-                state=current_state, cutoff_time=self.time_per_move)
+            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+                state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
             
             #best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
             #    state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
@@ -150,6 +151,6 @@ class SelfPlay():
 
 
 if __name__ == '__main__':
-    test()
-    self_play = SelfPlay(0, 1, 5, None)
+    #test()
+    self_play = SelfPlay(0, 1, 1, None)
     self_play.play()
