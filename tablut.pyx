@@ -5,6 +5,8 @@ import time as ptime
 import os
 import random
 
+import tflite_runtime.interpreter as tflite
+
 cimport cython
 
 from posix.time cimport clock_gettime, timespec, CLOCK_REALTIME
@@ -235,13 +237,20 @@ cdef class AshtonTablut:
     cdef int _utility
     cdef np.ndarray _moves
     cdef long _turn
+
+    cdef HeuristicFunction _heuristic
     
-    def __init__(self, board, to_move, utility, moves, turn = 0):
+    def __init__(self, board, to_move, utility, moves, turn = 0, heuristic=None):
         self._board = board
         self._to_move = to_move
         self._utility = utility
         self._moves = moves
         self._turn = turn
+
+        if heuristic is None:
+            heuristic = OldSchoolHeuristicFunction()
+
+        self._heuristic = heuristic
 
     @cython.boundscheck(False)
     @cython.wraparound(False)
@@ -615,109 +624,6 @@ cdef class AshtonTablut:
 
     @cython.boundscheck(False)
     @cython.wraparound(False)
-    cdef float hardcoded_eval(self, AshtonTablut parent_state, unicode player):
-        # Spurio's evaluation function
-
-        cdef DTYPE_t[:,:,:] board = self._board
-        cdef DTYPE_t[:,:] allies = board[1]
-        cdef DTYPE_t[:,:] constraints = whiteConstraints
-
-        cdef float count = 0.0
-        cdef float countKing = 0.0
-        cdef int kingX = 0, kingY = 0, y, x, newX, newY
-        cdef int numpw = 0, numpb = 0
-        cdef float score = 0.0
-
-        for y in range(9):
-            for x in range(9):
-                if board[0,y,x] == -1:
-                    kingY, kingX = y,x
-
-                    # Su
-                    newY = y-1
-                    while newY >= 0:
-                        if allies[newY, x]+constraints[newY, x] > 0:
-                            countKing +=1 / (y-newY)
-                            break
-                        newY -=1
-
-                    # Giu
-                    newY = y+1
-                    while newY < 9:
-                        if allies[newY, x]+constraints[newY, x] > 0:
-                            countKing +=1 / (newY-y)
-                            break
-                        newY +=1
-                    # Sinistra
-                    newX = x-1
-                    while newX >= 0:
-                        if allies[y, newX]+constraints[y, newX] > 0:
-                            countKing +=1 / (x-newX)
-                            break
-                        newX -=1
-
-                    # Destra
-                    newX = x+1
-                    while newX < 9:
-                        if allies[y, newX]+constraints[y, newX] > 0:
-                            countKing +=1 / (newX-x)
-                            break
-                        newX +=1
-
-                elif board[0,y,x] == 1:
-                    numpw += 1
-
-                    # Su
-                    newY = y-1
-                    while newY >= 0:
-                        if allies[newY, x]+constraints[newY, x] > 0:
-                            count +=1 / (y-newY)
-                            break
-                        newY -=1
-
-                    # Giu
-                    newY = y+1
-                    while newY < 9:
-                        if allies[newY, x]+constraints[newY, x] > 0:
-                            count +=1 / (newY-y)
-                            break
-                        newY +=1
-                    # Sinistra
-                    newX = x-1
-                    while newX >= 0:
-                        if allies[y, newX]+constraints[y, newX] > 0:
-                            count +=1 / (x-newX)
-                            break
-                        newX -=1
-
-                    # Destra
-                    newX = x+1
-                    while newX < 9:
-                        if allies[y, newX]+constraints[y, newX] > 0:
-                            count +=1 / (newX-x)
-                            break
-                        newX +=1
-
-                elif board[1,y,x] == 1:
-                    numpb += 1
-
-        king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
-
-        if self._to_move == 'W':
-            if self._turn >= 4:
-                score = (numpw / 4 -1) * 0.05 - (king_edge_distance / 2 -1) * 0.6 - (numpb / 8 -1) * 0.05 - ((countKing) / 2 -1) * 0.3
-            else:
-                score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
-        else:
-            if self._turn >= 4:
-                score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.6 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.2
-            else:
-                score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1
-
-        return score if player == 'W' else -score
-
-    @cython.boundscheck(False)
-    @cython.wraparound(False)
     def convert_board(self):
         cdef np.ndarray[DTYPE_t, ndim = 3] newBoard = np.zeros((4, 9, 9), dtype=DTYPE)
         newBoard[3] = whiteConstraints
@@ -795,7 +701,7 @@ cdef class AshtonTablut:
         return self._turn
 
     cpdef eval_fn(self, parent_state, player):
-        return self.hardcoded_eval(parent_state, player)
+        return self._heuristic.evalutate(parent_state, self, player)
 
     def display(self):
         """Print or otherwise display the state."""
@@ -1011,6 +917,205 @@ cdef class Search:
             #    print("Action: {0}, score: {1}".format(number_to_coords(a), v_history[a]))
 
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+
+#------------------------------ Heuristic function --------------------------------------------
+
+cdef class HeuristicFunction:
+
+    @cython.boundscheck(False)
+    @cython.wraparound(False)
+    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+        return state.utility(player)
+
+cdef class OldSchoolHeuristicFunction(HeuristicFunction):
+
+    @cython.boundscheck(False)
+    @cython.wraparound(False)
+    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+        # Spurio's evaluation function
+
+        cdef DTYPE_t[:,:,:] board = state.board()
+        cdef DTYPE_t[:,:] allies = board[1]
+        cdef DTYPE_t[:,:] constraints = whiteConstraints
+
+        cdef float count = 0.0
+        cdef float countKing = 0.0
+        cdef int kingX = 0, kingY = 0, y, x, newX, newY
+        cdef int numpw = 0, numpb = 0
+        cdef float score = 0.0
+
+        for y in range(9):
+            for x in range(9):
+                if board[0,y,x] == -1:
+                    kingY, kingX = y,x
+
+                    # Su
+                    newY = y-1
+                    while newY >= 0:
+                        if allies[newY, x]+constraints[newY, x] > 0:
+                            countKing +=1 / (y-newY)
+                            break
+                        newY -=1
+
+                    # Giu
+                    newY = y+1
+                    while newY < 9:
+                        if allies[newY, x]+constraints[newY, x] > 0:
+                            countKing +=1 / (newY-y)
+                            break
+                        newY +=1
+                    # Sinistra
+                    newX = x-1
+                    while newX >= 0:
+                        if allies[y, newX]+constraints[y, newX] > 0:
+                            countKing +=1 / (x-newX)
+                            break
+                        newX -=1
+
+                    # Destra
+                    newX = x+1
+                    while newX < 9:
+                        if allies[y, newX]+constraints[y, newX] > 0:
+                            countKing +=1 / (newX-x)
+                            break
+                        newX +=1
+
+                elif board[0,y,x] == 1:
+                    numpw += 1
+
+                    # Su
+                    newY = y-1
+                    while newY >= 0:
+                        if allies[newY, x]+constraints[newY, x] > 0:
+                            count +=1 / (y-newY)
+                            break
+                        newY -=1
+
+                    # Giu
+                    newY = y+1
+                    while newY < 9:
+                        if allies[newY, x]+constraints[newY, x] > 0:
+                            count +=1 / (newY-y)
+                            break
+                        newY +=1
+                    # Sinistra
+                    newX = x-1
+                    while newX >= 0:
+                        if allies[y, newX]+constraints[y, newX] > 0:
+                            count +=1 / (x-newX)
+                            break
+                        newX -=1
+
+                    # Destra
+                    newX = x+1
+                    while newX < 9:
+                        if allies[y, newX]+constraints[y, newX] > 0:
+                            count +=1 / (newX-x)
+                            break
+                        newX +=1
+
+                elif board[1,y,x] == 1:
+                    numpb += 1
+
+        king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
+
+        if state.to_move() == 'W':
+            if state.turn() >= 4:
+                score = (numpw / 4 -1) * 0.05 - (king_edge_distance / 2 -1) * 0.6 - (numpb / 8 -1) * 0.05 - ((countKing) / 2 -1) * 0.3
+            else:
+                score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
+        else:
+            if state.turn() >= 4:
+                score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.6 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.2
+            else:
+                score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1
+
+        return score if player == 'W' else -score
+
+cdef class NeuralHeuristicFunction(HeuristicFunction):
+
+    cdef bint interpreter_initialized
+
+    cdef tuple input_shape
+    cdef int index_in_0, index_in_1, index_out_0
+
+    def __init__(self, model_path="tablut.tflite"):
+        self.config = TablutConfig()
+        self.model_path = model_path
+        self.interpreter_initialized = False
+
+    def init_tflite(self):
+        if not os.path.isfile(self.model_path):
+            return False
+
+        self.interpreter = tflite.Interpreter(
+            model_path=self.model_path, num_threads=self.config.threads_per_worker)
+        self.interpreter.allocate_tensors()
+
+        # Get input and output tensors.
+        self.tflite_input_details = self.interpreter.get_input_details()
+        self.tflite_output_details = self.interpreter.get_output_details()
+
+        self.input_shape = self.tflite_input_details[0]['shape']
+        self.index_in_0 = self.tflite_input_details[0]['index']
+        self.index_in_1 = self.tflite_input_details[1]['index']
+        self.index_out_0 = self.tflite_output_details[0]['index']
+
+        self.interpreter_initialized = True
+
+        return True
+
+    def initialized(self):
+        return self.interpreter_initialized
+
+    @cython.boundscheck(False)
+    @cython.wraparound(False)
+    cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
+        cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
+        cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
+
+        cdef float v
+
+        self.interpreter.set_tensor(self.index_in_0, board0)
+        self.interpreter.set_tensor(self.index_in_1, board1)
+
+        self.interpreter.invoke()
+
+        v = np.ravel(self.interpreter.get_tensor(self.index_out_0))[0]
+
+        return v if player == 'W' else -v
+
+    @cython.boundscheck(False)
+    @cython.wraparound(False)
+    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+        if self.interpreter_initialized:
+            return self.tflite_eval(parent_state, state, player)
+        return state.utility(player)
+
+cdef class MixedHeuristicFunction(HeuristicFunction):
+    cdef OldSchoolHeuristicFunction old_eval
+    cdef NeuralHeuristicFunction neural_eval
+
+    cdef float alpha
+
+    def __init__(self, alpha, model_path = "tablut.tflite"):
+        self.alpha = min(max(alpha, 1.0), 0.0)
+        self.old_eval = OldSchoolHeuristicFunction()
+        self.neural_eval = NeuralHeuristicFunction(model_path)
+
+    def init_tflite(self):
+        self.neural_eval.init_tflite()
+
+    def initialized(self):
+        return self.neural_eval.initialized()
+
+    @cython.boundscheck(False)
+    @cython.wraparound(False)
+    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+        if self.interpreter_initialized:
+            return self.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval(parent_state, state, player) * (1-self.alpha)
+
+        return self.old_eval(parent_state, state, player)
 
 #------------------------------ Utils ---------------------------------------------------------
 cdef inline double get_time():

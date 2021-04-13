@@ -3,8 +3,6 @@ import time
 
 from tablut import AshtonTablut, TablutConfig, Search, test
 
-import tflite_runtime.interpreter as tflite
-
 import numpy as np
 
 
@@ -15,56 +13,11 @@ class SelfPlay():
         self.priority = priority
         self.time_per_move = time_per_move
         self.model_path = model_path
-        self.draw_queue = []
-        self.game_history = []
-        self.interpreter_initialized = False
-
+        
         self.config = TablutConfig()
         self.steps_without_capturing = 0
-
-    def init_tflite(self):
-        if not os.path.isfile(self.model_path):
-            return False
-
-        self.interpreter = tflite.Interpreter(
-            model_path=self.model_path, num_threads=self.config.threads_per_worker)
-        self.interpreter.allocate_tensors()
-
-        # Get input and output tensors.
-        self.tflite_input_details = interpreter.get_input_details()
-        self.tflite_output_details = interpreter.get_output_details()
-
-        self.interpreter_initialized = True
-
-        return True
-
-    def heuristic_eval(self, state, next_state, player):
-        utility = self.game.utility(state, player)
-        if utility != 0:
-            return utility
-
-        if self.interpreter_initialized:
-            return self.tflite_eval(state, next_state, player) * self.heuristic_weight + self.hardcoded_eval(state, next_state, player) * (1-self.heuristic_weight)
-
-        return self.hardcoded_eval(state, next_state, player)
-
-    def tflite_eval(self, state, next_state, player):
-        board0 = np.reshape(convert_board(state.board),
-                            self.tflite_input_details[0]['shape'])
-        board1 = np.reshape(convert_board(next_state.board),
-                            self.tflite_input_details[1]['shape'])
-
-        self.interpreter.set_tensor(
-            self.tflite_input_details[0]['index'], board0)
-        self.interpreter.set_tensor(
-            self.tflite_input_details[1]['index'], board1)
-
-        self.interpreter.invoke()
-
-        v = np.reshape(self.interpreter.get_tensor(
-            self.tflite_output_details[0]['index']), (-1))[0]
-
-        return v if player == 'W' else -v
+        self.draw_queue = []
+        self.game_history = []
 
     def have_captured(self, state, next_state):
         board = state.board()
