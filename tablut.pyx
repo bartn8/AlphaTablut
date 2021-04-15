@@ -1,4 +1,5 @@
 #cython: language_level=3
+#distutils: extra_compile_args = -march=native
 
 import datetime
 import time as ptime
@@ -121,7 +122,7 @@ blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
-blackConstraints[1,  4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -141,7 +142,7 @@ blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
 
-blackConstraints[7,  4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
+blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -161,7 +162,7 @@ blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
-blackConstraints[4,  1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
+blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -181,7 +182,7 @@ blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
-blackConstraints[4,  7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
+blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -191,17 +192,22 @@ blackConstraints[4,  7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
-cdef np.ndarray initialBoard = np.array([[[0, 0, 0, 0, 0, 0, 0, 0, 0],
+#Effettuo reshaping: Così ho la rete neurale con ingresso diretto
+cdef np.ndarray initialBoard = np.zeros((1, 9, 9, 4), dtype=DTYPE)
+
+initialBoard[0, :, :, 0] = np.array(
+                           [[0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                            [0, 0, 1, 1,-1, 1, 1, 0, 0],
+                            [0, 0, 1, 1, 0, 1, 1, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0]],
-                            
-                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
+
+initialBoard[0, :, :, 1] = np.array(
+                           [[0, 0, 0, 1, 1, 1, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -209,7 +215,29 @@ cdef np.ndarray initialBoard = np.array([[[0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                            [0, 0, 0, 1, 1, 1, 0, 0, 0]]], dtype=DTYPE)
+                            [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
+
+initialBoard[0, :, :, 2] = np.array(
+                           [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
+
+initialBoard[0, :, :, 3] = np.array(
+                           [[0, 0, 0, 1, 0, 1, 0, 0, 0],
+                            [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                            [0, 1, 0, 0, 1, 0, 0, 1, 0],
+                            [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                            [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
 
 # ______________________________________________________________________________
 ## Optimized Cython functions
@@ -269,7 +297,7 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef np.ndarray legal_actions(DTYPE_t[:,:,:] board, unicode to_move):
+    cdef np.ndarray legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):
         if to_move == 'W':
             return AshtonTablut.legal_actions_white(board)
         else:
@@ -278,15 +306,12 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef np.ndarray legal_actions_black(DTYPE_t[:,:,:] board):
+    cdef np.ndarray legal_actions_black(DTYPE_t[:,:,:,:] board):
         cdef np.ndarray actions = np.zeros((256, ), dtype=np.int32)
         cdef int[:] legal = actions
         cdef int i = 0
         cdef int tmp, r = 0
 
-        # Creo una maschera: pedoni, re, cittadelle
-        cdef DTYPE_t[:,:] board0 = board[0]
-        cdef DTYPE_t[:,:] board1 = board[1]
         cdef DTYPE_t[:,:,:,:] constraints = blackConstraints
 
         # Seleziono i pedoni del giocatore
@@ -294,7 +319,8 @@ cdef class AshtonTablut:
 
         for y in range(9):
             for x in range(9):
-                if board1[y,x] != 1:
+                #Seleziono solo i neri
+                if board[0, y, x, 1] != 1:
                     continue
 
                 # Seleziono le celle adiacenti (no diagonali)
@@ -303,7 +329,7 @@ cdef class AshtonTablut:
                 # Su
                 newY = y-1
                 while newY >= 0:
-                    if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[y, x, newY, x] == 0:
+                    if board[0, newY, x, 0] == 0 and board[0, newY, x, 1] == 0 and board[0, newY, x, 2] == 0 and constraints[y, x, newY, x] == 0:
                         legal[i] = coords_to_number(y, x, newY, x)
                         i+=1
                     else:
@@ -313,7 +339,7 @@ cdef class AshtonTablut:
                 # Giu
                 newY = y+1
                 while newY < 9:
-                    if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[y, x, newY, x] == 0:
+                    if board[0, newY, x, 0] == 0 and board[0, newY, x, 1] == 0 and board[0, newY, x, 2] == 0 and constraints[y, x, newY, x] == 0:
                         legal[i] = coords_to_number(y, x, newY, x)
                         i+=1
                     else:
@@ -323,7 +349,7 @@ cdef class AshtonTablut:
                 # Sinistra
                 newX = x-1
                 while newX >= 0:
-                    if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, x, y, newX] == 0:
+                    if board[0, y, newX, 0] == 0 and board[0, y, newX, 1] == 0 and board[0, y, newX, 2] == 0 and constraints[y, x, y, newX] == 0:
                         legal[i] = coords_to_number(y, x, y, newX)
                         i+=1
                     else:
@@ -333,7 +359,7 @@ cdef class AshtonTablut:
                 # Destra
                 newX = x+1
                 while newX < 9:
-                    if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, x, y, newX] == 0:
+                    if board[0, y, newX, 0] == 0 and board[0, y, newX, 1] == 0 and board[0, y, newX, 2] == 0 and constraints[y, x, y, newX] == 0:
                         legal[i] = coords_to_number(y, x, y, newX)
                         i+=1
                     else:
@@ -345,8 +371,8 @@ cdef class AshtonTablut:
         #Shuffle
         for k in range(i//2):
             r = int((rand()/RAND_MAX))*(i-1)
-            tmp = legal[i]
-            legal[i] = legal[r]
+            tmp = legal[k]
+            legal[k] = legal[r]
             legal[r] = tmp
 
         return actions
@@ -354,16 +380,11 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef np.ndarray legal_actions_white(DTYPE_t[:,:,:] board):
+    cdef np.ndarray legal_actions_white(DTYPE_t[:,:,:,:] board):
         cdef np.ndarray actions = np.zeros((256, ), dtype=np.int32)
         cdef int[:] legal = actions
         cdef int i = 0
         cdef int tmp, r = 0
-
-        # Creo una maschera: pedoni, re, cittadelle
-        cdef DTYPE_t[:,:] board0 = board[0]
-        cdef DTYPE_t[:,:] board1 = board[1]
-        cdef DTYPE_t[:,:] constraints = whiteConstraints
 
         cdef int y, x, newY, newX, kingX, kingY
         kingX = 4
@@ -371,11 +392,12 @@ cdef class AshtonTablut:
 
         for y in range(9):
             for x in range(9):
-                if board0[y,x] == -1:
+                #Seleziono solo le pedine bianche o il re per le coordinate
+                if board[0, y, x, 2] == 1:
                     kingY = y
                     kingX = x
                     continue
-                elif board0[y,x] != 1:
+                elif board[0, y, x, 0] != 1:
                     continue
 
                 # Seleziono le celle adiacenti (no diagonali)
@@ -384,7 +406,7 @@ cdef class AshtonTablut:
                 # Su
                 newY = y-1
                 while newY >= 0:
-                    if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
+                    if board[0, newY, x, 0] == 0 and board[0, newY, x, 1] == 0 and board[0, newY, x, 2] == 0 and board[0, newY, x, 3] == 0:
                         legal[i] = coords_to_number(y, x, newY, x)
                         i+=1
                     else:
@@ -394,7 +416,7 @@ cdef class AshtonTablut:
                 # Giu
                 newY = y+1
                 while newY < 9:
-                    if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
+                    if board[0, newY, x, 0] == 0 and board[0, newY, x, 1] == 0 and board[0, newY, x, 2] == 0 and board[0, newY, x, 3] == 0:
                         legal[i] = coords_to_number(y, x, newY, x)
                         i+=1
                     else:
@@ -404,7 +426,7 @@ cdef class AshtonTablut:
                 # Sinistra
                 newX = x-1
                 while newX >= 0:
-                    if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
+                    if board[0, y, newX, 0] == 0 and board[0, y, newX, 1] == 0 and board[0, y, newX, 2] == 0 and board[0, y, newX, 3] == 0:
                         legal[i] = coords_to_number(y, x, y, newX)
                         i+=1
                     else:
@@ -414,7 +436,7 @@ cdef class AshtonTablut:
                 # Destra
                 newX = x+1
                 while newX < 9:
-                    if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
+                    if board[0, y, newX, 0] == 0 and board[0, y, newX, 1] == 0 and board[0, y, newX, 2] == 0 and board[0, y, newX, 3] == 0:
                         legal[i] = coords_to_number(y, x, y, newX)
                         i+=1
                     else:
@@ -429,7 +451,7 @@ cdef class AshtonTablut:
         # Su
         newY = y-1
         while newY >= 0:
-            if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
+            if board[0, newY, x, 0] == 0 and board[0, newY, x, 1] == 0 and board[0, newY, x, 3] == 0:
                 legal[i] = coords_to_number(y, x, newY, x)
                 i+=1
             else:
@@ -439,7 +461,7 @@ cdef class AshtonTablut:
         # Giu
         newY = y+1
         while newY < 9:
-            if board0[newY, x] == 0 and board1[newY, x] == 0 and constraints[newY, x] == 0:
+            if board[0, newY, x, 0] == 0 and board[0, newY, x, 1] == 0 and board[0, newY, x, 3] == 0:
                 legal[i] = coords_to_number(y, x, newY, x)
                 i+=1
             else:
@@ -449,7 +471,7 @@ cdef class AshtonTablut:
         # Sinistra
         newX = x-1
         while newX >= 0:
-            if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
+            if board[0, y, newX, 0] == 0 and board[0, y, newX, 1] == 0 and board[0, y, newX, 3] == 0:
                 legal[i] = coords_to_number(y, x, y, newX)
                 i+=1
             else:
@@ -459,7 +481,7 @@ cdef class AshtonTablut:
         # Destra
         newX = x+1
         while newX < 9:
-            if board0[y, newX] == 0 and board1[y, newX] == 0 and constraints[y, newX] == 0:
+            if board[0, y, newX, 0] == 0 and board[0, y, newX, 1] == 0 and board[0, y, newX, 3] == 0:
                 legal[i] = coords_to_number(y, x, y, newX)
                 i+=1
             else:
@@ -471,8 +493,8 @@ cdef class AshtonTablut:
         #Shuffle
         for k in range(i//2):
             r = int((rand()/RAND_MAX))*(i-1)
-            tmp = legal[i]
-            legal[i] = legal[r]
+            tmp = legal[k]
+            legal[k] = legal[r]
             legal[r] = tmp
 
         return actions
@@ -480,7 +502,7 @@ cdef class AshtonTablut:
     @cython.boundscheck(False) 
     @cython.wraparound(False)
     @staticmethod
-    cdef int check_eat(DTYPE_t[:,:,:] board, unicode to_move, int move):
+    cdef int check_eat(DTYPE_t[:,:,:,:] board, unicode to_move, int move):
         cdef int eaten = 0
         if to_move == 'W':
             eaten = AshtonTablut.check_white_eat(board, move)
@@ -494,33 +516,30 @@ cdef class AshtonTablut:
     @cython.wraparound(False)
     @staticmethod
     # Controllo se il bianco mangia dei pedoni neri
-    cdef int check_white_eat(DTYPE_t[:,:,:] board, int move):
+    cdef int check_white_eat(DTYPE_t[:,:,:,:] board, int move):
         # Dove è finita la pedina bianca che dovrà catturare uno o più pedoni neri?
         cdef (int,int,int,int) c = number_to_coords(move)
         cdef int y = c[2]
         cdef int x = c[3]
         cdef int captured = 0
-        cdef DTYPE_t[:,:] allies = board[0]
-        cdef DTYPE_t[:,:] constraints = whiteConstraints
-        cdef DTYPE_t[:,:] enemies = board[1]
 
         # Controlli U,D,L,R
-        cdef bint lookUp = y-2 >= 0 and allies[y-2, x] + constraints[y-2, x] > 0 and allies[y-1, x] + constraints[y-1, x] == 0 and enemies[y-2, x] == 0 and enemies[y-1, x] == 1
-        cdef bint lookDown = y+2 < 9 and allies[y+1, x] + constraints[y+1, x] == 0 and allies[y+2, x] + constraints[y+2, x] > 0 and enemies[y+1, x] == 1 and enemies[y+2, x] == 0
-        cdef bint lookLeft = x-2 >= 0 and allies[y, x-2] + constraints[y, x-2] > 0 and allies[y, x-1] + constraints[y, x-1] == 0 and enemies[y, x-2] == 0 and enemies[y, x-1] == 1
-        cdef bint lookRight = x+2 < 9 and allies[y, x+1] + constraints[y, x+1] == 0 and allies[y, x+2] + constraints[y, x+2] > 0 and enemies[y, x+1] == 1 and enemies[y, x+2] == 0
+        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 0] + board[0, y-1, x, 3] == 0 and board[0, y-2, x, 1] == 0 and board[0, y-1, x, 1] == 1
+        cdef bint lookDown = y+2 < 9 and board[0, y+1, x, 0] + board[0, y+1, x, 3] == 0 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1 and board[0, y+2, x, 1] == 0
+        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 0] + board[0, y, x-1, 3] == 0 and board[0, y, x-2, 1] == 0 and board[0, y, x-1, 1] == 1
+        cdef bint lookRight = x+2 < 9 and board[0, y, x+1, 0] + board[0, y, x+1, 3] == 0 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1 and board[0, y, x+2, 1] == 0
 
         if lookUp:
-            board[1, y-1, x] = 0
+            board[0, y-1, x, 1] = 0
             captured += 1
         if lookDown:
-            board[1, y+1, x] = 0
+            board[0, y+1, x, 1] = 0
             captured += 1
         if lookLeft:
-            board[1, y, x-1] = 0
+            board[0, y, x-1, 1] = 0
             captured += 1
         if lookRight:
-            board[1, y, x+1] = 0
+            board[0, y, x+1, 1] = 0
             captured += 1
 
         return captured
@@ -530,33 +549,30 @@ cdef class AshtonTablut:
     @cython.wraparound(False)
     @staticmethod
     # Controllo se il nero mangia dei pedoni bianchi
-    cdef int check_black_eat(DTYPE_t[:,:,:] board, int move):
+    cdef int check_black_eat(DTYPE_t[:,:,:,:] board, int move):
         # Dove è finita la pedina nera che dovrà catturare uno o più pedoni bianchi?
         cdef (int,int,int,int) c = number_to_coords(move)
         cdef int y = c[2]
         cdef int x = c[3]
         cdef int captured = 0
-        cdef DTYPE_t[:,:] allies = board[1]
-        cdef DTYPE_t[:,:] constraints = whiteConstraints
-        cdef DTYPE_t[:,:] enemies = board[0]
 
         # Controlli U,D,L,R
-        cdef bint lookUp = y-2 >= 0 and allies[y-2, x] + constraints[y-2, x] > 0 and allies[y-1, x] + constraints[y-1, x] == 0 and enemies[y-2, x] == 0 and enemies[y-1, x] == 1
-        cdef bint lookDown = y+2 < 9 and allies[y+1, x] + constraints[y+1, x] == 0 and allies[y+2, x] + constraints[y+2, x] > 0 and enemies[y+1, x] == 1 and enemies[y+2, x] == 0
-        cdef bint lookLeft = x-2 >= 0 and allies[y, x-2] + constraints[y, x-2] > 0 and allies[y, x-1] + constraints[y, x-1] == 0 and enemies[y, x-2] == 0 and enemies[y, x-1] == 1
-        cdef bint lookRight = x+2 < 9 and allies[y, x+1] + constraints[y, x+1] == 0 and allies[y, x+2] + constraints[y, x+2] > 0 and enemies[y, x+1] == 1 and enemies[y, x+2] == 0
+        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 1] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] + board[0, y-1, x, 3] == 0 and board[0, y-2, x, 0] == 0 and board[0, y-1, x, 0] == 1
+        cdef bint lookDown = y+2 < 9 and board[0, y+1, x, 1] + board[0, y+1, x, 3] == 0 and board[0, y+2, x, 1] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 0] == 1 and board[0, y+2, x, 0] == 0
+        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 1] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] + board[0, y, x-1, 3] == 0 and board[0, y, x-2, 0] == 0 and board[0, y, x-1, 0] == 1
+        cdef bint lookRight = x+2 < 9 and board[0, y, x+1, 1] + board[0, y, x+1, 3] == 0 and board[0, y, x+2, 1] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 0] == 1 and board[0, y, x+2, 0] == 0
 
         if lookUp:
-            board[0, y-1, x] = 0
+            board[0, y-1, x, 0] = 0
             captured += 1
         if lookDown:
-            board[0, y+1, x] = 0
+            board[0, y+1, x, 0] = 0
             captured += 1
         if lookLeft:
-            board[0, y, x-1] = 0
+            board[0, y, x-1, 0] = 0
             captured += 1
         if lookRight:
-            board[0, y, x+1] = 0
+            board[0, y, x+1, 0] = 0
             captured += 1
 
         return captured
@@ -564,7 +580,7 @@ cdef class AshtonTablut:
     @cython.boundscheck(False) 
     @cython.wraparound(False)
     @staticmethod
-    cdef bint have_winner(DTYPE_t[:,:,:] board, unicode to_move):
+    cdef bint have_winner(DTYPE_t[:,:,:,:] board, unicode to_move):
         if to_move == 'W':
             return AshtonTablut.white_win_check(board)
         else:
@@ -573,20 +589,18 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef bint white_win_check(DTYPE_t[:,:,:] board):
+    cdef bint white_win_check(DTYPE_t[:,:,:,:] board):
         # Controllo che il Re sia in un bordo della board
         cdef long y,x
 
-        for y in range(9):
-            if board[0,y,0] == -1:
+        for k in range(9):
+            if board[0, 0, k, 2] == 1:
                 return True
-            if board[0,y,8] == -1:
+            if board[0, 8, k, 2] == 1:
                 return True
-        
-        for x in range(9):
-            if board[0,0,x] == -1:
+            if board[0, k, 0, 2] == 1:
                 return True
-            if board[0,8,x] == -1:
+            if board[0, k, 8, 2] == 1:
                 return True
 
         return False
@@ -594,49 +608,30 @@ cdef class AshtonTablut:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     @staticmethod
-    cdef bint black_win_check(DTYPE_t[:,:,:] board):
+    cdef bint black_win_check(DTYPE_t[:,:,:,:] board):
         # Controllo se il nero ha catturato il re
 
         # Se il re è sul trono allora 4
         # Se il re è adiacente al trono allora 3 pedoni che lo circondano
         # Altrimenti catturo come pedone normale (citadels possono fare da nemico)
-        cdef DTYPE_t[:,:] board0 = board[0]
-        cdef DTYPE_t[:,:] board1 = board[1]
-        cdef DTYPE_t[:,:] constraints = whiteConstraints
         cdef long y,x
 
         for y in range(9):
             for x in range(9):
-                if board0[y, x] == -1:
+                if board[0, y, x, 2] == 1:
                     # Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
                     if y==4 and x==4:
-                        return board1[3, 4] == 1 and board1[4, 3] == 1 and board1[4, 5] == 1 and board1[5, 4] == 1
+                        return board[0, 3, 4, 1] == 1 and board[0, 4, 3, 1] == 1 and board[0, 4, 5, 1] == 1 and board[0, 5, 4, 1] == 1
                     # Re adiacente al trono: controllo se sono presenti nemici intorno
                     elif y == 3 and x == 4 or y == 4 and x == 3 or y == 4 and x == 5 or y == 5 and x == 4:
-                        return board1[(y-1),x] == 1 and board1[y+1, x] == 1 and board1[y, x-1] == 1 and board1[y, x+1] == 1
+                        return (board[0, y-1, x, 1] + board[0, y-1, x, 3] > 0) and (board[0, y+1, x, 1] + board[0, y+1, x, 3] > 0) and (board[0, y, x-1, 1] + board[0, y, x-1, 3] > 0) and (board[0, y, x+1, 1] + board[0, y, x+1, 3] > 0)
                     # Check cattura normale.
                     else:  
-                        return (board1[y-1, x] + constraints[y-1, x] > 0) and (board1[y+1, x] + constraints[y+1, x] > 0) or (board1[y, x-1] + constraints[y, x-1] > 0) and (board1[y, x+1] + constraints[y, x+1] > 0)
+                        return (board[0, y-1, x, 1] + board[0, y-1, x, 3] > 0) and (board[0, y+1, x, 1] + board[0, y+1, x, 3] > 0) or (board[0, y, x-1, 1] + board[0, y, x-1, 3] > 0) and (board[0, y, x+1, 1] + board[0, y, x+1, 3] > 0)
 
     @staticmethod
     cdef (float, float) get_utility_bounds():
         return -1.0, 1.0
-
-    @cython.boundscheck(False)
-    @cython.wraparound(False)
-    def convert_board(self):
-        cdef np.ndarray[DTYPE_t, ndim = 3] newBoard = np.zeros((4, 9, 9), dtype=DTYPE)
-        newBoard[3] = whiteConstraints
-        newBoard[1] = self._board[1]
-
-        for y in range(9):
-            for x in range(9):
-                if self._board[0,y, x] == -1:
-                    newBoard[2, y, x] = 1
-                if self._board[0, y, x] == 1:
-                    newBoard[0, y, x] = 1
-
-        return newBoard
 
     cpdef actions(self):
         """Legal moves are any square not yet taken."""
@@ -649,10 +644,7 @@ cdef class AshtonTablut:
         cdef unicode next_to_move
 
         # Copio la board
-        cdef np.ndarray[DTYPE_t, ndim = 3] board = self._board.copy()
-
-        # Board da modificare
-        cdef DTYPE_t[:,:] move_board = board[0 if self._to_move == 'W' else 1]
+        cdef np.ndarray[DTYPE_t, ndim = 4] board = self._board.copy()
 
         cdef (int,int,int,int) c = number_to_coords(move)
         cdef int y0 = c[0]
@@ -660,14 +652,25 @@ cdef class AshtonTablut:
         cdef int y1 = c[2]
         cdef int x1 = c[3]
 
+        cdef DTYPE_t tmp
+
         cdef int utility = 0
         cdef int eaten = 0
         cdef np.ndarray moves
         cdef bint winCheck
 
-        tmp = move_board[y0, x0]
-        move_board[y0, x0] = 0
-        move_board[y1, x1] = tmp
+        if self._to_move == 'B':
+            tmp = board[0, y0, x0, 1]
+            board[0, y0, x0, 1] = 0
+            board[0, y1, x1, 1] = tmp
+        else:
+            if board[0, y0, x0, 2] == 1:
+                board[0, y0, x0, 2] = 0
+                board[0, y1, x1, 2] = 1
+            else:
+                tmp = board[0, y0, x0, 0]
+                board[0, y0, x0, 0] = 0
+                board[0, y1, x1, 0] = tmp
 
         # Controllo se mangio pedine
         eaten = AshtonTablut.check_eat(board, self._to_move, move)
@@ -705,7 +708,7 @@ cdef class AshtonTablut:
 
     def display(self):
         """Print or otherwise display the state."""
-        cdef np.ndarray[DTYPE_t, ndim = 3] board = self.convert_board()
+        cdef np.ndarray[DTYPE_t, ndim = 3] board = np.moveaxis(self._board[0], -1, 0)
         print(-board[0]+board[1]-20*board[2]+10*board[3])
 
 # ______________________________________________________________________________
@@ -758,8 +761,9 @@ cdef class Search:
 
     @cython.boundscheck(False)
     @cython.wraparound(False)
-    cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+    cdef (float, bint) max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
         cdef float v = -np.inf
+        cdef float tmp
         cdef int[:] moves = state.actions()
         cdef int a
         cdef float utility = 0.0
@@ -771,23 +775,25 @@ cdef class Search:
             utility = state.utility(player)
             if utility == 0.0:
                 self.heuristic_used = True
-                return state.eval_fn(parent_state, player)
-            return utility
+                return state.eval_fn(parent_state, player), False
+            return utility, True
                 
             
         for a in moves:
             next_state = state.result(a)             
-            v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
+            tmp, _ = self.min_value(state, next_state, player, alpha, beta, depth + 1)
+            v = max(tmp,v)
             if v >= beta:
-                return v
+                return v, True
             alpha = max(alpha, v)
 
-        return v
+        return v, True
 
     @cython.boundscheck(False)
     @cython.wraparound(False)
-    cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+    cdef (float, bint) min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
         cdef float v = np.inf
+        cdef float tmp
         cdef int[:] moves = state.actions()
         cdef int a
 
@@ -798,18 +804,19 @@ cdef class Search:
             utility = state.utility(player)
             if utility == 0.0:
                 self.heuristic_used = True
-                return state.eval_fn(parent_state, player)
-            return utility
+                return state.eval_fn(parent_state, player), False
+            return utility, True
         
         for a in moves:
             next_state = state.result(a)           
-            v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+            tmp, _ = self.max_value(state, next_state, player, alpha, beta, depth + 1)
+            v = min(tmp,v)
 
             if v <= alpha:
-                return v
+                return v, True
             beta = min(beta, v)
 
-        return v 
+        return v, True
 
     def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):
         """Search game to determine best action; use alpha-beta pruning.
@@ -839,7 +846,7 @@ cdef class Search:
             if next_state.utility(player) >= 1.0:
                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
 
-            v = self.min_value(state, next_state, player, best_score, beta, 1)
+            v, _ = self.min_value(state, next_state, player, best_score, beta, 1)
 
             if v >= 1.0:
                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
@@ -863,6 +870,7 @@ cdef class Search:
         cdef float best_score = -np.inf
         cdef float beta = np.inf
         cdef int best_action = 0
+        cdef bint update
 
         cdef float v = np.inf
         cdef int[:] moves = state.actions()
@@ -889,7 +897,7 @@ cdef class Search:
             if next_state.utility(player) >= 1.0:
                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
 
-            next_states.append((next_state, a, np.inf))
+            next_states.append((next_state, a, next_state.eval_fn(state, player)))
 
         while (get_time()-self.start_time) <= self.cutoff_time and self.heuristic_used:
             best_score = -np.inf
@@ -897,7 +905,13 @@ cdef class Search:
             tmp_states = []
 
             for next_state, a, v_prec in next_states:
-                v = min(self.min_value(state, next_state, player, best_score, beta, 1), v_prec)
+
+                v, update = self.min_value(state, next_state, player, best_score, beta, 1)
+
+                #Aggiorno la score del nodo solo se non è stata usata la euristica:
+                #Permette di tenere conto delle esplorazioni precedenti.
+                if not update:
+                    v = v_prec
                 tmp_states.append((next_state, a, v))
 
                 if v >= 1.0:
@@ -932,11 +946,9 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
     @cython.boundscheck(False)
     @cython.wraparound(False)
     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
-        # Spurio's evaluation function
+        # Spurio's evaluation function ( Modificata :) )
 
-        cdef DTYPE_t[:,:,:] board = state.board()
-        cdef DTYPE_t[:,:] allies = board[1]
-        cdef DTYPE_t[:,:] constraints = whiteConstraints
+        cdef DTYPE_t[:,:,:,:] board = state.board()
 
         cdef float count = 0.0
         cdef float countKing = 0.0
@@ -946,13 +958,13 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
 
         for y in range(9):
             for x in range(9):
-                if board[0,y,x] == -1:
+                if board[0, y, x, 2] == 1:
                     kingY, kingX = y,x
 
                     # Su
                     newY = y-1
                     while newY >= 0:
-                        if allies[newY, x]+constraints[newY, x] > 0:
+                        if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
                             countKing +=1 / (y-newY)
                             break
                         newY -=1
@@ -960,14 +972,14 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
                     # Giu
                     newY = y+1
                     while newY < 9:
-                        if allies[newY, x]+constraints[newY, x] > 0:
+                        if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
                             countKing +=1 / (newY-y)
                             break
                         newY +=1
                     # Sinistra
                     newX = x-1
                     while newX >= 0:
-                        if allies[y, newX]+constraints[y, newX] > 0:
+                        if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
                             countKing +=1 / (x-newX)
                             break
                         newX -=1
@@ -975,18 +987,18 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
                     # Destra
                     newX = x+1
                     while newX < 9:
-                        if allies[y, newX]+constraints[y, newX] > 0:
+                        if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
                             countKing +=1 / (newX-x)
                             break
                         newX +=1
 
-                elif board[0,y,x] == 1:
+                elif board[0, y, x, 0] == 1:
                     numpw += 1
 
                     # Su
                     newY = y-1
                     while newY >= 0:
-                        if allies[newY, x]+constraints[newY, x] > 0:
+                        if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
                             count +=1 / (y-newY)
                             break
                         newY -=1
@@ -994,14 +1006,14 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
                     # Giu
                     newY = y+1
                     while newY < 9:
-                        if allies[newY, x]+constraints[newY, x] > 0:
+                        if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
                             count +=1 / (newY-y)
                             break
                         newY +=1
                     # Sinistra
                     newX = x-1
                     while newX >= 0:
-                        if allies[y, newX]+constraints[y, newX] > 0:
+                        if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
                             count +=1 / (x-newX)
                             break
                         newX -=1
@@ -1009,12 +1021,12 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
                     # Destra
                     newX = x+1
                     while newX < 9:
-                        if allies[y, newX]+constraints[y, newX] > 0:
+                        if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
                             count +=1 / (newX-x)
                             break
                         newX +=1
 
-                elif board[1,y,x] == 1:
+                elif board[0, y, x, 1] == 1:
                     numpb += 1
 
         king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
@@ -1071,8 +1083,10 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
     @cython.boundscheck(False)
     @cython.wraparound(False)
     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
-        cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
-        cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
+        #cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
+        #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
+        cdef np.ndarray board0 = state.board()
+        cdef np.ndarray board1 = next_state.board()
 
         cdef float v
 
@@ -1126,62 +1140,62 @@ cdef inline double get_time():
     return current
 
 #------------------------------ Test ---------------------------------------------------------
-def test():
-    g = AshtonTablut.get_initial()
+# def test():
+#     g = AshtonTablut.get_initial()
 
-    st = get_time()
-    AshtonTablut.legal_actions_white(g.board())
-    print("White legal actions: {0} ms".format(1000*(get_time()-st)))
+#     st = get_time()
+#     AshtonTablut.legal_actions_white(g.board())
+#     print("White legal actions: {0} ms".format(1000*(get_time()-st)))
 
-    st = get_time()
-    AshtonTablut.legal_actions_black(g.board())
-    print("Black legal actions: {0} ms".format(1000*(get_time()-st)))
+#     st = get_time()
+#     AshtonTablut.legal_actions_black(g.board())
+#     print("Black legal actions: {0} ms".format(1000*(get_time()-st)))
 
-    st = get_time()
-    AshtonTablut.check_black_eat(g.board(), 0)
-    print("Black eat check: {0} ms".format(1000*(get_time()-st)))
+#     st = get_time()
+#     AshtonTablut.check_black_eat(g.board(), 0)
+#     print("Black eat check: {0} ms".format(1000*(get_time()-st)))
 
-    st = get_time()
-    AshtonTablut.check_white_eat(g.board(), 0)
-    print("White eat check: {0} ms".format(1000*(get_time()-st)))
-    fake_board = np.zeros((2, 9, 9), dtype=DTYPE)
+#     st = get_time()
+#     AshtonTablut.check_white_eat(g.board(), 0)
+#     print("White eat check: {0} ms".format(1000*(get_time()-st)))
+#     fake_board = np.zeros((2, 9, 9), dtype=DTYPE)
 
-    fake_board[0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, 1, 0, 1, 0, 0, 0],
-                              [0, 1, 0, 0, 0, 0, 0, 0, 0],
-                              [0, 0, 1, 0, 0, 1, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 1, 1, 0, 0],
-                              [0, 0, 0, 0, 0, 0, 0,-1, 0],
-                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
+#     fake_board[0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+#                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#                               [0, 0, 0, 1, 0, 1, 0, 0, 0],
+#                               [0, 1, 0, 0, 0, 0, 0, 0, 0],
+#                               [0, 0, 1, 0, 0, 1, 0, 0, 0],
+#                               [0, 0, 0, 0, 0, 1, 1, 0, 0],
+#                               [0, 0, 0, 0, 0, 0, 0,-1, 0],
+#                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
 
-    fake_board[1] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 1],
-                              [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                              [0, 1, 0, 0, 0, 0, 0, 0, 0],
-                              [1, 0, 0, 0, 0, 0, 0, 0, 0],
-                              [1, 0, 0, 0, 0, 0, 1, 0, 1],
-                              [0, 0, 0, 0, 1, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 1, 0, 0, 1],
-                              [0, 0, 0, 0, 0, 1, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
+#     fake_board[1] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 1],
+#                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#                               [0, 1, 0, 0, 0, 0, 0, 0, 0],
+#                               [1, 0, 0, 0, 0, 0, 0, 0, 0],
+#                               [1, 0, 0, 0, 0, 0, 1, 0, 1],
+#                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
+#                               [0, 0, 0, 0, 0, 1, 0, 0, 1],
+#                               [0, 0, 0, 0, 0, 1, 0, 0, 0],
+#                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
 
-    fake_state = AshtonTablut(
-        to_move='B', utility=0, board=fake_board, moves=AshtonTablut.legal_actions(fake_board, 'B'))
+#     fake_state = AshtonTablut(
+#         to_move='B', utility=0, board=fake_board, moves=AshtonTablut.legal_actions(fake_board, 'B'))
 
-    print(fake_state.actions())
+#     print(fake_state.actions())
 
-    st = get_time()
-    get_time()
-    print("Time: {0} ms".format(1000*(get_time()-st)))
+#     st = get_time()
+#     get_time()
+#     print("Time: {0} ms".format(1000*(get_time()-st)))
 
-    st = get_time()
-    ptime.time()
-    print("Time: {0} ms".format(1000*(get_time()-st)))
+#     st = get_time()
+#     ptime.time()
+#     print("Time: {0} ms".format(1000*(get_time()-st)))
 
-    st = get_time()
-    fake_state = fake_state.result(4839)
-    print("Result: {0} ms".format(1000*(get_time()-st)))
-    print(fake_state.utility('B'))
-    fake_state.display()
+#     st = get_time()
+#     fake_state = fake_state.result(4839)
+#     print("Result: {0} ms".format(1000*(get_time()-st)))
+#     print(fake_state.utility('B'))
+#     fake_state.display()
     

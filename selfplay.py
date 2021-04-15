@@ -1,7 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, Search, test
+from tablut import AshtonTablut, TablutConfig, Search
 
 import numpy as np
 
@@ -22,8 +22,8 @@ class SelfPlay():
     def have_captured(self, state, next_state):
         board = state.board()
         next_board = next_state.board()
-        a = np.sum(board[0]) - np.sum(next_board[0])
-        b = np.sum(board[1]) - np.sum(next_board[1])
+        a = np.sum(board[0,:,:,0]) - np.sum(next_board[0,:,:,0])
+        b = np.sum(board[0,:,:,1]) - np.sum(next_board[0,:,:,1])
         return a+b
 
     def have_draw(self, board):
@@ -53,11 +53,16 @@ class SelfPlay():
         have_draw = False
 
         while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
-            search = Search()
-
-            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
-                state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
+            print(current_state.actions())
             
+            search = Search()
+            if current_state.turn() % 2 == 0:
+                best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+                    state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
+            else:
+                best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+                    state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move*5)
+
             #best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
             #    state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
 
