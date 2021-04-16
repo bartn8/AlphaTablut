@@ -216,10 +216,10 @@ if __name__ == '__main__':
     converter.target_spec.supported_types = [tf.float16]
     quantized_tflite_model = converter.convert()
 
-    with open("model.tflite", "wb") as f:
+    with open("tablut.tflite", "wb") as f:
         f.write(quantized_tflite_model)
 
-    interpreter = tflite.Interpreter("model.tflite", num_threads=2)
+    interpreter = tflite.Interpreter("tablut.tflite", num_threads=2)
     interpreter.allocate_tensors()
 
     # Get input and output tensors.

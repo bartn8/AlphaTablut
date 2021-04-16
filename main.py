@@ -8,6 +8,9 @@ import os
 import argparse
 
 #Lancio automatico da args per rispettare le specifiche
+#Ruolo: 'Black', 'White', 'B', 'W'
+#Timeout
+#IP Address
 
 #Menu: Train, load pre-trained, play, self-play
 

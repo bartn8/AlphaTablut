@@ -1,7 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, TablutConfig, Search
+from tablut import AshtonTablut, TablutConfig, Search, test
 
 import numpy as np
 
@@ -53,15 +53,10 @@ class SelfPlay():
         have_draw = False
 
         while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
-            print(current_state.actions())
-            
             search = Search()
-            if current_state.turn() % 2 == 0:
-                best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+            
+            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                     state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
-            else:
-                best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
-                    state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move*5)
 
             #best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
             #    state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
@@ -90,6 +85,7 @@ class SelfPlay():
             self.game_history.append(current_state)
 
             current_state.display()
+            print(current_state.terminal_test())
 
             have_draw = self.have_draw(current_state.board)
 
@@ -109,6 +105,6 @@ class SelfPlay():
 
 
 if __name__ == '__main__':
-    #test()
-    self_play = SelfPlay(0, 1, 1, None)
-    self_play.play()
+    test()
+    #self_play = SelfPlay(0, 1, 1, None)
+    #self_play.play()
