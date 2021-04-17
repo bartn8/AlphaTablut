@@ -57,7 +57,7 @@ class SelfPlay():
             
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                     state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
-
+            
             #best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = iterative_deepening_alpha_beta_search(
             #    state=current_state, game=self.game, t=self.time_per_move, eval_fn=self.heuristic_eval)
 
@@ -73,7 +73,7 @@ class SelfPlay():
             captured = self.have_captured(current_state, best_next_state)
             if captured == 0:
                 self.steps_without_capturing += 1
-                self.draw_queue.append(current_state.board)
+                self.draw_queue.append(current_state.board())
             else:
                 self.steps_without_capturing = 0
                 self.draw_queue = []
@@ -85,9 +85,8 @@ class SelfPlay():
             self.game_history.append(current_state)
 
             current_state.display()
-            print(current_state.terminal_test())
 
-            have_draw = self.have_draw(current_state.board)
+            have_draw = self.have_draw(current_state.board())
 
         end = time.time()
 
@@ -105,6 +104,6 @@ class SelfPlay():
 
 
 if __name__ == '__main__':
-    test()
-    #self_play = SelfPlay(0, 1, 1, None)
-    #self_play.play()
+    #test()
+    self_play = SelfPlay(0, 1, 1, None)
+    self_play.play()

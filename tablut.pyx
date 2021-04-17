@@ -386,7 +386,7 @@ cdef class AshtonTablut:
                     newX +=1
 
         #Shuffle
-        for k in range(i//2):
+        for k in range(i//4):
             r = <int> drand48()*(i-1)
             tmp = legal[k]
             legal[k] = legal[r]
@@ -452,7 +452,7 @@ cdef class AshtonTablut:
                     newX +=1
 
         #Shuffle
-        for k in range(i//2):
+        for k in range(i//4):
             r = <int> drand48()*(i-1)
             tmp = legal[k]
             legal[k] = legal[r]
@@ -795,14 +795,18 @@ cdef class Search:
         cdef float beta = np.inf
         cdef int best_action = 0
 
+        cdef float tmp_best_score = -np.inf
+        cdef int tmp_best_action = 0
+
         cdef float v 
         cdef float v_prec
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
         cdef int a = 0
 
-        cdef AshtonTablut best_next_state
-        cdef AshtonTablut next_state
+        cdef AshtonTablut tmp_best_next_state = None
+        cdef AshtonTablut best_next_state = None
+        cdef AshtonTablut next_state = None
 
         self.cutoff_time = cutoff_time
         self.current_cutoff_depth = initial_cutoff_depth
@@ -825,37 +829,38 @@ cdef class Search:
                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
 
             next_states.append((next_state, a, next_state.eval_fn(state, player)))
+        
+        next_states = sorted(next_states, key=key_function, reverse=True)
 
         while (get_time()-self.start_time) <= self.cutoff_time and self.heuristic_used:
-            best_score = -np.inf
+            tmp_best_score = -np.inf
             self.heuristic_used = False
             tmp_states = []
 
-            for next_state, a, v_prec in next_states:
+            for next_state, a, _ in next_states:
                 v = self.min_value(state, next_state, player, best_score, beta, 1)
-
-                #Aggiorno la score del nodo solo se non è scaduto il tempo:
-                #Permette di tenere conto delle esplorazioni precedenti.
-                if (get_time()-self.start_time) > self.cutoff_time:
-                    v = v_prec
 
                 tmp_states.append((next_state, a, v))
 
-                if v >= 1:
+                if v >= 1.0:
                     return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
-                if v > best_score:
-                    best_next_state = next_state
-                    best_score = v
-                    best_action = a
-            
+                if v > tmp_best_score:
+                    tmp_best_next_state = next_state
+                    tmp_best_score = v
+                    tmp_best_action = a
+
+            if (get_time()-self.start_time) <= self.cutoff_time:
+                #Ho esplorato tutti i nodi: posso aggiornare il vero best
+                best_score = tmp_best_score
+                best_action = tmp_best_action
+                best_next_state = tmp_best_next_state
+
             tmp_states = sorted(tmp_states, key=key_function, reverse=True)
             next_states = tmp_states
             self.current_cutoff_depth += 1
 
-            #print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(best_action), best_score, self.nodes_explored))
-            #for a in moves:
-            #    print("Action: {0}, score: {1}".format(number_to_coords(a), v_history[a]))
+            print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(best_action), best_score, self.nodes_explored))
 
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
@@ -956,12 +961,12 @@ cdef class OldSchoolHeuristicFunction(HeuristicFunction):
 
         if state.to_move() == 'W':
             if state.turn() >= 4:
-                score = (numpw / 4 -1) * 0.05 - (king_edge_distance / 2 -1) * 0.8 - (numpb / 8 -1) * 0.05 - ((countKing) / 2 -1) * 0.1
+                score = (numpw / 4 -1) * 0.1 - (king_edge_distance / 2 -1) * 0.5 - (numpb / 8 -1) * 0.1 - ((countKing) / 2 -1) * 0.3
             else:
                 score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
         else:
             if state.turn() >= 4:
-                score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.6 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.2
+                score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.5 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.3
             else:
                 score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1
 
