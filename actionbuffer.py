@@ -14,10 +14,10 @@ class ActionBuffer:
     BLACK_WINS = 'black_wins'
     DRAWS = 'draws'
 
-    def __init__(self, game):
+    def __init__(self, config):
         self.buffer = {}
         self._lock = threading.Lock()
-        self.input_shape = game.input_shape()
+        self.config = config
     
     def store_action(self, board0, board1, reward, weight):
         """
@@ -26,7 +26,7 @@ class ActionBuffer:
         reward: 1 if white wins, -1 if black wins, 0 otherwise
         weight: [0,1] reward update weight
         """
-        if (board0.shape, board1.shape) != (self.input_shape, self.input_shape):
+        if (board0.shape, board1.shape) != (self.config.observation_shape, self.config.observation_shape):
             raise Exception("Board shape mismatch")
 
         if np.array_equal(board0, board1):
@@ -61,8 +61,8 @@ class ActionBuffer:
         keys = len(self.buffer)
         
         #X Data
-        board0 = np.zeros((keys, self.input_shape[1], self.input_shape[2], self.input_shape[0]), dtype=np.float32)
-        board1 = np.zeros((keys, self.input_shape[1], self.input_shape[2], self.input_shape[0]), dtype=np.float32)
+        board0 = np.zeros((keys, self.input_shape[1], self.input_shape[2], self.input_shape[3]), dtype=np.float32)
+        board1 = np.zeros((keys, self.input_shape[1], self.input_shape[2], self.input_shape[3]), dtype=np.float32)
 
         #Y Data
         values = np.zeros((keys), dtype=np.float32)
@@ -75,22 +75,25 @@ class ActionBuffer:
             board1[i] = self.buffer[key][NEXT_STATE]
             values[i] = self.buffer[key][REWARD]
 
-          def generator():
+        def generator():
             for s1, s2, l in zip(sent1, sent2, labels):
             yield {"input_1": s1, "input_2": s2}, l
 
-        dataset = tf.data.Dataset.from_generator(generator, output_types=({"input_1": tf.int64, "input_2": tf.int64}, tf.int64))
+        tf.data.Dataset.from_tensor_slices((board0, board1, values))
+        dataset = tf.data.Dataset.from_generator(generator, output_types=({"input_1": tf.float32, "input_2": tf.float32}, tf.float32))
         dataset = dataset.batch(batch_size)
         return dataset
 
 
-    def save_buffer(self, filename="actionbuffer.bin"):
-        with open(filename, "wb") as f:
+    def save_buffer(self, folder="checkpoint", filename="actionbuffer.bin"):
+        filepath = os.path.join(folder, filename)
+        with open(filepath, "wb") as f:
             pickle.dump([self.buffer, self.input_shape], f)
 
 
-    def load_buffer(self, filename="actionbuffer.bin"):
-        with open(filename, "rb") as f:
+    def load_buffer(self, folder="checkpoint", filename="actionbuffer.bin"):
+        filepath = os.path.join(folder, filename)
+        with open(filepath, "rb") as f:
             self.buffer, self.input_shape = pickle.load(f)
 
 

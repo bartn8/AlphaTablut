@@ -10,7 +10,7 @@ from treeresnet import TreeResNetBuilder
 
 from tablut import TablutConfig
 
-#https://github.com/suragnair/alpha-zero-general
+# https://github.com/suragnair/alpha-zero-general
 
 
 class NeuralNet():
@@ -69,20 +69,21 @@ class NeuralNet():
 
 
 class TablutNNet(NeuralNet):
-    def __init__(self, restoreFromCheckpoint = False):
+    def __init__(self, restoreFromCheckpoint=False):
         self.config = TablutConfig()
 
         if restoreFromCheckpoint:
             self.load_checkpoint()
         else:
 
-            self.nnet = TreeResNetBuilder.build(self.config.observation_shape, 1, self.config.num_filters)
+            self.nnet = TreeResNetBuilder.build(
+                self.config.observation_shape, 1, self.config.num_filters)
 
             self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.lr_init,
                           loss=tf.keras.losses.MeanSquaredError(),
                           metrics=[tf.keras.metrics.Mean()])
 
-            self.training_steps = 0
+            self.training_steps=0
 
     def train(self, data_function):
         """
@@ -90,7 +91,8 @@ class TablutNNet(NeuralNet):
         """
 
         print("Training step: {0}".format(self.training_steps))
-        self.history = self.nnet.fit(data_function(self.config.batch_size), epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps)
+        self.history=self.nnet.fit(data_function(
+            self.config.batch_size), epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps)
 
         self.training_steps += self.config.epochs
 
@@ -106,14 +108,16 @@ class TablutNNet(NeuralNet):
         board1: np array with next board
         """
 
-        #preparing input
-        board0 = tf.reshape(board0, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
-        board1 = tf.reshape(board1, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
+        # preparing input
+        board0=tf.reshape(
+            board0, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
+        board1=tf.reshape(
+            board1, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
 
         # run
-        v = self.nnet([board0, board1])
-        v = tf.reshape(v, (-1))
-        
+        v=self.nnet([board0, board1])
+        v=tf.reshape(v, (-1))
+
         return v[0]
 
     def predicts(self, boards0, boards1):
@@ -126,49 +130,55 @@ class TablutNNet(NeuralNet):
             raise Exception("Batch elements must be the same")
 
 
-        #preparing input
-        boards0 = tf.reshape(boards0, (boards0.shape[0], self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
-        boards1 = tf.reshape(boards1, (boards1.shape[0], self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
+        # preparing input
+        boards0=tf.reshape(boards0, (boards0.shape[0], self.config.observation_shape[1],
+                           self.config.observation_shape[2], self.config.observation_shape[0]))
+        boards1=tf.reshape(boards1, (boards1.shape[0], self.config.observation_shape[1],
+                           self.config.observation_shape[2], self.config.observation_shape[0]))
 
-        v = self.nnet.predict([boards0, boards1])
+        v=self.nnet.predict([boards0, boards1])
 
         return tf.reshape(v, (-1))
 
 
     def save_checkpoint(self, folder='checkpoint', filename='tablut'):
-        filepath = os.path.join(folder, filename)
+        filepath=os.path.join(folder, filename)
         if not os.path.exists(folder):
-            print("Checkpoint Directory does not exist! Making directory {}".format(folder))
+            print(
+                "Checkpoint Directory does not exist! Making directory {}".format(folder))
             os.mkdir(folder)
         else:
             print("Checkpoint Directory exists! ")
-        
+
         if self.nnet is not None:
             self.nnet.save(filepath)
 
-            data = {'training_steps': self.training_steps, 'history': self.history, 'config': self.config}
+            data={'training_steps': self.training_steps,
+                'history': self.history, 'config': self.config}
 
             with open(os.path.join(folder, filename+".data"), "w") as f:
                 json.dump(data, f)
-            
-            
+
+
     def load_checkpoint(self, folder='checkpoint', filename='tablut'):
-        filepath = os.path.join(folder, filename)
-        
-        self.nnet = tf.keras.models.load_model(filepath)
+        filepath=os.path.join(folder, filename)
+
+        self.nnet=tf.keras.models.load_model(filepath)
 
         with open(os.path.join(folder, filename+".data"), "r") as f:
-            data = json.load(f)
-            self.training_steps = data['training_steps']
-            self.config = data['config']
-            self.history = data['history']
+            data=json.load(f)
+            self.training_steps=data['training_steps']
+            self.config=data['config']
+            self.history=data['history']
 
 
-    def tflite_optimization(self, filename='tablut.tflite'):
-        converter = tf.lite.TFLiteConverter.from_keras_model(model)
-        converter.optimizations = [tf.lite.Optimize.DEFAULT]
-        converter.target_spec.supported_types = [tf.float16]
-        quantized_tflite_model = converter.convert()
+    def tflite_optimization(self, folder='checkpoint', filename='tablut.tflite'):
+        filepath=os.path.join(folder, filename)
 
-        with open(filename, "wb") as f:
+        converter=tf.lite.TFLiteConverter.from_keras_model(model)
+        converter.optimizations=[tf.lite.Optimize.DEFAULT]
+        converter.target_spec.supported_types=[tf.float16]
+        quantized_tflite_model=converter.convert()
+
+        with open(filepath, "wb") as f:
             f.write(quantized_tflite_model)

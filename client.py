@@ -7,14 +7,18 @@ import numpy as np
 #from tablut import AshtonTablut, TablutConfig, Search, NeuralHeuristicFunction
 from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
 
-#Modified from: https://github.com/Jippiter/TablutGo/blob/main/src/TablutGoClient.py
+# Modified from: https://github.com/Jippiter/TablutGo/blob/main/src/TablutGoClient.py
 
-#Connection Handler------------------------------------------------------------------
+# Connection Handler------------------------------------------------------------------
+
 
 class ConnectionException(Exception):
     pass
+
+
 class ConnectionClosedException(ConnectionException):
     pass
+
 
 class ConnectionHandler:
     def __init__(self, host, port):
@@ -31,7 +35,8 @@ class ConnectionHandler:
         msg = message + '\r\n'
         length = len(msg)
         try:
-            self.socket.sendall(length.to_bytes(4, 'big') + bytes(msg, 'utf-8'))
+            self.socket.sendall(length.to_bytes(
+                4, 'big') + bytes(msg, 'utf-8'))
         except OSError as e:
             print(e)
             exit()
@@ -40,13 +45,13 @@ class ConnectionHandler:
         length = b''
         while len(length) < 4:
             try:
-                data = self.socket.recv(4 - len(length))            
+                data = self.socket.recv(4 - len(length))
             except OSError as e:
                 raise ConnectionException(e)
             if data:
                 length += data
             else:
-                raise ConnectionClosedException("Connection aborted!");
+                raise ConnectionClosedException("Connection aborted!")
         length = int.from_bytes(length, 'big')
         message = b''
         while len(message) < length:
@@ -57,14 +62,16 @@ class ConnectionHandler:
             if data:
                 message += data
             else:
-                raise ConnectionClosedException("Connection aborted!");    
+                raise ConnectionClosedException("Connection aborted!")
         message = message.decode('utf-8')
         return length, message
 
-#---------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------
+
 
 class CommandLineException(Exception):
     pass
+
 
 def send_move(connHandle, action, player):
     y0, x0, y1, x1 = AshtonTablut.num_to_coords(action)
@@ -73,14 +80,15 @@ def send_move(connHandle, action, player):
     row = "123456789"
 
     move = {
-      "from": col[x0]+row[y0],
-      "to": col[x1]+row[y1],
-      "turn": "WHITE" if player == 'W' else 'BLACK'
+        "from": col[x0]+row[y0],
+        "to": col[x1]+row[y1],
+        "turn": "WHITE" if player == 'W' else 'BLACK'
     }
 
     jsonData = json.dumps(move)
     connHandle.send(jsonData)
     logging.debug("Sent Data JSON: {0}".format(jsonData))
+
 
 def JSON_to_local_state(data, turn, heuristic):
     logging.debug("Received Data JSON: {0}".format(data))
@@ -89,9 +97,9 @@ def JSON_to_local_state(data, turn, heuristic):
     player = data['turn']
 
     board = AshtonTablut.get_initial_board()
-    board[0, :, :, 0] = np.zeros((9,9), dtype=np.int8)
-    board[0, :, :, 1] = np.zeros((9,9), dtype=np.int8)
-    board[0, :, :, 2] = np.zeros((9,9), dtype=np.int8)
+    board[0, :, :, 0] = np.zeros((9, 9), dtype=np.int8)
+    board[0, :, :, 1] = np.zeros((9, 9), dtype=np.int8)
+    board[0, :, :, 2] = np.zeros((9, 9), dtype=np.int8)
 
     for i in range(9):
         for j in range(9):
@@ -104,8 +112,9 @@ def JSON_to_local_state(data, turn, heuristic):
 
     return AshtonTablut.parse_board(board, player, turn, heuristic), player
 
+
 def game_loop(args):
-    #Args
+    # Args
     player = args.player.upper()[0]
     playing_player = 'W'
     timeout = args.timeout
@@ -113,18 +122,17 @@ def game_loop(args):
 
     port = 5800 if player == 'W' else 5801
 
-    #Network loading
+    # Network loading
     #heuristic = NeuralHeuristicFunction()
-    
-    #if heuristic.init_tflite():
-    #    logging.info("Netowrk loaded successfully")
-    #else:
-    #    logging.info("Netowrk loading error")
 
+    # if heuristic.init_tflite():
+    #    logging.info("Netowrk loaded successfully")
+    # else:
+    #    logging.info("Netowrk loading error")
 
     heuristic = OldSchoolHeuristicFunction()
     turn = 0
-    
+
     # Start connection
     connHandle = ConnectionHandler(host, port)
     connHandle.send('AlphaTablut')
@@ -133,23 +141,27 @@ def game_loop(args):
     while True:
         try:
             length, message = connHandle.recv()
-            
+
             logging.debug("Received message of length {}".format(length))
 
             if message:
                 # Sync local state with server state
                 data = json.loads(message)
-                state, playing_player = JSON_to_local_state(data, turn, heuristic)
-                
-                logging.info("Turn {0}: {1} is playing".format(turn, playing_player))
+                state, playing_player = JSON_to_local_state(
+                    data, turn, heuristic)
+
+                logging.info("Turn {0}: {1} is playing".format(
+                    turn, playing_player))
 
                 state.display()
 
                 if playing_player == 'WHITEWIN':
-                    logging.info("We {} GG WP!".format('WON' if playing_player[0] == player else 'LOST'))
+                    logging.info("We {} GG WP!".format(
+                        'WON' if playing_player[0] == player else 'LOST'))
                     break
                 elif playing_player == 'WHITEWIN':
-                    logging.info("We {} GG WP!".format('WON' if playing_player[0] == player else 'LOST'))
+                    logging.info("We {} GG WP!".format(
+                        'WON' if playing_player[0] == player else 'LOST'))
                     break
                 elif playing_player == 'DRAW':
                     logging.info("We {} GG WP!".format('DREW'))
@@ -159,7 +171,7 @@ def game_loop(args):
 
                     search = Search()
                     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
-                    state=state, initial_cutoff_depth=4, cutoff_time=59)
+                        state=state, initial_cutoff_depth=4, cutoff_time=59)
 
                     send_move(connHandle, best_action, player)
                     logging.debug("Action sent!")
@@ -167,16 +179,16 @@ def game_loop(args):
                     best_action = AshtonTablut.num_to_coords(best_action)
                     logging.info("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}".format(
                         player,
-                         (best_action[0], best_action[1]), 
-                         (best_action[2], best_action[3]),
-                          search_time,
-                           max_depth,
-                            nodes_explored,
-                             best_score))
+                        (best_action[0], best_action[1]),
+                        (best_action[2], best_action[3]),
+                        search_time,
+                        max_depth,
+                        nodes_explored,
+                        best_score))
                 else:
                     logging.info("Waiting...")
 
-                turn +=1
+                turn += 1
         except ConnectionException as e:
             logging.debug(e)
             logging.info("Coonection lost: {}".format(playing_player))
@@ -186,8 +198,8 @@ def game_loop(args):
 
 
 def main():
-    #Il client è stato lanciato.
-    #Faccio un parsing degli argomenti
+    # Il client è stato lanciato.
+    # Faccio un parsing degli argomenti
     argparser = argparse.ArgumentParser(
         description='AlphaTablut Client')
 
@@ -226,6 +238,7 @@ def main():
         game_loop(args)
     except KeyboardInterrupt:
         print('\nCancelled by user. Bye!')
+
 
 if __name__ == '__main__':
     main()

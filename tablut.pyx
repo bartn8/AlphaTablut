@@ -1,4 +1,5 @@
-#cython: language_level=3, boundscheck=False, wraparound=False, cdivision=False 
+#!python 
+#cython: embedsignature=True, binding=True, language_level=3, boundscheck=False, wraparound=False, cdivision=False 
 #distutils: extra_compile_args = -march=native
 
 
@@ -38,8 +39,8 @@ class TablutConfig:
         self.seed = 0  # Seed for numpy, torch and the game
 
         # Game
-        # Dimensions of the game observation, must be 3D (channel, height, width). For a 1D array, please reshape it to (1, 1, length of array)
-        self.observation_shape = (4, 9, 9)
+        # Dimensions of the game observation
+        self.observation_shape = (1, 9, 9, 4)
         # Fixed list of all possible actions. You should only edit the length
         self.action_space = list(range(6561))
         # List of players. You should only edit the length
@@ -76,6 +77,12 @@ class TablutConfig:
 
         # Exponential learning rate schedule
         self.lr_init = 0.003  # Initial learning rate
+
+        # Save
+        self.folder = "checkpoint"
+        self.checkpoint_name = "tablut"
+        self.action_buffer_name = "actionbuffer.bin"
+        self.tflite_model = "tablut.tflite"
 
 #------------------------------ Tablut Game -------------------------------------------------------
 
@@ -277,7 +284,7 @@ cdef class AshtonTablut:
         self._utility = 0
 
         if heuristic is None:
-            heuristic = OldSchoolHeuristicFunction()
+            heuristic = HeuristicFunction()
 
         self._heuristic = heuristic
 
