@@ -82,7 +82,7 @@ class ActionBuffer:
 
         def generator():
             for s1, s2, l in zip(sent1, sent2, labels):
-            yield {"input_1": s1, "input_2": s2}, l
+                yield {"input_1": s1, "input_2": s2}, l
 
         #tf.data.Dataset.from_tensor_slices((board0, board1, values))
         dataset = tf.data.Dataset.from_generator(generator, output_types=(

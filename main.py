@@ -7,14 +7,15 @@ import ray
 import time
 import os
 import argparse
+import logging
 
 
 class AlphaTablut:
 
     def __init__(self):
         self.config = TablutConfig()
-        self.action_buffer = ActionBuffer(config)
-        self.nnet = TreeResNNet(config)
+        self.action_buffer = ActionBuffer(self.config)
+        self.nnet = TreeResNNet(self.config)
     
     def check_saving_folder(self):
         folder = self.config.folder
@@ -77,7 +78,7 @@ def trainer_worker(tablut):
     pass
 
 def menu_train(tablut):
-    print("Done.")
+    print("Not implemented yet.")
 
 
 def menu_load(tablut):
@@ -119,11 +120,15 @@ def menu_play(tablut):
         print("Tflite model not found... Using OldSchoolHeuristic")
         heuristic = OldSchoolHeuristicFunction()
 
+    search = Search()
     current_state = AshtonTablut.get_initial(heuristic)
 
     #Faccio partire il game loop
     while not current_state.terminal_test():
         current_player = current_state.to_move()
+
+        print("Current Player: {0}".format(current_player))
+        current_state.display()
 
         if current_player == player:
             input_valid = False
@@ -144,23 +149,31 @@ def menu_play(tablut):
 
                 if action in actions:
                     input_valid = True
-            
+
+            print("You have chosen {0} -> {1}".format(action[:2], action[2:4]))
+
             action = AshtonTablut.coords_to_num(action[0], action[1], action[2], action[3])
-
-            current_state.result(action)
+            current_state = current_state.result(action)
         else:
-            search = Search()
-
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                 state=current_state, initial_cutoff_depth=2, cutoff_time=time)
 
-            
-        current_state.display()
+            best_action = AshtonTablut.num_to_coords(best_action)
+            print("AlphaTablut has chosen {0} -> {1}".format(best_action[:2], best_action[2:4]))
+            current_state = best_next_state
 
+    utility = current_state.utility(player)
+
+    if utility >= 1:
+        print("You Won!")
+    elif utility <= -1:
+        print("You Lost!")
+
+    print("Done.")
 
 
 def menu_selfplay(tablut):
-
+    print("Not implemented yet.")
 
 
 def repl(args):
@@ -212,8 +225,8 @@ def main():
 
     args = argparser.parse_args()
 
-    log_level = logging.DEBUG if args.debug else logging.INFO
-    logging.basicConfig(format='%(levelname)s: %(message)s', level=log_level)
+    #log_level = logging.DEBUG if args.debug else logging.INFO
+    #logging.basicConfig(format='%(levelname)s: %(message)s', level=log_level)
 
     repl(args)
 

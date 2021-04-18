@@ -51,11 +51,14 @@ class SelfPlay():
 
         have_draw = False
 
-        while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
-            search = Search()
+        search = Search()
 
+        while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                 state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
+            
+            #            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.cutoff_search(
+            #    state=current_state, cutoff_depth=3, cutoff_time=self.time_per_move)
 
             captured = self.have_captured(current_state, best_next_state)
             if captured == 0:

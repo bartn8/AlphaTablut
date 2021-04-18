@@ -17,6 +17,9 @@ from libc.time cimport time
 
 from cpython.mem cimport PyMem_Malloc, PyMem_Free
 
+from cpython cimport array
+import array
+
 # tag: numpy
 import numpy as np
 cimport numpy as np
@@ -41,6 +44,8 @@ class TablutConfig:
         # Game
         # Dimensions of the game observation
         self.observation_shape = (1, 9, 9, 4)
+        #(nb_t, nb_channels, nb_rows, nb_cols) (nb_t >= 2)
+        self.network_input_shape = (2, 4, 9, 9)
         # Fixed list of all possible actions. You should only edit the length
         self.action_space = list(range(6561))
         # List of players. You should only edit the length
@@ -490,10 +495,10 @@ cdef class AshtonTablut:
         cdef int captured = 0
 
         # Controlli U,D,L,R
-        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 0] + board[0, y-1, x, 3] == 0 and board[0, y-2, x, 1] == 0 and board[0, y-1, x, 1] == 1
-        cdef bint lookDown = y+2 < 9 and board[0, y+1, x, 0] + board[0, y+1, x, 3] == 0 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1 and board[0, y+2, x, 1] == 0
-        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 0] + board[0, y, x-1, 3] == 0 and board[0, y, x-2, 1] == 0 and board[0, y, x-1, 1] == 1
-        cdef bint lookRight = x+2 < 9 and board[0, y, x+1, 0] + board[0, y, x+1, 3] == 0 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1 and board[0, y, x+2, 1] == 0
+        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] == 1
+        cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1
+        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] == 1
+        cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1
 
         if lookUp:
             board[0, y-1, x, 1] = 0
@@ -521,10 +526,10 @@ cdef class AshtonTablut:
         cdef int captured = 0
 
         # Controlli U,D,L,R
-        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 1] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] + board[0, y-1, x, 3] == 0 and board[0, y-2, x, 0] == 0 and board[0, y-1, x, 0] == 1
-        cdef bint lookDown = y+2 < 9 and board[0, y+1, x, 1] + board[0, y+1, x, 3] == 0 and board[0, y+2, x, 1] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 0] == 1 and board[0, y+2, x, 0] == 0
-        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 1] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] + board[0, y, x-1, 3] == 0 and board[0, y, x-2, 0] == 0 and board[0, y, x-1, 0] == 1
-        cdef bint lookRight = x+2 < 9 and board[0, y, x+1, 1] + board[0, y, x+1, 3] == 0 and board[0, y, x+2, 1] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 0] == 1 and board[0, y, x+2, 0] == 0
+        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 1] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 0] == 1
+        cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 1] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 0] == 1
+        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 1] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 0] == 1
+        cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 1] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 0] == 1
 
         if lookUp:
             board[0, y-1, x, 0] = 0
@@ -677,8 +682,7 @@ cdef class Search:
     cdef long max_depth
     cdef double start_time
     cdef double cutoff_time 
-    cdef long current_cutoff_depth 
-    cdef bint heuristic_used
+    cdef long current_cutoff_depth
 
     def __init__(self):
         self.nodes_explored = 0
@@ -686,26 +690,22 @@ cdef class Search:
         self.start_time = 0.0
         self.cutoff_time = 0.0
         self.current_cutoff_depth = 0
-        self.heuristic_used = False
 
     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
-        cdef float v = -np.inf
-        cdef float tmp
         cdef int* moves = state._moves
-        cdef int moves_length = state.actions_length()
+        cdef int moves_length = state._moves_length
+        cdef float v = -np.inf
         cdef int a
-        cdef int utility = 0
+        cdef bint terminal = state.terminal_test()
 
         self.nodes_explored += 1
         self.max_depth = max(self.max_depth, depth)
 
-        if depth > self.current_cutoff_depth or state.terminal_test() or (get_time()-self.start_time) > self.cutoff_time:
-            utility = state.utility(player)
-            if utility != 0:
-                return <float>utility
-            else:
-                self.heuristic_used = True
-                return state.eval_fn(parent_state, player)
+        if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
+            if terminal:
+                return state.utility(player)
+            
+            return state.eval_fn(parent_state, player)
                 
         for i in range(moves_length):
             a = moves[i]
@@ -719,23 +719,20 @@ cdef class Search:
         return v
 
     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
-        cdef float v = np.inf
-        cdef float tmp
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
+        cdef float v = np.inf
         cdef int a
-        cdef int utility = 0
+        cdef bint terminal = state.terminal_test()
 
         self.nodes_explored += 1
         self.max_depth = max(self.max_depth, depth)
 
-        if depth > self.current_cutoff_depth or state.terminal_test() or (get_time()-self.start_time) > self.cutoff_time:
-            utility = state.utility(player)
-            if utility != 0:
-                return <float>utility
-            else:
-                self.heuristic_used = True
-                return state.eval_fn(parent_state, player)
+        if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
+            if terminal:
+                return state.utility(player)
+            
+            return state.eval_fn(parent_state, player)
 
         for i in range(moves_length):
             a = moves[i]
@@ -757,14 +754,13 @@ cdef class Search:
         cdef float best_score = -np.inf
         cdef float beta = np.inf
         cdef int best_action = 0
-
-        cdef float v
+        cdef AshtonTablut best_next_state = None
+        cdef AshtonTablut next_state = None
+        
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
-        cdef int a = 0
-
-        cdef AshtonTablut best_next_state
-        cdef AshtonTablut next_state
+        cdef float v
+        cdef int a
 
         self.cutoff_time = cutoff_time
         self.current_cutoff_depth = cutoff_depth
@@ -789,8 +785,6 @@ cdef class Search:
                 best_score = v
                 best_action = a
 
-            #print("Action: {0}, score: {1}".format(number_to_coords(a), v))
-        
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
     def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):
@@ -803,14 +797,13 @@ cdef class Search:
         cdef float beta = np.inf
         cdef int best_action = 0
 
-        cdef float tmp_best_score = -np.inf
-        cdef int tmp_best_action = 0
-
-        cdef float v 
-        cdef float v_prec
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
-        cdef int a = 0
+        cdef float v 
+        cdef int a    
+
+        cdef ActionStore store = ActionStore()
+        cdef ActionStore next_store
 
         cdef AshtonTablut tmp_best_next_state = None
         cdef AshtonTablut best_next_state = None
@@ -821,56 +814,66 @@ cdef class Search:
         self.start_time = get_time()
         self.nodes_explored = 0
         self.max_depth = 0
-        self.heuristic_used = True
-
-        #Pre-check vittoria e ordinamento seguendo la depth precedente
-        def key_function(x):
-            return x[2]
-
-        next_states = []
 
         for i in range(moves_length):
             a = moves[i]
             next_state = state.result(a)
-
-            if next_state.utility(player) >= 1:
-                return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
-
-            next_states.append((next_state, a, next_state.eval_fn(state, player)))
+            store.add(a, next_state.eval_fn(state, player))
         
-        next_states = sorted(next_states, key=key_function, reverse=True)
+        while (get_time()-self.start_time) <= self.cutoff_time:
+            next_store = ActionStore()
+            
+            for i in range(store.size()):
+                a = store.actions[i]
+                next_state = state.result(a)
 
-        while (get_time()-self.start_time) <= self.cutoff_time and self.heuristic_used:
-            tmp_best_score = -np.inf
-            self.heuristic_used = False
-            tmp_states = []
-
-            for next_state, a, _ in next_states:
                 v = self.min_value(state, next_state, player, best_score, beta, 1)
 
-                tmp_states.append((next_state, a, v))
+                if (get_time()-self.start_time) > self.cutoff_time:
+                    break
 
-                if v >= 1.0:
-                    return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+                next_store.add(a, v)
 
-                if v > tmp_best_score:
-                    tmp_best_next_state = next_state
-                    tmp_best_score = v
-                    tmp_best_action = a
+            if next_store.size() > 0:
+                store = next_store
+                if (get_time()-self.start_time) <= self.cutoff_time:
+                    if v >= 1.0:
+                        return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
-            if (get_time()-self.start_time) <= self.cutoff_time:
-                #Ho esplorato tutti i nodi: posso aggiornare il vero best
-                best_score = tmp_best_score
-                best_action = tmp_best_action
-                best_next_state = tmp_best_next_state
 
-            tmp_states = sorted(tmp_states, key=key_function, reverse=True)
-            next_states = tmp_states
             self.current_cutoff_depth += 1
 
-            print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(best_action), best_score, self.nodes_explored))
+            print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(store.actions[0]), store.utils[0], self.nodes_explored))
+
+        if store.size() > 0:
+            best_action = store.actions[0]
+            best_score = store.utils[0]
+            best_next_state = next_state = state.result(best_action)
+
 
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+
+
+cdef class ActionStore:
+    cdef array.array actions
+    cdef array.array utils
+
+    def __init__(self):
+        self.actions = array.array('i')
+        self.utils = array.array('f')
+    
+    cpdef add(self, int action, float value):
+        cdef int idx = 0
+        
+        while idx < len(self.actions) and value <= self.utils[idx]:
+            idx +=1
+        
+        self.actions.insert(idx, action)
+        self.utils.insert(idx, value)
+
+    cpdef size(self):
+        return len(self.actions)
+
 
 #------------------------------ Heuristic function --------------------------------------------
 

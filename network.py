@@ -76,9 +76,9 @@ class TreeResNNet(NeuralNet):
             self.load_checkpoint()
         else:
             self.nnet = TreeResNetBuilder.build(
-                self.config.observation_shape, 1, self.config.num_filters)
+                self.config.network_input_shape, 1, self.config.num_filters)
 
-            self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.lr_init,
+            self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.lr_init),
                           loss=tf.keras.losses.MeanSquaredError(),
                           metrics=[tf.keras.metrics.Mean()])
 
