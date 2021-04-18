@@ -21,7 +21,7 @@ class NeuralNet():
     the canonical form of the board.
     """
 
-    def __init__(self, game):
+    def __init__(self, config):
         pass
 
     def train(self, data_function):
@@ -68,14 +68,13 @@ class NeuralNet():
         pass
 
 
-class TablutNNet(NeuralNet):
-    def __init__(self, restoreFromCheckpoint=False):
-        self.config = TablutConfig()
+class TreeResNNet(NeuralNet):
+    def __init__(self, config, restoreFromCheckpoint=False):
+        self.config = config
 
         if restoreFromCheckpoint:
             self.load_checkpoint()
         else:
-
             self.nnet = TreeResNetBuilder.build(
                 self.config.observation_shape, 1, self.config.num_filters)
 
@@ -141,8 +140,13 @@ class TablutNNet(NeuralNet):
         return tf.reshape(v, (-1))
 
 
-    def save_checkpoint(self, folder='checkpoint', filename='tablut'):
+    def save_checkpoint(self):
+        folder=self.config.folder
+        filename=self.config.checkpoint_name
+        filename_meta = self.config.checkpoint_metadata
         filepath=os.path.join(folder, filename)
+        filepath_meta=os.path.join(folder, filename)
+
         if not os.path.exists(folder):
             print(
                 "Checkpoint Directory does not exist! Making directory {}".format(folder))
@@ -156,23 +160,29 @@ class TablutNNet(NeuralNet):
             data={'training_steps': self.training_steps,
                 'history': self.history, 'config': self.config}
 
-            with open(os.path.join(folder, filename+".data"), "w") as f:
+            with open(filepath_meta, "w") as f:
                 json.dump(data, f)
 
 
-    def load_checkpoint(self, folder='checkpoint', filename='tablut'):
+    def load_checkpoint(self):
+        folder=self.config.folder
+        filename=self.config.checkpoint_name
+        filename_meta = self.config.checkpoint_metadata
         filepath=os.path.join(folder, filename)
+        filepath_meta=os.path.join(folder, filename)
 
         self.nnet=tf.keras.models.load_model(filepath)
 
-        with open(os.path.join(folder, filename+".data"), "r") as f:
+        with open(filepath_meta, "r") as f:
             data=json.load(f)
             self.training_steps=data['training_steps']
             self.config=data['config']
             self.history=data['history']
 
 
-    def tflite_optimization(self, folder='checkpoint', filename='tablut.tflite'):
+    def tflite_optimization(self):
+        folder=self.config.folder
+        filename=self.config.tflite_model
         filepath=os.path.join(folder, filename)
 
         converter=tf.lite.TFLiteConverter.from_keras_model(model)

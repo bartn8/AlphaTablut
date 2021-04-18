@@ -1,7 +1,7 @@
 import os
 import time
 
-from tablut import AshtonTablut, Search, OldSchoolHeuristicFunction
+from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
 
 import numpy as np
 
@@ -40,7 +40,7 @@ class SelfPlay():
         return False
 
     def play(self):
-        current_state = AshtonTablut.get_initial()
+        current_state = AshtonTablut.get_initial(self.heuristic)
         player = current_state.to_move()
         max_moves = self.config.max_moves
         self.game_history = [current_state]

@@ -53,7 +53,7 @@ class TablutConfig:
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
         self.num_workers = 8
-        self.threads_per_worker = 2
+        self.threads_per_worker = 1
         self.max_moves = 50  # Maximum number of moves if game is not finished before
         self.max_depth = 2
 
@@ -80,7 +80,8 @@ class TablutConfig:
 
         # Save
         self.folder = "checkpoint"
-        self.checkpoint_name = "tablut"
+        self.checkpoint_name = "tablut.ckpt"
+        self.checkpoint_metadata = "tablut.metadata"
         self.action_buffer_name = "actionbuffer.bin"
         self.tflite_model = "tablut.tflite"
 
@@ -601,7 +602,7 @@ cdef class AshtonTablut:
     cdef actions_length(self):
         return self._moves_length
 
-    cdef result(self, int move):
+    cpdef result(self, int move):
         """Return the state that results from making a move from a state."""
         cdef unicode next_to_move
 
@@ -792,7 +793,7 @@ cdef class Search:
         
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
-    def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=5, double cutoff_time=55.0):
+    def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search using time and uses an evaluation function."""
 
@@ -989,10 +990,13 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
     cdef np.ndarray input_shape
     cdef int index_in_0, index_in_1, index_out_0
 
-    def __init__(self, model_path="tablut.tflite"):
-        self.config = TablutConfig()
-        self.model_path = model_path
+    def __init__(self, config):
+        self.config = config
         self.interpreter_initialized = False
+
+        folder = self.config.folder
+        filename = self.config.tflite_model
+        self.model_path = os.path.join(folder, filename)
 
     def init_tflite(self):
         if not os.path.isfile(self.model_path):
@@ -1014,6 +1018,9 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
         self.interpreter_initialized = True
 
         return True
+
+    def set_model_path(self, model_path):
+        self.model_path = model_path
 
     def initialized(self):
         return self.interpreter_initialized
@@ -1046,16 +1053,22 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
 
     cdef float alpha
 
-    def __init__(self, alpha, model_path = "tablut.tflite"):
+    def __init__(self, config, alpha):
         self.alpha = min(max(alpha, 1.0), 0.0)
         self.old_eval = OldSchoolHeuristicFunction()
-        self.neural_eval = NeuralHeuristicFunction(model_path)
+        self.neural_eval = NeuralHeuristicFunction(config)
 
     def init_tflite(self):
         self.neural_eval.init_tflite()
 
     def initialized(self):
         return self.neural_eval.initialized()
+
+    def set_model_path(self, model_path):
+        self.neural_eval.set_model_path(model_path)
+
+    def set_alpha(self, alpha):
+        self.alpha = min(max(alpha, 1.0), 0.0)
 
     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
         if self.interpreter_initialized:

@@ -1,7 +1,7 @@
-from network import TablutNNet
+from network import TreeResNNet
 from actionbuffer import ActionBuffer
 from selfplay import SelfPlay
-from tablut import TablutConfig
+from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction, NeuralHeuristicFunction, MixedHeuristicFunction
 
 import ray
 import time
@@ -13,17 +13,49 @@ class AlphaTablut:
 
     def __init__(self):
         self.config = TablutConfig()
-        self.action_buffer = ActionBuffer(config.observation_shape)
-        self.nnet = TablutNNet()
+        self.action_buffer = ActionBuffer(config)
+        self.nnet = TreeResNNet(config)
+    
+    def check_saving_folder(self):
+        folder = self.config.folder
 
-    def load_actionbuffer(self):
-        self.action_buffer.load_buffer(self.config.folder, self.config.action_buffer_name)
+        if not os.path.exists(folder):
+            os.mkdir(folder)
 
-    def load_checkpoint(self):
-        self.nnet.load_checkpoint(self.config.folder, self.config.checkpoint_name)
+    def check_saved_actionbuffer(self):
+        folder = self.config.folder
+        filename = self.config.action_buffer_name
+        filepath = os.path.join(folder, filename)
 
-    def save_tflite(self):
-        self.nnet.tflite_optimization(self.config.folder, self.config.checkpoint_name)
+        return os.path.exists(filepath) and os.path.isfile(filepath)
+    
+    def check_saved_checkpoint(self):
+        folder=self.config.folder
+        filename=self.config.checkpoint_name
+        filename_meta = self.config.checkpoint_metadata
+        filepath=os.path.join(folder, filename)
+        filepath_meta=os.path.join(folder, filename)
+
+        return os.path.exists(folder) and os.path.isdir(folder) and os.path.exists(filepath) and os.path.isfile(filepath_meta)
+
+    def check_saved_tflite_model(self):
+        folder=self.config.folder
+        filename=self.config.tflite_model
+        filepath=os.path.join(folder, filename)
+
+        return os.path.exists(filepath) and os.path.isfile(filepath)
+
+    def get_neural_heuristic(self):
+        if self.check_saved_tflite_model():
+            return NeuralHeuristicFunction(self.config)
+
+        return None
+
+    def get_mixed_heuristic(self, alpha):
+        if self.check_saved_tflite_model():
+            return MixedHeuristicFunction(self.config, alpha)
+
+        return None
 
 # Menu: Train, load pre-trained, play, self-play
 
@@ -36,28 +68,114 @@ ray.init()
 
 
 @ray.remote
-def self_play_worker(action_buffer):
+def self_play_worker(tablut):
     pass
 
 
 @ray.remote
-def trainer_worker(action_buffer):
+def trainer_worker(tablut):
     pass
 
+def menu_train(tablut):
+    print("Done.")
 
-def menu_selfplay():
+
+def menu_load(tablut):
+    if tablut.check_saved_checkpoint():
+        print("Saved checkpoint found.")
+        print("Loading checkpoint...")
+        tablut.nnet.load_checkpoint()
+    else:
+        print("No checkpoint found")
+    
+    if tablut.check_saved_actionbuffer():
+        print("Saved checkpoint found.")
+        print("Loading action buffer...")
+        tablut.action_buffer.load_buffer()
+    else:
+        print("No actionbuffer found")
+
+    print("Done.")
+
+def menu_save_tflite(tablut):
+    print("Saving tflite model")
+    tablut.nnet.tflite_optimization()
+    print("Done.")
+
+
+def menu_play(tablut):
+    time = input("Insert AlphaTablut Search time in seconds: ")
+    time = int(time)
+
+    player = input("Choose a player: W or B ").upper()[0]
+    while player not in ('W', 'B'):
+        player = input("Invalid input. Choose a player: W or B").upper()[0]
+
+    #Inizializzo
+    alpha_player = 'W' if player == 'B' else 'B'
+    heuristic = tablut.get_neural_heuristic()
+    
+    if heuristic is None:
+        print("Tflite model not found... Using OldSchoolHeuristic")
+        heuristic = OldSchoolHeuristicFunction()
+
+    current_state = AshtonTablut.get_initial(heuristic)
+
+    #Faccio partire il game loop
+    while not current_state.terminal_test():
+        current_player = current_state.to_move()
+
+        if current_player == player:
+            input_valid = False
+            
+            while not input_valid:
+                actions = [AshtonTablut.num_to_coords(x) for x in current_state.actions()]
+                action = input("Choose an action from {0}:".format(actions))
+                filtered_action = action
+                for x in action:
+                    if x not in "1234567890,":
+                        filtered_action = filtered_action.replace(x, '')
+
+                try:
+                    action = tuple(int(x) for x in filtered_action.split(","))
+                except ValueError as a:
+                    print(a)
+                    continue
+
+                if action in actions:
+                    input_valid = True
+            
+            action = AshtonTablut.coords_to_num(action[0], action[1], action[2], action[3])
+
+            current_state.result(action)
+        else:
+            search = Search()
+
+            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+                state=current_state, initial_cutoff_depth=2, cutoff_time=time)
+
+            
+        current_state.display()
+
+
+
+def menu_selfplay(tablut):
+
 
 
 def repl(args):
-
     #Istanzio l'oggetto che gestisce il tutto
     tablut = AlphaTablut()
+
+    print("Checking saving folder...")
+    tablut.check_saving_folder()
 
     while True:
         # Configure running options
         options = [
             "Train",
-            "Load pretrained model",
+            "Load pretrained model and/or actionbuffer",
+            "Save Tflite model",
             "Play against AlphaTablut",
             "AlphaTablut Self-Play",
             "Exit",
@@ -73,13 +191,15 @@ def repl(args):
         choice = int(choice)
 
         if choice == 0:
-            menu_train()
+            menu_train(tablut)
         elif choice == 1:
-            menu_load()
+            menu_load(tablut)
         elif choice == 2:
-            menu_play()
+            menu_save_tflite(tablut)
         elif choice == 3:
-            menu_selfplay()
+            menu_play(tablut)
+        elif choice == 4:
+            menu_selfplay(tablut)
         else:
             break
 
