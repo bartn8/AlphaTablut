@@ -4,7 +4,7 @@ import numpy
 
 extensions = [
     # Everything but primes.pyx is included here.
-    Extension("*", ["*.pyx"],
+    Extension("tablut", ["tablut.pyx"],
     define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
     include_dirs = [numpy.get_include()])
 ]

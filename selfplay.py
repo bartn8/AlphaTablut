@@ -1,7 +1,9 @@
 import os
 import time
+import logging
+import copy
 
-from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
+from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction, random_player, init_rand
 
 import numpy as np
 
@@ -39,13 +41,13 @@ class SelfPlay():
 
         return False
 
-    def play(self):
+    def play(self, random=False):
         current_state = AshtonTablut.get_initial(self.heuristic)
         player = current_state.to_move()
         max_moves = self.config.max_moves
-        self.game_history = [current_state]
+        self.game_history = [current_state.board()]
 
-        print("Start new game. Player: {0}, Time per move: {1} s, Priority: {2}, Max Moves: {3}".format(
+        logging.info("Start new game. Player: {0}, Time per move: {1} s, Priority: {2}, Max Moves: {3}".format(
             player, self.time_per_move, self.priority, max_moves))
         start = time.time()
 
@@ -54,11 +56,14 @@ class SelfPlay():
         search = Search()
 
         while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
-            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
-                state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
-            
-            #            best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.cutoff_search(
-            #    state=current_state, cutoff_depth=3, cutoff_time=self.time_per_move)
+
+            if random:
+                best_action = random_player(current_state)
+                best_next_state = current_state.result(best_action)
+                best_score, max_depth, nodes_explored, search_time = 0,0,0,0
+            else:
+                best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+                    state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
 
             captured = self.have_captured(current_state, best_next_state)
             if captured == 0:
@@ -69,32 +74,37 @@ class SelfPlay():
                 self.draw_queue = []
 
             best_action = AshtonTablut.num_to_coords(best_action)
-            print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(
-            ), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
+            #logging.info("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(
+            #), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
 
             current_state = best_next_state
-            self.game_history.append(current_state)
+            self.game_history.append(current_state.board())
 
-            current_state.display()
+            #current_state.display()
 
             have_draw = self.have_draw(current_state.board())
 
         end = time.time()
 
+        winner = "D"
+
         result = "DRAW"
         if not have_draw:
             if current_state.utility(player) == 1:
+                winner = player
                 result = "WON"
             elif current_state.utility(player) == -1:
+                winner = 'W' if player == 'B' else 'B'
                 result = "LOST"
 
-        print("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s".format(
+        logging.info("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s".format(
             player, result, current_state.turn(), end-start))
 
-        return self.priority, player, have_draw, current_state.utility(player), self.game_history
+        return winner, current_state.utility(player), self.game_history
 
 
 if __name__ == '__main__':
     # test()
+    init_rand()
     self_play = SelfPlay(TablutConfig(), OldSchoolHeuristicFunction(), 1, 10)
-    self_play.play()
+    self_play.play(False)

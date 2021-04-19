@@ -171,7 +171,7 @@ def game_loop(args):
 
                     search = Search()
                     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
-                        state=state, initial_cutoff_depth=4, cutoff_time=59)
+                        state=state, initial_cutoff_depth=2, cutoff_time=timeout)
 
                     send_move(connHandle, best_action, player)
                     logging.debug("Action sent!")
@@ -213,9 +213,9 @@ def main():
     argparser.add_argument(
         '-t', '--timeout',
         metavar='T',
-        default=60,
+        default=59,
         type=int,
-        help='Timeout (default: 60)')
+        help='Timeout (default: 59)')
 
     argparser.add_argument(
         '-i', '--host',

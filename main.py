@@ -3,12 +3,13 @@ from actionbuffer import ActionBuffer
 from selfplay import SelfPlay
 from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction, NeuralHeuristicFunction, MixedHeuristicFunction
 
-import ray
+import threading
 import time
 import os
 import argparse
 import logging
-
+from tqdm import tqdm
+import queue
 
 class AlphaTablut:
 
@@ -16,7 +17,7 @@ class AlphaTablut:
         self.config = TablutConfig()
         self.action_buffer = ActionBuffer(self.config)
         self.nnet = TreeResNNet(self.config)
-    
+
     def check_saving_folder(self):
         folder = self.config.folder
 
@@ -29,20 +30,20 @@ class AlphaTablut:
         filepath = os.path.join(folder, filename)
 
         return os.path.exists(filepath) and os.path.isfile(filepath)
-    
+
     def check_saved_checkpoint(self):
-        folder=self.config.folder
-        filename=self.config.checkpoint_name
+        folder = self.config.folder
+        filename = self.config.checkpoint_name
         filename_meta = self.config.checkpoint_metadata
-        filepath=os.path.join(folder, filename)
-        filepath_meta=os.path.join(folder, filename)
+        filepath = os.path.join(folder, filename)
+        filepath_meta = os.path.join(folder, filename)
 
         return os.path.exists(folder) and os.path.isdir(folder) and os.path.exists(filepath) and os.path.isfile(filepath_meta)
 
     def check_saved_tflite_model(self):
-        folder=self.config.folder
-        filename=self.config.tflite_model
-        filepath=os.path.join(folder, filename)
+        folder = self.config.folder
+        filename = self.config.tflite_model
+        filepath = os.path.join(folder, filename)
 
         return os.path.exists(filepath) and os.path.isfile(filepath)
 
@@ -58,27 +59,131 @@ class AlphaTablut:
 
         return None
 
+
+class SelfPlayResult:
+    def __init__(self, priority, winner, utility, history):
+        self.priority = priority
+        self.winner = winner
+        self.utility = utility
+        self.history = history
+
 # Menu: Train, load pre-trained, play, self-play
+
 
 # Ray Workers:
 #   1) Selplayer
 #   2) Trainer
 #   3) ActionBuffer Explorer
-# Start ray
-ray.init()
 
+def self_play_worker(q, priority, heuristic_alpha, random=False):
+    config = TablutConfig()
 
-@ray.remote
-def self_play_worker(tablut):
-    pass
+    folder = config.folder
+    filename = config.tflite_model
+    filepath = os.path.join(folder, filename)
 
+    heuristic = None
 
-@ray.remote
-def trainer_worker(tablut):
-    pass
+    if not random:
+        if os.path.exists(filepath) and os.path.isfile(filepath):
+            heuristic = MixedHeuristicFunction(config, heuristic_alpha)
+            heuristic.init_tflite()
+            if heuristic.initialized():
+                logging.info("Tflite model loaded")
+        else:
+            logging.info("Tflite model not found... Using OldSchoolHeuristic")
+            heuristic = OldSchoolHeuristicFunction()
+
+    time_per_move = config.max_time / (2*priority+1)
+
+    logging.info("Starting SelfPlay. Priority: {0}".format(priority))
+
+    winner = 'D'
+    selfplay = SelfPlay(config, heuristic, priority, time_per_move)
+
+    while winner == 'D':
+        winner, utility, history = selfplay.play(random)
+
+    logging.info("Done. Result: {0}".format(winner))
+
+    q.put(SelfPlayResult(priority, winner, utility, history))
+
 
 def menu_train(tablut):
-    print("Not implemented yet.")
+    batch_size = tablut.config.batch_size
+    min_batch_size = tablut.config.min_batch_size
+    num_workers = tablut.config.num_workers
+    steps_counter = tablut.nnet.training_steps
+    tasks = []
+    q = queue.Queue()
+
+    # training loop
+    pbar = tqdm(initial=steps_counter, desc='Game played {0}, Training steps'.format(
+        tablut.action_buffer.game_counter), total=tablut.config.training_steps)
+
+    while tablut.nnet.training_steps < tablut.config.training_steps:
+        heuristic_alpha = min(
+            1.0, (2*tablut.nnet.training_steps/tablut.config.training_steps))
+        workers_alpha = 0.3 + \
+            min(0.5, tablut.nnet.training_steps/tablut.config.training_steps)
+
+        num_search_workers = int(num_workers * workers_alpha)
+        num_random_workers = num_workers - num_search_workers
+
+        logging.info("Starting workers...")
+
+        for priority in range(num_workers):
+            x = threading.Thread(target=self_play_worker, args=(q, priority, heuristic_alpha, priority >= num_search_workers))
+            tasks.append(x)
+            x.start()
+
+        for task in reversed(tasks):
+            task.join()
+
+            fut = q.get()
+            priority, winner, utility, history = fut.priority, fut.winner, fut.utility, fut.history
+
+            logging.info("Worker done.".format(priority))
+
+            # Aggiornamento dell'action buffer e riavvio
+            logging.info("ActionBuffer updating...")
+
+            i = 0
+            while i < len(history)-1:
+                board0 = history[i]
+                board1 = history[i+1]
+                tablut.action_buffer.store_action(
+                    board0, board1, utility, 1/(priority+1))
+                i += 2
+
+            tablut.action_buffer.increment_game_counter()
+
+            logging.info("ActionBuffer updating done")
+
+
+        if tablut.action_buffer.size() >= min_batch_size:
+            logging.info("Dataset generating...")
+            batch_size = min(batch_size, tablut.action_buffer.size())
+            dataset = (batch_size)
+            logging.info("Done.")
+            logging.info("Network training...")
+            #tablut.nnet.train(dataset)
+            logging.info("Done.")
+
+            if tablut.nnet.training_steps % tablut.config.checkpoint_interval == 0:
+                tablut.nnet.save_checkpoint()
+                tablut.nnet.tflite_optimization()
+            tablut.action_buffer.save_buffer()
+
+
+        pbar.set_description('Game played {0}, Training steps'.format(
+            tablut.action_buffer.game_counter))
+        pbar.update(tablut.nnet.training_steps-steps_counter)
+        steps_counter = tablut.nnet.training_steps
+
+    pbar.close()
+
+    print("Done.")
 
 
 def menu_load(tablut):
@@ -88,7 +193,7 @@ def menu_load(tablut):
         tablut.nnet.load_checkpoint()
     else:
         print("No checkpoint found")
-    
+
     if tablut.check_saved_actionbuffer():
         print("Saved checkpoint found.")
         print("Loading action buffer...")
@@ -96,11 +201,6 @@ def menu_load(tablut):
     else:
         print("No actionbuffer found")
 
-    print("Done.")
-
-def menu_save_tflite(tablut):
-    print("Saving tflite model")
-    tablut.nnet.tflite_optimization()
     print("Done.")
 
 
@@ -112,10 +212,10 @@ def menu_play(tablut):
     while player not in ('W', 'B'):
         player = input("Invalid input. Choose a player: W or B").upper()[0]
 
-    #Inizializzo
+    # Inizializzo
     alpha_player = 'W' if player == 'B' else 'B'
     heuristic = tablut.get_neural_heuristic()
-    
+
     if heuristic is None:
         print("Tflite model not found... Using OldSchoolHeuristic")
         heuristic = OldSchoolHeuristicFunction()
@@ -123,18 +223,21 @@ def menu_play(tablut):
     search = Search()
     current_state = AshtonTablut.get_initial(heuristic)
 
-    #Faccio partire il game loop
+    # Faccio partire il game loop
+    i = 0
     while not current_state.terminal_test():
         current_player = current_state.to_move()
 
+        print("Turn {0}".format(i+1))
         print("Current Player: {0}".format(current_player))
         current_state.display()
 
         if current_player == player:
             input_valid = False
-            
+
             while not input_valid:
-                actions = [AshtonTablut.num_to_coords(x) for x in current_state.actions()]
+                actions = [AshtonTablut.num_to_coords(
+                    x) for x in current_state.actions()]
                 action = input("Choose an action from {0}:".format(actions))
                 filtered_action = action
                 for x in action:
@@ -152,15 +255,19 @@ def menu_play(tablut):
 
             print("You have chosen {0} -> {1}".format(action[:2], action[2:4]))
 
-            action = AshtonTablut.coords_to_num(action[0], action[1], action[2], action[3])
+            action = AshtonTablut.coords_to_num(
+                action[0], action[1], action[2], action[3])
             current_state = current_state.result(action)
         else:
             best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                 state=current_state, initial_cutoff_depth=2, cutoff_time=time)
 
             best_action = AshtonTablut.num_to_coords(best_action)
-            print("AlphaTablut has chosen {0} -> {1}".format(best_action[:2], best_action[2:4]))
+            print(
+                "AlphaTablut has chosen {0} -> {1}".format(best_action[:2], best_action[2:4]))
             current_state = best_next_state
+
+        i += 1
 
     utility = current_state.utility(player)
 
@@ -173,11 +280,45 @@ def menu_play(tablut):
 
 
 def menu_selfplay(tablut):
-    print("Not implemented yet.")
+    time = input("Insert AlphaTablut Search time in seconds: ")
+    time = int(time)
+
+    max_moves = input("Insert max moves: ")
+    max_moves = int(max_moves)
+
+    heuristic = tablut.get_neural_heuristic()
+
+    if heuristic is None:
+        print("Tflite model not found... Using OldSchoolHeuristic")
+        heuristic = OldSchoolHeuristicFunction()
+
+    search = Search()
+    current_state = AshtonTablut.get_initial(heuristic)
+
+    # Faccio partire il game loop
+    i = 0
+    while not current_state.terminal_test() and i < max_moves:
+
+        current_player = current_state.to_move()
+
+        print("Turn {0}".format(i+1))
+        print("Current Player: {0}".format(current_player))
+        current_state.display()
+
+        best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
+            state=current_state, initial_cutoff_depth=2, cutoff_time=time)
+
+        best_action = AshtonTablut.num_to_coords(best_action)
+        print(
+            "AlphaTablut has chosen {0} -> {1}".format(best_action[:2], best_action[2:4]))
+        current_state = best_next_state
+        i += 1
+
+    print("Done.")
 
 
 def repl(args):
-    #Istanzio l'oggetto che gestisce il tutto
+    # Istanzio l'oggetto che gestisce il tutto
     tablut = AlphaTablut()
 
     print("Checking saving folder...")
@@ -188,7 +329,6 @@ def repl(args):
         options = [
             "Train",
             "Load pretrained model and/or actionbuffer",
-            "Save Tflite model",
             "Play against AlphaTablut",
             "AlphaTablut Self-Play",
             "Exit",
@@ -208,10 +348,8 @@ def repl(args):
         elif choice == 1:
             menu_load(tablut)
         elif choice == 2:
-            menu_save_tflite(tablut)
-        elif choice == 3:
             menu_play(tablut)
-        elif choice == 4:
+        elif choice == 3:
             menu_selfplay(tablut)
         else:
             break
@@ -223,10 +361,16 @@ def main():
     argparser = argparse.ArgumentParser(
         description='AlphaTablut')
 
+    argparser.add_argument(
+        '-v', '--verbose',
+        action='store_true',
+        dest='debug',
+        help='print debug information')
+
     args = argparser.parse_args()
 
-    #log_level = logging.DEBUG if args.debug else logging.INFO
-    #logging.basicConfig(format='%(levelname)s: %(message)s', level=log_level)
+    log_level = logging.DEBUG if args.debug else logging.INFO
+    logging.basicConfig(format='%(levelname)s:%(asctime)s: %(message)s', filename='train.log', level=log_level)
 
     repl(args)
 

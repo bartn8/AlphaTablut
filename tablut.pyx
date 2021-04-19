@@ -13,8 +13,7 @@ import tflite_runtime.interpreter as tflite
 cimport cython
 
 from posix.time cimport clock_gettime, timespec, CLOCK_REALTIME
-from libc.time cimport time
-
+from libc.stdlib cimport srand, rand, RAND_MAX
 from cpython.mem cimport PyMem_Malloc, PyMem_Free
 
 from cpython cimport array
@@ -28,11 +27,9 @@ cimport numpy as np
 DTYPE = np.int8
 ctypedef signed char DTYPE_t
 
-cdef extern from "stdlib.h":
-    double drand48()
-    void srand48(long int seedval)
-
-srand48(time(NULL))
+def init_rand():
+    cdef long int seed = <long int>get_time()
+    srand(<int>seed)
 
 #------------------------------ Tablut Config -------------------------------------------------------
 
@@ -59,8 +56,8 @@ class TablutConfig:
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
         self.num_workers = 8
         self.threads_per_worker = 1
-        self.max_moves = 50  # Maximum number of moves if game is not finished before
-        self.max_depth = 2
+        self.max_moves = 60  # Maximum number of moves if game is not finished before
+        self.max_time = 0.1
 
         # Exploration noise
         self.enable_noise_on_training = True
@@ -70,11 +67,14 @@ class TablutConfig:
         # Training
         # Total number of training steps (ie weights update according to a batch)
         self.training_steps = 300000
-        self.batch_size = 512  # Number of parts of games to train on at each training step
+        # Number of parts of games to train on at each training step
+        self.batch_size = 512  
+        self.min_batch_size = 64
         # Number of training steps before using the model for self-playing
         self.checkpoint_interval = 100
         # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
         self.value_loss_weight = 0.25
+        # checkpoint_interval % epochs == 0!
         self.epochs = 10
 
         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
@@ -400,7 +400,7 @@ cdef class AshtonTablut:
 
         #Shuffle
         for k in range(i//4):
-            r = <int> drand48()*(i-1)
+            r = <int> rand() % i
             tmp = legal[k]
             legal[k] = legal[r]
             legal[r] = tmp
@@ -466,7 +466,7 @@ cdef class AshtonTablut:
 
         #Shuffle
         for k in range(i//4):
-            r = <int> drand48()*(i-1)
+            r = <int> rand() % i
             tmp = legal[k]
             legal[k] = legal[r]
             legal[r] = tmp
@@ -673,7 +673,15 @@ cdef class AshtonTablut:
 
 def random_player(AshtonTablut game):
     """A player that chooses a legal move at random."""
-    return random.choice(game.actions()) if game.actions() else None
+    cdef int action
+    cdef int index = 0
+    cdef int actions_length = game.actions_length()
+    cdef int* actions = game._moves
+    if actions:
+        index = <int> rand() % actions_length
+        action = actions[index]
+        return action
+    return None
 
 #------------------------------ Search -------------------------------------------------------
 cdef class Search:
@@ -843,7 +851,7 @@ cdef class Search:
 
             self.current_cutoff_depth += 1
 
-            print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(store.actions[0]), store.utils[0], self.nodes_explored))
+            #print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(store.actions[0]), store.utils[0], self.nodes_explored))
 
         if store.size() > 0:
             best_action = store.actions[0]
@@ -1031,8 +1039,8 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
         #cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
         #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
-        cdef np.ndarray board0 = state.board()
-        cdef np.ndarray board1 = next_state.board()
+        cdef np.ndarray board0 = state.board().astype(np.float32)
+        cdef np.ndarray board1 = next_state.board().astype(np.float32)
 
         cdef float v
 
@@ -1074,10 +1082,10 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
         self.alpha = min(max(alpha, 1.0), 0.0)
 
     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
-        if self.interpreter_initialized:
-            return self.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval(parent_state, state, player) * (1-self.alpha)
+        if self.neural_eval.interpreter_initialized:
+            return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
 
-        return self.old_eval(parent_state, state, player)
+        return self.old_eval.evalutate(parent_state, state, player)
 
 #------------------------------ Utils ---------------------------------------------------------
 cdef inline double get_time():
@@ -1151,9 +1159,9 @@ def test():
     get_time()
     print("Time: {0} ms".format(1000*(get_time()-st)))
 
-    st = get_time()
-    a = time(NULL)
-    print("Time2: {0} ms ({1})".format(1000*(get_time()-st), a))
+    #st = get_time()
+    #a = time(NULL)
+    #print("Time2: {0} ms ({1})".format(1000*(get_time()-st), a))
 
     #st = get_time()
     #ptime.time()
