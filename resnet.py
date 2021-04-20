@@ -22,7 +22,7 @@ from tensorflow.keras.layers import (
 )
 from tensorflow.keras.regularizers import l2
 
-import tensorflow_model_optimization as tfmot
+#import tensorflow_model_optimization as tfmot
 
 import tflite_runtime.interpreter as tflite
 
