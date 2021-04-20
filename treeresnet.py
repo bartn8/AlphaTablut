@@ -176,7 +176,7 @@ class TreeResNetBuilder():
         res_block = basic_residual_block(filters=filters)(tower_output)
         flatten1 = Flatten()(res_block)
         dense = Dense(units=256, activation="relu")(flatten1)
-        out_value = Dense(units=num_outputs, activation="tanh")(dense)
+        out_value = Dense(units=num_outputs, activation="linear")(dense)
 
         model = Model(inputs=input_array, outputs=out_value)
         

@@ -1184,12 +1184,12 @@ typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 
 /* "tablut.pyx":28
  * # We now need to fix a datatype for our arrays.
- * DTYPE = np.int8
- * ctypedef signed char DTYPE_t             # <<<<<<<<<<<<<<
+ * DTYPE = np.float32
+ * ctypedef float DTYPE_t             # <<<<<<<<<<<<<<
  * 
  * def init_rand():
  */
-typedef signed char __pyx_t_6tablut_DTYPE_t;
+typedef float __pyx_t_6tablut_DTYPE_t;
 /* Declarations.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -1274,7 +1274,7 @@ typedef struct __pyx_ctuple_int__ptr__and_int __pyx_ctuple_int__ptr__and_int;
 struct __pyx_ctuple_float__and_float;
 typedef struct __pyx_ctuple_float__and_float __pyx_ctuple_float__and_float;
 
-/* "tablut.pyx":259
+/* "tablut.pyx":260
  *     return l*729 + k*81 + j*9 + i
  * 
  * cdef inline (int, int, int, int) number_to_coords(int number):             # <<<<<<<<<<<<<<
@@ -1288,7 +1288,7 @@ struct __pyx_ctuple_int__and_int__and_int__and_int {
   int f3;
 };
 
-/* "tablut.pyx":335
+/* "tablut.pyx":336
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):             # <<<<<<<<<<<<<<
@@ -1300,7 +1300,7 @@ struct __pyx_ctuple_int__ptr__and_int {
   int f1;
 };
 
-/* "tablut.pyx":596
+/* "tablut.pyx":597
  * 
  *     @staticmethod
  *     cdef (float, float) get_utility_bounds():             # <<<<<<<<<<<<<<
@@ -1312,7 +1312,7 @@ struct __pyx_ctuple_float__and_float {
   float f1;
 };
 
-/* "tablut.pyx":273
+/* "tablut.pyx":274
  *     return l, k, j, i
  * 
  * cdef class AshtonTablut:             # <<<<<<<<<<<<<<
@@ -1332,7 +1332,7 @@ struct __pyx_obj_6tablut_AshtonTablut {
 };
 
 
-/* "tablut.pyx":687
+/* "tablut.pyx":688
  * 
  * #------------------------------ Search -------------------------------------------------------
  * cdef class Search:             # <<<<<<<<<<<<<<
@@ -1350,7 +1350,7 @@ struct __pyx_obj_6tablut_Search {
 };
 
 
-/* "tablut.pyx":865
+/* "tablut.pyx":866
  * 
  * 
  * cdef class ActionStore:             # <<<<<<<<<<<<<<
@@ -1365,7 +1365,7 @@ struct __pyx_obj_6tablut_ActionStore {
 };
 
 
-/* "tablut.pyx":888
+/* "tablut.pyx":889
  * #------------------------------ Heuristic function --------------------------------------------
  * 
  * cdef class HeuristicFunction:             # <<<<<<<<<<<<<<
@@ -1378,7 +1378,7 @@ struct __pyx_obj_6tablut_HeuristicFunction {
 };
 
 
-/* "tablut.pyx":893
+/* "tablut.pyx":894
  *         return state.utility(player)
  * 
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
@@ -1390,7 +1390,7 @@ struct __pyx_obj_6tablut_OldSchoolHeuristicFunction {
 };
 
 
-/* "tablut.pyx":994
+/* "tablut.pyx":995
  *         return score if player == 'W' else -score
  * 
  * cdef class NeuralHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
@@ -1410,7 +1410,7 @@ struct __pyx_obj_6tablut_NeuralHeuristicFunction {
 };
 
 
-/* "tablut.pyx":1061
+/* "tablut.pyx":1059
  *         return state.utility(player)
  * 
  * cdef class MixedHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
@@ -1503,7 +1503,7 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "tablut.pyx":273
+/* "tablut.pyx":274
  *     return l, k, j, i
  * 
  * cdef class AshtonTablut:             # <<<<<<<<<<<<<<
@@ -1534,7 +1534,7 @@ struct __pyx_vtabstruct_6tablut_AshtonTablut {
 static struct __pyx_vtabstruct_6tablut_AshtonTablut *__pyx_vtabptr_6tablut_AshtonTablut;
 
 
-/* "tablut.pyx":687
+/* "tablut.pyx":688
  * 
  * #------------------------------ Search -------------------------------------------------------
  * cdef class Search:             # <<<<<<<<<<<<<<
@@ -1549,7 +1549,7 @@ struct __pyx_vtabstruct_6tablut_Search {
 static struct __pyx_vtabstruct_6tablut_Search *__pyx_vtabptr_6tablut_Search;
 
 
-/* "tablut.pyx":865
+/* "tablut.pyx":866
  * 
  * 
  * cdef class ActionStore:             # <<<<<<<<<<<<<<
@@ -1564,7 +1564,7 @@ struct __pyx_vtabstruct_6tablut_ActionStore {
 static struct __pyx_vtabstruct_6tablut_ActionStore *__pyx_vtabptr_6tablut_ActionStore;
 
 
-/* "tablut.pyx":888
+/* "tablut.pyx":889
  * #------------------------------ Heuristic function --------------------------------------------
  * 
  * cdef class HeuristicFunction:             # <<<<<<<<<<<<<<
@@ -1578,7 +1578,7 @@ struct __pyx_vtabstruct_6tablut_HeuristicFunction {
 static struct __pyx_vtabstruct_6tablut_HeuristicFunction *__pyx_vtabptr_6tablut_HeuristicFunction;
 
 
-/* "tablut.pyx":893
+/* "tablut.pyx":894
  *         return state.utility(player)
  * 
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
@@ -1592,7 +1592,7 @@ struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction {
 static struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *__pyx_vtabptr_6tablut_OldSchoolHeuristicFunction;
 
 
-/* "tablut.pyx":994
+/* "tablut.pyx":995
  *         return score if player == 'W' else -score
  * 
  * cdef class NeuralHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
@@ -1607,7 +1607,7 @@ struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction {
 static struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *__pyx_vtabptr_6tablut_NeuralHeuristicFunction;
 
 
-/* "tablut.pyx":1061
+/* "tablut.pyx":1059
  *         return state.utility(player)
  * 
  * cdef class MixedHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
@@ -2883,7 +2883,7 @@ static void __pyx_memoryview_slice_assign_scalar(__Pyx_memviewslice *, int, size
 static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize_t *, int, size_t, void *); /*proto*/
 static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, PyObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
-static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_6tablut_DTYPE_t = { "DTYPE_t", NULL, sizeof(__pyx_t_6tablut_DTYPE_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_6tablut_DTYPE_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_6tablut_DTYPE_t), 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_6tablut_DTYPE_t = { "DTYPE_t", NULL, sizeof(__pyx_t_6tablut_DTYPE_t), { 0 }, 0, 'R', 0, 0 };
 #define __Pyx_MODULE_NAME "tablut"
 extern int __pyx_module_is_main_tablut;
 int __pyx_module_is_main_tablut = 0;
@@ -2891,8 +2891,8 @@ int __pyx_module_is_main_tablut = 0;
 /* Implementation of 'tablut' */
 static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_range;
-static PyObject *__pyx_builtin_print;
 static PyObject *__pyx_builtin_TypeError;
+static PyObject *__pyx_builtin_print;
 static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_ImportError;
 static PyObject *__pyx_builtin_ValueError;
@@ -2929,7 +2929,6 @@ static const char __pyx_k_copy[] = "copy";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_game[] = "game";
 static const char __pyx_k_init[] = "__init__";
-static const char __pyx_k_int8[] = "int8";
 static const char __pyx_k_join[] = "join";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_mode[] = "mode";
@@ -2962,7 +2961,6 @@ static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_print[] = "print";
 static const char __pyx_k_ptime[] = "ptime";
 static const char __pyx_k_range[] = "range";
-static const char __pyx_k_ravel[] = "ravel";
 static const char __pyx_k_shape[] = "shape";
 static const char __pyx_k_start[] = "start";
 static const char __pyx_k_state[] = "state";
@@ -2971,7 +2969,6 @@ static const char __pyx_k_value[] = "value";
 static const char __pyx_k_zeros[] = "zeros";
 static const char __pyx_k_Search[] = "Search";
 static const char __pyx_k_action[] = "action";
-static const char __pyx_k_astype[] = "astype";
 static const char __pyx_k_config[] = "config";
 static const char __pyx_k_dict_2[] = "_dict";
 static const char __pyx_k_encode[] = "encode";
@@ -3116,6 +3113,7 @@ static const char __pyx_k_TablutConfig___init[] = "TablutConfig.__init__";
 static const char __pyx_k_checkpoint_interval[] = "checkpoint_interval";
 static const char __pyx_k_checkpoint_metadata[] = "checkpoint_metadata";
 static const char __pyx_k_network_input_shape[] = "network_input_shape";
+static const char __pyx_k_new_games_per_epoch[] = "new_games_per_epoch";
 static const char __pyx_k_pyx_unpickle_Search[] = "__pyx_unpickle_Search";
 static const char __pyx_k_tmp_best_next_state[] = "tmp_best_next_state";
 static const char __pyx_k_AshtonTablut_actions[] = "AshtonTablut.actions";
@@ -3301,7 +3299,6 @@ static PyObject *__pyx_n_s_allocate_buffer;
 static PyObject *__pyx_n_s_allocate_tensors;
 static PyObject *__pyx_n_s_alpha;
 static PyObject *__pyx_n_s_array;
-static PyObject *__pyx_n_s_astype;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_batch_size;
 static PyObject *__pyx_n_s_best_action;
@@ -3370,7 +3367,6 @@ static PyObject *__pyx_n_s_initial_cutoff_depth;
 static PyObject *__pyx_n_s_initialized;
 static PyObject *__pyx_n_s_insert;
 static PyObject *__pyx_n_s_int32;
-static PyObject *__pyx_n_s_int8;
 static PyObject *__pyx_n_s_invoke;
 static PyObject *__pyx_n_s_isfile;
 static PyObject *__pyx_n_s_itemsize;
@@ -3401,6 +3397,7 @@ static PyObject *__pyx_n_s_name_2;
 static PyObject *__pyx_n_s_ndim;
 static PyObject *__pyx_n_s_network_input_shape;
 static PyObject *__pyx_n_s_new;
+static PyObject *__pyx_n_s_new_games_per_epoch;
 static PyObject *__pyx_n_s_next_state;
 static PyObject *__pyx_n_s_next_store;
 static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
@@ -3447,7 +3444,6 @@ static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_random;
 static PyObject *__pyx_n_s_random_player;
 static PyObject *__pyx_n_s_range;
-static PyObject *__pyx_n_s_ravel;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
@@ -3639,11 +3635,11 @@ static PyObject *__pyx_int_20;
 static PyObject *__pyx_int_21;
 static PyObject *__pyx_int_32;
 static PyObject *__pyx_int_60;
-static PyObject *__pyx_int_64;
 static PyObject *__pyx_int_100;
-static PyObject *__pyx_int_512;
+static PyObject *__pyx_int_2048;
+static PyObject *__pyx_int_4096;
 static PyObject *__pyx_int_6561;
-static PyObject *__pyx_int_300000;
+static PyObject *__pyx_int_10000;
 static PyObject *__pyx_int_3224722;
 static PyObject *__pyx_int_16787844;
 static PyObject *__pyx_int_37840215;
@@ -3801,7 +3797,7 @@ static PyObject *__pyx_codeobj__148;
 /* Late includes */
 
 /* "tablut.pyx":30
- * ctypedef signed char DTYPE_t
+ * ctypedef float DTYPE_t
  * 
  * def init_rand():             # <<<<<<<<<<<<<<
  *     cdef long int seed = <long int>get_time()
@@ -3848,7 +3844,7 @@ static PyObject *__pyx_pf_6tablut_init_rand(CYTHON_UNUSED PyObject *__pyx_self) 
   srand(((int)__pyx_v_seed));
 
   /* "tablut.pyx":30
- * ctypedef signed char DTYPE_t
+ * ctypedef float DTYPE_t
  * 
  * def init_rand():             # <<<<<<<<<<<<<<
  *     cdef long int seed = <long int>get_time()
@@ -3974,7 +3970,7 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
  *         # Self-Play
  *         # Number of simultaneous threads/workers self-playing to feed the replay buffer
  *         self.num_workers = 8             # <<<<<<<<<<<<<<
- *         self.threads_per_worker = 1
+ *         self.threads_per_worker = 2
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_num_workers, __pyx_int_8) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
@@ -3982,29 +3978,29 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
   /* "tablut.pyx":58
  *         # Number of simultaneous threads/workers self-playing to feed the replay buffer
  *         self.num_workers = 8
- *         self.threads_per_worker = 1             # <<<<<<<<<<<<<<
+ *         self.threads_per_worker = 2             # <<<<<<<<<<<<<<
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before
- *         self.max_time = 0.1
+ *         self.max_time = 60
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_threads_per_worker, __pyx_int_1) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_threads_per_worker, __pyx_int_2) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
 
   /* "tablut.pyx":59
  *         self.num_workers = 8
- *         self.threads_per_worker = 1
+ *         self.threads_per_worker = 2
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before             # <<<<<<<<<<<<<<
- *         self.max_time = 0.1
+ *         self.max_time = 60
  * 
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_moves, __pyx_int_60) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
 
   /* "tablut.pyx":60
- *         self.threads_per_worker = 1
+ *         self.threads_per_worker = 2
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before
- *         self.max_time = 0.1             # <<<<<<<<<<<<<<
+ *         self.max_time = 60             # <<<<<<<<<<<<<<
  * 
  *         # Exploration noise
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_time, __pyx_float_0_1) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_time, __pyx_int_60) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
 
   /* "tablut.pyx":63
  * 
@@ -4036,32 +4032,32 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
   /* "tablut.pyx":69
  *         # Training
  *         # Total number of training steps (ie weights update according to a batch)
- *         self.training_steps = 300000             # <<<<<<<<<<<<<<
+ *         self.training_steps = 10000             # <<<<<<<<<<<<<<
  *         # Number of parts of games to train on at each training step
- *         self.batch_size = 512
+ *         self.batch_size = 4096
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_training_steps, __pyx_int_300000) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_training_steps, __pyx_int_10000) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
 
   /* "tablut.pyx":71
- *         self.training_steps = 300000
+ *         self.training_steps = 10000
  *         # Number of parts of games to train on at each training step
- *         self.batch_size = 512             # <<<<<<<<<<<<<<
- *         self.min_batch_size = 64
+ *         self.batch_size = 4096             # <<<<<<<<<<<<<<
+ *         self.min_batch_size = 2048
  *         # Number of training steps before using the model for self-playing
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_batch_size, __pyx_int_512) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_batch_size, __pyx_int_4096) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
 
   /* "tablut.pyx":72
  *         # Number of parts of games to train on at each training step
- *         self.batch_size = 512
- *         self.min_batch_size = 64             # <<<<<<<<<<<<<<
+ *         self.batch_size = 4096
+ *         self.min_batch_size = 2048             # <<<<<<<<<<<<<<
  *         # Number of training steps before using the model for self-playing
  *         self.checkpoint_interval = 100
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_min_batch_size, __pyx_int_64) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_min_batch_size, __pyx_int_2048) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
 
   /* "tablut.pyx":74
- *         self.min_batch_size = 64
+ *         self.min_batch_size = 2048
  *         # Number of training steps before using the model for self-playing
  *         self.checkpoint_interval = 100             # <<<<<<<<<<<<<<
  *         # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
@@ -4082,82 +4078,91 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
  *         self.value_loss_weight = 0.25
  *         # checkpoint_interval % epochs == 0!
  *         self.epochs = 10             # <<<<<<<<<<<<<<
+ *         self.new_games_per_epoch = 100
  * 
- *         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_epochs, __pyx_int_10) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
 
-  /* "tablut.pyx":80
+  /* "tablut.pyx":79
+ *         # checkpoint_interval % epochs == 0!
  *         self.epochs = 10
+ *         self.new_games_per_epoch = 100             # <<<<<<<<<<<<<<
+ * 
+ *         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
+ */
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_new_games_per_epoch, __pyx_int_100) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+
+  /* "tablut.pyx":81
+ *         self.new_games_per_epoch = 100
  * 
  *         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD             # <<<<<<<<<<<<<<
  *         self.weight_decay = 1e-4  # L2 weights regularization
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_optimizer, __pyx_n_u_Adam) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_optimizer, __pyx_n_u_Adam) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
 
-  /* "tablut.pyx":81
+  /* "tablut.pyx":82
  * 
  *         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
  *         self.weight_decay = 1e-4  # L2 weights regularization             # <<<<<<<<<<<<<<
  * 
  *         # Exponential learning rate schedule
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_weight_decay, __pyx_float_1eneg_4) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_weight_decay, __pyx_float_1eneg_4) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
 
-  /* "tablut.pyx":84
+  /* "tablut.pyx":85
  * 
  *         # Exponential learning rate schedule
  *         self.lr_init = 0.003  # Initial learning rate             # <<<<<<<<<<<<<<
  * 
  *         # Save
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_lr_init, __pyx_float_0_003) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_lr_init, __pyx_float_0_003) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
 
-  /* "tablut.pyx":87
+  /* "tablut.pyx":88
  * 
  *         # Save
  *         self.folder = "checkpoint"             # <<<<<<<<<<<<<<
  *         self.checkpoint_name = "tablut.ckpt"
  *         self.checkpoint_metadata = "tablut.metadata"
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_folder, __pyx_n_u_checkpoint) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_folder, __pyx_n_u_checkpoint) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
 
-  /* "tablut.pyx":88
+  /* "tablut.pyx":89
  *         # Save
  *         self.folder = "checkpoint"
  *         self.checkpoint_name = "tablut.ckpt"             # <<<<<<<<<<<<<<
  *         self.checkpoint_metadata = "tablut.metadata"
  *         self.action_buffer_name = "actionbuffer.bin"
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_checkpoint_name, __pyx_kp_u_tablut_ckpt) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_checkpoint_name, __pyx_kp_u_tablut_ckpt) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
 
-  /* "tablut.pyx":89
+  /* "tablut.pyx":90
  *         self.folder = "checkpoint"
  *         self.checkpoint_name = "tablut.ckpt"
  *         self.checkpoint_metadata = "tablut.metadata"             # <<<<<<<<<<<<<<
  *         self.action_buffer_name = "actionbuffer.bin"
  *         self.tflite_model = "tablut.tflite"
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_checkpoint_metadata, __pyx_kp_u_tablut_metadata) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_checkpoint_metadata, __pyx_kp_u_tablut_metadata) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
 
-  /* "tablut.pyx":90
+  /* "tablut.pyx":91
  *         self.checkpoint_name = "tablut.ckpt"
  *         self.checkpoint_metadata = "tablut.metadata"
  *         self.action_buffer_name = "actionbuffer.bin"             # <<<<<<<<<<<<<<
  *         self.tflite_model = "tablut.tflite"
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_action_buffer_name, __pyx_kp_u_actionbuffer_bin) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_action_buffer_name, __pyx_kp_u_actionbuffer_bin) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
 
-  /* "tablut.pyx":91
+  /* "tablut.pyx":92
  *         self.checkpoint_metadata = "tablut.metadata"
  *         self.action_buffer_name = "actionbuffer.bin"
  *         self.tflite_model = "tablut.tflite"             # <<<<<<<<<<<<<<
  * 
  * #------------------------------ Tablut Game -------------------------------------------------------
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_tflite_model, __pyx_kp_u_tablut_tflite) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_tflite_model, __pyx_kp_u_tablut_tflite) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
 
   /* "tablut.pyx":38
  * class TablutConfig:
@@ -4181,7 +4186,7 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "tablut.pyx":256
+/* "tablut.pyx":257
  * ## Optimized Cython functions
  * 
  * cdef inline int coords_to_number(int l, int k, int j, int i):             # <<<<<<<<<<<<<<
@@ -4194,7 +4199,7 @@ static CYTHON_INLINE int __pyx_f_6tablut_coords_to_number(int __pyx_v_l, int __p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("coords_to_number", 0);
 
-  /* "tablut.pyx":257
+  /* "tablut.pyx":258
  * 
  * cdef inline int coords_to_number(int l, int k, int j, int i):
  *     return l*729 + k*81 + j*9 + i             # <<<<<<<<<<<<<<
@@ -4204,7 +4209,7 @@ static CYTHON_INLINE int __pyx_f_6tablut_coords_to_number(int __pyx_v_l, int __p
   __pyx_r = ((((__pyx_v_l * 0x2D9) + (__pyx_v_k * 81)) + (__pyx_v_j * 9)) + __pyx_v_i);
   goto __pyx_L0;
 
-  /* "tablut.pyx":256
+  /* "tablut.pyx":257
  * ## Optimized Cython functions
  * 
  * cdef inline int coords_to_number(int l, int k, int j, int i):             # <<<<<<<<<<<<<<
@@ -4218,7 +4223,7 @@ static CYTHON_INLINE int __pyx_f_6tablut_coords_to_number(int __pyx_v_l, int __p
   return __pyx_r;
 }
 
-/* "tablut.pyx":259
+/* "tablut.pyx":260
  *     return l*729 + k*81 + j*9 + i
  * 
  * cdef inline (int, int, int, int) number_to_coords(int number):             # <<<<<<<<<<<<<<
@@ -4236,7 +4241,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
   __pyx_ctuple_int__and_int__and_int__and_int __pyx_t_1;
   __Pyx_RefNannySetupContext("number_to_coords", 0);
 
-  /* "tablut.pyx":262
+  /* "tablut.pyx":263
  *     cdef int i, j, k, l
  * 
  *     i = number % 9             # <<<<<<<<<<<<<<
@@ -4245,7 +4250,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_i = __Pyx_mod_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":263
+  /* "tablut.pyx":264
  * 
  *     i = number % 9
  *     number = number // 9             # <<<<<<<<<<<<<<
@@ -4254,7 +4259,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_number = __Pyx_div_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":264
+  /* "tablut.pyx":265
  *     i = number % 9
  *     number = number // 9
  *     j = number % 9             # <<<<<<<<<<<<<<
@@ -4263,7 +4268,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_j = __Pyx_mod_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":265
+  /* "tablut.pyx":266
  *     number = number // 9
  *     j = number % 9
  *     number = number // 9             # <<<<<<<<<<<<<<
@@ -4272,7 +4277,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_number = __Pyx_div_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":266
+  /* "tablut.pyx":267
  *     j = number % 9
  *     number = number // 9
  *     k = number % 9             # <<<<<<<<<<<<<<
@@ -4281,7 +4286,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_k = __Pyx_mod_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":267
+  /* "tablut.pyx":268
  *     number = number // 9
  *     k = number % 9
  *     number = number // 9             # <<<<<<<<<<<<<<
@@ -4290,7 +4295,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_number = __Pyx_div_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":268
+  /* "tablut.pyx":269
  *     k = number % 9
  *     number = number // 9
  *     l = number % 9             # <<<<<<<<<<<<<<
@@ -4299,7 +4304,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_l = __Pyx_mod_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":269
+  /* "tablut.pyx":270
  *     number = number // 9
  *     l = number % 9
  *     number = number // 9             # <<<<<<<<<<<<<<
@@ -4308,7 +4313,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
  */
   __pyx_v_number = __Pyx_div_long(__pyx_v_number, 9);
 
-  /* "tablut.pyx":271
+  /* "tablut.pyx":272
  *     number = number // 9
  * 
  *     return l, k, j, i             # <<<<<<<<<<<<<<
@@ -4322,7 +4327,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
   __pyx_r = __pyx_t_1;
   goto __pyx_L0;
 
-  /* "tablut.pyx":259
+  /* "tablut.pyx":260
  *     return l*729 + k*81 + j*9 + i
  * 
  * cdef inline (int, int, int, int) number_to_coords(int number):             # <<<<<<<<<<<<<<
@@ -4336,7 +4341,7 @@ static CYTHON_INLINE __pyx_ctuple_int__and_int__and_int__and_int __pyx_f_6tablut
   return __pyx_r;
 }
 
-/* "tablut.pyx":283
+/* "tablut.pyx":284
  *     cdef HeuristicFunction _heuristic
  * 
  *     def __init__(self, np.ndarray board, unicode to_move, long turn = 0, HeuristicFunction heuristic=None):             # <<<<<<<<<<<<<<
@@ -4385,7 +4390,7 @@ static int __pyx_pw_6tablut_12AshtonTablut_1__init__(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_to_move)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 4, 1); __PYX_ERR(0, 283, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 4, 1); __PYX_ERR(0, 284, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -4401,7 +4406,7 @@ static int __pyx_pw_6tablut_12AshtonTablut_1__init__(PyObject *__pyx_v_self, PyO
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 283, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 284, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4418,7 +4423,7 @@ static int __pyx_pw_6tablut_12AshtonTablut_1__init__(PyObject *__pyx_v_self, PyO
     __pyx_v_board = ((PyArrayObject *)values[0]);
     __pyx_v_to_move = ((PyObject*)values[1]);
     if (values[2]) {
-      __pyx_v_turn = __Pyx_PyInt_As_long(values[2]); if (unlikely((__pyx_v_turn == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 283, __pyx_L3_error)
+      __pyx_v_turn = __Pyx_PyInt_As_long(values[2]); if (unlikely((__pyx_v_turn == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 284, __pyx_L3_error)
     } else {
       __pyx_v_turn = ((long)0);
     }
@@ -4426,15 +4431,15 @@ static int __pyx_pw_6tablut_12AshtonTablut_1__init__(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 283, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 284, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.AshtonTablut.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), __pyx_ptype_5numpy_ndarray, 1, "board", 0))) __PYX_ERR(0, 283, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_to_move), (&PyUnicode_Type), 1, "to_move", 1))) __PYX_ERR(0, 283, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_heuristic), __pyx_ptype_6tablut_HeuristicFunction, 1, "heuristic", 0))) __PYX_ERR(0, 283, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), __pyx_ptype_5numpy_ndarray, 1, "board", 0))) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_to_move), (&PyUnicode_Type), 1, "to_move", 1))) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_heuristic), __pyx_ptype_6tablut_HeuristicFunction, 1, "heuristic", 0))) __PYX_ERR(0, 284, __pyx_L1_error)
   __pyx_r = __pyx_pf_6tablut_12AshtonTablut___init__(((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_self), __pyx_v_board, __pyx_v_to_move, __pyx_v_turn, __pyx_v_heuristic);
 
   /* function exit code */
@@ -4465,14 +4470,14 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __Pyx_RefNannySetupContext("__init__", 0);
   __Pyx_INCREF((PyObject *)__pyx_v_heuristic);
 
-  /* "tablut.pyx":285
+  /* "tablut.pyx":286
  *     def __init__(self, np.ndarray board, unicode to_move, long turn = 0, HeuristicFunction heuristic=None):
  *         cdef bint winCheck
  *         cdef unicode prev_to_move = 'W' if to_move == 'B' else 'B'             # <<<<<<<<<<<<<<
  * 
  *         self._board = board
  */
-  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 286, __pyx_L1_error)
   if ((__pyx_t_2 != 0)) {
     __Pyx_INCREF(__pyx_n_u_W);
     __pyx_t_1 = __pyx_n_u_W;
@@ -4483,7 +4488,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __pyx_v_prev_to_move = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":287
+  /* "tablut.pyx":288
  *         cdef unicode prev_to_move = 'W' if to_move == 'B' else 'B'
  * 
  *         self._board = board             # <<<<<<<<<<<<<<
@@ -4496,7 +4501,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_board));
   __pyx_v_self->_board = __pyx_v_board;
 
-  /* "tablut.pyx":288
+  /* "tablut.pyx":289
  * 
  *         self._board = board
  *         self._to_move = to_move             # <<<<<<<<<<<<<<
@@ -4509,7 +4514,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __Pyx_DECREF(__pyx_v_self->_to_move);
   __pyx_v_self->_to_move = __pyx_v_to_move;
 
-  /* "tablut.pyx":289
+  /* "tablut.pyx":290
  *         self._board = board
  *         self._to_move = to_move
  *         self._turn = turn             # <<<<<<<<<<<<<<
@@ -4518,7 +4523,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
  */
   __pyx_v_self->_turn = __pyx_v_turn;
 
-  /* "tablut.pyx":290
+  /* "tablut.pyx":291
  *         self._to_move = to_move
  *         self._turn = turn
  *         self._utility = 0             # <<<<<<<<<<<<<<
@@ -4527,7 +4532,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
  */
   __pyx_v_self->_utility = 0;
 
-  /* "tablut.pyx":292
+  /* "tablut.pyx":293
  *         self._utility = 0
  * 
  *         if heuristic is None:             # <<<<<<<<<<<<<<
@@ -4538,19 +4543,19 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "tablut.pyx":293
+    /* "tablut.pyx":294
  * 
  *         if heuristic is None:
  *             heuristic = HeuristicFunction()             # <<<<<<<<<<<<<<
  * 
  *         self._heuristic = heuristic
  */
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_HeuristicFunction)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_HeuristicFunction)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_heuristic, ((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "tablut.pyx":292
+    /* "tablut.pyx":293
  *         self._utility = 0
  * 
  *         if heuristic is None:             # <<<<<<<<<<<<<<
@@ -4559,7 +4564,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
  */
   }
 
-  /* "tablut.pyx":295
+  /* "tablut.pyx":296
  *             heuristic = HeuristicFunction()
  * 
  *         self._heuristic = heuristic             # <<<<<<<<<<<<<<
@@ -4572,20 +4577,20 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_heuristic));
   __pyx_v_self->_heuristic = __pyx_v_heuristic;
 
-  /* "tablut.pyx":297
+  /* "tablut.pyx":298
  *         self._heuristic = heuristic
  * 
  *         winCheck = AshtonTablut.have_winner(board, prev_to_move)             # <<<<<<<<<<<<<<
  * 
  *         if not winCheck:
  */
-  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_board), PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_board), PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 298, __pyx_L1_error)
   __pyx_v_winCheck = __pyx_f_6tablut_12AshtonTablut_have_winner(__pyx_t_4, __pyx_v_prev_to_move);
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "tablut.pyx":299
+  /* "tablut.pyx":300
  *         winCheck = AshtonTablut.have_winner(board, prev_to_move)
  * 
  *         if not winCheck:             # <<<<<<<<<<<<<<
@@ -4595,14 +4600,14 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __pyx_t_3 = ((!(__pyx_v_winCheck != 0)) != 0);
   if (__pyx_t_3) {
 
-    /* "tablut.pyx":300
+    /* "tablut.pyx":301
  * 
  *         if not winCheck:
  *             self._moves, self._moves_length = AshtonTablut.legal_actions(board, to_move)             # <<<<<<<<<<<<<<
  *             winCheck = winCheck or self._moves_length == 0
  *         else:
  */
-    __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_board), PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_board), PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 301, __pyx_L1_error)
     __pyx_t_5 = __pyx_f_6tablut_12AshtonTablut_legal_actions(__pyx_t_4, __pyx_v_to_move);
     __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
     __pyx_t_4.memview = NULL;
@@ -4612,7 +4617,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
     __pyx_v_self->_moves = __pyx_t_6;
     __pyx_v_self->_moves_length = __pyx_t_7;
 
-    /* "tablut.pyx":301
+    /* "tablut.pyx":302
  *         if not winCheck:
  *             self._moves, self._moves_length = AshtonTablut.legal_actions(board, to_move)
  *             winCheck = winCheck or self._moves_length == 0             # <<<<<<<<<<<<<<
@@ -4630,7 +4635,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
     __pyx_L5_bool_binop_done:;
     __pyx_v_winCheck = __pyx_t_3;
 
-    /* "tablut.pyx":299
+    /* "tablut.pyx":300
  *         winCheck = AshtonTablut.have_winner(board, prev_to_move)
  * 
  *         if not winCheck:             # <<<<<<<<<<<<<<
@@ -4640,7 +4645,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
     goto __pyx_L4;
   }
 
-  /* "tablut.pyx":303
+  /* "tablut.pyx":304
  *             winCheck = winCheck or self._moves_length == 0
  *         else:
  *             self._moves, self._moves_length = NULL, 0             # <<<<<<<<<<<<<<
@@ -4655,7 +4660,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   }
   __pyx_L4:;
 
-  /* "tablut.pyx":305
+  /* "tablut.pyx":306
  *             self._moves, self._moves_length = NULL, 0
  * 
  *         if winCheck:             # <<<<<<<<<<<<<<
@@ -4665,14 +4670,14 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   __pyx_t_3 = (__pyx_v_winCheck != 0);
   if (__pyx_t_3) {
 
-    /* "tablut.pyx":306
+    /* "tablut.pyx":307
  * 
  *         if winCheck:
  *             self._utility = 1 if prev_to_move == 'W' else -1             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-    __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_prev_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_prev_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 307, __pyx_L1_error)
     if ((__pyx_t_3 != 0)) {
       __pyx_t_7 = 1;
     } else {
@@ -4680,7 +4685,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
     }
     __pyx_v_self->_utility = __pyx_t_7;
 
-    /* "tablut.pyx":305
+    /* "tablut.pyx":306
  *             self._moves, self._moves_length = NULL, 0
  * 
  *         if winCheck:             # <<<<<<<<<<<<<<
@@ -4689,7 +4694,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
  */
   }
 
-  /* "tablut.pyx":283
+  /* "tablut.pyx":284
  *     cdef HeuristicFunction _heuristic
  * 
  *     def __init__(self, np.ndarray board, unicode to_move, long turn = 0, HeuristicFunction heuristic=None):             # <<<<<<<<<<<<<<
@@ -4712,7 +4717,7 @@ static int __pyx_pf_6tablut_12AshtonTablut___init__(struct __pyx_obj_6tablut_Ash
   return __pyx_r;
 }
 
-/* "tablut.pyx":308
+/* "tablut.pyx":309
  *             self._utility = 1 if prev_to_move == 'W' else -1
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -4736,7 +4741,7 @@ static void __pyx_pf_6tablut_12AshtonTablut_2__dealloc__(struct __pyx_obj_6tablu
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "tablut.pyx":309
+  /* "tablut.pyx":310
  * 
  *     def __dealloc__(self):
  *         if self._moves != NULL:             # <<<<<<<<<<<<<<
@@ -4746,7 +4751,7 @@ static void __pyx_pf_6tablut_12AshtonTablut_2__dealloc__(struct __pyx_obj_6tablu
   __pyx_t_1 = ((__pyx_v_self->_moves != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":310
+    /* "tablut.pyx":311
  *     def __dealloc__(self):
  *         if self._moves != NULL:
  *             PyMem_Free(self._moves)             # <<<<<<<<<<<<<<
@@ -4755,7 +4760,7 @@ static void __pyx_pf_6tablut_12AshtonTablut_2__dealloc__(struct __pyx_obj_6tablu
  */
     PyMem_Free(__pyx_v_self->_moves);
 
-    /* "tablut.pyx":309
+    /* "tablut.pyx":310
  * 
  *     def __dealloc__(self):
  *         if self._moves != NULL:             # <<<<<<<<<<<<<<
@@ -4764,7 +4769,7 @@ static void __pyx_pf_6tablut_12AshtonTablut_2__dealloc__(struct __pyx_obj_6tablu
  */
   }
 
-  /* "tablut.pyx":308
+  /* "tablut.pyx":309
  *             self._utility = 1 if prev_to_move == 'W' else -1
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -4776,7 +4781,7 @@ static void __pyx_pf_6tablut_12AshtonTablut_2__dealloc__(struct __pyx_obj_6tablu
   __Pyx_RefNannyFinishContext();
 }
 
-/* "tablut.pyx":313
+/* "tablut.pyx":314
  * 
  *     @staticmethod
  *     def get_initial(heuristic=None):             # <<<<<<<<<<<<<<
@@ -4818,7 +4823,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_5get_initial(CYTHON_UNUSED PyOb
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_initial") < 0)) __PYX_ERR(0, 313, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_initial") < 0)) __PYX_ERR(0, 314, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4832,7 +4837,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_5get_initial(CYTHON_UNUSED PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_initial", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 313, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_initial", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 314, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.AshtonTablut.get_initial", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4855,7 +4860,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_4get_initial(PyObject *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_initial", 0);
 
-  /* "tablut.pyx":314
+  /* "tablut.pyx":315
  *     @staticmethod
  *     def get_initial(heuristic=None):
  *         return AshtonTablut(initialBoard, 'W', 0, heuristic)             # <<<<<<<<<<<<<<
@@ -4863,7 +4868,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_4get_initial(PyObject *__pyx_v_
  *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_v_6tablut_initialBoard));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_6tablut_initialBoard));
@@ -4877,14 +4882,14 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_4get_initial(PyObject *__pyx_v_
   __Pyx_INCREF(__pyx_v_heuristic);
   __Pyx_GIVEREF(__pyx_v_heuristic);
   PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_v_heuristic);
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":313
+  /* "tablut.pyx":314
  * 
  *     @staticmethod
  *     def get_initial(heuristic=None):             # <<<<<<<<<<<<<<
@@ -4904,7 +4909,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_4get_initial(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* "tablut.pyx":317
+/* "tablut.pyx":318
  * 
  *     @staticmethod
  *     def get_initial_board():             # <<<<<<<<<<<<<<
@@ -4941,7 +4946,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_6get_initial_board(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_initial_board", 0);
 
-  /* "tablut.pyx":318
+  /* "tablut.pyx":319
  *     @staticmethod
  *     def get_initial_board():
  *         return initialBoard.copy()             # <<<<<<<<<<<<<<
@@ -4949,7 +4954,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_6get_initial_board(void) {
  *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4963,14 +4968,14 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_6get_initial_board(void) {
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":317
+  /* "tablut.pyx":318
  * 
  *     @staticmethod
  *     def get_initial_board():             # <<<<<<<<<<<<<<
@@ -4991,7 +4996,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_6get_initial_board(void) {
   return __pyx_r;
 }
 
-/* "tablut.pyx":321
+/* "tablut.pyx":322
  * 
  *     @staticmethod
  *     def parse_board(board, player, turn, heuristic):             # <<<<<<<<<<<<<<
@@ -5041,23 +5046,23 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_9parse_board(CYTHON_UNUSED PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_player)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, 1); __PYX_ERR(0, 321, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, 1); __PYX_ERR(0, 322, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, 2); __PYX_ERR(0, 321, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, 2); __PYX_ERR(0, 322, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_heuristic)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, 3); __PYX_ERR(0, 321, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, 3); __PYX_ERR(0, 322, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "parse_board") < 0)) __PYX_ERR(0, 321, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "parse_board") < 0)) __PYX_ERR(0, 322, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -5074,7 +5079,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_9parse_board(CYTHON_UNUSED PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 321, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("parse_board", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 322, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.AshtonTablut.parse_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5098,22 +5103,22 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_8parse_board(PyObject *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("parse_board", 0);
 
-  /* "tablut.pyx":322
+  /* "tablut.pyx":323
  *     @staticmethod
  *     def parse_board(board, player, turn, heuristic):
  *         if board.shape == (1, 9, 9, 4):             # <<<<<<<<<<<<<<
  *             return AshtonTablut(board, player[0], turn, heuristic)
  *         return None
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_board, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_board, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_tuple_, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_tuple_, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "tablut.pyx":323
+    /* "tablut.pyx":324
  *     def parse_board(board, player, turn, heuristic):
  *         if board.shape == (1, 9, 9, 4):
  *             return AshtonTablut(board, player[0], turn, heuristic)             # <<<<<<<<<<<<<<
@@ -5121,9 +5126,9 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_8parse_board(PyObject *__pyx_v_
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_player, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_player, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_v_board);
     __Pyx_GIVEREF(__pyx_v_board);
@@ -5137,14 +5142,14 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_8parse_board(PyObject *__pyx_v_
     __Pyx_GIVEREF(__pyx_v_heuristic);
     PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_v_heuristic);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "tablut.pyx":322
+    /* "tablut.pyx":323
  *     @staticmethod
  *     def parse_board(board, player, turn, heuristic):
  *         if board.shape == (1, 9, 9, 4):             # <<<<<<<<<<<<<<
@@ -5153,7 +5158,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_8parse_board(PyObject *__pyx_v_
  */
   }
 
-  /* "tablut.pyx":324
+  /* "tablut.pyx":325
  *         if board.shape == (1, 9, 9, 4):
  *             return AshtonTablut(board, player[0], turn, heuristic)
  *         return None             # <<<<<<<<<<<<<<
@@ -5164,7 +5169,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_8parse_board(PyObject *__pyx_v_
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "tablut.pyx":321
+  /* "tablut.pyx":322
  * 
  *     @staticmethod
  *     def parse_board(board, player, turn, heuristic):             # <<<<<<<<<<<<<<
@@ -5184,7 +5189,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_8parse_board(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* "tablut.pyx":327
+/* "tablut.pyx":328
  * 
  *     @staticmethod
  *     def coords_to_num(l,k,j,i):             # <<<<<<<<<<<<<<
@@ -5234,23 +5239,23 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_11coords_to_num(CYTHON_UNUSED P
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_k)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, 1); __PYX_ERR(0, 327, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, 1); __PYX_ERR(0, 328, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_j)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, 2); __PYX_ERR(0, 327, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, 2); __PYX_ERR(0, 328, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_i)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, 3); __PYX_ERR(0, 327, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, 3); __PYX_ERR(0, 328, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "coords_to_num") < 0)) __PYX_ERR(0, 327, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "coords_to_num") < 0)) __PYX_ERR(0, 328, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -5267,7 +5272,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_11coords_to_num(CYTHON_UNUSED P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 327, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("coords_to_num", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 328, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.AshtonTablut.coords_to_num", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5293,7 +5298,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_10coords_to_num(PyObject *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("coords_to_num", 0);
 
-  /* "tablut.pyx":328
+  /* "tablut.pyx":329
  *     @staticmethod
  *     def coords_to_num(l,k,j,i):
  *         return coords_to_number(l,k,j,i)             # <<<<<<<<<<<<<<
@@ -5301,17 +5306,17 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_10coords_to_num(PyObject *__pyx
  *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_l); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_i); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_f_6tablut_coords_to_number(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 328, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_l); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_i); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_f_6tablut_coords_to_number(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 329, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":327
+  /* "tablut.pyx":328
  * 
  *     @staticmethod
  *     def coords_to_num(l,k,j,i):             # <<<<<<<<<<<<<<
@@ -5330,7 +5335,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_10coords_to_num(PyObject *__pyx
   return __pyx_r;
 }
 
-/* "tablut.pyx":331
+/* "tablut.pyx":332
  * 
  *     @staticmethod
  *     def num_to_coords(number):             # <<<<<<<<<<<<<<
@@ -5369,7 +5374,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_13num_to_coords(CYTHON_UNUSED P
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "num_to_coords") < 0)) __PYX_ERR(0, 331, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "num_to_coords") < 0)) __PYX_ERR(0, 332, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -5380,7 +5385,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_13num_to_coords(CYTHON_UNUSED P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("num_to_coords", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 331, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("num_to_coords", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 332, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.AshtonTablut.num_to_coords", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5403,7 +5408,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_12num_to_coords(PyObject *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("num_to_coords", 0);
 
-  /* "tablut.pyx":332
+  /* "tablut.pyx":333
  *     @staticmethod
  *     def num_to_coords(number):
  *         return number_to_coords(number)             # <<<<<<<<<<<<<<
@@ -5411,14 +5416,14 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_12num_to_coords(PyObject *__pyx
  *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_number); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 332, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int__and_int(__pyx_f_6tablut_number_to_coords(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_number); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 333, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int__and_int(__pyx_f_6tablut_number_to_coords(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":331
+  /* "tablut.pyx":332
  * 
  *     @staticmethod
  *     def num_to_coords(number):             # <<<<<<<<<<<<<<
@@ -5437,7 +5442,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_12num_to_coords(PyObject *__pyx
   return __pyx_r;
 }
 
-/* "tablut.pyx":335
+/* "tablut.pyx":336
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):             # <<<<<<<<<<<<<<
@@ -5455,18 +5460,18 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("legal_actions", 0);
 
-  /* "tablut.pyx":336
+  /* "tablut.pyx":337
  *     @staticmethod
  *     cdef (int*, int) legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):
  *         if to_move == 'W':             # <<<<<<<<<<<<<<
  *             return AshtonTablut.legal_actions_white(board)
  *         else:
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 337, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "tablut.pyx":337
+    /* "tablut.pyx":338
  *     cdef (int*, int) legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):
  *         if to_move == 'W':
  *             return AshtonTablut.legal_actions_white(board)             # <<<<<<<<<<<<<<
@@ -5476,7 +5481,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     __pyx_r = __pyx_f_6tablut_12AshtonTablut_legal_actions_white(__pyx_v_board);
     goto __pyx_L0;
 
-    /* "tablut.pyx":336
+    /* "tablut.pyx":337
  *     @staticmethod
  *     cdef (int*, int) legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):
  *         if to_move == 'W':             # <<<<<<<<<<<<<<
@@ -5485,7 +5490,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   }
 
-  /* "tablut.pyx":339
+  /* "tablut.pyx":340
  *             return AshtonTablut.legal_actions_white(board)
  *         else:
  *             return AshtonTablut.legal_actions_black(board)             # <<<<<<<<<<<<<<
@@ -5497,7 +5502,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     goto __pyx_L0;
   }
 
-  /* "tablut.pyx":335
+  /* "tablut.pyx":336
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions(DTYPE_t[:,:,:,:] board, unicode to_move):             # <<<<<<<<<<<<<<
@@ -5514,7 +5519,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   return __pyx_r;
 }
 
-/* "tablut.pyx":342
+/* "tablut.pyx":343
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions_black(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -5564,7 +5569,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("legal_actions_black", 0);
 
-  /* "tablut.pyx":343
+  /* "tablut.pyx":344
  *     @staticmethod
  *     cdef (int*, int) legal_actions_black(DTYPE_t[:,:,:,:] board):
  *         cdef int* legal = <int*> PyMem_Malloc(256 * sizeof(int))             # <<<<<<<<<<<<<<
@@ -5573,7 +5578,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   __pyx_v_legal = ((int *)PyMem_Malloc((0x100 * (sizeof(int)))));
 
-  /* "tablut.pyx":344
+  /* "tablut.pyx":345
  *     cdef (int*, int) legal_actions_black(DTYPE_t[:,:,:,:] board):
  *         cdef int* legal = <int*> PyMem_Malloc(256 * sizeof(int))
  *         cdef int i = 0             # <<<<<<<<<<<<<<
@@ -5582,7 +5587,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   __pyx_v_i = 0;
 
-  /* "tablut.pyx":345
+  /* "tablut.pyx":346
  *         cdef int* legal = <int*> PyMem_Malloc(256 * sizeof(int))
  *         cdef int i = 0
  *         cdef int tmp, r = 0             # <<<<<<<<<<<<<<
@@ -5591,19 +5596,19 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   __pyx_v_r = 0;
 
-  /* "tablut.pyx":347
+  /* "tablut.pyx":348
  *         cdef int tmp, r = 0
  * 
  *         cdef DTYPE_t[:,:,:,:] constraints = blackConstraints             # <<<<<<<<<<<<<<
  * 
  *         # Seleziono i pedoni del giocatore
  */
-  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_6tablut_blackConstraints), PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 347, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_6tablut_blackConstraints), PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 348, __pyx_L1_error)
   __pyx_v_constraints = __pyx_t_1;
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
 
-  /* "tablut.pyx":352
+  /* "tablut.pyx":353
  *         cdef int y, x, newY, newX
  * 
  *         for y in range(9):             # <<<<<<<<<<<<<<
@@ -5613,7 +5618,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   for (__pyx_t_2 = 0; __pyx_t_2 < 9; __pyx_t_2+=1) {
     __pyx_v_y = __pyx_t_2;
 
-    /* "tablut.pyx":353
+    /* "tablut.pyx":354
  * 
  *         for y in range(9):
  *             for x in range(9):             # <<<<<<<<<<<<<<
@@ -5623,7 +5628,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     for (__pyx_t_3 = 0; __pyx_t_3 < 9; __pyx_t_3+=1) {
       __pyx_v_x = __pyx_t_3;
 
-      /* "tablut.pyx":355
+      /* "tablut.pyx":356
  *             for x in range(9):
  *                 #Seleziono solo i neri
  *                 if board[0, y, x, 1] != 1:             # <<<<<<<<<<<<<<
@@ -5634,10 +5639,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       __pyx_t_5 = __pyx_v_y;
       __pyx_t_6 = __pyx_v_x;
       __pyx_t_7 = 1;
-      __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_4 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) != 1) != 0);
+      __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_4 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) != 1.0) != 0);
       if (__pyx_t_8) {
 
-        /* "tablut.pyx":356
+        /* "tablut.pyx":357
  *                 #Seleziono solo i neri
  *                 if board[0, y, x, 1] != 1:
  *                     continue             # <<<<<<<<<<<<<<
@@ -5646,7 +5651,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
         goto __pyx_L5_continue;
 
-        /* "tablut.pyx":355
+        /* "tablut.pyx":356
  *             for x in range(9):
  *                 #Seleziono solo i neri
  *                 if board[0, y, x, 1] != 1:             # <<<<<<<<<<<<<<
@@ -5655,7 +5660,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       }
 
-      /* "tablut.pyx":362
+      /* "tablut.pyx":363
  * 
  *                 # Su
  *                 newY = y-1             # <<<<<<<<<<<<<<
@@ -5664,7 +5669,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newY = (__pyx_v_y - 1);
 
-      /* "tablut.pyx":363
+      /* "tablut.pyx":364
  *                 # Su
  *                 newY = y-1
  *                 while newY >= 0:             # <<<<<<<<<<<<<<
@@ -5675,7 +5680,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_8 = ((__pyx_v_newY >= 0) != 0);
         if (!__pyx_t_8) break;
 
-        /* "tablut.pyx":364
+        /* "tablut.pyx":365
  *                 newY = y-1
  *                 while newY >= 0:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:             # <<<<<<<<<<<<<<
@@ -5698,10 +5703,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_18 = __pyx_v_x;
         __pyx_t_19 = __pyx_v_newY;
         __pyx_t_20 = __pyx_v_x;
-        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_4 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_13 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_15 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_17 * __pyx_v_constraints.strides[0]) ) + __pyx_t_18 * __pyx_v_constraints.strides[1]) ) + __pyx_t_19 * __pyx_v_constraints.strides[2]) ) + __pyx_t_20 * __pyx_v_constraints.strides[3]) )))) == 0) != 0);
+        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_4 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_13 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_15 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_17 * __pyx_v_constraints.strides[0]) ) + __pyx_t_18 * __pyx_v_constraints.strides[1]) ) + __pyx_t_19 * __pyx_v_constraints.strides[2]) ) + __pyx_t_20 * __pyx_v_constraints.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_8) {
 
-          /* "tablut.pyx":365
+          /* "tablut.pyx":366
  *                 while newY >= 0:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)             # <<<<<<<<<<<<<<
@@ -5710,7 +5715,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_newY, __pyx_v_x);
 
-          /* "tablut.pyx":366
+          /* "tablut.pyx":367
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -5719,7 +5724,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":364
+          /* "tablut.pyx":365
  *                 newY = y-1
  *                 while newY >= 0:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:             # <<<<<<<<<<<<<<
@@ -5729,7 +5734,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L10;
         }
 
-        /* "tablut.pyx":368
+        /* "tablut.pyx":369
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -5741,7 +5746,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L10:;
 
-        /* "tablut.pyx":369
+        /* "tablut.pyx":370
  *                     else:
  *                         break
  *                     newY -=1             # <<<<<<<<<<<<<<
@@ -5752,7 +5757,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       }
       __pyx_L9_break:;
 
-      /* "tablut.pyx":372
+      /* "tablut.pyx":373
  * 
  *                 # Giu
  *                 newY = y+1             # <<<<<<<<<<<<<<
@@ -5761,7 +5766,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newY = (__pyx_v_y + 1);
 
-      /* "tablut.pyx":373
+      /* "tablut.pyx":374
  *                 # Giu
  *                 newY = y+1
  *                 while newY < 9:             # <<<<<<<<<<<<<<
@@ -5772,7 +5777,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_8 = ((__pyx_v_newY < 9) != 0);
         if (!__pyx_t_8) break;
 
-        /* "tablut.pyx":374
+        /* "tablut.pyx":375
  *                 newY = y+1
  *                 while newY < 9:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:             # <<<<<<<<<<<<<<
@@ -5795,10 +5800,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_5 = __pyx_v_x;
         __pyx_t_6 = __pyx_v_newY;
         __pyx_t_7 = __pyx_v_x;
-        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_20 * __pyx_v_board.strides[0]) ) + __pyx_t_19 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_17 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_15 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_13 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_4 * __pyx_v_constraints.strides[0]) ) + __pyx_t_5 * __pyx_v_constraints.strides[1]) ) + __pyx_t_6 * __pyx_v_constraints.strides[2]) ) + __pyx_t_7 * __pyx_v_constraints.strides[3]) )))) == 0) != 0);
+        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_20 * __pyx_v_board.strides[0]) ) + __pyx_t_19 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_17 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_15 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_13 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_4 * __pyx_v_constraints.strides[0]) ) + __pyx_t_5 * __pyx_v_constraints.strides[1]) ) + __pyx_t_6 * __pyx_v_constraints.strides[2]) ) + __pyx_t_7 * __pyx_v_constraints.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_8) {
 
-          /* "tablut.pyx":375
+          /* "tablut.pyx":376
  *                 while newY < 9:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)             # <<<<<<<<<<<<<<
@@ -5807,7 +5812,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_newY, __pyx_v_x);
 
-          /* "tablut.pyx":376
+          /* "tablut.pyx":377
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -5816,7 +5821,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":374
+          /* "tablut.pyx":375
  *                 newY = y+1
  *                 while newY < 9:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + constraints[y, x, newY, x] == 0:             # <<<<<<<<<<<<<<
@@ -5826,7 +5831,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L13;
         }
 
-        /* "tablut.pyx":378
+        /* "tablut.pyx":379
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -5838,7 +5843,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L13:;
 
-        /* "tablut.pyx":379
+        /* "tablut.pyx":380
  *                     else:
  *                         break
  *                     newY +=1             # <<<<<<<<<<<<<<
@@ -5849,7 +5854,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       }
       __pyx_L12_break:;
 
-      /* "tablut.pyx":382
+      /* "tablut.pyx":383
  * 
  *                 # Sinistra
  *                 newX = x-1             # <<<<<<<<<<<<<<
@@ -5858,7 +5863,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newX = (__pyx_v_x - 1);
 
-      /* "tablut.pyx":383
+      /* "tablut.pyx":384
  *                 # Sinistra
  *                 newX = x-1
  *                 while newX >= 0:             # <<<<<<<<<<<<<<
@@ -5869,7 +5874,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_8 = ((__pyx_v_newX >= 0) != 0);
         if (!__pyx_t_8) break;
 
-        /* "tablut.pyx":384
+        /* "tablut.pyx":385
  *                 newX = x-1
  *                 while newX >= 0:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:             # <<<<<<<<<<<<<<
@@ -5892,10 +5897,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_18 = __pyx_v_x;
         __pyx_t_19 = __pyx_v_y;
         __pyx_t_20 = __pyx_v_newX;
-        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_4 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_13 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_15 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_17 * __pyx_v_constraints.strides[0]) ) + __pyx_t_18 * __pyx_v_constraints.strides[1]) ) + __pyx_t_19 * __pyx_v_constraints.strides[2]) ) + __pyx_t_20 * __pyx_v_constraints.strides[3]) )))) == 0) != 0);
+        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_4 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_13 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_15 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_17 * __pyx_v_constraints.strides[0]) ) + __pyx_t_18 * __pyx_v_constraints.strides[1]) ) + __pyx_t_19 * __pyx_v_constraints.strides[2]) ) + __pyx_t_20 * __pyx_v_constraints.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_8) {
 
-          /* "tablut.pyx":385
+          /* "tablut.pyx":386
  *                 while newX >= 0:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)             # <<<<<<<<<<<<<<
@@ -5904,7 +5909,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_y, __pyx_v_newX);
 
-          /* "tablut.pyx":386
+          /* "tablut.pyx":387
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -5913,7 +5918,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":384
+          /* "tablut.pyx":385
  *                 newX = x-1
  *                 while newX >= 0:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:             # <<<<<<<<<<<<<<
@@ -5923,7 +5928,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L16;
         }
 
-        /* "tablut.pyx":388
+        /* "tablut.pyx":389
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -5935,7 +5940,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L16:;
 
-        /* "tablut.pyx":389
+        /* "tablut.pyx":390
  *                     else:
  *                         break
  *                     newX -=1             # <<<<<<<<<<<<<<
@@ -5946,7 +5951,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       }
       __pyx_L15_break:;
 
-      /* "tablut.pyx":392
+      /* "tablut.pyx":393
  * 
  *                 # Destra
  *                 newX = x+1             # <<<<<<<<<<<<<<
@@ -5955,7 +5960,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newX = (__pyx_v_x + 1);
 
-      /* "tablut.pyx":393
+      /* "tablut.pyx":394
  *                 # Destra
  *                 newX = x+1
  *                 while newX < 9:             # <<<<<<<<<<<<<<
@@ -5966,7 +5971,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_8 = ((__pyx_v_newX < 9) != 0);
         if (!__pyx_t_8) break;
 
-        /* "tablut.pyx":394
+        /* "tablut.pyx":395
  *                 newX = x+1
  *                 while newX < 9:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:             # <<<<<<<<<<<<<<
@@ -5989,10 +5994,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_5 = __pyx_v_x;
         __pyx_t_6 = __pyx_v_y;
         __pyx_t_7 = __pyx_v_newX;
-        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_20 * __pyx_v_board.strides[0]) ) + __pyx_t_19 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_17 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_15 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_13 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_4 * __pyx_v_constraints.strides[0]) ) + __pyx_t_5 * __pyx_v_constraints.strides[1]) ) + __pyx_t_6 * __pyx_v_constraints.strides[2]) ) + __pyx_t_7 * __pyx_v_constraints.strides[3]) )))) == 0) != 0);
+        __pyx_t_8 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_20 * __pyx_v_board.strides[0]) ) + __pyx_t_19 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_17 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_15 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_13 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_constraints.data + __pyx_t_4 * __pyx_v_constraints.strides[0]) ) + __pyx_t_5 * __pyx_v_constraints.strides[1]) ) + __pyx_t_6 * __pyx_v_constraints.strides[2]) ) + __pyx_t_7 * __pyx_v_constraints.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_8) {
 
-          /* "tablut.pyx":395
+          /* "tablut.pyx":396
  *                 while newX < 9:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)             # <<<<<<<<<<<<<<
@@ -6001,7 +6006,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_y, __pyx_v_newX);
 
-          /* "tablut.pyx":396
+          /* "tablut.pyx":397
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -6010,7 +6015,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":394
+          /* "tablut.pyx":395
  *                 newX = x+1
  *                 while newX < 9:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + constraints[y, x, y, newX] == 0:             # <<<<<<<<<<<<<<
@@ -6020,7 +6025,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L19;
         }
 
-        /* "tablut.pyx":398
+        /* "tablut.pyx":399
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -6032,7 +6037,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L19:;
 
-        /* "tablut.pyx":399
+        /* "tablut.pyx":400
  *                     else:
  *                         break
  *                     newX +=1             # <<<<<<<<<<<<<<
@@ -6046,7 +6051,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     }
   }
 
-  /* "tablut.pyx":402
+  /* "tablut.pyx":403
  * 
  *         #Shuffle
  *         for k in range(i//4):             # <<<<<<<<<<<<<<
@@ -6058,7 +6063,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_k = __pyx_t_23;
 
-    /* "tablut.pyx":403
+    /* "tablut.pyx":404
  *         #Shuffle
  *         for k in range(i//4):
  *             r = <int> rand() % i             # <<<<<<<<<<<<<<
@@ -6068,11 +6073,11 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     __pyx_t_2 = ((int)rand());
     if (unlikely(__pyx_v_i == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-      __PYX_ERR(0, 403, __pyx_L1_error)
+      __PYX_ERR(0, 404, __pyx_L1_error)
     }
     __pyx_v_r = __Pyx_mod_int(__pyx_t_2, __pyx_v_i);
 
-    /* "tablut.pyx":404
+    /* "tablut.pyx":405
  *         for k in range(i//4):
  *             r = <int> rand() % i
  *             tmp = legal[k]             # <<<<<<<<<<<<<<
@@ -6081,7 +6086,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
     __pyx_v_tmp = (__pyx_v_legal[__pyx_v_k]);
 
-    /* "tablut.pyx":405
+    /* "tablut.pyx":406
  *             r = <int> rand() % i
  *             tmp = legal[k]
  *             legal[k] = legal[r]             # <<<<<<<<<<<<<<
@@ -6090,7 +6095,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
     (__pyx_v_legal[__pyx_v_k]) = (__pyx_v_legal[__pyx_v_r]);
 
-    /* "tablut.pyx":406
+    /* "tablut.pyx":407
  *             tmp = legal[k]
  *             legal[k] = legal[r]
  *             legal[r] = tmp             # <<<<<<<<<<<<<<
@@ -6100,7 +6105,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     (__pyx_v_legal[__pyx_v_r]) = __pyx_v_tmp;
   }
 
-  /* "tablut.pyx":408
+  /* "tablut.pyx":409
  *             legal[r] = tmp
  * 
  *         return legal, i             # <<<<<<<<<<<<<<
@@ -6112,7 +6117,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   __pyx_r = __pyx_t_24;
   goto __pyx_L0;
 
-  /* "tablut.pyx":342
+  /* "tablut.pyx":343
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions_black(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -6131,7 +6136,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   return __pyx_r;
 }
 
-/* "tablut.pyx":411
+/* "tablut.pyx":412
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions_white(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -6179,7 +6184,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("legal_actions_white", 0);
 
-  /* "tablut.pyx":412
+  /* "tablut.pyx":413
  *     @staticmethod
  *     cdef (int*, int) legal_actions_white(DTYPE_t[:,:,:,:] board):
  *         cdef int* legal = <int*> PyMem_Malloc(256 * sizeof(int))             # <<<<<<<<<<<<<<
@@ -6188,7 +6193,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   __pyx_v_legal = ((int *)PyMem_Malloc((0x100 * (sizeof(int)))));
 
-  /* "tablut.pyx":413
+  /* "tablut.pyx":414
  *     cdef (int*, int) legal_actions_white(DTYPE_t[:,:,:,:] board):
  *         cdef int* legal = <int*> PyMem_Malloc(256 * sizeof(int))
  *         cdef int i = 0             # <<<<<<<<<<<<<<
@@ -6197,7 +6202,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   __pyx_v_i = 0;
 
-  /* "tablut.pyx":414
+  /* "tablut.pyx":415
  *         cdef int* legal = <int*> PyMem_Malloc(256 * sizeof(int))
  *         cdef int i = 0
  *         cdef int tmp, r = 0             # <<<<<<<<<<<<<<
@@ -6206,7 +6211,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
   __pyx_v_r = 0;
 
-  /* "tablut.pyx":418
+  /* "tablut.pyx":419
  *         cdef int y, x, newY, newX
  * 
  *         for y in range(9):             # <<<<<<<<<<<<<<
@@ -6216,7 +6221,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   for (__pyx_t_1 = 0; __pyx_t_1 < 9; __pyx_t_1+=1) {
     __pyx_v_y = __pyx_t_1;
 
-    /* "tablut.pyx":419
+    /* "tablut.pyx":420
  * 
  *         for y in range(9):
  *             for x in range(9):             # <<<<<<<<<<<<<<
@@ -6226,7 +6231,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     for (__pyx_t_2 = 0; __pyx_t_2 < 9; __pyx_t_2+=1) {
       __pyx_v_x = __pyx_t_2;
 
-      /* "tablut.pyx":421
+      /* "tablut.pyx":422
  *             for x in range(9):
  *                 #Seleziono solo le pedine bianche o il re
  *                 if board[0, y, x, 0] + board[0, y, x, 2] < 1:             # <<<<<<<<<<<<<<
@@ -6241,10 +6246,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       __pyx_t_8 = __pyx_v_y;
       __pyx_t_9 = __pyx_v_x;
       __pyx_t_10 = 2;
-      __pyx_t_11 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) < 1) != 0);
+      __pyx_t_11 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) < 1.0) != 0);
       if (__pyx_t_11) {
 
-        /* "tablut.pyx":422
+        /* "tablut.pyx":423
  *                 #Seleziono solo le pedine bianche o il re
  *                 if board[0, y, x, 0] + board[0, y, x, 2] < 1:
  *                     continue             # <<<<<<<<<<<<<<
@@ -6253,7 +6258,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
         goto __pyx_L5_continue;
 
-        /* "tablut.pyx":421
+        /* "tablut.pyx":422
  *             for x in range(9):
  *                 #Seleziono solo le pedine bianche o il re
  *                 if board[0, y, x, 0] + board[0, y, x, 2] < 1:             # <<<<<<<<<<<<<<
@@ -6262,7 +6267,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       }
 
-      /* "tablut.pyx":428
+      /* "tablut.pyx":429
  * 
  *                 # Su
  *                 newY = y-1             # <<<<<<<<<<<<<<
@@ -6271,7 +6276,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newY = (__pyx_v_y - 1);
 
-      /* "tablut.pyx":429
+      /* "tablut.pyx":430
  *                 # Su
  *                 newY = y-1
  *                 while newY >= 0:             # <<<<<<<<<<<<<<
@@ -6282,7 +6287,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_11 = ((__pyx_v_newY >= 0) != 0);
         if (!__pyx_t_11) break;
 
-        /* "tablut.pyx":430
+        /* "tablut.pyx":431
  *                 newY = y-1
  *                 while newY >= 0:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6305,10 +6310,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_17 = __pyx_v_newY;
         __pyx_t_18 = __pyx_v_x;
         __pyx_t_19 = 3;
-        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_17 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_19 * __pyx_v_board.strides[3]) )))) == 0) != 0);
+        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_17 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_19 * __pyx_v_board.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_11) {
 
-          /* "tablut.pyx":431
+          /* "tablut.pyx":432
  *                 while newY >= 0:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)             # <<<<<<<<<<<<<<
@@ -6317,7 +6322,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_newY, __pyx_v_x);
 
-          /* "tablut.pyx":432
+          /* "tablut.pyx":433
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -6326,7 +6331,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":430
+          /* "tablut.pyx":431
  *                 newY = y-1
  *                 while newY >= 0:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6336,7 +6341,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L10;
         }
 
-        /* "tablut.pyx":434
+        /* "tablut.pyx":435
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -6348,7 +6353,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L10:;
 
-        /* "tablut.pyx":435
+        /* "tablut.pyx":436
  *                     else:
  *                         break
  *                     newY -=1             # <<<<<<<<<<<<<<
@@ -6359,7 +6364,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       }
       __pyx_L9_break:;
 
-      /* "tablut.pyx":438
+      /* "tablut.pyx":439
  * 
  *                 # Giu
  *                 newY = y+1             # <<<<<<<<<<<<<<
@@ -6368,7 +6373,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newY = (__pyx_v_y + 1);
 
-      /* "tablut.pyx":439
+      /* "tablut.pyx":440
  *                 # Giu
  *                 newY = y+1
  *                 while newY < 9:             # <<<<<<<<<<<<<<
@@ -6379,7 +6384,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_11 = ((__pyx_v_newY < 9) != 0);
         if (!__pyx_t_11) break;
 
-        /* "tablut.pyx":440
+        /* "tablut.pyx":441
  *                 newY = y+1
  *                 while newY < 9:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6402,10 +6407,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_8 = __pyx_v_newY;
         __pyx_t_9 = __pyx_v_x;
         __pyx_t_10 = 3;
-        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_19 * __pyx_v_board.strides[0]) ) + __pyx_t_18 * __pyx_v_board.strides[1]) ) + __pyx_t_17 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) == 0) != 0);
+        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_19 * __pyx_v_board.strides[0]) ) + __pyx_t_18 * __pyx_v_board.strides[1]) ) + __pyx_t_17 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_11) {
 
-          /* "tablut.pyx":441
+          /* "tablut.pyx":442
  *                 while newY < 9:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)             # <<<<<<<<<<<<<<
@@ -6414,7 +6419,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_newY, __pyx_v_x);
 
-          /* "tablut.pyx":442
+          /* "tablut.pyx":443
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, newY, x)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -6423,7 +6428,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":440
+          /* "tablut.pyx":441
  *                 newY = y+1
  *                 while newY < 9:
  *                     if board[0, newY, x, 0] + board[0, newY, x, 1] + board[0, newY, x, 2] + board[0, newY, x, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6433,7 +6438,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L13;
         }
 
-        /* "tablut.pyx":444
+        /* "tablut.pyx":445
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -6445,7 +6450,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L13:;
 
-        /* "tablut.pyx":445
+        /* "tablut.pyx":446
  *                     else:
  *                         break
  *                     newY +=1             # <<<<<<<<<<<<<<
@@ -6456,7 +6461,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       }
       __pyx_L12_break:;
 
-      /* "tablut.pyx":448
+      /* "tablut.pyx":449
  * 
  *                 # Sinistra
  *                 newX = x-1             # <<<<<<<<<<<<<<
@@ -6465,7 +6470,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newX = (__pyx_v_x - 1);
 
-      /* "tablut.pyx":449
+      /* "tablut.pyx":450
  *                 # Sinistra
  *                 newX = x-1
  *                 while newX >= 0:             # <<<<<<<<<<<<<<
@@ -6476,7 +6481,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_11 = ((__pyx_v_newX >= 0) != 0);
         if (!__pyx_t_11) break;
 
-        /* "tablut.pyx":450
+        /* "tablut.pyx":451
  *                 newX = x-1
  *                 while newX >= 0:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6499,10 +6504,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_17 = __pyx_v_y;
         __pyx_t_18 = __pyx_v_newX;
         __pyx_t_19 = 3;
-        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_17 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_19 * __pyx_v_board.strides[3]) )))) == 0) != 0);
+        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_16 * __pyx_v_board.strides[0]) ) + __pyx_t_17 * __pyx_v_board.strides[1]) ) + __pyx_t_18 * __pyx_v_board.strides[2]) ) + __pyx_t_19 * __pyx_v_board.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_11) {
 
-          /* "tablut.pyx":451
+          /* "tablut.pyx":452
  *                 while newX >= 0:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)             # <<<<<<<<<<<<<<
@@ -6511,7 +6516,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_y, __pyx_v_newX);
 
-          /* "tablut.pyx":452
+          /* "tablut.pyx":453
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -6520,7 +6525,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":450
+          /* "tablut.pyx":451
  *                 newX = x-1
  *                 while newX >= 0:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6530,7 +6535,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L16;
         }
 
-        /* "tablut.pyx":454
+        /* "tablut.pyx":455
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -6542,7 +6547,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L16:;
 
-        /* "tablut.pyx":455
+        /* "tablut.pyx":456
  *                     else:
  *                         break
  *                     newX -=1             # <<<<<<<<<<<<<<
@@ -6553,7 +6558,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
       }
       __pyx_L15_break:;
 
-      /* "tablut.pyx":458
+      /* "tablut.pyx":459
  * 
  *                 # Destra
  *                 newX = x+1             # <<<<<<<<<<<<<<
@@ -6562,7 +6567,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
       __pyx_v_newX = (__pyx_v_x + 1);
 
-      /* "tablut.pyx":459
+      /* "tablut.pyx":460
  *                 # Destra
  *                 newX = x+1
  *                 while newX < 9:             # <<<<<<<<<<<<<<
@@ -6573,7 +6578,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_11 = ((__pyx_v_newX < 9) != 0);
         if (!__pyx_t_11) break;
 
-        /* "tablut.pyx":460
+        /* "tablut.pyx":461
  *                 newX = x+1
  *                 while newX < 9:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6596,10 +6601,10 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         __pyx_t_8 = __pyx_v_y;
         __pyx_t_9 = __pyx_v_newX;
         __pyx_t_10 = 3;
-        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_19 * __pyx_v_board.strides[0]) ) + __pyx_t_18 * __pyx_v_board.strides[1]) ) + __pyx_t_17 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) == 0) != 0);
+        __pyx_t_11 = ((((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_19 * __pyx_v_board.strides[0]) ) + __pyx_t_18 * __pyx_v_board.strides[1]) ) + __pyx_t_17 * __pyx_v_board.strides[2]) ) + __pyx_t_16 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) == 0.0) != 0);
         if (__pyx_t_11) {
 
-          /* "tablut.pyx":461
+          /* "tablut.pyx":462
  *                 while newX < 9:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)             # <<<<<<<<<<<<<<
@@ -6608,7 +6613,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           (__pyx_v_legal[__pyx_v_i]) = __pyx_f_6tablut_coords_to_number(__pyx_v_y, __pyx_v_x, __pyx_v_y, __pyx_v_newX);
 
-          /* "tablut.pyx":462
+          /* "tablut.pyx":463
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:
  *                         legal[i] = coords_to_number(y, x, y, newX)
  *                         i+=1             # <<<<<<<<<<<<<<
@@ -6617,7 +6622,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "tablut.pyx":460
+          /* "tablut.pyx":461
  *                 newX = x+1
  *                 while newX < 9:
  *                     if board[0, y, newX, 0] + board[0, y, newX, 1] + board[0, y, newX, 2] + board[0, y, newX, 3] == 0:             # <<<<<<<<<<<<<<
@@ -6627,7 +6632,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
           goto __pyx_L19;
         }
 
-        /* "tablut.pyx":464
+        /* "tablut.pyx":465
  *                         i+=1
  *                     else:
  *                         break             # <<<<<<<<<<<<<<
@@ -6639,7 +6644,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
         }
         __pyx_L19:;
 
-        /* "tablut.pyx":465
+        /* "tablut.pyx":466
  *                     else:
  *                         break
  *                     newX +=1             # <<<<<<<<<<<<<<
@@ -6653,7 +6658,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     }
   }
 
-  /* "tablut.pyx":468
+  /* "tablut.pyx":469
  * 
  *         #Shuffle
  *         for k in range(i//4):             # <<<<<<<<<<<<<<
@@ -6665,7 +6670,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   for (__pyx_t_22 = 0; __pyx_t_22 < __pyx_t_21; __pyx_t_22+=1) {
     __pyx_v_k = __pyx_t_22;
 
-    /* "tablut.pyx":469
+    /* "tablut.pyx":470
  *         #Shuffle
  *         for k in range(i//4):
  *             r = <int> rand() % i             # <<<<<<<<<<<<<<
@@ -6675,11 +6680,11 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     __pyx_t_1 = ((int)rand());
     if (unlikely(__pyx_v_i == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-      __PYX_ERR(0, 469, __pyx_L1_error)
+      __PYX_ERR(0, 470, __pyx_L1_error)
     }
     __pyx_v_r = __Pyx_mod_int(__pyx_t_1, __pyx_v_i);
 
-    /* "tablut.pyx":470
+    /* "tablut.pyx":471
  *         for k in range(i//4):
  *             r = <int> rand() % i
  *             tmp = legal[k]             # <<<<<<<<<<<<<<
@@ -6688,7 +6693,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
     __pyx_v_tmp = (__pyx_v_legal[__pyx_v_k]);
 
-    /* "tablut.pyx":471
+    /* "tablut.pyx":472
  *             r = <int> rand() % i
  *             tmp = legal[k]
  *             legal[k] = legal[r]             # <<<<<<<<<<<<<<
@@ -6697,7 +6702,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
  */
     (__pyx_v_legal[__pyx_v_k]) = (__pyx_v_legal[__pyx_v_r]);
 
-    /* "tablut.pyx":472
+    /* "tablut.pyx":473
  *             tmp = legal[k]
  *             legal[k] = legal[r]
  *             legal[r] = tmp             # <<<<<<<<<<<<<<
@@ -6707,7 +6712,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
     (__pyx_v_legal[__pyx_v_r]) = __pyx_v_tmp;
   }
 
-  /* "tablut.pyx":474
+  /* "tablut.pyx":475
  *             legal[r] = tmp
  * 
  *         return legal, i             # <<<<<<<<<<<<<<
@@ -6719,7 +6724,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   __pyx_r = __pyx_t_23;
   goto __pyx_L0;
 
-  /* "tablut.pyx":411
+  /* "tablut.pyx":412
  * 
  *     @staticmethod
  *     cdef (int*, int) legal_actions_white(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -6736,7 +6741,7 @@ static __pyx_ctuple_int__ptr__and_int __pyx_f_6tablut_12AshtonTablut_legal_actio
   return __pyx_r;
 }
 
-/* "tablut.pyx":478
+/* "tablut.pyx":479
  *     # La board viene modificata!
  *     @staticmethod
  *     cdef int check_eat(DTYPE_t[:,:,:,:] board, unicode to_move, int move):             # <<<<<<<<<<<<<<
@@ -6755,7 +6760,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("check_eat", 0);
 
-  /* "tablut.pyx":479
+  /* "tablut.pyx":480
  *     @staticmethod
  *     cdef int check_eat(DTYPE_t[:,:,:,:] board, unicode to_move, int move):
  *         cdef int eaten = 0             # <<<<<<<<<<<<<<
@@ -6764,18 +6769,18 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
  */
   __pyx_v_eaten = 0;
 
-  /* "tablut.pyx":480
+  /* "tablut.pyx":481
  *     cdef int check_eat(DTYPE_t[:,:,:,:] board, unicode to_move, int move):
  *         cdef int eaten = 0
  *         if to_move == 'W':             # <<<<<<<<<<<<<<
  *             eaten = AshtonTablut.check_white_eat(board, move)
  *         else:
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 480, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 481, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "tablut.pyx":481
+    /* "tablut.pyx":482
  *         cdef int eaten = 0
  *         if to_move == 'W':
  *             eaten = AshtonTablut.check_white_eat(board, move)             # <<<<<<<<<<<<<<
@@ -6784,7 +6789,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
  */
     __pyx_v_eaten = __pyx_f_6tablut_12AshtonTablut_check_white_eat(__pyx_v_board, __pyx_v_move);
 
-    /* "tablut.pyx":480
+    /* "tablut.pyx":481
  *     cdef int check_eat(DTYPE_t[:,:,:,:] board, unicode to_move, int move):
  *         cdef int eaten = 0
  *         if to_move == 'W':             # <<<<<<<<<<<<<<
@@ -6794,7 +6799,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
     goto __pyx_L3;
   }
 
-  /* "tablut.pyx":483
+  /* "tablut.pyx":484
  *             eaten = AshtonTablut.check_white_eat(board, move)
  *         else:
  *             eaten = AshtonTablut.check_black_eat(board, move)             # <<<<<<<<<<<<<<
@@ -6806,7 +6811,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
   }
   __pyx_L3:;
 
-  /* "tablut.pyx":485
+  /* "tablut.pyx":486
  *             eaten = AshtonTablut.check_black_eat(board, move)
  * 
  *         return eaten             # <<<<<<<<<<<<<<
@@ -6816,7 +6821,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
   __pyx_r = __pyx_v_eaten;
   goto __pyx_L0;
 
-  /* "tablut.pyx":478
+  /* "tablut.pyx":479
  *     # La board viene modificata!
  *     @staticmethod
  *     cdef int check_eat(DTYPE_t[:,:,:,:] board, unicode to_move, int move):             # <<<<<<<<<<<<<<
@@ -6833,7 +6838,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_eat(__Pyx_memviewslice __pyx_v_b
   return __pyx_r;
 }
 
-/* "tablut.pyx":490
+/* "tablut.pyx":491
  *     @staticmethod
  *     # Controllo se il bianco mangia dei pedoni neri
  *     cdef int check_white_eat(DTYPE_t[:,:,:,:] board, int move):             # <<<<<<<<<<<<<<
@@ -6864,7 +6869,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("check_white_eat", 0);
 
-  /* "tablut.pyx":492
+  /* "tablut.pyx":493
  *     cdef int check_white_eat(DTYPE_t[:,:,:,:] board, int move):
  *         # Dove  finita la pedina bianca che dovr catturare uno o pi pedoni neri?
  *         cdef (int,int,int,int) c = number_to_coords(move)             # <<<<<<<<<<<<<<
@@ -6873,7 +6878,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   __pyx_v_c = __pyx_f_6tablut_number_to_coords(__pyx_v_move);
 
-  /* "tablut.pyx":493
+  /* "tablut.pyx":494
  *         # Dove  finita la pedina bianca che dovr catturare uno o pi pedoni neri?
  *         cdef (int,int,int,int) c = number_to_coords(move)
  *         cdef int y = c[2]             # <<<<<<<<<<<<<<
@@ -6882,7 +6887,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   __pyx_v_y = __pyx_v_c.f2;
 
-  /* "tablut.pyx":494
+  /* "tablut.pyx":495
  *         cdef (int,int,int,int) c = number_to_coords(move)
  *         cdef int y = c[2]
  *         cdef int x = c[3]             # <<<<<<<<<<<<<<
@@ -6891,7 +6896,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   __pyx_v_x = __pyx_v_c.f3;
 
-  /* "tablut.pyx":495
+  /* "tablut.pyx":496
  *         cdef int y = c[2]
  *         cdef int x = c[3]
  *         cdef int captured = 0             # <<<<<<<<<<<<<<
@@ -6900,7 +6905,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   __pyx_v_captured = 0;
 
-  /* "tablut.pyx":498
+  /* "tablut.pyx":499
  * 
  *         # Controlli U,D,L,R
  *         cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] == 1             # <<<<<<<<<<<<<<
@@ -6921,7 +6926,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_8 = (__pyx_v_y - 2);
   __pyx_t_9 = __pyx_v_x;
   __pyx_t_10 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -6931,12 +6936,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_9 = (__pyx_v_y - 1);
   __pyx_t_8 = __pyx_v_x;
   __pyx_t_7 = 1;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L3_bool_binop_done:;
   __pyx_v_lookUp = __pyx_t_1;
 
-  /* "tablut.pyx":499
+  /* "tablut.pyx":500
  *         # Controlli U,D,L,R
  *         cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] == 1
  *         cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1             # <<<<<<<<<<<<<<
@@ -6957,7 +6962,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_5 = (__pyx_v_y + 2);
   __pyx_t_4 = __pyx_v_x;
   __pyx_t_3 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -6967,12 +6972,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_4 = (__pyx_v_y + 1);
   __pyx_t_5 = __pyx_v_x;
   __pyx_t_6 = 1;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L6_bool_binop_done:;
   __pyx_v_lookDown = __pyx_t_1;
 
-  /* "tablut.pyx":500
+  /* "tablut.pyx":501
  *         cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] == 1
  *         cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1
  *         cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] == 1             # <<<<<<<<<<<<<<
@@ -6993,7 +6998,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_9 = __pyx_v_y;
   __pyx_t_8 = (__pyx_v_x - 2);
   __pyx_t_7 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -7003,12 +7008,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_8 = __pyx_v_y;
   __pyx_t_9 = (__pyx_v_x - 1);
   __pyx_t_10 = 1;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L9_bool_binop_done:;
   __pyx_v_lookLeft = __pyx_t_1;
 
-  /* "tablut.pyx":501
+  /* "tablut.pyx":502
  *         cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1
  *         cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] == 1
  *         cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1             # <<<<<<<<<<<<<<
@@ -7029,7 +7034,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_4 = __pyx_v_y;
   __pyx_t_5 = (__pyx_v_x + 2);
   __pyx_t_6 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -7039,12 +7044,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_5 = __pyx_v_y;
   __pyx_t_4 = (__pyx_v_x + 1);
   __pyx_t_3 = 1;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L12_bool_binop_done:;
   __pyx_v_lookRight = __pyx_t_1;
 
-  /* "tablut.pyx":503
+  /* "tablut.pyx":504
  *         cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1
  * 
  *         if lookUp:             # <<<<<<<<<<<<<<
@@ -7054,7 +7059,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookUp != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":504
+    /* "tablut.pyx":505
  * 
  *         if lookUp:
  *             board[0, y-1, x, 1] = 0             # <<<<<<<<<<<<<<
@@ -7065,9 +7070,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
     __pyx_t_4 = (__pyx_v_y - 1);
     __pyx_t_5 = __pyx_v_x;
     __pyx_t_6 = 1;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":505
+    /* "tablut.pyx":506
  *         if lookUp:
  *             board[0, y-1, x, 1] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7076,7 +7081,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":503
+    /* "tablut.pyx":504
  *         cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1
  * 
  *         if lookUp:             # <<<<<<<<<<<<<<
@@ -7085,7 +7090,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":506
+  /* "tablut.pyx":507
  *             board[0, y-1, x, 1] = 0
  *             captured += 1
  *         if lookDown:             # <<<<<<<<<<<<<<
@@ -7095,7 +7100,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookDown != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":507
+    /* "tablut.pyx":508
  *             captured += 1
  *         if lookDown:
  *             board[0, y+1, x, 1] = 0             # <<<<<<<<<<<<<<
@@ -7106,9 +7111,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
     __pyx_t_5 = (__pyx_v_y + 1);
     __pyx_t_4 = __pyx_v_x;
     __pyx_t_3 = 1;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":508
+    /* "tablut.pyx":509
  *         if lookDown:
  *             board[0, y+1, x, 1] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7117,7 +7122,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":506
+    /* "tablut.pyx":507
  *             board[0, y-1, x, 1] = 0
  *             captured += 1
  *         if lookDown:             # <<<<<<<<<<<<<<
@@ -7126,7 +7131,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":509
+  /* "tablut.pyx":510
  *             board[0, y+1, x, 1] = 0
  *             captured += 1
  *         if lookLeft:             # <<<<<<<<<<<<<<
@@ -7136,7 +7141,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookLeft != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":510
+    /* "tablut.pyx":511
  *             captured += 1
  *         if lookLeft:
  *             board[0, y, x-1, 1] = 0             # <<<<<<<<<<<<<<
@@ -7147,9 +7152,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
     __pyx_t_4 = __pyx_v_y;
     __pyx_t_5 = (__pyx_v_x - 1);
     __pyx_t_6 = 1;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":511
+    /* "tablut.pyx":512
  *         if lookLeft:
  *             board[0, y, x-1, 1] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7158,7 +7163,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":509
+    /* "tablut.pyx":510
  *             board[0, y+1, x, 1] = 0
  *             captured += 1
  *         if lookLeft:             # <<<<<<<<<<<<<<
@@ -7167,7 +7172,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":512
+  /* "tablut.pyx":513
  *             board[0, y, x-1, 1] = 0
  *             captured += 1
  *         if lookRight:             # <<<<<<<<<<<<<<
@@ -7177,7 +7182,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookRight != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":513
+    /* "tablut.pyx":514
  *             captured += 1
  *         if lookRight:
  *             board[0, y, x+1, 1] = 0             # <<<<<<<<<<<<<<
@@ -7188,9 +7193,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
     __pyx_t_5 = __pyx_v_y;
     __pyx_t_4 = (__pyx_v_x + 1);
     __pyx_t_3 = 1;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":514
+    /* "tablut.pyx":515
  *         if lookRight:
  *             board[0, y, x+1, 1] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7199,7 +7204,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":512
+    /* "tablut.pyx":513
  *             board[0, y, x-1, 1] = 0
  *             captured += 1
  *         if lookRight:             # <<<<<<<<<<<<<<
@@ -7208,7 +7213,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":516
+  /* "tablut.pyx":517
  *             captured += 1
  * 
  *         return captured             # <<<<<<<<<<<<<<
@@ -7218,7 +7223,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   __pyx_r = __pyx_v_captured;
   goto __pyx_L0;
 
-  /* "tablut.pyx":490
+  /* "tablut.pyx":491
  *     @staticmethod
  *     # Controllo se il bianco mangia dei pedoni neri
  *     cdef int check_white_eat(DTYPE_t[:,:,:,:] board, int move):             # <<<<<<<<<<<<<<
@@ -7232,7 +7237,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_white_eat(__Pyx_memviewslice __p
   return __pyx_r;
 }
 
-/* "tablut.pyx":521
+/* "tablut.pyx":522
  *     @staticmethod
  *     # Controllo se il nero mangia dei pedoni bianchi
  *     cdef int check_black_eat(DTYPE_t[:,:,:,:] board, int move):             # <<<<<<<<<<<<<<
@@ -7263,7 +7268,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("check_black_eat", 0);
 
-  /* "tablut.pyx":523
+  /* "tablut.pyx":524
  *     cdef int check_black_eat(DTYPE_t[:,:,:,:] board, int move):
  *         # Dove  finita la pedina nera che dovr catturare uno o pi pedoni bianchi?
  *         cdef (int,int,int,int) c = number_to_coords(move)             # <<<<<<<<<<<<<<
@@ -7272,7 +7277,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   __pyx_v_c = __pyx_f_6tablut_number_to_coords(__pyx_v_move);
 
-  /* "tablut.pyx":524
+  /* "tablut.pyx":525
  *         # Dove  finita la pedina nera che dovr catturare uno o pi pedoni bianchi?
  *         cdef (int,int,int,int) c = number_to_coords(move)
  *         cdef int y = c[2]             # <<<<<<<<<<<<<<
@@ -7281,7 +7286,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   __pyx_v_y = __pyx_v_c.f2;
 
-  /* "tablut.pyx":525
+  /* "tablut.pyx":526
  *         cdef (int,int,int,int) c = number_to_coords(move)
  *         cdef int y = c[2]
  *         cdef int x = c[3]             # <<<<<<<<<<<<<<
@@ -7290,7 +7295,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   __pyx_v_x = __pyx_v_c.f3;
 
-  /* "tablut.pyx":526
+  /* "tablut.pyx":527
  *         cdef int y = c[2]
  *         cdef int x = c[3]
  *         cdef int captured = 0             # <<<<<<<<<<<<<<
@@ -7299,7 +7304,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   __pyx_v_captured = 0;
 
-  /* "tablut.pyx":529
+  /* "tablut.pyx":530
  * 
  *         # Controlli U,D,L,R
  *         cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 1] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 0] == 1             # <<<<<<<<<<<<<<
@@ -7320,7 +7325,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_8 = (__pyx_v_y - 2);
   __pyx_t_9 = __pyx_v_x;
   __pyx_t_10 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -7330,12 +7335,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_9 = (__pyx_v_y - 1);
   __pyx_t_8 = __pyx_v_x;
   __pyx_t_7 = 0;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L3_bool_binop_done:;
   __pyx_v_lookUp = __pyx_t_1;
 
-  /* "tablut.pyx":530
+  /* "tablut.pyx":531
  *         # Controlli U,D,L,R
  *         cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 1] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 0] == 1
  *         cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 1] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 0] == 1             # <<<<<<<<<<<<<<
@@ -7356,7 +7361,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_5 = (__pyx_v_y + 2);
   __pyx_t_4 = __pyx_v_x;
   __pyx_t_3 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -7366,12 +7371,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_4 = (__pyx_v_y + 1);
   __pyx_t_5 = __pyx_v_x;
   __pyx_t_6 = 0;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L6_bool_binop_done:;
   __pyx_v_lookDown = __pyx_t_1;
 
-  /* "tablut.pyx":531
+  /* "tablut.pyx":532
  *         cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 1] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 0] == 1
  *         cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 1] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 0] == 1
  *         cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 1] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 0] == 1             # <<<<<<<<<<<<<<
@@ -7392,7 +7397,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_9 = __pyx_v_y;
   __pyx_t_8 = (__pyx_v_x - 2);
   __pyx_t_7 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -7402,12 +7407,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_8 = __pyx_v_y;
   __pyx_t_9 = (__pyx_v_x - 1);
   __pyx_t_10 = 0;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_7 * __pyx_v_board.strides[0]) ) + __pyx_t_8 * __pyx_v_board.strides[1]) ) + __pyx_t_9 * __pyx_v_board.strides[2]) ) + __pyx_t_10 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L9_bool_binop_done:;
   __pyx_v_lookLeft = __pyx_t_1;
 
-  /* "tablut.pyx":532
+  /* "tablut.pyx":533
  *         cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 1] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 0] == 1
  *         cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 1] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 0] == 1
  *         cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 1] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 0] == 1             # <<<<<<<<<<<<<<
@@ -7428,7 +7433,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_4 = __pyx_v_y;
   __pyx_t_5 = (__pyx_v_x + 2);
   __pyx_t_6 = 3;
-  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+  __pyx_t_2 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_10 * __pyx_v_board.strides[0]) ) + __pyx_t_9 * __pyx_v_board.strides[1]) ) + __pyx_t_8 * __pyx_v_board.strides[2]) ) + __pyx_t_7 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
@@ -7438,12 +7443,12 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_5 = __pyx_v_y;
   __pyx_t_4 = (__pyx_v_x + 1);
   __pyx_t_3 = 0;
-  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+  __pyx_t_2 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L12_bool_binop_done:;
   __pyx_v_lookRight = __pyx_t_1;
 
-  /* "tablut.pyx":534
+  /* "tablut.pyx":535
  *         cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 1] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 0] == 1
  * 
  *         if lookUp:             # <<<<<<<<<<<<<<
@@ -7453,7 +7458,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookUp != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":535
+    /* "tablut.pyx":536
  * 
  *         if lookUp:
  *             board[0, y-1, x, 0] = 0             # <<<<<<<<<<<<<<
@@ -7464,9 +7469,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
     __pyx_t_4 = (__pyx_v_y - 1);
     __pyx_t_5 = __pyx_v_x;
     __pyx_t_6 = 0;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":536
+    /* "tablut.pyx":537
  *         if lookUp:
  *             board[0, y-1, x, 0] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7475,7 +7480,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":534
+    /* "tablut.pyx":535
  *         cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 1] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 0] == 1
  * 
  *         if lookUp:             # <<<<<<<<<<<<<<
@@ -7484,7 +7489,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":537
+  /* "tablut.pyx":538
  *             board[0, y-1, x, 0] = 0
  *             captured += 1
  *         if lookDown:             # <<<<<<<<<<<<<<
@@ -7494,7 +7499,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookDown != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":538
+    /* "tablut.pyx":539
  *             captured += 1
  *         if lookDown:
  *             board[0, y+1, x, 0] = 0             # <<<<<<<<<<<<<<
@@ -7505,9 +7510,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
     __pyx_t_5 = (__pyx_v_y + 1);
     __pyx_t_4 = __pyx_v_x;
     __pyx_t_3 = 0;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":539
+    /* "tablut.pyx":540
  *         if lookDown:
  *             board[0, y+1, x, 0] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7516,7 +7521,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":537
+    /* "tablut.pyx":538
  *             board[0, y-1, x, 0] = 0
  *             captured += 1
  *         if lookDown:             # <<<<<<<<<<<<<<
@@ -7525,7 +7530,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":540
+  /* "tablut.pyx":541
  *             board[0, y+1, x, 0] = 0
  *             captured += 1
  *         if lookLeft:             # <<<<<<<<<<<<<<
@@ -7535,7 +7540,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookLeft != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":541
+    /* "tablut.pyx":542
  *             captured += 1
  *         if lookLeft:
  *             board[0, y, x-1, 0] = 0             # <<<<<<<<<<<<<<
@@ -7546,9 +7551,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
     __pyx_t_4 = __pyx_v_y;
     __pyx_t_5 = (__pyx_v_x - 1);
     __pyx_t_6 = 0;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":542
+    /* "tablut.pyx":543
  *         if lookLeft:
  *             board[0, y, x-1, 0] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7557,7 +7562,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":540
+    /* "tablut.pyx":541
  *             board[0, y+1, x, 0] = 0
  *             captured += 1
  *         if lookLeft:             # <<<<<<<<<<<<<<
@@ -7566,7 +7571,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":543
+  /* "tablut.pyx":544
  *             board[0, y, x-1, 0] = 0
  *             captured += 1
  *         if lookRight:             # <<<<<<<<<<<<<<
@@ -7576,7 +7581,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_t_1 = (__pyx_v_lookRight != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":544
+    /* "tablut.pyx":545
  *             captured += 1
  *         if lookRight:
  *             board[0, y, x+1, 0] = 0             # <<<<<<<<<<<<<<
@@ -7587,9 +7592,9 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
     __pyx_t_5 = __pyx_v_y;
     __pyx_t_4 = (__pyx_v_x + 1);
     __pyx_t_3 = 0;
-    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0;
+    *((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) )) = 0.0;
 
-    /* "tablut.pyx":545
+    /* "tablut.pyx":546
  *         if lookRight:
  *             board[0, y, x+1, 0] = 0
  *             captured += 1             # <<<<<<<<<<<<<<
@@ -7598,7 +7603,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
     __pyx_v_captured = (__pyx_v_captured + 1);
 
-    /* "tablut.pyx":543
+    /* "tablut.pyx":544
  *             board[0, y, x-1, 0] = 0
  *             captured += 1
  *         if lookRight:             # <<<<<<<<<<<<<<
@@ -7607,7 +7612,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
  */
   }
 
-  /* "tablut.pyx":547
+  /* "tablut.pyx":548
  *             captured += 1
  * 
  *         return captured             # <<<<<<<<<<<<<<
@@ -7617,7 +7622,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   __pyx_r = __pyx_v_captured;
   goto __pyx_L0;
 
-  /* "tablut.pyx":521
+  /* "tablut.pyx":522
  *     @staticmethod
  *     # Controllo se il nero mangia dei pedoni bianchi
  *     cdef int check_black_eat(DTYPE_t[:,:,:,:] board, int move):             # <<<<<<<<<<<<<<
@@ -7631,7 +7636,7 @@ static int __pyx_f_6tablut_12AshtonTablut_check_black_eat(__Pyx_memviewslice __p
   return __pyx_r;
 }
 
-/* "tablut.pyx":550
+/* "tablut.pyx":551
  * 
  *     @staticmethod
  *     cdef bint have_winner(DTYPE_t[:,:,:,:] board, unicode to_move):             # <<<<<<<<<<<<<<
@@ -7649,18 +7654,18 @@ static int __pyx_f_6tablut_12AshtonTablut_have_winner(__Pyx_memviewslice __pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("have_winner", 0);
 
-  /* "tablut.pyx":551
+  /* "tablut.pyx":552
  *     @staticmethod
  *     cdef bint have_winner(DTYPE_t[:,:,:,:] board, unicode to_move):
  *         if to_move == 'W':             # <<<<<<<<<<<<<<
  *             return AshtonTablut.white_win_check(board)
  *         else:
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 551, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_to_move, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 552, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "tablut.pyx":552
+    /* "tablut.pyx":553
  *     cdef bint have_winner(DTYPE_t[:,:,:,:] board, unicode to_move):
  *         if to_move == 'W':
  *             return AshtonTablut.white_win_check(board)             # <<<<<<<<<<<<<<
@@ -7670,7 +7675,7 @@ static int __pyx_f_6tablut_12AshtonTablut_have_winner(__Pyx_memviewslice __pyx_v
     __pyx_r = __pyx_f_6tablut_12AshtonTablut_white_win_check(__pyx_v_board);
     goto __pyx_L0;
 
-    /* "tablut.pyx":551
+    /* "tablut.pyx":552
  *     @staticmethod
  *     cdef bint have_winner(DTYPE_t[:,:,:,:] board, unicode to_move):
  *         if to_move == 'W':             # <<<<<<<<<<<<<<
@@ -7679,7 +7684,7 @@ static int __pyx_f_6tablut_12AshtonTablut_have_winner(__Pyx_memviewslice __pyx_v
  */
   }
 
-  /* "tablut.pyx":554
+  /* "tablut.pyx":555
  *             return AshtonTablut.white_win_check(board)
  *         else:
  *             return AshtonTablut.black_win_check(board)             # <<<<<<<<<<<<<<
@@ -7691,7 +7696,7 @@ static int __pyx_f_6tablut_12AshtonTablut_have_winner(__Pyx_memviewslice __pyx_v
     goto __pyx_L0;
   }
 
-  /* "tablut.pyx":550
+  /* "tablut.pyx":551
  * 
  *     @staticmethod
  *     cdef bint have_winner(DTYPE_t[:,:,:,:] board, unicode to_move):             # <<<<<<<<<<<<<<
@@ -7708,7 +7713,7 @@ static int __pyx_f_6tablut_12AshtonTablut_have_winner(__Pyx_memviewslice __pyx_v
   return __pyx_r;
 }
 
-/* "tablut.pyx":557
+/* "tablut.pyx":558
  * 
  *     @staticmethod
  *     cdef bint white_win_check(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -7728,7 +7733,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("white_win_check", 0);
 
-  /* "tablut.pyx":561
+  /* "tablut.pyx":562
  *         cdef long k
  * 
  *         for k in range(9):             # <<<<<<<<<<<<<<
@@ -7738,7 +7743,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
   for (__pyx_t_1 = 0; __pyx_t_1 < 9; __pyx_t_1+=1) {
     __pyx_v_k = __pyx_t_1;
 
-    /* "tablut.pyx":562
+    /* "tablut.pyx":563
  * 
  *         for k in range(9):
  *             if board[0, 0, k, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7749,10 +7754,10 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
     __pyx_t_3 = 0;
     __pyx_t_4 = __pyx_v_k;
     __pyx_t_5 = 2;
-    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_2 * __pyx_v_board.strides[0]) ) + __pyx_t_3 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_2 * __pyx_v_board.strides[0]) ) + __pyx_t_3 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
     if (__pyx_t_6) {
 
-      /* "tablut.pyx":563
+      /* "tablut.pyx":564
  *         for k in range(9):
  *             if board[0, 0, k, 2] == 1:
  *                 return True             # <<<<<<<<<<<<<<
@@ -7762,7 +7767,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "tablut.pyx":562
+      /* "tablut.pyx":563
  * 
  *         for k in range(9):
  *             if board[0, 0, k, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7771,7 +7776,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
  */
     }
 
-    /* "tablut.pyx":564
+    /* "tablut.pyx":565
  *             if board[0, 0, k, 2] == 1:
  *                 return True
  *             if board[0, 8, k, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7782,10 +7787,10 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
     __pyx_t_4 = 8;
     __pyx_t_3 = __pyx_v_k;
     __pyx_t_2 = 2;
-    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_3 * __pyx_v_board.strides[2]) ) + __pyx_t_2 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_3 * __pyx_v_board.strides[2]) ) + __pyx_t_2 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
     if (__pyx_t_6) {
 
-      /* "tablut.pyx":565
+      /* "tablut.pyx":566
  *                 return True
  *             if board[0, 8, k, 2] == 1:
  *                 return True             # <<<<<<<<<<<<<<
@@ -7795,7 +7800,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "tablut.pyx":564
+      /* "tablut.pyx":565
  *             if board[0, 0, k, 2] == 1:
  *                 return True
  *             if board[0, 8, k, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7804,7 +7809,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
  */
     }
 
-    /* "tablut.pyx":566
+    /* "tablut.pyx":567
  *             if board[0, 8, k, 2] == 1:
  *                 return True
  *             if board[0, k, 0, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7815,10 +7820,10 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
     __pyx_t_3 = __pyx_v_k;
     __pyx_t_4 = 0;
     __pyx_t_5 = 2;
-    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_2 * __pyx_v_board.strides[0]) ) + __pyx_t_3 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_2 * __pyx_v_board.strides[0]) ) + __pyx_t_3 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
     if (__pyx_t_6) {
 
-      /* "tablut.pyx":567
+      /* "tablut.pyx":568
  *                 return True
  *             if board[0, k, 0, 2] == 1:
  *                 return True             # <<<<<<<<<<<<<<
@@ -7828,7 +7833,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "tablut.pyx":566
+      /* "tablut.pyx":567
  *             if board[0, 8, k, 2] == 1:
  *                 return True
  *             if board[0, k, 0, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7837,7 +7842,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
  */
     }
 
-    /* "tablut.pyx":568
+    /* "tablut.pyx":569
  *             if board[0, k, 0, 2] == 1:
  *                 return True
  *             if board[0, k, 8, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7848,10 +7853,10 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
     __pyx_t_4 = __pyx_v_k;
     __pyx_t_3 = 8;
     __pyx_t_2 = 2;
-    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_3 * __pyx_v_board.strides[2]) ) + __pyx_t_2 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+    __pyx_t_6 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_3 * __pyx_v_board.strides[2]) ) + __pyx_t_2 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
     if (__pyx_t_6) {
 
-      /* "tablut.pyx":569
+      /* "tablut.pyx":570
  *                 return True
  *             if board[0, k, 8, 2] == 1:
  *                 return True             # <<<<<<<<<<<<<<
@@ -7861,7 +7866,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "tablut.pyx":568
+      /* "tablut.pyx":569
  *             if board[0, k, 0, 2] == 1:
  *                 return True
  *             if board[0, k, 8, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7871,7 +7876,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
     }
   }
 
-  /* "tablut.pyx":571
+  /* "tablut.pyx":572
  *                 return True
  * 
  *         return False             # <<<<<<<<<<<<<<
@@ -7881,7 +7886,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":557
+  /* "tablut.pyx":558
  * 
  *     @staticmethod
  *     cdef bint white_win_check(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -7895,7 +7900,7 @@ static int __pyx_f_6tablut_12AshtonTablut_white_win_check(__Pyx_memviewslice __p
   return __pyx_r;
 }
 
-/* "tablut.pyx":574
+/* "tablut.pyx":575
  * 
  *     @staticmethod
  *     cdef bint black_win_check(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -7922,7 +7927,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
   Py_ssize_t __pyx_t_12;
   __Pyx_RefNannySetupContext("black_win_check", 0);
 
-  /* "tablut.pyx":582
+  /* "tablut.pyx":583
  *         cdef long y,x
  * 
  *         for y in range(9):             # <<<<<<<<<<<<<<
@@ -7932,7 +7937,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
   for (__pyx_t_1 = 0; __pyx_t_1 < 9; __pyx_t_1+=1) {
     __pyx_v_y = __pyx_t_1;
 
-    /* "tablut.pyx":583
+    /* "tablut.pyx":584
  * 
  *         for y in range(9):
  *             for x in range(9):             # <<<<<<<<<<<<<<
@@ -7942,7 +7947,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
     for (__pyx_t_2 = 0; __pyx_t_2 < 9; __pyx_t_2+=1) {
       __pyx_v_x = __pyx_t_2;
 
-      /* "tablut.pyx":584
+      /* "tablut.pyx":585
  *         for y in range(9):
  *             for x in range(9):
  *                 if board[0, y, x, 2] == 1:             # <<<<<<<<<<<<<<
@@ -7953,10 +7958,10 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
       __pyx_t_4 = __pyx_v_y;
       __pyx_t_5 = __pyx_v_x;
       __pyx_t_6 = 2;
-      __pyx_t_7 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+      __pyx_t_7 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
       if (__pyx_t_7) {
 
-        /* "tablut.pyx":586
+        /* "tablut.pyx":587
  *                 if board[0, y, x, 2] == 1:
  *                     # Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
  *                     if y==4 and x==4:             # <<<<<<<<<<<<<<
@@ -7974,7 +7979,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
         __pyx_L9_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "tablut.pyx":587
+          /* "tablut.pyx":588
  *                     # Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
  *                     if y==4 and x==4:
  *                         return board[0, 3, 4, 1] == 1 and board[0, 4, 3, 1] == 1 and board[0, 4, 5, 1] == 1 and board[0, 5, 4, 1] == 1             # <<<<<<<<<<<<<<
@@ -7985,7 +7990,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_5 = 3;
           __pyx_t_4 = 4;
           __pyx_t_3 = 1;
-          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -7995,7 +8000,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_4 = 4;
           __pyx_t_5 = 3;
           __pyx_t_6 = 1;
-          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8005,7 +8010,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_5 = 4;
           __pyx_t_4 = 5;
           __pyx_t_3 = 1;
-          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8015,13 +8020,13 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_4 = 5;
           __pyx_t_5 = 4;
           __pyx_t_6 = 1;
-          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+          __pyx_t_8 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
           __pyx_t_7 = __pyx_t_8;
           __pyx_L11_bool_binop_done:;
           __pyx_r = __pyx_t_7;
           goto __pyx_L0;
 
-          /* "tablut.pyx":586
+          /* "tablut.pyx":587
  *                 if board[0, y, x, 2] == 1:
  *                     # Re sul trono. Controllo i bordi (3,4), (4,3), (4,5), (5,4)
  *                     if y==4 and x==4:             # <<<<<<<<<<<<<<
@@ -8030,7 +8035,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
  */
         }
 
-        /* "tablut.pyx":589
+        /* "tablut.pyx":590
  *                         return board[0, 3, 4, 1] == 1 and board[0, 4, 3, 1] == 1 and board[0, 4, 5, 1] == 1 and board[0, 5, 4, 1] == 1
  *                     # Re adiacente al trono: controllo se sono presenti nemici intorno
  *                     elif y == 3 and x == 4 or y == 4 and x == 3 or y == 4 and x == 5 or y == 5 and x == 4:             # <<<<<<<<<<<<<<
@@ -8084,7 +8089,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
         __pyx_L15_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "tablut.pyx":590
+          /* "tablut.pyx":591
  *                     # Re adiacente al trono: controllo se sono presenti nemici intorno
  *                     elif y == 3 and x == 4 or y == 4 and x == 3 or y == 4 and x == 5 or y == 5 and x == 4:
  *                         return (board[0, y-1, x, 1] + board[0, y-1, x, 3] > 0) and (board[0, y+1, x, 1] + board[0, y+1, x, 3] > 0) and (board[0, y, x-1, 1] + board[0, y, x-1, 3] > 0) and (board[0, y, x+1, 1] + board[0, y, x+1, 3] > 0)             # <<<<<<<<<<<<<<
@@ -8099,7 +8104,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_10 = (__pyx_v_y - 1);
           __pyx_t_11 = __pyx_v_x;
           __pyx_t_12 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8113,7 +8118,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_4 = (__pyx_v_y + 1);
           __pyx_t_5 = __pyx_v_x;
           __pyx_t_6 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8127,7 +8132,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_10 = __pyx_v_y;
           __pyx_t_11 = (__pyx_v_x - 1);
           __pyx_t_12 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8141,13 +8146,13 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_4 = __pyx_v_y;
           __pyx_t_5 = (__pyx_v_x + 1);
           __pyx_t_6 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           __pyx_t_7 = __pyx_t_8;
           __pyx_L23_bool_binop_done:;
           __pyx_r = __pyx_t_7;
           goto __pyx_L0;
 
-          /* "tablut.pyx":589
+          /* "tablut.pyx":590
  *                         return board[0, 3, 4, 1] == 1 and board[0, 4, 3, 1] == 1 and board[0, 4, 5, 1] == 1 and board[0, 5, 4, 1] == 1
  *                     # Re adiacente al trono: controllo se sono presenti nemici intorno
  *                     elif y == 3 and x == 4 or y == 4 and x == 3 or y == 4 and x == 5 or y == 5 and x == 4:             # <<<<<<<<<<<<<<
@@ -8156,7 +8161,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
  */
         }
 
-        /* "tablut.pyx":593
+        /* "tablut.pyx":594
  *                     # Check cattura normale.
  *                     else:
  *                         return (board[0, y-1, x, 1] + board[0, y-1, x, 3] > 0) and (board[0, y+1, x, 1] + board[0, y+1, x, 3] > 0) or (board[0, y, x-1, 1] + board[0, y, x-1, 3] > 0) and (board[0, y, x+1, 1] + board[0, y, x+1, 3] > 0)             # <<<<<<<<<<<<<<
@@ -8172,7 +8177,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_10 = (__pyx_v_y - 1);
           __pyx_t_11 = __pyx_v_x;
           __pyx_t_12 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (!__pyx_t_8) {
             goto __pyx_L28_next_or;
           } else {
@@ -8185,7 +8190,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_4 = (__pyx_v_y + 1);
           __pyx_t_5 = __pyx_v_x;
           __pyx_t_6 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (!__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8200,7 +8205,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_10 = __pyx_v_y;
           __pyx_t_11 = (__pyx_v_x - 1);
           __pyx_t_12 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_6 * __pyx_v_board.strides[0]) ) + __pyx_t_5 * __pyx_v_board.strides[1]) ) + __pyx_t_4 * __pyx_v_board.strides[2]) ) + __pyx_t_3 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_9 * __pyx_v_board.strides[0]) ) + __pyx_t_10 * __pyx_v_board.strides[1]) ) + __pyx_t_11 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
@@ -8214,14 +8219,14 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
           __pyx_t_4 = __pyx_v_y;
           __pyx_t_5 = (__pyx_v_x + 1);
           __pyx_t_6 = 3;
-          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_8 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_11 * __pyx_v_board.strides[1]) ) + __pyx_t_10 * __pyx_v_board.strides[2]) ) + __pyx_t_9 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_3 * __pyx_v_board.strides[0]) ) + __pyx_t_4 * __pyx_v_board.strides[1]) ) + __pyx_t_5 * __pyx_v_board.strides[2]) ) + __pyx_t_6 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           __pyx_t_7 = __pyx_t_8;
           __pyx_L27_bool_binop_done:;
           __pyx_r = __pyx_t_7;
           goto __pyx_L0;
         }
 
-        /* "tablut.pyx":584
+        /* "tablut.pyx":585
  *         for y in range(9):
  *             for x in range(9):
  *                 if board[0, y, x, 2] == 1:             # <<<<<<<<<<<<<<
@@ -8232,7 +8237,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
     }
   }
 
-  /* "tablut.pyx":574
+  /* "tablut.pyx":575
  * 
  *     @staticmethod
  *     cdef bint black_win_check(DTYPE_t[:,:,:,:] board):             # <<<<<<<<<<<<<<
@@ -8247,7 +8252,7 @@ static int __pyx_f_6tablut_12AshtonTablut_black_win_check(__Pyx_memviewslice __p
   return __pyx_r;
 }
 
-/* "tablut.pyx":596
+/* "tablut.pyx":597
  * 
  *     @staticmethod
  *     cdef (float, float) get_utility_bounds():             # <<<<<<<<<<<<<<
@@ -8261,7 +8266,7 @@ static __pyx_ctuple_float__and_float __pyx_f_6tablut_12AshtonTablut_get_utility_
   __pyx_ctuple_float__and_float __pyx_t_1;
   __Pyx_RefNannySetupContext("get_utility_bounds", 0);
 
-  /* "tablut.pyx":597
+  /* "tablut.pyx":598
  *     @staticmethod
  *     cdef (float, float) get_utility_bounds():
  *         return -1.0, 1.0             # <<<<<<<<<<<<<<
@@ -8273,7 +8278,7 @@ static __pyx_ctuple_float__and_float __pyx_f_6tablut_12AshtonTablut_get_utility_
   __pyx_r = __pyx_t_1;
   goto __pyx_L0;
 
-  /* "tablut.pyx":596
+  /* "tablut.pyx":597
  * 
  *     @staticmethod
  *     cdef (float, float) get_utility_bounds():             # <<<<<<<<<<<<<<
@@ -8287,7 +8292,7 @@ static __pyx_ctuple_float__and_float __pyx_f_6tablut_12AshtonTablut_get_utility_
   return __pyx_r;
 }
 
-/* "tablut.pyx":599
+/* "tablut.pyx":600
  *         return -1.0, 1.0
  * 
  *     def actions(self):             # <<<<<<<<<<<<<<
@@ -8336,51 +8341,51 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_14actions(struct __pyx_obj_6tab
   __pyx_pybuffernd_actions.data = NULL;
   __pyx_pybuffernd_actions.rcbuffer = &__pyx_pybuffer_actions;
 
-  /* "tablut.pyx":600
+  /* "tablut.pyx":601
  * 
  *     def actions(self):
  *         cdef np.ndarray[int, ndim=1] actions = np.zeros((self._moves_length, ), dtype=np.int32)             # <<<<<<<<<<<<<<
  * 
  *         for i in range(self._moves_length):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_moves_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_moves_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 600, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 600, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 601, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_actions.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_actions = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_actions.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 600, __pyx_L1_error)
+      __PYX_ERR(0, 601, __pyx_L1_error)
     } else {__pyx_pybuffernd_actions.diminfo[0].strides = __pyx_pybuffernd_actions.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_actions.diminfo[0].shape = __pyx_pybuffernd_actions.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -8388,7 +8393,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_14actions(struct __pyx_obj_6tab
   __pyx_v_actions = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "tablut.pyx":602
+  /* "tablut.pyx":603
  *         cdef np.ndarray[int, ndim=1] actions = np.zeros((self._moves_length, ), dtype=np.int32)
  * 
  *         for i in range(self._moves_length):             # <<<<<<<<<<<<<<
@@ -8400,7 +8405,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_14actions(struct __pyx_obj_6tab
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
     __pyx_v_i = __pyx_t_9;
 
-    /* "tablut.pyx":603
+    /* "tablut.pyx":604
  * 
  *         for i in range(self._moves_length):
  *             actions[i] = self._moves[i]             # <<<<<<<<<<<<<<
@@ -8411,7 +8416,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_14actions(struct __pyx_obj_6tab
     *__Pyx_BufPtrStrided1d(int *, __pyx_pybuffernd_actions.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_actions.diminfo[0].strides) = (__pyx_v_self->_moves[__pyx_v_i]);
   }
 
-  /* "tablut.pyx":605
+  /* "tablut.pyx":606
  *             actions[i] = self._moves[i]
  * 
  *         return actions             # <<<<<<<<<<<<<<
@@ -8423,7 +8428,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_14actions(struct __pyx_obj_6tab
   __pyx_r = ((PyObject *)__pyx_v_actions);
   goto __pyx_L0;
 
-  /* "tablut.pyx":599
+  /* "tablut.pyx":600
  *         return -1.0, 1.0
  * 
  *     def actions(self):             # <<<<<<<<<<<<<<
@@ -8456,7 +8461,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_14actions(struct __pyx_obj_6tab
   return __pyx_r;
 }
 
-/* "tablut.pyx":607
+/* "tablut.pyx":608
  *         return actions
  * 
  *     cdef actions_length(self):             # <<<<<<<<<<<<<<
@@ -8473,7 +8478,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_actions_length(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("actions_length", 0);
 
-  /* "tablut.pyx":608
+  /* "tablut.pyx":609
  * 
  *     cdef actions_length(self):
  *         return self._moves_length             # <<<<<<<<<<<<<<
@@ -8481,13 +8486,13 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_actions_length(struct __pyx_obj_
  *     cpdef result(self, int move):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_moves_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_moves_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":607
+  /* "tablut.pyx":608
  *         return actions
  * 
  *     cdef actions_length(self):             # <<<<<<<<<<<<<<
@@ -8506,7 +8511,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_actions_length(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "tablut.pyx":610
+/* "tablut.pyx":611
  *         return self._moves_length
  * 
  *     cpdef result(self, int move):             # <<<<<<<<<<<<<<
@@ -8558,11 +8563,11 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_result); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 610, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_result); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 611, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_12AshtonTablut_17result)) {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_move); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 610, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_move); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 611, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -8578,7 +8583,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 610, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 611, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_r = __pyx_t_2;
@@ -8599,14 +8604,14 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     #endif
   }
 
-  /* "tablut.pyx":615
+  /* "tablut.pyx":616
  * 
  *         # Copio la board
  *         cdef np.ndarray[DTYPE_t, ndim = 4] board = self._board.copy()             # <<<<<<<<<<<<<<
  * 
  *         cdef (int,int,int,int) c = number_to_coords(move)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->_board), __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->_board), __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8620,16 +8625,16 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 615, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 615, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 616, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_board.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_6tablut_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 4, 0, __pyx_stack) == -1)) {
       __pyx_v_board = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_board.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 615, __pyx_L1_error)
+      __PYX_ERR(0, 616, __pyx_L1_error)
     } else {__pyx_pybuffernd_board.diminfo[0].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_board.diminfo[0].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_board.diminfo[1].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_board.diminfo[1].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_board.diminfo[2].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_board.diminfo[2].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[2]; __pyx_pybuffernd_board.diminfo[3].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[3]; __pyx_pybuffernd_board.diminfo[3].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[3];
     }
   }
@@ -8637,7 +8642,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
   __pyx_v_board = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":617
+  /* "tablut.pyx":618
  *         cdef np.ndarray[DTYPE_t, ndim = 4] board = self._board.copy()
  * 
  *         cdef (int,int,int,int) c = number_to_coords(move)             # <<<<<<<<<<<<<<
@@ -8646,7 +8651,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
  */
   __pyx_v_c = __pyx_f_6tablut_number_to_coords(__pyx_v_move);
 
-  /* "tablut.pyx":618
+  /* "tablut.pyx":619
  * 
  *         cdef (int,int,int,int) c = number_to_coords(move)
  *         cdef int y0 = c[0]             # <<<<<<<<<<<<<<
@@ -8655,7 +8660,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
  */
   __pyx_v_y0 = __pyx_v_c.f0;
 
-  /* "tablut.pyx":619
+  /* "tablut.pyx":620
  *         cdef (int,int,int,int) c = number_to_coords(move)
  *         cdef int y0 = c[0]
  *         cdef int x0 = c[1]             # <<<<<<<<<<<<<<
@@ -8664,7 +8669,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
  */
   __pyx_v_x0 = __pyx_v_c.f1;
 
-  /* "tablut.pyx":620
+  /* "tablut.pyx":621
  *         cdef int y0 = c[0]
  *         cdef int x0 = c[1]
  *         cdef int y1 = c[2]             # <<<<<<<<<<<<<<
@@ -8673,7 +8678,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
  */
   __pyx_v_y1 = __pyx_v_c.f2;
 
-  /* "tablut.pyx":621
+  /* "tablut.pyx":622
  *         cdef int x0 = c[1]
  *         cdef int y1 = c[2]
  *         cdef int x1 = c[3]             # <<<<<<<<<<<<<<
@@ -8682,18 +8687,18 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
  */
   __pyx_v_x1 = __pyx_v_c.f3;
 
-  /* "tablut.pyx":625
+  /* "tablut.pyx":626
  *         cdef DTYPE_t tmp
  * 
  *         if self._to_move == 'B':             # <<<<<<<<<<<<<<
  *             tmp = board[0, y0, x0, 1]
  *             board[0, y0, x0, 1] = 0
  */
-  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_self->_to_move, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 625, __pyx_L1_error)
+  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_self->_to_move, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 626, __pyx_L1_error)
   __pyx_t_8 = (__pyx_t_7 != 0);
   if (__pyx_t_8) {
 
-    /* "tablut.pyx":626
+    /* "tablut.pyx":627
  * 
  *         if self._to_move == 'B':
  *             tmp = board[0, y0, x0, 1]             # <<<<<<<<<<<<<<
@@ -8706,7 +8711,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     __pyx_t_12 = 1;
     __pyx_v_tmp = (*__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_12, __pyx_pybuffernd_board.diminfo[3].strides));
 
-    /* "tablut.pyx":627
+    /* "tablut.pyx":628
  *         if self._to_move == 'B':
  *             tmp = board[0, y0, x0, 1]
  *             board[0, y0, x0, 1] = 0             # <<<<<<<<<<<<<<
@@ -8717,9 +8722,9 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     __pyx_t_11 = __pyx_v_y0;
     __pyx_t_10 = __pyx_v_x0;
     __pyx_t_9 = 1;
-    *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides) = 0;
+    *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides) = 0.0;
 
-    /* "tablut.pyx":628
+    /* "tablut.pyx":629
  *             tmp = board[0, y0, x0, 1]
  *             board[0, y0, x0, 1] = 0
  *             board[0, y1, x1, 1] = tmp             # <<<<<<<<<<<<<<
@@ -8732,7 +8737,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     __pyx_t_12 = 1;
     *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_12, __pyx_pybuffernd_board.diminfo[3].strides) = __pyx_v_tmp;
 
-    /* "tablut.pyx":625
+    /* "tablut.pyx":626
  *         cdef DTYPE_t tmp
  * 
  *         if self._to_move == 'B':             # <<<<<<<<<<<<<<
@@ -8742,7 +8747,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     goto __pyx_L3;
   }
 
-  /* "tablut.pyx":630
+  /* "tablut.pyx":631
  *             board[0, y1, x1, 1] = tmp
  *         else:
  *             if board[0, y0, x0, 2] == 1:             # <<<<<<<<<<<<<<
@@ -8754,10 +8759,10 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
     __pyx_t_11 = __pyx_v_y0;
     __pyx_t_10 = __pyx_v_x0;
     __pyx_t_9 = 2;
-    __pyx_t_8 = (((*__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides)) == 1) != 0);
+    __pyx_t_8 = (((*__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides)) == 1.0) != 0);
     if (__pyx_t_8) {
 
-      /* "tablut.pyx":631
+      /* "tablut.pyx":632
  *         else:
  *             if board[0, y0, x0, 2] == 1:
  *                 board[0, y0, x0, 2] = 0             # <<<<<<<<<<<<<<
@@ -8768,9 +8773,9 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
       __pyx_t_10 = __pyx_v_y0;
       __pyx_t_11 = __pyx_v_x0;
       __pyx_t_12 = 2;
-      *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_12, __pyx_pybuffernd_board.diminfo[3].strides) = 0;
+      *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_12, __pyx_pybuffernd_board.diminfo[3].strides) = 0.0;
 
-      /* "tablut.pyx":632
+      /* "tablut.pyx":633
  *             if board[0, y0, x0, 2] == 1:
  *                 board[0, y0, x0, 2] = 0
  *                 board[0, y1, x1, 2] = 1             # <<<<<<<<<<<<<<
@@ -8781,9 +8786,9 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
       __pyx_t_11 = __pyx_v_y1;
       __pyx_t_10 = __pyx_v_x1;
       __pyx_t_9 = 2;
-      *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides) = 1;
+      *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides) = 1.0;
 
-      /* "tablut.pyx":630
+      /* "tablut.pyx":631
  *             board[0, y1, x1, 1] = tmp
  *         else:
  *             if board[0, y0, x0, 2] == 1:             # <<<<<<<<<<<<<<
@@ -8793,7 +8798,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
       goto __pyx_L4;
     }
 
-    /* "tablut.pyx":634
+    /* "tablut.pyx":635
  *                 board[0, y1, x1, 2] = 1
  *             else:
  *                 tmp = board[0, y0, x0, 0]             # <<<<<<<<<<<<<<
@@ -8807,7 +8812,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
       __pyx_t_12 = 0;
       __pyx_v_tmp = (*__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_12, __pyx_pybuffernd_board.diminfo[3].strides));
 
-      /* "tablut.pyx":635
+      /* "tablut.pyx":636
  *             else:
  *                 tmp = board[0, y0, x0, 0]
  *                 board[0, y0, x0, 0] = 0             # <<<<<<<<<<<<<<
@@ -8818,9 +8823,9 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
       __pyx_t_11 = __pyx_v_y0;
       __pyx_t_10 = __pyx_v_x0;
       __pyx_t_9 = 0;
-      *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides) = 0;
+      *__Pyx_BufPtrStrided4d(__pyx_t_6tablut_DTYPE_t *, __pyx_pybuffernd_board.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_board.diminfo[0].strides, __pyx_t_11, __pyx_pybuffernd_board.diminfo[1].strides, __pyx_t_10, __pyx_pybuffernd_board.diminfo[2].strides, __pyx_t_9, __pyx_pybuffernd_board.diminfo[3].strides) = 0.0;
 
-      /* "tablut.pyx":636
+      /* "tablut.pyx":637
  *                 tmp = board[0, y0, x0, 0]
  *                 board[0, y0, x0, 0] = 0
  *                 board[0, y1, x1, 0] = tmp             # <<<<<<<<<<<<<<
@@ -8837,14 +8842,14 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
   }
   __pyx_L3:;
 
-  /* "tablut.pyx":639
+  /* "tablut.pyx":640
  * 
  *         # Controllo se mangio pedine
  *         AshtonTablut.check_eat(board, self._to_move, move)             # <<<<<<<<<<<<<<
  * 
  *         next_to_move = 'W' if self._to_move == 'B' else 'B'
  */
-  __pyx_t_13 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_board), PyBUF_WRITABLE); if (unlikely(!__pyx_t_13.memview)) __PYX_ERR(0, 639, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(((PyObject *)__pyx_v_board), PyBUF_WRITABLE); if (unlikely(!__pyx_t_13.memview)) __PYX_ERR(0, 640, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_self->_to_move;
   __Pyx_INCREF(__pyx_t_1);
   (void)(__pyx_f_6tablut_12AshtonTablut_check_eat(__pyx_t_13, ((PyObject*)__pyx_t_1), __pyx_v_move));
@@ -8853,14 +8858,14 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
   __pyx_t_13.data = NULL;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":641
+  /* "tablut.pyx":642
  *         AshtonTablut.check_eat(board, self._to_move, move)
  * 
  *         next_to_move = 'W' if self._to_move == 'B' else 'B'             # <<<<<<<<<<<<<<
  * 
  *         return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)
  */
-  __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_self->_to_move, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 641, __pyx_L1_error)
+  __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_self->_to_move, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 642, __pyx_L1_error)
   if ((__pyx_t_8 != 0)) {
     __Pyx_INCREF(__pyx_n_u_W);
     __pyx_t_1 = __pyx_n_u_W;
@@ -8871,7 +8876,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
   __pyx_v_next_to_move = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":643
+  /* "tablut.pyx":644
  *         next_to_move = 'W' if self._to_move == 'B' else 'B'
  * 
  *         return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)             # <<<<<<<<<<<<<<
@@ -8879,9 +8884,9 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
  *     cpdef int utility(self, unicode player):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_v_self->_turn + 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_v_self->_turn + 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_v_board));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_board));
@@ -8895,14 +8900,14 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_result(struct __pyx_obj_6tablut_
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self->_heuristic));
   PyTuple_SET_ITEM(__pyx_t_2, 3, ((PyObject *)__pyx_v_self->_heuristic));
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":610
+  /* "tablut.pyx":611
  *         return self._moves_length
  * 
  *     cpdef result(self, int move):             # <<<<<<<<<<<<<<
@@ -8950,7 +8955,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_17result(PyObject *__pyx_v_self
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("result (wrapper)", 0);
   assert(__pyx_arg_move); {
-    __pyx_v_move = __Pyx_PyInt_As_int(__pyx_arg_move); if (unlikely((__pyx_v_move == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 610, __pyx_L3_error)
+    __pyx_v_move = __Pyx_PyInt_As_int(__pyx_arg_move); if (unlikely((__pyx_v_move == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 611, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8974,7 +8979,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_16result(struct __pyx_obj_6tabl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("result", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_result(__pyx_v_self, __pyx_v_move, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_result(__pyx_v_self, __pyx_v_move, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8991,7 +8996,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_16result(struct __pyx_obj_6tabl
   return __pyx_r;
 }
 
-/* "tablut.pyx":645
+/* "tablut.pyx":646
  *         return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)
  * 
  *     cpdef int utility(self, unicode player):             # <<<<<<<<<<<<<<
@@ -9022,7 +9027,7 @@ static int __pyx_f_6tablut_12AshtonTablut_utility(struct __pyx_obj_6tablut_Ashto
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_utility); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 645, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_utility); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 646, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_12AshtonTablut_19utility)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -9038,10 +9043,10 @@ static int __pyx_f_6tablut_12AshtonTablut_utility(struct __pyx_obj_6tablut_Ashto
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_player) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_player);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 645, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 646, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 645, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 646, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -9060,14 +9065,14 @@ static int __pyx_f_6tablut_12AshtonTablut_utility(struct __pyx_obj_6tablut_Ashto
     #endif
   }
 
-  /* "tablut.pyx":647
+  /* "tablut.pyx":648
  *     cpdef int utility(self, unicode player):
  *         """A state is terminal if it is won or there are no empty squares."""
  *         return self._utility if player == 'W' else -self._utility             # <<<<<<<<<<<<<<
  * 
  *     cpdef bint terminal_test(self):
  */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 647, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 648, __pyx_L1_error)
   if ((__pyx_t_6 != 0)) {
     __pyx_t_5 = __pyx_v_self->_utility;
   } else {
@@ -9076,7 +9081,7 @@ static int __pyx_f_6tablut_12AshtonTablut_utility(struct __pyx_obj_6tablut_Ashto
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "tablut.pyx":645
+  /* "tablut.pyx":646
  *         return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)
  * 
  *     cpdef int utility(self, unicode player):             # <<<<<<<<<<<<<<
@@ -9108,7 +9113,7 @@ static PyObject *__pyx_pw_6tablut_12AshtonTablut_19utility(PyObject *__pyx_v_sel
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("utility (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_player), (&PyUnicode_Type), 1, "player", 1))) __PYX_ERR(0, 645, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_player), (&PyUnicode_Type), 1, "player", 1))) __PYX_ERR(0, 646, __pyx_L1_error)
   __pyx_r = __pyx_pf_6tablut_12AshtonTablut_18utility(((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_self), ((PyObject*)__pyx_v_player));
 
   /* function exit code */
@@ -9129,7 +9134,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_18utility(struct __pyx_obj_6tab
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("utility", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_6tablut_12AshtonTablut_utility(__pyx_v_self, __pyx_v_player, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 645, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_6tablut_12AshtonTablut_utility(__pyx_v_self, __pyx_v_player, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9146,7 +9151,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_18utility(struct __pyx_obj_6tab
   return __pyx_r;
 }
 
-/* "tablut.pyx":649
+/* "tablut.pyx":650
  *         return self._utility if player == 'W' else -self._utility
  * 
  *     cpdef bint terminal_test(self):             # <<<<<<<<<<<<<<
@@ -9177,7 +9182,7 @@ static int __pyx_f_6tablut_12AshtonTablut_terminal_test(struct __pyx_obj_6tablut
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_terminal_test); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 649, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_terminal_test); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 650, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_12AshtonTablut_21terminal_test)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -9193,10 +9198,10 @@ static int __pyx_f_6tablut_12AshtonTablut_terminal_test(struct __pyx_obj_6tablut
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 649, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 650, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 649, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 650, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -9215,7 +9220,7 @@ static int __pyx_f_6tablut_12AshtonTablut_terminal_test(struct __pyx_obj_6tablut
     #endif
   }
 
-  /* "tablut.pyx":651
+  /* "tablut.pyx":652
  *     cpdef bint terminal_test(self):
  *         """A state is terminal if it is won or there are no empty squares."""
  *         return self._utility <= -1 or self._utility >= 1             # <<<<<<<<<<<<<<
@@ -9234,7 +9239,7 @@ static int __pyx_f_6tablut_12AshtonTablut_terminal_test(struct __pyx_obj_6tablut
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "tablut.pyx":649
+  /* "tablut.pyx":650
  *         return self._utility if player == 'W' else -self._utility
  * 
  *     cpdef bint terminal_test(self):             # <<<<<<<<<<<<<<
@@ -9279,7 +9284,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_20terminal_test(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("terminal_test", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_6tablut_12AshtonTablut_terminal_test(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 649, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_6tablut_12AshtonTablut_terminal_test(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9296,7 +9301,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_20terminal_test(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "tablut.pyx":653
+/* "tablut.pyx":654
  *         return self._utility <= -1 or self._utility >= 1
  * 
  *     cpdef to_move(self):             # <<<<<<<<<<<<<<
@@ -9325,7 +9330,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_to_move(struct __pyx_obj_6tablut
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_move); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 653, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_to_move); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 654, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_12AshtonTablut_23to_move)) {
         __Pyx_XDECREF(__pyx_r);
@@ -9342,7 +9347,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_to_move(struct __pyx_obj_6tablut
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 653, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 654, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -9363,7 +9368,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_to_move(struct __pyx_obj_6tablut
     #endif
   }
 
-  /* "tablut.pyx":655
+  /* "tablut.pyx":656
  *     cpdef to_move(self):
  *         """Return the player whose move it is in this state."""
  *         return self._to_move             # <<<<<<<<<<<<<<
@@ -9375,7 +9380,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_to_move(struct __pyx_obj_6tablut
   __pyx_r = __pyx_v_self->_to_move;
   goto __pyx_L0;
 
-  /* "tablut.pyx":653
+  /* "tablut.pyx":654
  *         return self._utility <= -1 or self._utility >= 1
  * 
  *     cpdef to_move(self):             # <<<<<<<<<<<<<<
@@ -9421,7 +9426,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_22to_move(struct __pyx_obj_6tab
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("to_move", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_to_move(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 653, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_to_move(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9438,7 +9443,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_22to_move(struct __pyx_obj_6tab
   return __pyx_r;
 }
 
-/* "tablut.pyx":657
+/* "tablut.pyx":658
  *         return self._to_move
  * 
  *     cpdef board(self):             # <<<<<<<<<<<<<<
@@ -9467,7 +9472,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_board(struct __pyx_obj_6tablut_A
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 657, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 658, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_12AshtonTablut_25board)) {
         __Pyx_XDECREF(__pyx_r);
@@ -9484,7 +9489,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_board(struct __pyx_obj_6tablut_A
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 657, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 658, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -9505,7 +9510,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_board(struct __pyx_obj_6tablut_A
     #endif
   }
 
-  /* "tablut.pyx":658
+  /* "tablut.pyx":659
  * 
  *     cpdef board(self):
  *         return self._board             # <<<<<<<<<<<<<<
@@ -9517,7 +9522,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_board(struct __pyx_obj_6tablut_A
   __pyx_r = ((PyObject *)__pyx_v_self->_board);
   goto __pyx_L0;
 
-  /* "tablut.pyx":657
+  /* "tablut.pyx":658
  *         return self._to_move
  * 
  *     cpdef board(self):             # <<<<<<<<<<<<<<
@@ -9563,7 +9568,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_24board(struct __pyx_obj_6tablu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("board", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_board(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_board(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9580,7 +9585,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_24board(struct __pyx_obj_6tablu
   return __pyx_r;
 }
 
-/* "tablut.pyx":660
+/* "tablut.pyx":661
  *         return self._board
  * 
  *     cpdef turn(self):             # <<<<<<<<<<<<<<
@@ -9609,7 +9614,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_turn(struct __pyx_obj_6tablut_As
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 660, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 661, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_12AshtonTablut_27turn)) {
         __Pyx_XDECREF(__pyx_r);
@@ -9626,7 +9631,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_turn(struct __pyx_obj_6tablut_As
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 660, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 661, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -9647,7 +9652,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_turn(struct __pyx_obj_6tablut_As
     #endif
   }
 
-  /* "tablut.pyx":661
+  /* "tablut.pyx":662
  * 
  *     cpdef turn(self):
  *         return self._turn             # <<<<<<<<<<<<<<
@@ -9655,13 +9660,13 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_turn(struct __pyx_obj_6tablut_As
  *     cdef eval_fn(self, parent_state, player):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 661, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 662, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":660
+  /* "tablut.pyx":661
  *         return self._board
  * 
  *     cpdef turn(self):             # <<<<<<<<<<<<<<
@@ -9707,7 +9712,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_26turn(struct __pyx_obj_6tablut
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("turn", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_turn(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6tablut_12AshtonTablut_turn(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9724,7 +9729,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_26turn(struct __pyx_obj_6tablut
   return __pyx_r;
 }
 
-/* "tablut.pyx":663
+/* "tablut.pyx":664
  *         return self._turn
  * 
  *     cdef eval_fn(self, parent_state, player):             # <<<<<<<<<<<<<<
@@ -9741,7 +9746,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("eval_fn", 0);
 
-  /* "tablut.pyx":664
+  /* "tablut.pyx":665
  * 
  *     cdef eval_fn(self, parent_state, player):
  *         return self._heuristic.evalutate(parent_state, self, player)             # <<<<<<<<<<<<<<
@@ -9749,15 +9754,15 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut
  *     def display(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(((__pyx_v_parent_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_parent_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 664, __pyx_L1_error)
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_player))||((__pyx_v_player) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_player)->tp_name), 0))) __PYX_ERR(0, 664, __pyx_L1_error)
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_vtabstruct_6tablut_HeuristicFunction *)__pyx_v_self->_heuristic->__pyx_vtab)->evalutate(__pyx_v_self->_heuristic, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_parent_state), __pyx_v_self, ((PyObject*)__pyx_v_player))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 664, __pyx_L1_error)
+  if (!(likely(((__pyx_v_parent_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_parent_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 665, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_player))||((__pyx_v_player) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_player)->tp_name), 0))) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_vtabstruct_6tablut_HeuristicFunction *)__pyx_v_self->_heuristic->__pyx_vtab)->evalutate(__pyx_v_self->_heuristic, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_parent_state), __pyx_v_self, ((PyObject*)__pyx_v_player))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 665, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":663
+  /* "tablut.pyx":664
  *         return self._turn
  * 
  *     cdef eval_fn(self, parent_state, player):             # <<<<<<<<<<<<<<
@@ -9776,7 +9781,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut
   return __pyx_r;
 }
 
-/* "tablut.pyx":666
+/* "tablut.pyx":667
  *         return self._heuristic.evalutate(parent_state, self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
@@ -9821,19 +9826,19 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
   __pyx_pybuffernd_board.data = NULL;
   __pyx_pybuffernd_board.rcbuffer = &__pyx_pybuffer_board;
 
-  /* "tablut.pyx":668
+  /* "tablut.pyx":669
  *     def display(self):
  *         """Print or otherwise display the state."""
  *         cdef np.ndarray[DTYPE_t, ndim = 3] board = np.moveaxis(self._board[0], -1, 0)             # <<<<<<<<<<<<<<
- *         print(-board[0]+board[1]-20*board[2]+10*board[3])
+ *         return str(-board[0]+board[1]-20*board[2]+10*board[3])
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 669, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_moveaxis); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_moveaxis); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_GetItemInt(((PyObject *)__pyx_v_self->_board), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(((PyObject *)__pyx_v_self->_board), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 669, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -9850,7 +9855,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_t_2, __pyx_int_neg_1, __pyx_int_0};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 668, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -9859,14 +9864,14 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_t_2, __pyx_int_neg_1, __pyx_int_0};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 668, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(3+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 668, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(3+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -9880,18 +9885,18 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
     __Pyx_GIVEREF(__pyx_int_0);
     PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_5, __pyx_int_0);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 668, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 668, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 669, __pyx_L1_error)
   __pyx_t_7 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_board.rcbuffer->pybuffer, (PyObject*)__pyx_t_7, &__Pyx_TypeInfo_nn___pyx_t_6tablut_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) {
       __pyx_v_board = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_board.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 668, __pyx_L1_error)
+      __PYX_ERR(0, 669, __pyx_L1_error)
     } else {__pyx_pybuffernd_board.diminfo[0].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_board.diminfo[0].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_board.diminfo[1].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_board.diminfo[1].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_board.diminfo[2].strides = __pyx_pybuffernd_board.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_board.diminfo[2].shape = __pyx_pybuffernd_board.rcbuffer->pybuffer.shape[2];
     }
   }
@@ -9899,48 +9904,51 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
   __pyx_v_board = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":669
+  /* "tablut.pyx":670
  *         """Print or otherwise display the state."""
  *         cdef np.ndarray[DTYPE_t, ndim = 3] board = np.moveaxis(self._board[0], -1, 0)
- *         print(-board[0]+board[1]-20*board[2]+10*board[3])             # <<<<<<<<<<<<<<
+ *         return str(-board[0]+board[1]-20*board[2]+10*board[3])             # <<<<<<<<<<<<<<
  * 
  * # ______________________________________________________________________________
  */
-  __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyNumber_Add(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Add(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyNumber_Multiply(__pyx_int_20, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_int_20, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_6, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_6, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(((PyObject *)__pyx_v_board), 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = PyNumber_Multiply(__pyx_int_10, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Multiply(__pyx_int_10, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyUnicode_Type)), __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_r = __pyx_t_6;
+  __pyx_t_6 = 0;
+  goto __pyx_L0;
 
-  /* "tablut.pyx":666
+  /* "tablut.pyx":667
  *         return self._heuristic.evalutate(parent_state, self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
@@ -9949,8 +9957,6 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
@@ -10092,7 +10098,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_32__setstate_cython__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "tablut.pyx":674
+/* "tablut.pyx":675
  * ### Players for Games
  * 
  * def random_player(AshtonTablut game):             # <<<<<<<<<<<<<<
@@ -10111,7 +10117,7 @@ static PyObject *__pyx_pw_6tablut_3random_player(PyObject *__pyx_self, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("random_player (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_game), __pyx_ptype_6tablut_AshtonTablut, 1, "game", 0))) __PYX_ERR(0, 674, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_game), __pyx_ptype_6tablut_AshtonTablut, 1, "game", 0))) __PYX_ERR(0, 675, __pyx_L1_error)
   __pyx_r = __pyx_pf_6tablut_2random_player(__pyx_self, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_game));
 
   /* function exit code */
@@ -10139,7 +10145,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("random_player", 0);
 
-  /* "tablut.pyx":677
+  /* "tablut.pyx":678
  *     """A player that chooses a legal move at random."""
  *     cdef int action
  *     cdef int index = 0             # <<<<<<<<<<<<<<
@@ -10148,20 +10154,20 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_index = 0;
 
-  /* "tablut.pyx":678
+  /* "tablut.pyx":679
  *     cdef int action
  *     cdef int index = 0
  *     cdef int actions_length = game.actions_length()             # <<<<<<<<<<<<<<
  *     cdef int* actions = game._moves
  *     if actions:
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_game->__pyx_vtab)->actions_length(__pyx_v_game); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_game->__pyx_vtab)->actions_length(__pyx_v_game); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 679, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_actions_length = __pyx_t_2;
 
-  /* "tablut.pyx":679
+  /* "tablut.pyx":680
  *     cdef int index = 0
  *     cdef int actions_length = game.actions_length()
  *     cdef int* actions = game._moves             # <<<<<<<<<<<<<<
@@ -10171,7 +10177,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_3 = __pyx_v_game->_moves;
   __pyx_v_actions = __pyx_t_3;
 
-  /* "tablut.pyx":680
+  /* "tablut.pyx":681
  *     cdef int actions_length = game.actions_length()
  *     cdef int* actions = game._moves
  *     if actions:             # <<<<<<<<<<<<<<
@@ -10181,7 +10187,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_4 = (__pyx_v_actions != 0);
   if (__pyx_t_4) {
 
-    /* "tablut.pyx":681
+    /* "tablut.pyx":682
  *     cdef int* actions = game._moves
  *     if actions:
  *         index = <int> rand() % actions_length             # <<<<<<<<<<<<<<
@@ -10191,11 +10197,11 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_t_2 = ((int)rand());
     if (unlikely(__pyx_v_actions_length == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-      __PYX_ERR(0, 681, __pyx_L1_error)
+      __PYX_ERR(0, 682, __pyx_L1_error)
     }
     __pyx_v_index = __Pyx_mod_int(__pyx_t_2, __pyx_v_actions_length);
 
-    /* "tablut.pyx":682
+    /* "tablut.pyx":683
  *     if actions:
  *         index = <int> rand() % actions_length
  *         action = actions[index]             # <<<<<<<<<<<<<<
@@ -10204,7 +10210,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
  */
     __pyx_v_action = (__pyx_v_actions[__pyx_v_index]);
 
-    /* "tablut.pyx":683
+    /* "tablut.pyx":684
  *         index = <int> rand() % actions_length
  *         action = actions[index]
  *         return action             # <<<<<<<<<<<<<<
@@ -10212,13 +10218,13 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_action); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 683, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_action); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 684, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "tablut.pyx":680
+    /* "tablut.pyx":681
  *     cdef int actions_length = game.actions_length()
  *     cdef int* actions = game._moves
  *     if actions:             # <<<<<<<<<<<<<<
@@ -10227,7 +10233,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
  */
   }
 
-  /* "tablut.pyx":684
+  /* "tablut.pyx":685
  *         action = actions[index]
  *         return action
  *     return None             # <<<<<<<<<<<<<<
@@ -10238,7 +10244,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "tablut.pyx":674
+  /* "tablut.pyx":675
  * ### Players for Games
  * 
  * def random_player(AshtonTablut game):             # <<<<<<<<<<<<<<
@@ -10257,7 +10263,7 @@ static PyObject *__pyx_pf_6tablut_2random_player(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "tablut.pyx":695
+/* "tablut.pyx":696
  *     cdef long current_cutoff_depth
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -10286,7 +10292,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "tablut.pyx":696
+  /* "tablut.pyx":697
  * 
  *     def __init__(self):
  *         self.nodes_explored = 0             # <<<<<<<<<<<<<<
@@ -10295,7 +10301,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
  */
   __pyx_v_self->nodes_explored = 0;
 
-  /* "tablut.pyx":697
+  /* "tablut.pyx":698
  *     def __init__(self):
  *         self.nodes_explored = 0
  *         self.max_depth = 0             # <<<<<<<<<<<<<<
@@ -10304,7 +10310,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
  */
   __pyx_v_self->max_depth = 0;
 
-  /* "tablut.pyx":698
+  /* "tablut.pyx":699
  *         self.nodes_explored = 0
  *         self.max_depth = 0
  *         self.start_time = 0.0             # <<<<<<<<<<<<<<
@@ -10313,7 +10319,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
  */
   __pyx_v_self->start_time = 0.0;
 
-  /* "tablut.pyx":699
+  /* "tablut.pyx":700
  *         self.max_depth = 0
  *         self.start_time = 0.0
  *         self.cutoff_time = 0.0             # <<<<<<<<<<<<<<
@@ -10322,7 +10328,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
  */
   __pyx_v_self->cutoff_time = 0.0;
 
-  /* "tablut.pyx":700
+  /* "tablut.pyx":701
  *         self.start_time = 0.0
  *         self.cutoff_time = 0.0
  *         self.current_cutoff_depth = 0             # <<<<<<<<<<<<<<
@@ -10331,7 +10337,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
  */
   __pyx_v_self->current_cutoff_depth = 0;
 
-  /* "tablut.pyx":695
+  /* "tablut.pyx":696
  *     cdef long current_cutoff_depth
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -10345,7 +10351,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
   return __pyx_r;
 }
 
-/* "tablut.pyx":702
+/* "tablut.pyx":703
  *         self.current_cutoff_depth = 0
  * 
  *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
@@ -10382,7 +10388,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("max_value", 0);
 
-  /* "tablut.pyx":703
+  /* "tablut.pyx":704
  * 
  *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves             # <<<<<<<<<<<<<<
@@ -10392,7 +10398,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   __pyx_t_1 = __pyx_v_state->_moves;
   __pyx_v_moves = __pyx_t_1;
 
-  /* "tablut.pyx":704
+  /* "tablut.pyx":705
  *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length             # <<<<<<<<<<<<<<
@@ -10402,26 +10408,26 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   __pyx_t_2 = __pyx_v_state->_moves_length;
   __pyx_v_moves_length = __pyx_t_2;
 
-  /* "tablut.pyx":705
+  /* "tablut.pyx":706
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length
  *         cdef float v = -np.inf             # <<<<<<<<<<<<<<
  *         cdef int a
  *         cdef bint terminal = state.terminal_test()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 705, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 705, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Negative(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 705, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Negative(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 705, __pyx_L1_error)
+  __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 706, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_v = __pyx_t_5;
 
-  /* "tablut.pyx":707
+  /* "tablut.pyx":708
  *         cdef float v = -np.inf
  *         cdef int a
  *         cdef bint terminal = state.terminal_test()             # <<<<<<<<<<<<<<
@@ -10430,7 +10436,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  */
   __pyx_v_terminal = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->terminal_test(__pyx_v_state, 0);
 
-  /* "tablut.pyx":709
+  /* "tablut.pyx":710
  *         cdef bint terminal = state.terminal_test()
  * 
  *         self.nodes_explored += 1             # <<<<<<<<<<<<<<
@@ -10439,7 +10445,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  */
   __pyx_v_self->nodes_explored = (__pyx_v_self->nodes_explored + 1);
 
-  /* "tablut.pyx":710
+  /* "tablut.pyx":711
  * 
  *         self.nodes_explored += 1
  *         self.max_depth = max(self.max_depth, depth)             # <<<<<<<<<<<<<<
@@ -10455,7 +10461,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   }
   __pyx_v_self->max_depth = __pyx_t_8;
 
-  /* "tablut.pyx":712
+  /* "tablut.pyx":713
  *         self.max_depth = max(self.max_depth, depth)
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -10479,7 +10485,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_9) {
 
-    /* "tablut.pyx":713
+    /* "tablut.pyx":714
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
  *             if terminal:             # <<<<<<<<<<<<<<
@@ -10489,7 +10495,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     __pyx_t_9 = (__pyx_v_terminal != 0);
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":714
+      /* "tablut.pyx":715
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
  *             if terminal:
  *                 return state.utility(player)             # <<<<<<<<<<<<<<
@@ -10499,7 +10505,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
       __pyx_r = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->utility(__pyx_v_state, __pyx_v_player, 0);
       goto __pyx_L0;
 
-      /* "tablut.pyx":713
+      /* "tablut.pyx":714
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
  *             if terminal:             # <<<<<<<<<<<<<<
@@ -10508,21 +10514,21 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  */
     }
 
-    /* "tablut.pyx":716
+    /* "tablut.pyx":717
  *                 return state.utility(player)
  * 
  *             return state.eval_fn(parent_state, player)             # <<<<<<<<<<<<<<
  * 
  *         for i in range(moves_length):
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, ((PyObject *)__pyx_v_parent_state), __pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 716, __pyx_L1_error)
+    __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, ((PyObject *)__pyx_v_parent_state), __pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 717, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 716, __pyx_L1_error)
+    __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 717, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_5;
     goto __pyx_L0;
 
-    /* "tablut.pyx":712
+    /* "tablut.pyx":713
  *         self.max_depth = max(self.max_depth, depth)
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -10531,7 +10537,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  */
   }
 
-  /* "tablut.pyx":718
+  /* "tablut.pyx":719
  *             return state.eval_fn(parent_state, player)
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
@@ -10543,7 +10549,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
     __pyx_v_i = __pyx_t_12;
 
-    /* "tablut.pyx":719
+    /* "tablut.pyx":720
  * 
  *         for i in range(moves_length):
  *             a = moves[i]             # <<<<<<<<<<<<<<
@@ -10552,19 +10558,19 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  */
     __pyx_v_a = (__pyx_v_moves[__pyx_v_i]);
 
-    /* "tablut.pyx":720
+    /* "tablut.pyx":721
  *         for i in range(moves_length):
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
  *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 720, __pyx_L1_error)
+    __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 721, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF_SET(__pyx_v_next_state, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "tablut.pyx":722
+    /* "tablut.pyx":723
  *             next_state = state.result(a)
  * 
  *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)             # <<<<<<<<<<<<<<
@@ -10572,7 +10578,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  *                 return v
  */
     __pyx_t_5 = __pyx_v_v;
-    if (!(likely(((__pyx_v_next_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_next_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 722, __pyx_L1_error)
+    if (!(likely(((__pyx_v_next_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_next_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 723, __pyx_L1_error)
     __pyx_t_13 = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_next_state), __pyx_v_player, __pyx_v_alpha, __pyx_v_beta, (__pyx_v_depth + 1));
     if (((__pyx_t_5 > __pyx_t_13) != 0)) {
       __pyx_t_14 = __pyx_t_5;
@@ -10581,7 +10587,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     }
     __pyx_v_v = __pyx_t_14;
 
-    /* "tablut.pyx":723
+    /* "tablut.pyx":724
  * 
  *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
  *             if v >= beta:             # <<<<<<<<<<<<<<
@@ -10591,7 +10597,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     __pyx_t_9 = ((__pyx_v_v >= __pyx_v_beta) != 0);
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":724
+      /* "tablut.pyx":725
  *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
  *             if v >= beta:
  *                 return v             # <<<<<<<<<<<<<<
@@ -10601,7 +10607,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
       __pyx_r = __pyx_v_v;
       goto __pyx_L0;
 
-      /* "tablut.pyx":723
+      /* "tablut.pyx":724
  * 
  *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
  *             if v >= beta:             # <<<<<<<<<<<<<<
@@ -10610,7 +10616,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  */
     }
 
-    /* "tablut.pyx":725
+    /* "tablut.pyx":726
  *             if v >= beta:
  *                 return v
  *             alpha = max(alpha, v)             # <<<<<<<<<<<<<<
@@ -10627,7 +10633,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     __pyx_v_alpha = __pyx_t_13;
   }
 
-  /* "tablut.pyx":727
+  /* "tablut.pyx":728
  *             alpha = max(alpha, v)
  * 
  *         return v             # <<<<<<<<<<<<<<
@@ -10637,7 +10643,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   __pyx_r = __pyx_v_v;
   goto __pyx_L0;
 
-  /* "tablut.pyx":702
+  /* "tablut.pyx":703
  *         self.current_cutoff_depth = 0
  * 
  *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
@@ -10657,7 +10663,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   return __pyx_r;
 }
 
-/* "tablut.pyx":729
+/* "tablut.pyx":730
  *         return v
  * 
  *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
@@ -10694,7 +10700,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("min_value", 0);
 
-  /* "tablut.pyx":730
+  /* "tablut.pyx":731
  * 
  *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves             # <<<<<<<<<<<<<<
@@ -10704,7 +10710,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   __pyx_t_1 = __pyx_v_state->_moves;
   __pyx_v_moves = __pyx_t_1;
 
-  /* "tablut.pyx":731
+  /* "tablut.pyx":732
  *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length             # <<<<<<<<<<<<<<
@@ -10714,23 +10720,23 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   __pyx_t_2 = __pyx_v_state->_moves_length;
   __pyx_v_moves_length = __pyx_t_2;
 
-  /* "tablut.pyx":732
+  /* "tablut.pyx":733
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length
  *         cdef float v = np.inf             # <<<<<<<<<<<<<<
  *         cdef int a
  *         cdef bint terminal = state.terminal_test()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 732, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 732, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 732, __pyx_L1_error)
+  __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 733, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_v = __pyx_t_5;
 
-  /* "tablut.pyx":734
+  /* "tablut.pyx":735
  *         cdef float v = np.inf
  *         cdef int a
  *         cdef bint terminal = state.terminal_test()             # <<<<<<<<<<<<<<
@@ -10739,7 +10745,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  */
   __pyx_v_terminal = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->terminal_test(__pyx_v_state, 0);
 
-  /* "tablut.pyx":736
+  /* "tablut.pyx":737
  *         cdef bint terminal = state.terminal_test()
  * 
  *         self.nodes_explored += 1             # <<<<<<<<<<<<<<
@@ -10748,7 +10754,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  */
   __pyx_v_self->nodes_explored = (__pyx_v_self->nodes_explored + 1);
 
-  /* "tablut.pyx":737
+  /* "tablut.pyx":738
  * 
  *         self.nodes_explored += 1
  *         self.max_depth = max(self.max_depth, depth)             # <<<<<<<<<<<<<<
@@ -10764,7 +10770,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   }
   __pyx_v_self->max_depth = __pyx_t_8;
 
-  /* "tablut.pyx":739
+  /* "tablut.pyx":740
  *         self.max_depth = max(self.max_depth, depth)
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -10788,7 +10794,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_9) {
 
-    /* "tablut.pyx":740
+    /* "tablut.pyx":741
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
  *             if terminal:             # <<<<<<<<<<<<<<
@@ -10798,7 +10804,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     __pyx_t_9 = (__pyx_v_terminal != 0);
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":741
+      /* "tablut.pyx":742
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
  *             if terminal:
  *                 return state.utility(player)             # <<<<<<<<<<<<<<
@@ -10808,7 +10814,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
       __pyx_r = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->utility(__pyx_v_state, __pyx_v_player, 0);
       goto __pyx_L0;
 
-      /* "tablut.pyx":740
+      /* "tablut.pyx":741
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
  *             if terminal:             # <<<<<<<<<<<<<<
@@ -10817,21 +10823,21 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  */
     }
 
-    /* "tablut.pyx":743
+    /* "tablut.pyx":744
  *                 return state.utility(player)
  * 
  *             return state.eval_fn(parent_state, player)             # <<<<<<<<<<<<<<
  * 
  *         for i in range(moves_length):
  */
-    __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, ((PyObject *)__pyx_v_parent_state), __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 743, __pyx_L1_error)
+    __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, ((PyObject *)__pyx_v_parent_state), __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 744, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
+    __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 744, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_5;
     goto __pyx_L0;
 
-    /* "tablut.pyx":739
+    /* "tablut.pyx":740
  *         self.max_depth = max(self.max_depth, depth)
  * 
  *         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -10840,7 +10846,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  */
   }
 
-  /* "tablut.pyx":745
+  /* "tablut.pyx":746
  *             return state.eval_fn(parent_state, player)
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
@@ -10852,7 +10858,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
     __pyx_v_i = __pyx_t_12;
 
-    /* "tablut.pyx":746
+    /* "tablut.pyx":747
  * 
  *         for i in range(moves_length):
  *             a = moves[i]             # <<<<<<<<<<<<<<
@@ -10861,19 +10867,19 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  */
     __pyx_v_a = (__pyx_v_moves[__pyx_v_i]);
 
-    /* "tablut.pyx":747
+    /* "tablut.pyx":748
  *         for i in range(moves_length):
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
  *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
  */
-    __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 747, __pyx_L1_error)
+    __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 748, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_XDECREF_SET(__pyx_v_next_state, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "tablut.pyx":749
+    /* "tablut.pyx":750
  *             next_state = state.result(a)
  * 
  *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)             # <<<<<<<<<<<<<<
@@ -10881,7 +10887,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  *                 return v
  */
     __pyx_t_5 = __pyx_v_v;
-    if (!(likely(((__pyx_v_next_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_next_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 749, __pyx_L1_error)
+    if (!(likely(((__pyx_v_next_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_next_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 750, __pyx_L1_error)
     __pyx_t_13 = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->max_value(__pyx_v_self, __pyx_v_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_next_state), __pyx_v_player, __pyx_v_alpha, __pyx_v_beta, (__pyx_v_depth + 1));
     if (((__pyx_t_5 < __pyx_t_13) != 0)) {
       __pyx_t_14 = __pyx_t_5;
@@ -10890,7 +10896,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     }
     __pyx_v_v = __pyx_t_14;
 
-    /* "tablut.pyx":750
+    /* "tablut.pyx":751
  * 
  *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
  *             if v <= alpha:             # <<<<<<<<<<<<<<
@@ -10900,7 +10906,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     __pyx_t_9 = ((__pyx_v_v <= __pyx_v_alpha) != 0);
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":751
+      /* "tablut.pyx":752
  *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
  *             if v <= alpha:
  *                 return v             # <<<<<<<<<<<<<<
@@ -10910,7 +10916,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
       __pyx_r = __pyx_v_v;
       goto __pyx_L0;
 
-      /* "tablut.pyx":750
+      /* "tablut.pyx":751
  * 
  *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
  *             if v <= alpha:             # <<<<<<<<<<<<<<
@@ -10919,7 +10925,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  */
     }
 
-    /* "tablut.pyx":752
+    /* "tablut.pyx":753
  *             if v <= alpha:
  *                 return v
  *             beta = min(beta, v)             # <<<<<<<<<<<<<<
@@ -10936,7 +10942,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     __pyx_v_beta = __pyx_t_13;
   }
 
-  /* "tablut.pyx":754
+  /* "tablut.pyx":755
  *             beta = min(beta, v)
  * 
  *         return v             # <<<<<<<<<<<<<<
@@ -10946,7 +10952,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   __pyx_r = __pyx_v_v;
   goto __pyx_L0;
 
-  /* "tablut.pyx":729
+  /* "tablut.pyx":730
  *         return v
  * 
  *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
@@ -10966,7 +10972,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   return __pyx_r;
 }
 
-/* "tablut.pyx":756
+/* "tablut.pyx":757
  *         return v
  * 
  *     def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
@@ -11023,7 +11029,7 @@ static PyObject *__pyx_pw_6tablut_6Search_3cutoff_search(PyObject *__pyx_v_self,
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cutoff_search") < 0)) __PYX_ERR(0, 756, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cutoff_search") < 0)) __PYX_ERR(0, 757, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -11038,25 +11044,25 @@ static PyObject *__pyx_pw_6tablut_6Search_3cutoff_search(PyObject *__pyx_v_self,
     }
     __pyx_v_state = ((struct __pyx_obj_6tablut_AshtonTablut *)values[0]);
     if (values[1]) {
-      __pyx_v_cutoff_depth = __Pyx_PyInt_As_long(values[1]); if (unlikely((__pyx_v_cutoff_depth == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 756, __pyx_L3_error)
+      __pyx_v_cutoff_depth = __Pyx_PyInt_As_long(values[1]); if (unlikely((__pyx_v_cutoff_depth == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 757, __pyx_L3_error)
     } else {
       __pyx_v_cutoff_depth = ((long)5);
     }
     if (values[2]) {
-      __pyx_v_cutoff_time = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_cutoff_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 756, __pyx_L3_error)
+      __pyx_v_cutoff_time = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_cutoff_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 757, __pyx_L3_error)
     } else {
       __pyx_v_cutoff_time = ((double)55.0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("cutoff_search", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 756, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("cutoff_search", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 757, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.Search.cutoff_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state), __pyx_ptype_6tablut_AshtonTablut, 1, "state", 0))) __PYX_ERR(0, 756, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state), __pyx_ptype_6tablut_AshtonTablut, 1, "state", 0))) __PYX_ERR(0, 757, __pyx_L1_error)
   __pyx_r = __pyx_pf_6tablut_6Search_2cutoff_search(((struct __pyx_obj_6tablut_Search *)__pyx_v_self), __pyx_v_state, __pyx_v_cutoff_depth, __pyx_v_cutoff_time);
 
   /* function exit code */
@@ -11099,7 +11105,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cutoff_search", 0);
 
-  /* "tablut.pyx":760
+  /* "tablut.pyx":761
  *         This version cuts off search using time and uses an evaluation function."""
  * 
  *         cdef unicode player = state._to_move             # <<<<<<<<<<<<<<
@@ -11111,42 +11117,42 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   __pyx_v_player = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":762
+  /* "tablut.pyx":763
  *         cdef unicode player = state._to_move
  * 
  *         cdef float best_score = -np.inf             # <<<<<<<<<<<<<<
  *         cdef float beta = np.inf
  *         cdef int best_action = 0
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 762, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 763, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 762, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 763, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 762, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 763, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 762, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 763, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_best_score = __pyx_t_3;
 
-  /* "tablut.pyx":763
+  /* "tablut.pyx":764
  * 
  *         cdef float best_score = -np.inf
  *         cdef float beta = np.inf             # <<<<<<<<<<<<<<
  *         cdef int best_action = 0
  *         cdef AshtonTablut best_next_state = None
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 763, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 764, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 763, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 764, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 763, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 764, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_beta = __pyx_t_3;
 
-  /* "tablut.pyx":764
+  /* "tablut.pyx":765
  *         cdef float best_score = -np.inf
  *         cdef float beta = np.inf
  *         cdef int best_action = 0             # <<<<<<<<<<<<<<
@@ -11155,7 +11161,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
   __pyx_v_best_action = 0;
 
-  /* "tablut.pyx":765
+  /* "tablut.pyx":766
  *         cdef float beta = np.inf
  *         cdef int best_action = 0
  *         cdef AshtonTablut best_next_state = None             # <<<<<<<<<<<<<<
@@ -11165,7 +11171,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   __Pyx_INCREF(Py_None);
   __pyx_v_best_next_state = ((struct __pyx_obj_6tablut_AshtonTablut *)Py_None);
 
-  /* "tablut.pyx":766
+  /* "tablut.pyx":767
  *         cdef int best_action = 0
  *         cdef AshtonTablut best_next_state = None
  *         cdef AshtonTablut next_state = None             # <<<<<<<<<<<<<<
@@ -11175,7 +11181,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   __Pyx_INCREF(Py_None);
   __pyx_v_next_state = ((struct __pyx_obj_6tablut_AshtonTablut *)Py_None);
 
-  /* "tablut.pyx":768
+  /* "tablut.pyx":769
  *         cdef AshtonTablut next_state = None
  * 
  *         cdef int* moves = state._moves             # <<<<<<<<<<<<<<
@@ -11185,7 +11191,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   __pyx_t_4 = __pyx_v_state->_moves;
   __pyx_v_moves = __pyx_t_4;
 
-  /* "tablut.pyx":769
+  /* "tablut.pyx":770
  * 
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length             # <<<<<<<<<<<<<<
@@ -11195,7 +11201,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   __pyx_t_5 = __pyx_v_state->_moves_length;
   __pyx_v_moves_length = __pyx_t_5;
 
-  /* "tablut.pyx":773
+  /* "tablut.pyx":774
  *         cdef int a
  * 
  *         self.cutoff_time = cutoff_time             # <<<<<<<<<<<<<<
@@ -11204,7 +11210,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
   __pyx_v_self->cutoff_time = __pyx_v_cutoff_time;
 
-  /* "tablut.pyx":774
+  /* "tablut.pyx":775
  * 
  *         self.cutoff_time = cutoff_time
  *         self.current_cutoff_depth = cutoff_depth             # <<<<<<<<<<<<<<
@@ -11213,7 +11219,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
   __pyx_v_self->current_cutoff_depth = __pyx_v_cutoff_depth;
 
-  /* "tablut.pyx":775
+  /* "tablut.pyx":776
  *         self.cutoff_time = cutoff_time
  *         self.current_cutoff_depth = cutoff_depth
  *         self.start_time = get_time()             # <<<<<<<<<<<<<<
@@ -11222,7 +11228,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
   __pyx_v_self->start_time = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":776
+  /* "tablut.pyx":777
  *         self.current_cutoff_depth = cutoff_depth
  *         self.start_time = get_time()
  *         self.nodes_explored = 0             # <<<<<<<<<<<<<<
@@ -11231,7 +11237,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
   __pyx_v_self->nodes_explored = 0;
 
-  /* "tablut.pyx":777
+  /* "tablut.pyx":778
  *         self.start_time = get_time()
  *         self.nodes_explored = 0
  *         self.max_depth = 0             # <<<<<<<<<<<<<<
@@ -11240,7 +11246,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
   __pyx_v_self->max_depth = 0;
 
-  /* "tablut.pyx":779
+  /* "tablut.pyx":780
  *         self.max_depth = 0
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
@@ -11252,7 +11258,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "tablut.pyx":780
+    /* "tablut.pyx":781
  * 
  *         for i in range(moves_length):
  *             a = moves[i]             # <<<<<<<<<<<<<<
@@ -11261,20 +11267,20 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
     __pyx_v_a = (__pyx_v_moves[__pyx_v_i]);
 
-    /* "tablut.pyx":781
+    /* "tablut.pyx":782
  *         for i in range(moves_length):
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
  *             if next_state.utility(player) >= 1:
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 781, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 782, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 781, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 782, __pyx_L1_error)
     __Pyx_DECREF_SET(__pyx_v_next_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "tablut.pyx":783
+    /* "tablut.pyx":784
  *             next_state = state.result(a)
  * 
  *             if next_state.utility(player) >= 1:             # <<<<<<<<<<<<<<
@@ -11284,7 +11290,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
     __pyx_t_8 = ((((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->utility(__pyx_v_next_state, __pyx_v_player, 0) >= 1) != 0);
     if (__pyx_t_8) {
 
-      /* "tablut.pyx":784
+      /* "tablut.pyx":785
  * 
  *             if next_state.utility(player) >= 1:
  *                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)             # <<<<<<<<<<<<<<
@@ -11292,11 +11298,11 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  *             v = self.min_value(state, next_state, player, best_score, beta, 1)
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 784, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 785, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 784, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 785, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = PyTuple_New(6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 784, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 785, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_INCREF(((PyObject *)__pyx_v_next_state));
       __Pyx_GIVEREF(((PyObject *)__pyx_v_next_state));
@@ -11320,7 +11326,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
       __pyx_t_9 = 0;
       goto __pyx_L0;
 
-      /* "tablut.pyx":783
+      /* "tablut.pyx":784
  *             next_state = state.result(a)
  * 
  *             if next_state.utility(player) >= 1:             # <<<<<<<<<<<<<<
@@ -11329,7 +11335,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
     }
 
-    /* "tablut.pyx":786
+    /* "tablut.pyx":787
  *                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
  * 
  *             v = self.min_value(state, next_state, player, best_score, beta, 1)             # <<<<<<<<<<<<<<
@@ -11338,7 +11344,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
     __pyx_v_v = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_state, __pyx_v_next_state, __pyx_v_player, __pyx_v_best_score, __pyx_v_beta, 1);
 
-    /* "tablut.pyx":788
+    /* "tablut.pyx":789
  *             v = self.min_value(state, next_state, player, best_score, beta, 1)
  * 
  *             if v >= 1:             # <<<<<<<<<<<<<<
@@ -11348,7 +11354,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
     __pyx_t_8 = ((__pyx_v_v >= 1.0) != 0);
     if (__pyx_t_8) {
 
-      /* "tablut.pyx":789
+      /* "tablut.pyx":790
  * 
  *             if v >= 1:
  *                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)             # <<<<<<<<<<<<<<
@@ -11356,15 +11362,15 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  *             if v > best_score:
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 789, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 790, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 789, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 790, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 789, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 790, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_10 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 789, __pyx_L1_error)
+      __pyx_t_10 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 790, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_11 = PyTuple_New(6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 789, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 790, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_INCREF(((PyObject *)__pyx_v_next_state));
       __Pyx_GIVEREF(((PyObject *)__pyx_v_next_state));
@@ -11388,7 +11394,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
       __pyx_t_11 = 0;
       goto __pyx_L0;
 
-      /* "tablut.pyx":788
+      /* "tablut.pyx":789
  *             v = self.min_value(state, next_state, player, best_score, beta, 1)
  * 
  *             if v >= 1:             # <<<<<<<<<<<<<<
@@ -11397,7 +11403,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
     }
 
-    /* "tablut.pyx":791
+    /* "tablut.pyx":792
  *                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
  * 
  *             if v > best_score:             # <<<<<<<<<<<<<<
@@ -11407,7 +11413,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
     __pyx_t_8 = ((__pyx_v_v > __pyx_v_best_score) != 0);
     if (__pyx_t_8) {
 
-      /* "tablut.pyx":792
+      /* "tablut.pyx":793
  * 
  *             if v > best_score:
  *                 best_next_state = next_state             # <<<<<<<<<<<<<<
@@ -11417,7 +11423,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
       __Pyx_INCREF(((PyObject *)__pyx_v_next_state));
       __Pyx_DECREF_SET(__pyx_v_best_next_state, __pyx_v_next_state);
 
-      /* "tablut.pyx":793
+      /* "tablut.pyx":794
  *             if v > best_score:
  *                 best_next_state = next_state
  *                 best_score = v             # <<<<<<<<<<<<<<
@@ -11426,7 +11432,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
       __pyx_v_best_score = __pyx_v_v;
 
-      /* "tablut.pyx":794
+      /* "tablut.pyx":795
  *                 best_next_state = next_state
  *                 best_score = v
  *                 best_action = a             # <<<<<<<<<<<<<<
@@ -11435,7 +11441,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  */
       __pyx_v_best_action = __pyx_v_a;
 
-      /* "tablut.pyx":791
+      /* "tablut.pyx":792
  *                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
  * 
  *             if v > best_score:             # <<<<<<<<<<<<<<
@@ -11445,7 +11451,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
     }
   }
 
-  /* "tablut.pyx":796
+  /* "tablut.pyx":797
  *                 best_action = a
  * 
  *         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)             # <<<<<<<<<<<<<<
@@ -11453,17 +11459,17 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  *     def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_best_action); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_best_action); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_best_score); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_best_score); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_9 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_9 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_12 = PyTuple_New(6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_12 = PyTuple_New(6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_INCREF(((PyObject *)__pyx_v_best_next_state));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_best_next_state));
@@ -11487,7 +11493,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   __pyx_t_12 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":756
+  /* "tablut.pyx":757
  *         return v
  * 
  *     def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
@@ -11514,7 +11520,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
   return __pyx_r;
 }
 
-/* "tablut.pyx":798
+/* "tablut.pyx":799
  *         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
  * 
  *     def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
@@ -11571,7 +11577,7 @@ static PyObject *__pyx_pw_6tablut_6Search_5iterative_deepening_search(PyObject *
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "iterative_deepening_search") < 0)) __PYX_ERR(0, 798, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "iterative_deepening_search") < 0)) __PYX_ERR(0, 799, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -11586,25 +11592,25 @@ static PyObject *__pyx_pw_6tablut_6Search_5iterative_deepening_search(PyObject *
     }
     __pyx_v_state = ((struct __pyx_obj_6tablut_AshtonTablut *)values[0]);
     if (values[1]) {
-      __pyx_v_initial_cutoff_depth = __Pyx_PyInt_As_long(values[1]); if (unlikely((__pyx_v_initial_cutoff_depth == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 798, __pyx_L3_error)
+      __pyx_v_initial_cutoff_depth = __Pyx_PyInt_As_long(values[1]); if (unlikely((__pyx_v_initial_cutoff_depth == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
     } else {
       __pyx_v_initial_cutoff_depth = ((long)2);
     }
     if (values[2]) {
-      __pyx_v_cutoff_time = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_cutoff_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 798, __pyx_L3_error)
+      __pyx_v_cutoff_time = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_cutoff_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 799, __pyx_L3_error)
     } else {
       __pyx_v_cutoff_time = ((double)55.0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("iterative_deepening_search", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 798, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("iterative_deepening_search", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 799, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.Search.iterative_deepening_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state), __pyx_ptype_6tablut_AshtonTablut, 1, "state", 0))) __PYX_ERR(0, 798, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state), __pyx_ptype_6tablut_AshtonTablut, 1, "state", 0))) __PYX_ERR(0, 799, __pyx_L1_error)
   __pyx_r = __pyx_pf_6tablut_6Search_4iterative_deepening_search(((struct __pyx_obj_6tablut_Search *)__pyx_v_self), __pyx_v_state, __pyx_v_initial_cutoff_depth, __pyx_v_cutoff_time);
 
   /* function exit code */
@@ -11651,7 +11657,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("iterative_deepening_search", 0);
 
-  /* "tablut.pyx":802
+  /* "tablut.pyx":803
  *         This version cuts off search using time and uses an evaluation function."""
  * 
  *         cdef unicode player = state._to_move             # <<<<<<<<<<<<<<
@@ -11663,42 +11669,42 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __pyx_v_player = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":804
+  /* "tablut.pyx":805
  *         cdef unicode player = state._to_move
  * 
  *         cdef float best_score = -np.inf             # <<<<<<<<<<<<<<
  *         cdef float beta = np.inf
  *         cdef int best_action = 0
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 804, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 805, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 804, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 805, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 804, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 805, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 804, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 805, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_best_score = __pyx_t_3;
 
-  /* "tablut.pyx":805
+  /* "tablut.pyx":806
  * 
  *         cdef float best_score = -np.inf
  *         cdef float beta = np.inf             # <<<<<<<<<<<<<<
  *         cdef int best_action = 0
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 805, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 806, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 805, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 806, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 805, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 806, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_beta = __pyx_t_3;
 
-  /* "tablut.pyx":806
+  /* "tablut.pyx":807
  *         cdef float best_score = -np.inf
  *         cdef float beta = np.inf
  *         cdef int best_action = 0             # <<<<<<<<<<<<<<
@@ -11707,7 +11713,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   __pyx_v_best_action = 0;
 
-  /* "tablut.pyx":808
+  /* "tablut.pyx":809
  *         cdef int best_action = 0
  * 
  *         cdef int* moves = state._moves             # <<<<<<<<<<<<<<
@@ -11717,7 +11723,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __pyx_t_4 = __pyx_v_state->_moves;
   __pyx_v_moves = __pyx_t_4;
 
-  /* "tablut.pyx":809
+  /* "tablut.pyx":810
  * 
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length             # <<<<<<<<<<<<<<
@@ -11727,19 +11733,19 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __pyx_t_5 = __pyx_v_state->_moves_length;
   __pyx_v_moves_length = __pyx_t_5;
 
-  /* "tablut.pyx":813
+  /* "tablut.pyx":814
  *         cdef int a
  * 
  *         cdef ActionStore store = ActionStore()             # <<<<<<<<<<<<<<
  *         cdef ActionStore next_store
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_ActionStore)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 813, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_ActionStore)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 814, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_store = ((struct __pyx_obj_6tablut_ActionStore *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "tablut.pyx":816
+  /* "tablut.pyx":817
  *         cdef ActionStore next_store
  * 
  *         cdef AshtonTablut tmp_best_next_state = None             # <<<<<<<<<<<<<<
@@ -11749,7 +11755,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __Pyx_INCREF(Py_None);
   __pyx_v_tmp_best_next_state = ((struct __pyx_obj_6tablut_AshtonTablut *)Py_None);
 
-  /* "tablut.pyx":817
+  /* "tablut.pyx":818
  * 
  *         cdef AshtonTablut tmp_best_next_state = None
  *         cdef AshtonTablut best_next_state = None             # <<<<<<<<<<<<<<
@@ -11759,7 +11765,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __Pyx_INCREF(Py_None);
   __pyx_v_best_next_state = ((struct __pyx_obj_6tablut_AshtonTablut *)Py_None);
 
-  /* "tablut.pyx":818
+  /* "tablut.pyx":819
  *         cdef AshtonTablut tmp_best_next_state = None
  *         cdef AshtonTablut best_next_state = None
  *         cdef AshtonTablut next_state = None             # <<<<<<<<<<<<<<
@@ -11769,7 +11775,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __Pyx_INCREF(Py_None);
   __pyx_v_next_state = ((struct __pyx_obj_6tablut_AshtonTablut *)Py_None);
 
-  /* "tablut.pyx":820
+  /* "tablut.pyx":821
  *         cdef AshtonTablut next_state = None
  * 
  *         self.cutoff_time = cutoff_time             # <<<<<<<<<<<<<<
@@ -11778,7 +11784,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   __pyx_v_self->cutoff_time = __pyx_v_cutoff_time;
 
-  /* "tablut.pyx":821
+  /* "tablut.pyx":822
  * 
  *         self.cutoff_time = cutoff_time
  *         self.current_cutoff_depth = initial_cutoff_depth             # <<<<<<<<<<<<<<
@@ -11787,7 +11793,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   __pyx_v_self->current_cutoff_depth = __pyx_v_initial_cutoff_depth;
 
-  /* "tablut.pyx":822
+  /* "tablut.pyx":823
  *         self.cutoff_time = cutoff_time
  *         self.current_cutoff_depth = initial_cutoff_depth
  *         self.start_time = get_time()             # <<<<<<<<<<<<<<
@@ -11796,7 +11802,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   __pyx_v_self->start_time = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":823
+  /* "tablut.pyx":824
  *         self.current_cutoff_depth = initial_cutoff_depth
  *         self.start_time = get_time()
  *         self.nodes_explored = 0             # <<<<<<<<<<<<<<
@@ -11805,7 +11811,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   __pyx_v_self->nodes_explored = 0;
 
-  /* "tablut.pyx":824
+  /* "tablut.pyx":825
  *         self.start_time = get_time()
  *         self.nodes_explored = 0
  *         self.max_depth = 0             # <<<<<<<<<<<<<<
@@ -11814,25 +11820,25 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   __pyx_v_self->max_depth = 0;
 
-  /* "tablut.pyx":826
+  /* "tablut.pyx":827
  *         self.max_depth = 0
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
  *             a = moves[i]
  *             next_state = state.result(a)
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_moves_length); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 826, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_moves_length); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 826, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 827, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 826, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 827, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -11840,17 +11846,17 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 826, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 827, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 826, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 827, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -11860,7 +11866,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 826, __pyx_L1_error)
+          else __PYX_ERR(0, 827, __pyx_L1_error)
         }
         break;
       }
@@ -11869,45 +11875,45 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "tablut.pyx":827
+    /* "tablut.pyx":828
  * 
  *         for i in range(moves_length):
  *             a = moves[i]             # <<<<<<<<<<<<<<
  *             next_state = state.result(a)
  *             store.add(a, next_state.eval_fn(state, player))
  */
-    __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 827, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 828, __pyx_L1_error)
     __pyx_v_a = (__pyx_v_moves[__pyx_t_8]);
 
-    /* "tablut.pyx":828
+    /* "tablut.pyx":829
  *         for i in range(moves_length):
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
  *             store.add(a, next_state.eval_fn(state, player))
  * 
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 828, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 829, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 828, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 829, __pyx_L1_error)
     __Pyx_DECREF_SET(__pyx_v_next_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "tablut.pyx":829
+    /* "tablut.pyx":830
  *             a = moves[i]
  *             next_state = state.result(a)
  *             store.add(a, next_state.eval_fn(state, player))             # <<<<<<<<<<<<<<
  * 
  *         while (get_time()-self.start_time) <= self.cutoff_time:
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->eval_fn(__pyx_v_next_state, ((PyObject *)__pyx_v_state), __pyx_v_player); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 829, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->eval_fn(__pyx_v_next_state, ((PyObject *)__pyx_v_state), __pyx_v_player); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 830, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 829, __pyx_L1_error)
+    __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 830, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_store->__pyx_vtab)->add(__pyx_v_store, __pyx_v_a, __pyx_t_3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 829, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_store->__pyx_vtab)->add(__pyx_v_store, __pyx_v_a, __pyx_t_3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 830, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "tablut.pyx":826
+    /* "tablut.pyx":827
  *         self.max_depth = 0
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
@@ -11917,7 +11923,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":831
+  /* "tablut.pyx":832
  *             store.add(a, next_state.eval_fn(state, player))
  * 
  *         while (get_time()-self.start_time) <= self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -11928,37 +11934,37 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
     __pyx_t_9 = (((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time) <= __pyx_v_self->cutoff_time) != 0);
     if (!__pyx_t_9) break;
 
-    /* "tablut.pyx":832
+    /* "tablut.pyx":833
  * 
  *         while (get_time()-self.start_time) <= self.cutoff_time:
  *             next_store = ActionStore()             # <<<<<<<<<<<<<<
  * 
  *             for i in range(store.size()):
  */
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_ActionStore)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 832, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_ActionStore)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 833, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_next_store, ((struct __pyx_obj_6tablut_ActionStore *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "tablut.pyx":834
+    /* "tablut.pyx":835
  *             next_store = ActionStore()
  * 
  *             for i in range(store.size()):             # <<<<<<<<<<<<<<
  *                 a = store.actions[i]
  *                 next_state = state.result(a)
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_store->__pyx_vtab)->size(__pyx_v_store, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 834, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_store->__pyx_vtab)->size(__pyx_v_store, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 835, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 834, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 835, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 834, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 835, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 834, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 835, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -11966,17 +11972,17 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 834, __pyx_L1_error)
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 835, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 834, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 835, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 834, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 835, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 834, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 835, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         }
@@ -11986,7 +11992,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 834, __pyx_L1_error)
+            else __PYX_ERR(0, 835, __pyx_L1_error)
           }
           break;
         }
@@ -11995,33 +12001,33 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "tablut.pyx":835
+      /* "tablut.pyx":836
  * 
  *             for i in range(store.size()):
  *                 a = store.actions[i]             # <<<<<<<<<<<<<<
  *                 next_state = state.result(a)
  * 
  */
-      __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_store->actions), __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 835, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_store->actions), __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 835, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 836, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_a = __pyx_t_5;
 
-      /* "tablut.pyx":836
+      /* "tablut.pyx":837
  *             for i in range(store.size()):
  *                 a = store.actions[i]
  *                 next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
  *                 v = self.min_value(state, next_state, player, best_score, beta, 1)
  */
-      __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
+      __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 837, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 836, __pyx_L1_error)
+      if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 837, __pyx_L1_error)
       __Pyx_DECREF_SET(__pyx_v_next_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_1));
       __pyx_t_1 = 0;
 
-      /* "tablut.pyx":838
+      /* "tablut.pyx":839
  *                 next_state = state.result(a)
  * 
  *                 v = self.min_value(state, next_state, player, best_score, beta, 1)             # <<<<<<<<<<<<<<
@@ -12030,7 +12036,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
       __pyx_v_v = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_state, __pyx_v_next_state, __pyx_v_player, __pyx_v_best_score, __pyx_v_beta, 1);
 
-      /* "tablut.pyx":840
+      /* "tablut.pyx":841
  *                 v = self.min_value(state, next_state, player, best_score, beta, 1)
  * 
  *                 if (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -12040,7 +12046,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
       __pyx_t_9 = (((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time) > __pyx_v_self->cutoff_time) != 0);
       if (__pyx_t_9) {
 
-        /* "tablut.pyx":841
+        /* "tablut.pyx":842
  * 
  *                 if (get_time()-self.start_time) > self.cutoff_time:
  *                     break             # <<<<<<<<<<<<<<
@@ -12049,7 +12055,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
         goto __pyx_L8_break;
 
-        /* "tablut.pyx":840
+        /* "tablut.pyx":841
  *                 v = self.min_value(state, next_state, player, best_score, beta, 1)
  * 
  *                 if (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -12058,18 +12064,18 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
       }
 
-      /* "tablut.pyx":843
+      /* "tablut.pyx":844
  *                     break
  * 
  *                 next_store.add(a, v)             # <<<<<<<<<<<<<<
  * 
  *             if next_store.size() > 0:
  */
-      __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_next_store->__pyx_vtab)->add(__pyx_v_next_store, __pyx_v_a, __pyx_v_v, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 843, __pyx_L1_error)
+      __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_next_store->__pyx_vtab)->add(__pyx_v_next_store, __pyx_v_a, __pyx_v_v, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 844, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "tablut.pyx":834
+      /* "tablut.pyx":835
  *             next_store = ActionStore()
  * 
  *             for i in range(store.size()):             # <<<<<<<<<<<<<<
@@ -12080,22 +12086,22 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
     __pyx_L8_break:;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tablut.pyx":845
+    /* "tablut.pyx":846
  *                 next_store.add(a, v)
  * 
  *             if next_store.size() > 0:             # <<<<<<<<<<<<<<
  *                 store = next_store
  *                 if (get_time()-self.start_time) <= self.cutoff_time:
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_next_store->__pyx_vtab)->size(__pyx_v_next_store, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 845, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_next_store->__pyx_vtab)->size(__pyx_v_next_store, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 845, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 845, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 846, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":846
+      /* "tablut.pyx":847
  * 
  *             if next_store.size() > 0:
  *                 store = next_store             # <<<<<<<<<<<<<<
@@ -12105,7 +12111,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
       __Pyx_INCREF(((PyObject *)__pyx_v_next_store));
       __Pyx_DECREF_SET(__pyx_v_store, __pyx_v_next_store);
 
-      /* "tablut.pyx":847
+      /* "tablut.pyx":848
  *             if next_store.size() > 0:
  *                 store = next_store
  *                 if (get_time()-self.start_time) <= self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -12115,7 +12121,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
       __pyx_t_9 = (((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time) <= __pyx_v_self->cutoff_time) != 0);
       if (__pyx_t_9) {
 
-        /* "tablut.pyx":848
+        /* "tablut.pyx":849
  *                 store = next_store
  *                 if (get_time()-self.start_time) <= self.cutoff_time:
  *                     if v >= 1.0:             # <<<<<<<<<<<<<<
@@ -12125,7 +12131,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
         __pyx_t_9 = ((__pyx_v_v >= 1.0) != 0);
         if (__pyx_t_9) {
 
-          /* "tablut.pyx":849
+          /* "tablut.pyx":850
  *                 if (get_time()-self.start_time) <= self.cutoff_time:
  *                     if v >= 1.0:
  *                         return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)             # <<<<<<<<<<<<<<
@@ -12133,15 +12139,15 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  * 
  */
           __Pyx_XDECREF(__pyx_r);
-          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 849, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 850, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 849, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 850, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_10 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 849, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 850, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_11 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 849, __pyx_L1_error)
+          __pyx_t_11 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 850, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_12 = PyTuple_New(6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 849, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 850, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(((PyObject *)__pyx_v_next_state));
           __Pyx_GIVEREF(((PyObject *)__pyx_v_next_state));
@@ -12165,7 +12171,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
           __pyx_t_12 = 0;
           goto __pyx_L0;
 
-          /* "tablut.pyx":848
+          /* "tablut.pyx":849
  *                 store = next_store
  *                 if (get_time()-self.start_time) <= self.cutoff_time:
  *                     if v >= 1.0:             # <<<<<<<<<<<<<<
@@ -12174,7 +12180,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
         }
 
-        /* "tablut.pyx":847
+        /* "tablut.pyx":848
  *             if next_store.size() > 0:
  *                 store = next_store
  *                 if (get_time()-self.start_time) <= self.cutoff_time:             # <<<<<<<<<<<<<<
@@ -12183,7 +12189,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
       }
 
-      /* "tablut.pyx":845
+      /* "tablut.pyx":846
  *                 next_store.add(a, v)
  * 
  *             if next_store.size() > 0:             # <<<<<<<<<<<<<<
@@ -12192,7 +12198,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
     }
 
-    /* "tablut.pyx":852
+    /* "tablut.pyx":853
  * 
  * 
  *             self.current_cutoff_depth += 1             # <<<<<<<<<<<<<<
@@ -12202,64 +12208,64 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
     __pyx_v_self->current_cutoff_depth = (__pyx_v_self->current_cutoff_depth + 1);
   }
 
-  /* "tablut.pyx":856
+  /* "tablut.pyx":857
  *             #print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(store.actions[0]), store.utils[0], self.nodes_explored))
  * 
  *         if store.size() > 0:             # <<<<<<<<<<<<<<
  *             best_action = store.actions[0]
  *             best_score = store.utils[0]
  */
-  __pyx_t_12 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_store->__pyx_vtab)->size(__pyx_v_store, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_12 = ((struct __pyx_vtabstruct_6tablut_ActionStore *)__pyx_v_store->__pyx_vtab)->size(__pyx_v_store, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_11 = PyObject_RichCompare(__pyx_t_12, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_11 = PyObject_RichCompare(__pyx_t_12, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   if (__pyx_t_9) {
 
-    /* "tablut.pyx":857
+    /* "tablut.pyx":858
  * 
  *         if store.size() > 0:
  *             best_action = store.actions[0]             # <<<<<<<<<<<<<<
  *             best_score = store.utils[0]
  *             best_next_state = next_state = state.result(best_action)
  */
-    __pyx_t_11 = __Pyx_GetItemInt(((PyObject *)__pyx_v_store->actions), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 857, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_GetItemInt(((PyObject *)__pyx_v_store->actions), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 858, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 857, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __pyx_v_best_action = __pyx_t_5;
 
-    /* "tablut.pyx":858
+    /* "tablut.pyx":859
  *         if store.size() > 0:
  *             best_action = store.actions[0]
  *             best_score = store.utils[0]             # <<<<<<<<<<<<<<
  *             best_next_state = next_state = state.result(best_action)
  * 
  */
-    __pyx_t_11 = __Pyx_GetItemInt(((PyObject *)__pyx_v_store->utils), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 858, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_GetItemInt(((PyObject *)__pyx_v_store->utils), 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 859, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_11); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L1_error)
+    __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_11); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 859, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __pyx_v_best_score = __pyx_t_3;
 
-    /* "tablut.pyx":859
+    /* "tablut.pyx":860
  *             best_action = store.actions[0]
  *             best_score = store.utils[0]
  *             best_next_state = next_state = state.result(best_action)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_11 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_best_action, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 859, __pyx_L1_error)
+    __pyx_t_11 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_best_action, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    if (!(likely(((__pyx_t_11) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_11, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 859, __pyx_L1_error)
+    if (!(likely(((__pyx_t_11) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_11, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_11);
     __Pyx_DECREF_SET(__pyx_v_best_next_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_11));
     __Pyx_INCREF(__pyx_t_11);
     __Pyx_DECREF_SET(__pyx_v_next_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_11));
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-    /* "tablut.pyx":856
+    /* "tablut.pyx":857
  *             #print("New cut-off depth: {0}, best action: {1} ({2}), nodes: {3}".format(self.current_cutoff_depth, number_to_coords(store.actions[0]), store.utils[0], self.nodes_explored))
  * 
  *         if store.size() > 0:             # <<<<<<<<<<<<<<
@@ -12268,7 +12274,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  */
   }
 
-  /* "tablut.pyx":862
+  /* "tablut.pyx":863
  * 
  * 
  *         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)             # <<<<<<<<<<<<<<
@@ -12276,17 +12282,17 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_best_action); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_best_action); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_12 = PyFloat_FromDouble(__pyx_v_best_score); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_12 = PyFloat_FromDouble(__pyx_v_best_score); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_10 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_From_long(__pyx_v_self->max_depth); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_self->nodes_explored); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble((__pyx_f_6tablut_get_time() - __pyx_v_self->start_time)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_13 = PyTuple_New(6); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_13 = PyTuple_New(6); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
   __Pyx_INCREF(((PyObject *)__pyx_v_best_next_state));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_best_next_state));
@@ -12310,7 +12316,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __pyx_t_13 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":798
+  /* "tablut.pyx":799
  *         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
  * 
  *     def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
@@ -12665,7 +12671,7 @@ static PyObject *__pyx_pf_6tablut_6Search_8__setstate_cython__(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "tablut.pyx":869
+/* "tablut.pyx":870
  *     cdef array.array utils
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -12698,14 +12704,14 @@ static int __pyx_pf_6tablut_11ActionStore___init__(struct __pyx_obj_6tablut_Acti
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "tablut.pyx":870
+  /* "tablut.pyx":871
  * 
  *     def __init__(self):
  *         self.actions = array.array('i')             # <<<<<<<<<<<<<<
  *         self.utils = array.array('f')
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cpython_5array_array), __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 870, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cpython_5array_array), __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->actions);
@@ -12713,14 +12719,14 @@ static int __pyx_pf_6tablut_11ActionStore___init__(struct __pyx_obj_6tablut_Acti
   __pyx_v_self->actions = ((arrayobject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":871
+  /* "tablut.pyx":872
  *     def __init__(self):
  *         self.actions = array.array('i')
  *         self.utils = array.array('f')             # <<<<<<<<<<<<<<
  * 
  *     cpdef add(self, int action, float value):
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cpython_5array_array), __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 871, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cpython_5array_array), __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 872, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->utils);
@@ -12728,7 +12734,7 @@ static int __pyx_pf_6tablut_11ActionStore___init__(struct __pyx_obj_6tablut_Acti
   __pyx_v_self->utils = ((arrayobject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":869
+  /* "tablut.pyx":870
  *     cdef array.array utils
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -12748,7 +12754,7 @@ static int __pyx_pf_6tablut_11ActionStore___init__(struct __pyx_obj_6tablut_Acti
   return __pyx_r;
 }
 
-/* "tablut.pyx":873
+/* "tablut.pyx":874
  *         self.utils = array.array('f')
  * 
  *     cpdef add(self, int action, float value):             # <<<<<<<<<<<<<<
@@ -12785,13 +12791,13 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_add); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 873, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_add); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 874, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_11ActionStore_3add)) {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_action); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 873, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_action); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 874, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 873, __pyx_L1_error)
+        __pyx_t_4 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 874, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -12809,7 +12815,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 873, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 874, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -12819,7 +12825,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 873, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 874, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -12827,7 +12833,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 873, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 874, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -12838,7 +12844,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 873, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 874, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -12861,7 +12867,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
     #endif
   }
 
-  /* "tablut.pyx":874
+  /* "tablut.pyx":875
  * 
  *     cpdef add(self, int action, float value):
  *         cdef int idx = 0             # <<<<<<<<<<<<<<
@@ -12870,7 +12876,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
  */
   __pyx_v_idx = 0;
 
-  /* "tablut.pyx":876
+  /* "tablut.pyx":877
  *         cdef int idx = 0
  * 
  *         while idx < len(self.actions) and value <= self.utils[idx]:             # <<<<<<<<<<<<<<
@@ -12882,9 +12888,9 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
     __Pyx_INCREF(__pyx_t_1);
     if (unlikely(__pyx_t_1 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 876, __pyx_L1_error)
+      __PYX_ERR(0, 877, __pyx_L1_error)
     }
-    __pyx_t_10 = Py_SIZE(__pyx_t_1); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_10 = Py_SIZE(__pyx_t_1); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_11 = ((__pyx_v_idx < __pyx_t_10) != 0);
     if (__pyx_t_11) {
@@ -12892,20 +12898,20 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
       __pyx_t_9 = __pyx_t_11;
       goto __pyx_L5_bool_binop_done;
     }
-    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(((PyObject *)__pyx_v_self->utils), __pyx_v_idx, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(((PyObject *)__pyx_v_self->utils), __pyx_v_idx, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 876, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_9 = __pyx_t_11;
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_9) break;
 
-    /* "tablut.pyx":877
+    /* "tablut.pyx":878
  * 
  *         while idx < len(self.actions) and value <= self.utils[idx]:
  *             idx +=1             # <<<<<<<<<<<<<<
@@ -12915,18 +12921,18 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
     __pyx_v_idx = (__pyx_v_idx + 1);
   }
 
-  /* "tablut.pyx":879
+  /* "tablut.pyx":880
  *             idx +=1
  * 
  *         self.actions.insert(idx, action)             # <<<<<<<<<<<<<<
  *         self.utils.insert(idx, value)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->actions), __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 879, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->actions), __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_idx); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 879, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_idx); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_action); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 879, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_action); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_4 = NULL;
   __pyx_t_7 = 0;
@@ -12943,7 +12949,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_1, __pyx_t_8};
-    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -12953,7 +12959,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_1, __pyx_t_8};
-    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -12961,7 +12967,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -12972,25 +12978,25 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_7, __pyx_t_8);
     __pyx_t_1 = 0;
     __pyx_t_8 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 879, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "tablut.pyx":880
+  /* "tablut.pyx":881
  * 
  *         self.actions.insert(idx, action)
  *         self.utils.insert(idx, value)             # <<<<<<<<<<<<<<
  * 
  *     cpdef size(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->utils), __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 880, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->utils), __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_idx); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 880, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_idx); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 880, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_1 = NULL;
   __pyx_t_7 = 0;
@@ -13007,7 +13013,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_t_3, __pyx_t_8};
-    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 880, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13017,7 +13023,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_t_3, __pyx_t_8};
-    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 880, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13025,7 +13031,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 880, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 881, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -13036,14 +13042,14 @@ static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_Acti
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_7, __pyx_t_8);
     __pyx_t_3 = 0;
     __pyx_t_8 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 880, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "tablut.pyx":873
+  /* "tablut.pyx":874
  *         self.utils = array.array('f')
  * 
  *     cpdef add(self, int action, float value):             # <<<<<<<<<<<<<<
@@ -13106,11 +13112,11 @@ static PyObject *__pyx_pw_6tablut_11ActionStore_3add(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add", 1, 2, 2, 1); __PYX_ERR(0, 873, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add", 1, 2, 2, 1); __PYX_ERR(0, 874, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add") < 0)) __PYX_ERR(0, 873, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add") < 0)) __PYX_ERR(0, 874, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -13118,12 +13124,12 @@ static PyObject *__pyx_pw_6tablut_11ActionStore_3add(PyObject *__pyx_v_self, PyO
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_action = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_action == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 873, __pyx_L3_error)
-    __pyx_v_value = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_value == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 873, __pyx_L3_error)
+    __pyx_v_action = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_action == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L3_error)
+    __pyx_v_value = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_value == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 873, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 874, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.ActionStore.add", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -13145,7 +13151,7 @@ static PyObject *__pyx_pf_6tablut_11ActionStore_2add(struct __pyx_obj_6tablut_Ac
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6tablut_11ActionStore_add(__pyx_v_self, __pyx_v_action, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 873, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6tablut_11ActionStore_add(__pyx_v_self, __pyx_v_action, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13162,7 +13168,7 @@ static PyObject *__pyx_pf_6tablut_11ActionStore_2add(struct __pyx_obj_6tablut_Ac
   return __pyx_r;
 }
 
-/* "tablut.pyx":882
+/* "tablut.pyx":883
  *         self.utils.insert(idx, value)
  * 
  *     cpdef size(self):             # <<<<<<<<<<<<<<
@@ -13192,7 +13198,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_size(struct __pyx_obj_6tablut_Act
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 882, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 883, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_6tablut_11ActionStore_5size)) {
         __Pyx_XDECREF(__pyx_r);
@@ -13209,7 +13215,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_size(struct __pyx_obj_6tablut_Act
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 882, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 883, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -13230,7 +13236,7 @@ static PyObject *__pyx_f_6tablut_11ActionStore_size(struct __pyx_obj_6tablut_Act
     #endif
   }
 
-  /* "tablut.pyx":883
+  /* "tablut.pyx":884
  * 
  *     cpdef size(self):
  *         return len(self.actions)             # <<<<<<<<<<<<<<
@@ -13242,17 +13248,17 @@ static PyObject *__pyx_f_6tablut_11ActionStore_size(struct __pyx_obj_6tablut_Act
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 883, __pyx_L1_error)
+    __PYX_ERR(0, 884, __pyx_L1_error)
   }
-  __pyx_t_5 = Py_SIZE(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 883, __pyx_L1_error)
+  __pyx_t_5 = Py_SIZE(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 884, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 883, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":882
+  /* "tablut.pyx":883
  *         self.utils.insert(idx, value)
  * 
  *     cpdef size(self):             # <<<<<<<<<<<<<<
@@ -13298,7 +13304,7 @@ static PyObject *__pyx_pf_6tablut_11ActionStore_4size(struct __pyx_obj_6tablut_A
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("size", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6tablut_11ActionStore_size(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 882, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6tablut_11ActionStore_size(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 883, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13626,7 +13632,7 @@ static PyObject *__pyx_pf_6tablut_11ActionStore_8__setstate_cython__(struct __py
   return __pyx_r;
 }
 
-/* "tablut.pyx":890
+/* "tablut.pyx":891
  * cdef class HeuristicFunction:
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -13639,7 +13645,7 @@ static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("evalutate", 0);
 
-  /* "tablut.pyx":891
+  /* "tablut.pyx":892
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         return state.utility(player)             # <<<<<<<<<<<<<<
@@ -13649,7 +13655,7 @@ static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct 
   __pyx_r = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->utility(__pyx_v_state, __pyx_v_player, 0);
   goto __pyx_L0;
 
-  /* "tablut.pyx":890
+  /* "tablut.pyx":891
  * cdef class HeuristicFunction:
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -13954,7 +13960,7 @@ static PyObject *__pyx_pf_6tablut_17HeuristicFunction_2__setstate_cython__(struc
   return __pyx_r;
 }
 
-/* "tablut.pyx":895
+/* "tablut.pyx":896
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -14005,22 +14011,22 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("evalutate", 0);
 
-  /* "tablut.pyx":898
+  /* "tablut.pyx":899
  *         # Spurio's evaluation function ( Modificata :) )
  * 
  *         cdef DTYPE_t[:,:,:,:] board = state.board()             # <<<<<<<<<<<<<<
  * 
  *         cdef float count = 0.0
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->board(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 898, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->board(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 898, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 899, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_board = __pyx_t_2;
   __pyx_t_2.memview = NULL;
   __pyx_t_2.data = NULL;
 
-  /* "tablut.pyx":900
+  /* "tablut.pyx":901
  *         cdef DTYPE_t[:,:,:,:] board = state.board()
  * 
  *         cdef float count = 0.0             # <<<<<<<<<<<<<<
@@ -14029,7 +14035,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
   __pyx_v_count = 0.0;
 
-  /* "tablut.pyx":901
+  /* "tablut.pyx":902
  * 
  *         cdef float count = 0.0
  *         cdef float countKing = 0.0             # <<<<<<<<<<<<<<
@@ -14038,7 +14044,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
   __pyx_v_countKing = 0.0;
 
-  /* "tablut.pyx":902
+  /* "tablut.pyx":903
  *         cdef float count = 0.0
  *         cdef float countKing = 0.0
  *         cdef int kingX = 0, kingY = 0, y, x, newX, newY             # <<<<<<<<<<<<<<
@@ -14048,7 +14054,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   __pyx_v_kingX = 0;
   __pyx_v_kingY = 0;
 
-  /* "tablut.pyx":903
+  /* "tablut.pyx":904
  *         cdef float countKing = 0.0
  *         cdef int kingX = 0, kingY = 0, y, x, newX, newY
  *         cdef int numpw = 0, numpb = 0             # <<<<<<<<<<<<<<
@@ -14058,7 +14064,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   __pyx_v_numpw = 0;
   __pyx_v_numpb = 0;
 
-  /* "tablut.pyx":904
+  /* "tablut.pyx":905
  *         cdef int kingX = 0, kingY = 0, y, x, newX, newY
  *         cdef int numpw = 0, numpb = 0
  *         cdef float score = 0.0             # <<<<<<<<<<<<<<
@@ -14067,7 +14073,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
   __pyx_v_score = 0.0;
 
-  /* "tablut.pyx":906
+  /* "tablut.pyx":907
  *         cdef float score = 0.0
  * 
  *         for y in range(9):             # <<<<<<<<<<<<<<
@@ -14077,7 +14083,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   for (__pyx_t_3 = 0; __pyx_t_3 < 9; __pyx_t_3+=1) {
     __pyx_v_y = __pyx_t_3;
 
-    /* "tablut.pyx":907
+    /* "tablut.pyx":908
  * 
  *         for y in range(9):
  *             for x in range(9):             # <<<<<<<<<<<<<<
@@ -14087,7 +14093,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
     for (__pyx_t_4 = 0; __pyx_t_4 < 9; __pyx_t_4+=1) {
       __pyx_v_x = __pyx_t_4;
 
-      /* "tablut.pyx":908
+      /* "tablut.pyx":909
  *         for y in range(9):
  *             for x in range(9):
  *                 if board[0, y, x, 2] == 1:             # <<<<<<<<<<<<<<
@@ -14098,10 +14104,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
       __pyx_t_6 = __pyx_v_y;
       __pyx_t_7 = __pyx_v_x;
       __pyx_t_8 = 2;
-      __pyx_t_9 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
       if (__pyx_t_9) {
 
-        /* "tablut.pyx":909
+        /* "tablut.pyx":910
  *             for x in range(9):
  *                 if board[0, y, x, 2] == 1:
  *                     kingY, kingX = y,x             # <<<<<<<<<<<<<<
@@ -14113,7 +14119,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         __pyx_v_kingY = __pyx_t_10;
         __pyx_v_kingX = __pyx_t_11;
 
-        /* "tablut.pyx":912
+        /* "tablut.pyx":913
  * 
  *                     # Su
  *                     newY = y-1             # <<<<<<<<<<<<<<
@@ -14122,7 +14128,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newY = (__pyx_v_y - 1);
 
-        /* "tablut.pyx":913
+        /* "tablut.pyx":914
  *                     # Su
  *                     newY = y-1
  *                     while newY >= 0:             # <<<<<<<<<<<<<<
@@ -14133,7 +14139,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newY >= 0) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":914
+          /* "tablut.pyx":915
  *                     newY = y-1
  *                     while newY >= 0:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14148,10 +14154,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_13 = __pyx_v_newY;
           __pyx_t_14 = __pyx_v_x;
           __pyx_t_15 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":915
+            /* "tablut.pyx":916
  *                     while newY >= 0:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             countKing +=1 / (y-newY)             # <<<<<<<<<<<<<<
@@ -14161,11 +14167,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_y - __pyx_v_newY);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 915, __pyx_L1_error)
+              __PYX_ERR(0, 916, __pyx_L1_error)
             }
             __pyx_v_countKing = (__pyx_v_countKing + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":916
+            /* "tablut.pyx":917
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             countKing +=1 / (y-newY)
  *                             break             # <<<<<<<<<<<<<<
@@ -14174,7 +14180,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L9_break;
 
-            /* "tablut.pyx":914
+            /* "tablut.pyx":915
  *                     newY = y-1
  *                     while newY >= 0:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14183,7 +14189,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":917
+          /* "tablut.pyx":918
  *                             countKing +=1 / (y-newY)
  *                             break
  *                         newY -=1             # <<<<<<<<<<<<<<
@@ -14194,7 +14200,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L9_break:;
 
-        /* "tablut.pyx":920
+        /* "tablut.pyx":921
  * 
  *                     # Giu
  *                     newY = y+1             # <<<<<<<<<<<<<<
@@ -14203,7 +14209,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newY = (__pyx_v_y + 1);
 
-        /* "tablut.pyx":921
+        /* "tablut.pyx":922
  *                     # Giu
  *                     newY = y+1
  *                     while newY < 9:             # <<<<<<<<<<<<<<
@@ -14214,7 +14220,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newY < 9) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":922
+          /* "tablut.pyx":923
  *                     newY = y+1
  *                     while newY < 9:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14229,10 +14235,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_6 = __pyx_v_newY;
           __pyx_t_7 = __pyx_v_x;
           __pyx_t_8 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":923
+            /* "tablut.pyx":924
  *                     while newY < 9:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             countKing +=1 / (newY-y)             # <<<<<<<<<<<<<<
@@ -14242,11 +14248,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_newY - __pyx_v_y);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 923, __pyx_L1_error)
+              __PYX_ERR(0, 924, __pyx_L1_error)
             }
             __pyx_v_countKing = (__pyx_v_countKing + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":924
+            /* "tablut.pyx":925
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             countKing +=1 / (newY-y)
  *                             break             # <<<<<<<<<<<<<<
@@ -14255,7 +14261,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L12_break;
 
-            /* "tablut.pyx":922
+            /* "tablut.pyx":923
  *                     newY = y+1
  *                     while newY < 9:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14264,7 +14270,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":925
+          /* "tablut.pyx":926
  *                             countKing +=1 / (newY-y)
  *                             break
  *                         newY +=1             # <<<<<<<<<<<<<<
@@ -14275,7 +14281,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L12_break:;
 
-        /* "tablut.pyx":927
+        /* "tablut.pyx":928
  *                         newY +=1
  *                     # Sinistra
  *                     newX = x-1             # <<<<<<<<<<<<<<
@@ -14284,7 +14290,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newX = (__pyx_v_x - 1);
 
-        /* "tablut.pyx":928
+        /* "tablut.pyx":929
  *                     # Sinistra
  *                     newX = x-1
  *                     while newX >= 0:             # <<<<<<<<<<<<<<
@@ -14295,7 +14301,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newX >= 0) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":929
+          /* "tablut.pyx":930
  *                     newX = x-1
  *                     while newX >= 0:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14310,10 +14316,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_13 = __pyx_v_y;
           __pyx_t_14 = __pyx_v_newX;
           __pyx_t_15 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":930
+            /* "tablut.pyx":931
  *                     while newX >= 0:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             countKing +=1 / (x-newX)             # <<<<<<<<<<<<<<
@@ -14323,11 +14329,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_x - __pyx_v_newX);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 930, __pyx_L1_error)
+              __PYX_ERR(0, 931, __pyx_L1_error)
             }
             __pyx_v_countKing = (__pyx_v_countKing + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":931
+            /* "tablut.pyx":932
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             countKing +=1 / (x-newX)
  *                             break             # <<<<<<<<<<<<<<
@@ -14336,7 +14342,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L15_break;
 
-            /* "tablut.pyx":929
+            /* "tablut.pyx":930
  *                     newX = x-1
  *                     while newX >= 0:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14345,7 +14351,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":932
+          /* "tablut.pyx":933
  *                             countKing +=1 / (x-newX)
  *                             break
  *                         newX -=1             # <<<<<<<<<<<<<<
@@ -14356,7 +14362,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L15_break:;
 
-        /* "tablut.pyx":935
+        /* "tablut.pyx":936
  * 
  *                     # Destra
  *                     newX = x+1             # <<<<<<<<<<<<<<
@@ -14365,7 +14371,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newX = (__pyx_v_x + 1);
 
-        /* "tablut.pyx":936
+        /* "tablut.pyx":937
  *                     # Destra
  *                     newX = x+1
  *                     while newX < 9:             # <<<<<<<<<<<<<<
@@ -14376,7 +14382,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newX < 9) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":937
+          /* "tablut.pyx":938
  *                     newX = x+1
  *                     while newX < 9:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14391,10 +14397,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_6 = __pyx_v_y;
           __pyx_t_7 = __pyx_v_newX;
           __pyx_t_8 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":938
+            /* "tablut.pyx":939
  *                     while newX < 9:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             countKing +=1 / (newX-x)             # <<<<<<<<<<<<<<
@@ -14404,11 +14410,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_newX - __pyx_v_x);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 938, __pyx_L1_error)
+              __PYX_ERR(0, 939, __pyx_L1_error)
             }
             __pyx_v_countKing = (__pyx_v_countKing + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":939
+            /* "tablut.pyx":940
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             countKing +=1 / (newX-x)
  *                             break             # <<<<<<<<<<<<<<
@@ -14417,7 +14423,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L18_break;
 
-            /* "tablut.pyx":937
+            /* "tablut.pyx":938
  *                     newX = x+1
  *                     while newX < 9:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14426,7 +14432,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":940
+          /* "tablut.pyx":941
  *                             countKing +=1 / (newX-x)
  *                             break
  *                         newX +=1             # <<<<<<<<<<<<<<
@@ -14437,7 +14443,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L18_break:;
 
-        /* "tablut.pyx":908
+        /* "tablut.pyx":909
  *         for y in range(9):
  *             for x in range(9):
  *                 if board[0, y, x, 2] == 1:             # <<<<<<<<<<<<<<
@@ -14447,7 +14453,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         goto __pyx_L7;
       }
 
-      /* "tablut.pyx":942
+      /* "tablut.pyx":943
  *                         newX +=1
  * 
  *                 elif board[0, y, x, 0] == 1:             # <<<<<<<<<<<<<<
@@ -14458,10 +14464,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
       __pyx_t_7 = __pyx_v_y;
       __pyx_t_6 = __pyx_v_x;
       __pyx_t_5 = 0;
-      __pyx_t_9 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
       if (__pyx_t_9) {
 
-        /* "tablut.pyx":943
+        /* "tablut.pyx":944
  * 
  *                 elif board[0, y, x, 0] == 1:
  *                     numpw += 1             # <<<<<<<<<<<<<<
@@ -14470,7 +14476,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_numpw = (__pyx_v_numpw + 1);
 
-        /* "tablut.pyx":946
+        /* "tablut.pyx":947
  * 
  *                     # Su
  *                     newY = y-1             # <<<<<<<<<<<<<<
@@ -14479,7 +14485,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newY = (__pyx_v_y - 1);
 
-        /* "tablut.pyx":947
+        /* "tablut.pyx":948
  *                     # Su
  *                     newY = y-1
  *                     while newY >= 0:             # <<<<<<<<<<<<<<
@@ -14490,7 +14496,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newY >= 0) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":948
+          /* "tablut.pyx":949
  *                     newY = y-1
  *                     while newY >= 0:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14505,10 +14511,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_13 = __pyx_v_newY;
           __pyx_t_14 = __pyx_v_x;
           __pyx_t_15 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":949
+            /* "tablut.pyx":950
  *                     while newY >= 0:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             count +=1 / (y-newY)             # <<<<<<<<<<<<<<
@@ -14518,11 +14524,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_y - __pyx_v_newY);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 949, __pyx_L1_error)
+              __PYX_ERR(0, 950, __pyx_L1_error)
             }
             __pyx_v_count = (__pyx_v_count + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":950
+            /* "tablut.pyx":951
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             count +=1 / (y-newY)
  *                             break             # <<<<<<<<<<<<<<
@@ -14531,7 +14537,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L21_break;
 
-            /* "tablut.pyx":948
+            /* "tablut.pyx":949
  *                     newY = y-1
  *                     while newY >= 0:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14540,7 +14546,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":951
+          /* "tablut.pyx":952
  *                             count +=1 / (y-newY)
  *                             break
  *                         newY -=1             # <<<<<<<<<<<<<<
@@ -14551,7 +14557,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L21_break:;
 
-        /* "tablut.pyx":954
+        /* "tablut.pyx":955
  * 
  *                     # Giu
  *                     newY = y+1             # <<<<<<<<<<<<<<
@@ -14560,7 +14566,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newY = (__pyx_v_y + 1);
 
-        /* "tablut.pyx":955
+        /* "tablut.pyx":956
  *                     # Giu
  *                     newY = y+1
  *                     while newY < 9:             # <<<<<<<<<<<<<<
@@ -14571,7 +14577,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newY < 9) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":956
+          /* "tablut.pyx":957
  *                     newY = y+1
  *                     while newY < 9:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14586,10 +14592,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_7 = __pyx_v_newY;
           __pyx_t_6 = __pyx_v_x;
           __pyx_t_5 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":957
+            /* "tablut.pyx":958
  *                     while newY < 9:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             count +=1 / (newY-y)             # <<<<<<<<<<<<<<
@@ -14599,11 +14605,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_newY - __pyx_v_y);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 957, __pyx_L1_error)
+              __PYX_ERR(0, 958, __pyx_L1_error)
             }
             __pyx_v_count = (__pyx_v_count + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":958
+            /* "tablut.pyx":959
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:
  *                             count +=1 / (newY-y)
  *                             break             # <<<<<<<<<<<<<<
@@ -14612,7 +14618,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L24_break;
 
-            /* "tablut.pyx":956
+            /* "tablut.pyx":957
  *                     newY = y+1
  *                     while newY < 9:
  *                         if board[0, newY, x, 1]+board[0, newY, x, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14621,7 +14627,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":959
+          /* "tablut.pyx":960
  *                             count +=1 / (newY-y)
  *                             break
  *                         newY +=1             # <<<<<<<<<<<<<<
@@ -14632,7 +14638,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L24_break:;
 
-        /* "tablut.pyx":961
+        /* "tablut.pyx":962
  *                         newY +=1
  *                     # Sinistra
  *                     newX = x-1             # <<<<<<<<<<<<<<
@@ -14641,7 +14647,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newX = (__pyx_v_x - 1);
 
-        /* "tablut.pyx":962
+        /* "tablut.pyx":963
  *                     # Sinistra
  *                     newX = x-1
  *                     while newX >= 0:             # <<<<<<<<<<<<<<
@@ -14652,7 +14658,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newX >= 0) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":963
+          /* "tablut.pyx":964
  *                     newX = x-1
  *                     while newX >= 0:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14667,10 +14673,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_13 = __pyx_v_y;
           __pyx_t_14 = __pyx_v_newX;
           __pyx_t_15 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_12 * __pyx_v_board.strides[0]) ) + __pyx_t_13 * __pyx_v_board.strides[1]) ) + __pyx_t_14 * __pyx_v_board.strides[2]) ) + __pyx_t_15 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":964
+            /* "tablut.pyx":965
  *                     while newX >= 0:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             count +=1 / (x-newX)             # <<<<<<<<<<<<<<
@@ -14680,11 +14686,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_x - __pyx_v_newX);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 964, __pyx_L1_error)
+              __PYX_ERR(0, 965, __pyx_L1_error)
             }
             __pyx_v_count = (__pyx_v_count + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":965
+            /* "tablut.pyx":966
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             count +=1 / (x-newX)
  *                             break             # <<<<<<<<<<<<<<
@@ -14693,7 +14699,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L27_break;
 
-            /* "tablut.pyx":963
+            /* "tablut.pyx":964
  *                     newX = x-1
  *                     while newX >= 0:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14702,7 +14708,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":966
+          /* "tablut.pyx":967
  *                             count +=1 / (x-newX)
  *                             break
  *                         newX -=1             # <<<<<<<<<<<<<<
@@ -14713,7 +14719,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L27_break:;
 
-        /* "tablut.pyx":969
+        /* "tablut.pyx":970
  * 
  *                     # Destra
  *                     newX = x+1             # <<<<<<<<<<<<<<
@@ -14722,7 +14728,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_newX = (__pyx_v_x + 1);
 
-        /* "tablut.pyx":970
+        /* "tablut.pyx":971
  *                     # Destra
  *                     newX = x+1
  *                     while newX < 9:             # <<<<<<<<<<<<<<
@@ -14733,7 +14739,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_9 = ((__pyx_v_newX < 9) != 0);
           if (!__pyx_t_9) break;
 
-          /* "tablut.pyx":971
+          /* "tablut.pyx":972
  *                     newX = x+1
  *                     while newX < 9:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14748,10 +14754,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
           __pyx_t_7 = __pyx_v_y;
           __pyx_t_6 = __pyx_v_newX;
           __pyx_t_5 = 3;
-          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) )))) > 0) != 0);
+          __pyx_t_9 = ((((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_15 * __pyx_v_board.strides[0]) ) + __pyx_t_14 * __pyx_v_board.strides[1]) ) + __pyx_t_13 * __pyx_v_board.strides[2]) ) + __pyx_t_12 * __pyx_v_board.strides[3]) ))) + (*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_8 * __pyx_v_board.strides[0]) ) + __pyx_t_7 * __pyx_v_board.strides[1]) ) + __pyx_t_6 * __pyx_v_board.strides[2]) ) + __pyx_t_5 * __pyx_v_board.strides[3]) )))) > 0.0) != 0);
           if (__pyx_t_9) {
 
-            /* "tablut.pyx":972
+            /* "tablut.pyx":973
  *                     while newX < 9:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             count +=1 / (newX-x)             # <<<<<<<<<<<<<<
@@ -14761,11 +14767,11 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
             __pyx_t_11 = (__pyx_v_newX - __pyx_v_x);
             if (unlikely(__pyx_t_11 == 0)) {
               PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-              __PYX_ERR(0, 972, __pyx_L1_error)
+              __PYX_ERR(0, 973, __pyx_L1_error)
             }
             __pyx_v_count = (__pyx_v_count + (1.0 / ((double)__pyx_t_11)));
 
-            /* "tablut.pyx":973
+            /* "tablut.pyx":974
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:
  *                             count +=1 / (newX-x)
  *                             break             # <<<<<<<<<<<<<<
@@ -14774,7 +14780,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
             goto __pyx_L30_break;
 
-            /* "tablut.pyx":971
+            /* "tablut.pyx":972
  *                     newX = x+1
  *                     while newX < 9:
  *                         if board[0, y, newX, 1]+board[0, y, newX, 3] > 0:             # <<<<<<<<<<<<<<
@@ -14783,7 +14789,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
           }
 
-          /* "tablut.pyx":974
+          /* "tablut.pyx":975
  *                             count +=1 / (newX-x)
  *                             break
  *                         newX +=1             # <<<<<<<<<<<<<<
@@ -14794,7 +14800,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         }
         __pyx_L30_break:;
 
-        /* "tablut.pyx":942
+        /* "tablut.pyx":943
  *                         newX +=1
  * 
  *                 elif board[0, y, x, 0] == 1:             # <<<<<<<<<<<<<<
@@ -14804,7 +14810,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
         goto __pyx_L7;
       }
 
-      /* "tablut.pyx":976
+      /* "tablut.pyx":977
  *                         newX +=1
  * 
  *                 elif board[0, y, x, 1] == 1:             # <<<<<<<<<<<<<<
@@ -14815,10 +14821,10 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
       __pyx_t_6 = __pyx_v_y;
       __pyx_t_7 = __pyx_v_x;
       __pyx_t_8 = 1;
-      __pyx_t_9 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_6tablut_DTYPE_t *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_board.data + __pyx_t_5 * __pyx_v_board.strides[0]) ) + __pyx_t_6 * __pyx_v_board.strides[1]) ) + __pyx_t_7 * __pyx_v_board.strides[2]) ) + __pyx_t_8 * __pyx_v_board.strides[3]) ))) == 1.0) != 0);
       if (__pyx_t_9) {
 
-        /* "tablut.pyx":977
+        /* "tablut.pyx":978
  * 
  *                 elif board[0, y, x, 1] == 1:
  *                     numpb += 1             # <<<<<<<<<<<<<<
@@ -14827,7 +14833,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  */
         __pyx_v_numpb = (__pyx_v_numpb + 1);
 
-        /* "tablut.pyx":976
+        /* "tablut.pyx":977
  *                         newX +=1
  * 
  *                 elif board[0, y, x, 1] == 1:             # <<<<<<<<<<<<<<
@@ -14839,7 +14845,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
     }
   }
 
-  /* "tablut.pyx":979
+  /* "tablut.pyx":980
  *                     numpb += 1
  * 
  *         king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)             # <<<<<<<<<<<<<<
@@ -14867,77 +14873,77 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   } else {
     __pyx_t_18 = __pyx_t_19;
   }
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_18); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 979, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_18); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 980, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_king_edge_distance = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":981
+  /* "tablut.pyx":982
  *         king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
  * 
  *         if state.to_move() == 'W':             # <<<<<<<<<<<<<<
  *             if state.turn() >= 4:
  *                 score = (numpw / 4 -1) * 0.1 - (king_edge_distance / 2 -1) * 0.5 - (numpb / 8 -1) * 0.1 - ((countKing) / 2 -1) * 0.3
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->to_move(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 981, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->to_move(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 981, __pyx_L1_error)
+  __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 982, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_9) {
 
-    /* "tablut.pyx":982
+    /* "tablut.pyx":983
  * 
  *         if state.to_move() == 'W':
  *             if state.turn() >= 4:             # <<<<<<<<<<<<<<
  *                 score = (numpw / 4 -1) * 0.1 - (king_edge_distance / 2 -1) * 0.5 - (numpb / 8 -1) * 0.1 - ((countKing) / 2 -1) * 0.3
  *             else:
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->turn(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 982, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->turn(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 983, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_20 = PyObject_RichCompare(__pyx_t_1, __pyx_int_4, Py_GE); __Pyx_XGOTREF(__pyx_t_20); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 982, __pyx_L1_error)
+    __pyx_t_20 = PyObject_RichCompare(__pyx_t_1, __pyx_int_4, Py_GE); __Pyx_XGOTREF(__pyx_t_20); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 983, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_20); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 982, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_20); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 983, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":983
+      /* "tablut.pyx":984
  *         if state.to_move() == 'W':
  *             if state.turn() >= 4:
  *                 score = (numpw / 4 -1) * 0.1 - (king_edge_distance / 2 -1) * 0.5 - (numpb / 8 -1) * 0.1 - ((countKing) / 2 -1) * 0.3             # <<<<<<<<<<<<<<
  *             else:
  *                 score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
  */
-      __pyx_t_20 = PyFloat_FromDouble((((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.1)); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_20 = PyFloat_FromDouble((((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.1)); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
-      __pyx_t_1 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_21 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_21 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyNumber_Multiply(__pyx_t_21, __pyx_float_0_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Multiply(__pyx_t_21, __pyx_float_0_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
-      __pyx_t_21 = PyNumber_Subtract(__pyx_t_20, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_21 = PyNumber_Subtract(__pyx_t_20, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyFloat_FromDouble((((((double)__pyx_v_numpb) / 8.0) - 1.0) * 0.1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble((((((double)__pyx_v_numpb) / 8.0) - 1.0) * 0.1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_20 = PyNumber_Subtract(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_20 = PyNumber_Subtract(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyFloat_FromDouble((((__pyx_v_countKing / 2.0) - 1.0) * 0.3)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble((((__pyx_v_countKing / 2.0) - 1.0) * 0.3)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_21 = PyNumber_Subtract(__pyx_t_20, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_21 = PyNumber_Subtract(__pyx_t_20, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_21); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 983, __pyx_L1_error)
+      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_21); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 984, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       __pyx_v_score = __pyx_t_22;
 
-      /* "tablut.pyx":982
+      /* "tablut.pyx":983
  * 
  *         if state.to_move() == 'W':
  *             if state.turn() >= 4:             # <<<<<<<<<<<<<<
@@ -14947,7 +14953,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
       goto __pyx_L33;
     }
 
-    /* "tablut.pyx":985
+    /* "tablut.pyx":986
  *                 score = (numpw / 4 -1) * 0.1 - (king_edge_distance / 2 -1) * 0.5 - (numpb / 8 -1) * 0.1 - ((countKing) / 2 -1) * 0.3
  *             else:
  *                 score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1             # <<<<<<<<<<<<<<
@@ -14955,39 +14961,39 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  *             if state.turn() >= 4:
  */
     /*else*/ {
-      __pyx_t_21 = PyFloat_FromDouble((((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.5)); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_21 = PyFloat_FromDouble((((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.5)); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
-      __pyx_t_1 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_20 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_20 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyNumber_Multiply(__pyx_t_20, __pyx_float_0_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Multiply(__pyx_t_20, __pyx_float_0_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-      __pyx_t_20 = PyNumber_Subtract(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_20 = PyNumber_Subtract(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyFloat_FromDouble((((((double)__pyx_v_numpb) / 8.0) - 1.0) * 0.3)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble((((((double)__pyx_v_numpb) / 8.0) - 1.0) * 0.3)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_21 = PyNumber_Subtract(__pyx_t_20, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_21 = PyNumber_Subtract(__pyx_t_20, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyFloat_FromDouble((((__pyx_v_countKing / 2.0) - 1.0) * 0.1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble((((__pyx_v_countKing / 2.0) - 1.0) * 0.1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_20 = PyNumber_Subtract(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_20 = PyNumber_Subtract(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_20); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 985, __pyx_L1_error)
+      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_20); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 986, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
       __pyx_v_score = __pyx_t_22;
     }
     __pyx_L33:;
 
-    /* "tablut.pyx":981
+    /* "tablut.pyx":982
  *         king_edge_distance = min(kingX,kingY,8-kingX,8-kingY)
  * 
  *         if state.to_move() == 'W':             # <<<<<<<<<<<<<<
@@ -14997,7 +15003,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
     goto __pyx_L32;
   }
 
-  /* "tablut.pyx":987
+  /* "tablut.pyx":988
  *                 score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
  *         else:
  *             if state.turn() >= 4:             # <<<<<<<<<<<<<<
@@ -15005,40 +15011,40 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  *             else:
  */
   /*else*/ {
-    __pyx_t_20 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->turn(__pyx_v_state, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 987, __pyx_L1_error)
+    __pyx_t_20 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->turn(__pyx_v_state, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 988, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_20);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_20, __pyx_int_4, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 987, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_20, __pyx_int_4, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 988, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 987, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 988, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_9) {
 
-      /* "tablut.pyx":988
+      /* "tablut.pyx":989
  *         else:
  *             if state.turn() >= 4:
  *                 score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.5 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.3             # <<<<<<<<<<<<<<
  *             else:
  *                 score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1
  */
-      __pyx_t_1 = PyFloat_FromDouble((((((((double)__pyx_v_numpb) / 4.0) - 1.0) * 0.05) + ((((__pyx_v_count + (__pyx_v_countKing * 5.0)) / 26.0) - 1.0) * 0.5)) - (((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.15))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 988, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble((((((((double)__pyx_v_numpb) / 4.0) - 1.0) * 0.05) + ((((__pyx_v_count + (__pyx_v_countKing * 5.0)) / 26.0) - 1.0) * 0.5)) - (((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.15))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 989, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_20 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 988, __pyx_L1_error)
+      __pyx_t_20 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 989, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
-      __pyx_t_21 = __Pyx_PyInt_SubtractObjC(__pyx_t_20, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 988, __pyx_L1_error)
+      __pyx_t_21 = __Pyx_PyInt_SubtractObjC(__pyx_t_20, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 989, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-      __pyx_t_20 = PyNumber_Multiply(__pyx_t_21, __pyx_float_0_3); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 988, __pyx_L1_error)
+      __pyx_t_20 = PyNumber_Multiply(__pyx_t_21, __pyx_float_0_3); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 989, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
-      __pyx_t_21 = PyNumber_Add(__pyx_t_1, __pyx_t_20); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 988, __pyx_L1_error)
+      __pyx_t_21 = PyNumber_Add(__pyx_t_1, __pyx_t_20); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 989, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_21); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 988, __pyx_L1_error)
+      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_21); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 989, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       __pyx_v_score = __pyx_t_22;
 
-      /* "tablut.pyx":987
+      /* "tablut.pyx":988
  *                 score = (numpw / 4 -1) * 0.5 - (king_edge_distance / 2 -1) * 0.1 - (numpb / 8 -1) * 0.3 - ((countKing) / 2 -1) * 0.1
  *         else:
  *             if state.turn() >= 4:             # <<<<<<<<<<<<<<
@@ -15048,7 +15054,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
       goto __pyx_L34;
     }
 
-    /* "tablut.pyx":990
+    /* "tablut.pyx":991
  *                 score = (numpb / 4 -1) * 0.05 + ((count+countKing*5) / 26 -1) * 0.5 - (numpw / 4 -1) * 0.15 + (king_edge_distance / 2 -1) * 0.3
  *             else:
  *                 score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1             # <<<<<<<<<<<<<<
@@ -15056,21 +15062,21 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
  *         return score if player == 'W' else -score
  */
     /*else*/ {
-      __pyx_t_21 = PyFloat_FromDouble((((((((double)__pyx_v_numpb) / 4.0) - 1.0) * 0.3) + ((((__pyx_v_count + (__pyx_v_countKing * 5.0)) / 26.0) - 1.0) * 0.1)) - (((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.5))); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 990, __pyx_L1_error)
+      __pyx_t_21 = PyFloat_FromDouble((((((((double)__pyx_v_numpb) / 4.0) - 1.0) * 0.3) + ((((__pyx_v_count + (__pyx_v_countKing * 5.0)) / 26.0) - 1.0) * 0.1)) - (((((double)__pyx_v_numpw) / 4.0) - 1.0) * 0.5))); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 991, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
-      __pyx_t_20 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 990, __pyx_L1_error)
+      __pyx_t_20 = __Pyx_PyInt_TrueDivideObjC(__pyx_v_king_edge_distance, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 991, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_t_20, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 990, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_t_20, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 991, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-      __pyx_t_20 = PyNumber_Multiply(__pyx_t_1, __pyx_float_0_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 990, __pyx_L1_error)
+      __pyx_t_20 = PyNumber_Multiply(__pyx_t_1, __pyx_float_0_1); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 991, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyNumber_Add(__pyx_t_21, __pyx_t_20); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 990, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Add(__pyx_t_21, __pyx_t_20); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 991, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 990, __pyx_L1_error)
+      __pyx_t_22 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_22 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 991, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_score = __pyx_t_22;
     }
@@ -15078,14 +15084,14 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   }
   __pyx_L32:;
 
-  /* "tablut.pyx":992
+  /* "tablut.pyx":993
  *                 score = (numpb / 4 -1) * 0.3 + ((count+countKing*5) / 26 -1) * 0.1 - (numpw / 4 -1) * 0.5 + (king_edge_distance / 2 -1) * 0.1
  * 
  *         return score if player == 'W' else -score             # <<<<<<<<<<<<<<
  * 
  * cdef class NeuralHeuristicFunction(HeuristicFunction):
  */
-  __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 992, __pyx_L1_error)
+  __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 993, __pyx_L1_error)
   if ((__pyx_t_9 != 0)) {
     __pyx_t_22 = __pyx_v_score;
   } else {
@@ -15094,7 +15100,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   __pyx_r = __pyx_t_22;
   goto __pyx_L0;
 
-  /* "tablut.pyx":895
+  /* "tablut.pyx":896
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -15408,7 +15414,7 @@ static PyObject *__pyx_pf_6tablut_26OldSchoolHeuristicFunction_2__setstate_cytho
   return __pyx_r;
 }
 
-/* "tablut.pyx":1004
+/* "tablut.pyx":1005
  *     cdef int index_in_0, index_in_1, index_out_0
  * 
  *     def __init__(self, config):             # <<<<<<<<<<<<<<
@@ -15445,7 +15451,7 @@ static int __pyx_pw_6tablut_23NeuralHeuristicFunction_1__init__(PyObject *__pyx_
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 1004, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 1005, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -15456,7 +15462,7 @@ static int __pyx_pw_6tablut_23NeuralHeuristicFunction_1__init__(PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1004, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1005, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.NeuralHeuristicFunction.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -15484,7 +15490,7 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "tablut.pyx":1005
+  /* "tablut.pyx":1006
  * 
  *     def __init__(self, config):
  *         self.config = config             # <<<<<<<<<<<<<<
@@ -15497,7 +15503,7 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
   __Pyx_DECREF(__pyx_v_self->config);
   __pyx_v_self->config = __pyx_v_config;
 
-  /* "tablut.pyx":1006
+  /* "tablut.pyx":1007
  *     def __init__(self, config):
  *         self.config = config
  *         self.interpreter_initialized = False             # <<<<<<<<<<<<<<
@@ -15506,43 +15512,43 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
  */
   __pyx_v_self->interpreter_initialized = 0;
 
-  /* "tablut.pyx":1008
+  /* "tablut.pyx":1009
  *         self.interpreter_initialized = False
  * 
  *         folder = self.config.folder             # <<<<<<<<<<<<<<
  *         filename = self.config.tflite_model
  *         self.model_path = os.path.join(folder, filename)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->config, __pyx_n_s_folder); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1008, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->config, __pyx_n_s_folder); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_folder = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1009
+  /* "tablut.pyx":1010
  * 
  *         folder = self.config.folder
  *         filename = self.config.tflite_model             # <<<<<<<<<<<<<<
  *         self.model_path = os.path.join(folder, filename)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->config, __pyx_n_s_tflite_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1009, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->config, __pyx_n_s_tflite_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1010, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_filename = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1010
+  /* "tablut.pyx":1011
  *         folder = self.config.folder
  *         filename = self.config.tflite_model
  *         self.model_path = os.path.join(folder, filename)             # <<<<<<<<<<<<<<
  * 
  *     def init_tflite(self):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1010, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1010, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1010, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -15560,7 +15566,7 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_folder, __pyx_v_filename};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1010, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -15568,13 +15574,13 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_folder, __pyx_v_filename};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1010, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1010, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -15585,19 +15591,19 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
     __Pyx_INCREF(__pyx_v_filename);
     __Pyx_GIVEREF(__pyx_v_filename);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_filename);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1010, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 1010, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->model_path);
   __Pyx_DECREF(__pyx_v_self->model_path);
   __pyx_v_self->model_path = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1004
+  /* "tablut.pyx":1005
  *     cdef int index_in_0, index_in_1, index_out_0
  * 
  *     def __init__(self, config):             # <<<<<<<<<<<<<<
@@ -15622,7 +15628,7 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "tablut.pyx":1012
+/* "tablut.pyx":1013
  *         self.model_path = os.path.join(folder, filename)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
@@ -15661,19 +15667,19 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("init_tflite", 0);
 
-  /* "tablut.pyx":1013
+  /* "tablut.pyx":1014
  * 
  *     def init_tflite(self):
  *         if not os.path.isfile(self.model_path):             # <<<<<<<<<<<<<<
  *             return False
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1013, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1013, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_isfile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1013, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_isfile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -15688,15 +15694,15 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_self->model_path) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_self->model_path);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1013, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1013, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "tablut.pyx":1014
+    /* "tablut.pyx":1015
  *     def init_tflite(self):
  *         if not os.path.isfile(self.model_path):
  *             return False             # <<<<<<<<<<<<<<
@@ -15708,7 +15714,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "tablut.pyx":1013
+    /* "tablut.pyx":1014
  * 
  *     def init_tflite(self):
  *         if not os.path.isfile(self.model_path):             # <<<<<<<<<<<<<<
@@ -15717,42 +15723,42 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
  */
   }
 
-  /* "tablut.pyx":1016
+  /* "tablut.pyx":1017
  *             return False
  * 
  *         self.interpreter = tflite.Interpreter(             # <<<<<<<<<<<<<<
  *             model_path=self.model_path, num_threads=self.config.threads_per_worker)
  *         self.interpreter.allocate_tensors()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tflite); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1016, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tflite); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1017, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Interpreter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1016, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Interpreter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1017, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1017
+  /* "tablut.pyx":1018
  * 
  *         self.interpreter = tflite.Interpreter(
  *             model_path=self.model_path, num_threads=self.config.threads_per_worker)             # <<<<<<<<<<<<<<
  *         self.interpreter.allocate_tensors()
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1017, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1018, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_model_path, __pyx_v_self->model_path) < 0) __PYX_ERR(0, 1017, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->config, __pyx_n_s_threads_per_worker); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1017, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_model_path, __pyx_v_self->model_path) < 0) __PYX_ERR(0, 1018, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->config, __pyx_n_s_threads_per_worker); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1018, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_num_threads, __pyx_t_3) < 0) __PYX_ERR(0, 1017, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_num_threads, __pyx_t_3) < 0) __PYX_ERR(0, 1018, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tablut.pyx":1016
+  /* "tablut.pyx":1017
  *             return False
  * 
  *         self.interpreter = tflite.Interpreter(             # <<<<<<<<<<<<<<
  *             model_path=self.model_path, num_threads=self.config.threads_per_worker)
  *         self.interpreter.allocate_tensors()
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1016, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1017, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -15762,14 +15768,14 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   __pyx_v_self->interpreter = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "tablut.pyx":1018
+  /* "tablut.pyx":1019
  *         self.interpreter = tflite.Interpreter(
  *             model_path=self.model_path, num_threads=self.config.threads_per_worker)
  *         self.interpreter.allocate_tensors()             # <<<<<<<<<<<<<<
  * 
  *         # Get input and output tensors.
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_allocate_tensors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1018, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_allocate_tensors); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1019, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -15783,46 +15789,19 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   }
   __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1018, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1019, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tablut.pyx":1021
+  /* "tablut.pyx":1022
  * 
  *         # Get input and output tensors.
  *         tflite_input_details = self.interpreter.get_input_details()             # <<<<<<<<<<<<<<
  *         tflite_output_details = self.interpreter.get_output_details()
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_input_details); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1021, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-    }
-  }
-  __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1021, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_tflite_input_details = __pyx_t_3;
-  __pyx_t_3 = 0;
-
-  /* "tablut.pyx":1022
- *         # Get input and output tensors.
- *         tflite_input_details = self.interpreter.get_input_details()
- *         tflite_output_details = self.interpreter.get_output_details()             # <<<<<<<<<<<<<<
- * 
- *         self.input_shape = tflite_input_details[0]['shape']
- */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_output_details); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1022, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_input_details); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1022, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -15839,77 +15818,104 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1022, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_tflite_input_details = __pyx_t_3;
+  __pyx_t_3 = 0;
+
+  /* "tablut.pyx":1023
+ *         # Get input and output tensors.
+ *         tflite_input_details = self.interpreter.get_input_details()
+ *         tflite_output_details = self.interpreter.get_output_details()             # <<<<<<<<<<<<<<
+ * 
+ *         self.input_shape = tflite_input_details[0]['shape']
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_output_details); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1023, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_1, function);
+    }
+  }
+  __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1023, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_tflite_output_details = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "tablut.pyx":1024
+  /* "tablut.pyx":1025
  *         tflite_output_details = self.interpreter.get_output_details()
  * 
  *         self.input_shape = tflite_input_details[0]['shape']             # <<<<<<<<<<<<<<
  *         self.index_in_0 = tflite_input_details[0]['index']
  *         self.index_in_1 = tflite_input_details[1]['index']
  */
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1024, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1025, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1024, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1025, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1024, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1025, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->input_shape);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->input_shape));
   __pyx_v_self->input_shape = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1025
+  /* "tablut.pyx":1026
  * 
  *         self.input_shape = tflite_input_details[0]['shape']
  *         self.index_in_0 = tflite_input_details[0]['index']             # <<<<<<<<<<<<<<
  *         self.index_in_1 = tflite_input_details[1]['index']
  *         self.index_out_0 = tflite_output_details[0]['index']
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1025, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1026, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1025, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1026, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1025, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1026, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_self->index_in_0 = __pyx_t_6;
 
-  /* "tablut.pyx":1026
+  /* "tablut.pyx":1027
  *         self.input_shape = tflite_input_details[0]['shape']
  *         self.index_in_0 = tflite_input_details[0]['index']
  *         self.index_in_1 = tflite_input_details[1]['index']             # <<<<<<<<<<<<<<
  *         self.index_out_0 = tflite_output_details[0]['index']
  * 
  */
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1026, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1027, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_n_u_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1026, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_n_u_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1027, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1026, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1027, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->index_in_1 = __pyx_t_6;
 
-  /* "tablut.pyx":1027
+  /* "tablut.pyx":1028
  *         self.index_in_0 = tflite_input_details[0]['index']
  *         self.index_in_1 = tflite_input_details[1]['index']
  *         self.index_out_0 = tflite_output_details[0]['index']             # <<<<<<<<<<<<<<
  * 
  *         self.interpreter_initialized = True
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_tflite_output_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1027, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_tflite_output_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1028, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1027, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1028, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1027, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1028, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_self->index_out_0 = __pyx_t_6;
 
-  /* "tablut.pyx":1029
+  /* "tablut.pyx":1030
  *         self.index_out_0 = tflite_output_details[0]['index']
  * 
  *         self.interpreter_initialized = True             # <<<<<<<<<<<<<<
@@ -15918,7 +15924,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
  */
   __pyx_v_self->interpreter_initialized = 1;
 
-  /* "tablut.pyx":1031
+  /* "tablut.pyx":1032
  *         self.interpreter_initialized = True
  * 
  *         return True             # <<<<<<<<<<<<<<
@@ -15930,7 +15936,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   __pyx_r = Py_True;
   goto __pyx_L0;
 
-  /* "tablut.pyx":1012
+  /* "tablut.pyx":1013
  *         self.model_path = os.path.join(folder, filename)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
@@ -15953,7 +15959,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   return __pyx_r;
 }
 
-/* "tablut.pyx":1033
+/* "tablut.pyx":1034
  *         return True
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
@@ -15985,14 +15991,14 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_4set_model_path(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_model_path", 0);
 
-  /* "tablut.pyx":1034
+  /* "tablut.pyx":1035
  * 
  *     def set_model_path(self, model_path):
  *         self.model_path = model_path             # <<<<<<<<<<<<<<
  * 
  *     def initialized(self):
  */
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_model_path))||((__pyx_v_model_path) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_model_path)->tp_name), 0))) __PYX_ERR(0, 1034, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_model_path))||((__pyx_v_model_path) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_model_path)->tp_name), 0))) __PYX_ERR(0, 1035, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_model_path;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -16001,7 +16007,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_4set_model_path(stru
   __pyx_v_self->model_path = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1033
+  /* "tablut.pyx":1034
  *         return True
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
@@ -16022,7 +16028,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_4set_model_path(stru
   return __pyx_r;
 }
 
-/* "tablut.pyx":1036
+/* "tablut.pyx":1037
  *         self.model_path = model_path
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
@@ -16054,7 +16060,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_6initialized(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("initialized", 0);
 
-  /* "tablut.pyx":1037
+  /* "tablut.pyx":1038
  * 
  *     def initialized(self):
  *         return self.interpreter_initialized             # <<<<<<<<<<<<<<
@@ -16062,13 +16068,13 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_6initialized(struct 
  *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->interpreter_initialized); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1037, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->interpreter_initialized); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1038, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":1036
+  /* "tablut.pyx":1037
  *         self.model_path = model_path
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
@@ -16087,12 +16093,12 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_6initialized(struct 
   return __pyx_r;
 }
 
-/* "tablut.pyx":1039
+/* "tablut.pyx":1040
  *         return self.interpreter_initialized
  * 
  *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):             # <<<<<<<<<<<<<<
- *         #cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
- *         #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
+ *         cdef np.ndarray board0 = state.board()
+ *         cdef np.ndarray board1 = next_state.board()
  */
 
 static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_next_state, PyObject *__pyx_v_player) {
@@ -16107,311 +16113,244 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  float __pyx_t_8;
-  int __pyx_t_9;
+  float __pyx_t_7;
+  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("tflite_eval", 0);
 
-  /* "tablut.pyx":1042
- *         #cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
- *         #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
- *         cdef np.ndarray board0 = state.board().astype(np.float32)             # <<<<<<<<<<<<<<
- *         cdef np.ndarray board1 = next_state.board().astype(np.float32)
+  /* "tablut.pyx":1041
  * 
+ *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
+ *         cdef np.ndarray board0 = state.board()             # <<<<<<<<<<<<<<
+ *         cdef np.ndarray board1 = next_state.board()
+ *         cdef float v
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->board(__pyx_v_state, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_astype); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_float32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1042, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->board(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1041, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1042, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1041, __pyx_L1_error)
   __pyx_v_board0 = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1043
- *         #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
- *         cdef np.ndarray board0 = state.board().astype(np.float32)
- *         cdef np.ndarray board1 = next_state.board().astype(np.float32)             # <<<<<<<<<<<<<<
- * 
+  /* "tablut.pyx":1042
+ *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
+ *         cdef np.ndarray board0 = state.board()
+ *         cdef np.ndarray board1 = next_state.board()             # <<<<<<<<<<<<<<
  *         cdef float v
+ * 
  */
-  __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->board(__pyx_v_next_state, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1043, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_astype); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1043, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1043, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_float32); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1043, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1043, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->board(__pyx_v_next_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1042, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1043, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1042, __pyx_L1_error)
   __pyx_v_board1 = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1047
+  /* "tablut.pyx":1045
  *         cdef float v
  * 
  *         self.interpreter.set_tensor(self.index_in_0, board0)             # <<<<<<<<<<<<<<
  *         self.interpreter.set_tensor(self.index_in_1, board1)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_set_tensor); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1047, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1047, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_set_tensor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1045, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_4);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
       __pyx_t_5 = 1;
     }
   }
   #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_4)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_2, ((PyObject *)__pyx_v_board0)};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1047, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_3, ((PyObject *)__pyx_v_board0)};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1045, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_2, ((PyObject *)__pyx_v_board0)};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1047, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_3, ((PyObject *)__pyx_v_board0)};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1045, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1047, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1045, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (__pyx_t_3) {
-      __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3); __pyx_t_3 = NULL;
+    if (__pyx_t_4) {
+      __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
     }
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_5, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_5, __pyx_t_3);
     __Pyx_INCREF(((PyObject *)__pyx_v_board0));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_board0));
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, ((PyObject *)__pyx_v_board0));
-    __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1047, __pyx_L1_error)
+    __pyx_t_3 = 0;
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1045, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1048
+  /* "tablut.pyx":1046
  * 
  *         self.interpreter.set_tensor(self.index_in_0, board0)
  *         self.interpreter.set_tensor(self.index_in_1, board1)             # <<<<<<<<<<<<<<
  * 
  *         self.interpreter.invoke()
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_set_tensor); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1048, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1048, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_set_tensor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1046, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = NULL;
+  __pyx_t_3 = NULL;
   __pyx_t_5 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_2);
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
       __pyx_t_5 = 1;
     }
   }
   #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_4)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_6, ((PyObject *)__pyx_v_board1)};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1048, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_6, ((PyObject *)__pyx_v_board1)};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else
   #endif
   #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_6, ((PyObject *)__pyx_v_board1)};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1048, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_6, ((PyObject *)__pyx_v_board1)};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1048, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    if (__pyx_t_2) {
-      __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1046, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (__pyx_t_3) {
+      __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
     }
     __Pyx_GIVEREF(__pyx_t_6);
-    PyTuple_SET_ITEM(__pyx_t_3, 0+__pyx_t_5, __pyx_t_6);
+    PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_5, __pyx_t_6);
     __Pyx_INCREF(((PyObject *)__pyx_v_board1));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_board1));
-    PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_5, ((PyObject *)__pyx_v_board1));
+    PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_5, ((PyObject *)__pyx_v_board1));
     __pyx_t_6 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1048, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1050
+  /* "tablut.pyx":1048
  *         self.interpreter.set_tensor(self.index_in_1, board1)
  * 
  *         self.interpreter.invoke()             # <<<<<<<<<<<<<<
  * 
- *         v = np.ravel(self.interpreter.get_tensor(self.index_out_0))[0]
+ *         v = self.interpreter.get_tensor(self.index_out_0)[0][0]
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_invoke); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1050, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_invoke); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1048, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_4);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1048, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1052
+  /* "tablut.pyx":1050
  *         self.interpreter.invoke()
  * 
- *         v = np.ravel(self.interpreter.get_tensor(self.index_out_0))[0]             # <<<<<<<<<<<<<<
+ *         v = self.interpreter.get_tensor(self.index_out_0)[0][0]             # <<<<<<<<<<<<<<
  * 
  *         return v if player == 'W' else -v
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1052, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ravel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1052, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_tensor); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1052, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->index_out_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_tensor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
-    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
-    if (likely(__pyx_t_7)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-      __Pyx_INCREF(__pyx_t_7);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_6, function);
-    }
-  }
-  __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->index_out_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_3);
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
     if (likely(__pyx_t_6)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_6);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_6, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4);
+  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_6, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1052, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_8 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 1052, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_v_v = __pyx_t_8;
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_7 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_7 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_v = __pyx_t_7;
 
-  /* "tablut.pyx":1054
- *         v = np.ravel(self.interpreter.get_tensor(self.index_out_0))[0]
+  /* "tablut.pyx":1052
+ *         v = self.interpreter.get_tensor(self.index_out_0)[0][0]
  * 
  *         return v if player == 'W' else -v             # <<<<<<<<<<<<<<
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  */
-  __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 1054, __pyx_L1_error)
-  if ((__pyx_t_9 != 0)) {
-    __pyx_t_8 = __pyx_v_v;
+  __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  if ((__pyx_t_8 != 0)) {
+    __pyx_t_7 = __pyx_v_v;
   } else {
-    __pyx_t_8 = (-__pyx_v_v);
+    __pyx_t_7 = (-__pyx_v_v);
   }
-  __pyx_r = __pyx_t_8;
+  __pyx_r = __pyx_t_7;
   goto __pyx_L0;
 
-  /* "tablut.pyx":1039
+  /* "tablut.pyx":1040
  *         return self.interpreter_initialized
  * 
  *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):             # <<<<<<<<<<<<<<
- *         #cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
- *         #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
+ *         cdef np.ndarray board0 = state.board()
+ *         cdef np.ndarray board1 = next_state.board()
  */
 
   /* function exit code */
@@ -16421,7 +16360,6 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_7);
   __Pyx_WriteUnraisable("tablut.NeuralHeuristicFunction.tflite_eval", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
@@ -16431,7 +16369,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   return __pyx_r;
 }
 
-/* "tablut.pyx":1056
+/* "tablut.pyx":1054
  *         return v if player == 'W' else -v
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -16445,7 +16383,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("evalutate", 0);
 
-  /* "tablut.pyx":1057
+  /* "tablut.pyx":1055
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         if self.interpreter_initialized:             # <<<<<<<<<<<<<<
@@ -16455,7 +16393,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
   __pyx_t_1 = (__pyx_v_self->interpreter_initialized != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":1058
+    /* "tablut.pyx":1056
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         if self.interpreter_initialized:
  *             return self.tflite_eval(parent_state, state, player)             # <<<<<<<<<<<<<<
@@ -16465,7 +16403,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
     __pyx_r = ((struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *)__pyx_v_self->__pyx_base.__pyx_vtab)->tflite_eval(__pyx_v_self, __pyx_v_parent_state, __pyx_v_state, __pyx_v_player);
     goto __pyx_L0;
 
-    /* "tablut.pyx":1057
+    /* "tablut.pyx":1055
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         if self.interpreter_initialized:             # <<<<<<<<<<<<<<
@@ -16474,7 +16412,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
  */
   }
 
-  /* "tablut.pyx":1059
+  /* "tablut.pyx":1057
  *         if self.interpreter_initialized:
  *             return self.tflite_eval(parent_state, state, player)
  *         return state.utility(player)             # <<<<<<<<<<<<<<
@@ -16484,7 +16422,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
   __pyx_r = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->utility(__pyx_v_state, __pyx_v_player, 0);
   goto __pyx_L0;
 
-  /* "tablut.pyx":1056
+  /* "tablut.pyx":1054
  *         return v if player == 'W' else -v
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -16853,7 +16791,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_10__setstate_cython_
   return __pyx_r;
 }
 
-/* "tablut.pyx":1067
+/* "tablut.pyx":1065
  *     cdef float alpha
  * 
  *     def __init__(self, config, alpha):             # <<<<<<<<<<<<<<
@@ -16895,11 +16833,11 @@ static int __pyx_pw_6tablut_22MixedHeuristicFunction_1__init__(PyObject *__pyx_v
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_alpha)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 1067, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 1065, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 1067, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 1065, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -16912,7 +16850,7 @@ static int __pyx_pw_6tablut_22MixedHeuristicFunction_1__init__(PyObject *__pyx_v
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1067, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1065, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("tablut.MixedHeuristicFunction.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -16941,7 +16879,7 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "tablut.pyx":1068
+  /* "tablut.pyx":1066
  * 
  *     def __init__(self, config, alpha):
  *         self.alpha = min(max(alpha, 1.0), 0.0)             # <<<<<<<<<<<<<<
@@ -16952,14 +16890,14 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
   __pyx_t_2 = 1.0;
   __Pyx_INCREF(__pyx_v_alpha);
   __pyx_t_3 = __pyx_v_alpha;
-  __pyx_t_5 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (__pyx_t_7) {
-    __pyx_t_6 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1068, __pyx_L1_error)
+    __pyx_t_6 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1066, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_4 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -16971,14 +16909,14 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
   __Pyx_INCREF(__pyx_t_4);
   __pyx_t_3 = __pyx_t_4;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_6 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_7) {
-    __pyx_t_5 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1068, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1066, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_4 = __pyx_t_5;
     __pyx_t_5 = 0;
@@ -16987,18 +16925,18 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
     __pyx_t_4 = __pyx_t_3;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_8 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_8 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_8 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_8 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 1066, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_self->alpha = __pyx_t_8;
 
-  /* "tablut.pyx":1069
+  /* "tablut.pyx":1067
  *     def __init__(self, config, alpha):
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  *         self.old_eval = OldSchoolHeuristicFunction()             # <<<<<<<<<<<<<<
  *         self.neural_eval = NeuralHeuristicFunction(config)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_OldSchoolHeuristicFunction)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1069, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_OldSchoolHeuristicFunction)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1067, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __Pyx_GOTREF(__pyx_v_self->old_eval);
@@ -17006,14 +16944,14 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
   __pyx_v_self->old_eval = ((struct __pyx_obj_6tablut_OldSchoolHeuristicFunction *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tablut.pyx":1070
+  /* "tablut.pyx":1068
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  *         self.old_eval = OldSchoolHeuristicFunction()
  *         self.neural_eval = NeuralHeuristicFunction(config)             # <<<<<<<<<<<<<<
  * 
  *     def init_tflite(self):
  */
-  __pyx_t_4 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction), __pyx_v_config); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1070, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction), __pyx_v_config); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1068, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_4);
   __Pyx_GOTREF(__pyx_v_self->neural_eval);
@@ -17021,7 +16959,7 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
   __pyx_v_self->neural_eval = ((struct __pyx_obj_6tablut_NeuralHeuristicFunction *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tablut.pyx":1067
+  /* "tablut.pyx":1065
  *     cdef float alpha
  * 
  *     def __init__(self, config, alpha):             # <<<<<<<<<<<<<<
@@ -17044,7 +16982,7 @@ static int __pyx_pf_6tablut_22MixedHeuristicFunction___init__(struct __pyx_obj_6
   return __pyx_r;
 }
 
-/* "tablut.pyx":1072
+/* "tablut.pyx":1070
  *         self.neural_eval = NeuralHeuristicFunction(config)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
@@ -17078,14 +17016,14 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_2init_tflite(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("init_tflite", 0);
 
-  /* "tablut.pyx":1073
+  /* "tablut.pyx":1071
  * 
  *     def init_tflite(self):
  *         self.neural_eval.init_tflite()             # <<<<<<<<<<<<<<
  * 
  *     def initialized(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->neural_eval), __pyx_n_s_init_tflite); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1073, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->neural_eval), __pyx_n_s_init_tflite); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1071, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -17099,12 +17037,12 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_2init_tflite(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1073, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1071, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1072
+  /* "tablut.pyx":1070
  *         self.neural_eval = NeuralHeuristicFunction(config)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
@@ -17127,7 +17065,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_2init_tflite(struct _
   return __pyx_r;
 }
 
-/* "tablut.pyx":1075
+/* "tablut.pyx":1073
  *         self.neural_eval.init_tflite()
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
@@ -17161,7 +17099,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_4initialized(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("initialized", 0);
 
-  /* "tablut.pyx":1076
+  /* "tablut.pyx":1074
  * 
  *     def initialized(self):
  *         return self.neural_eval.initialized()             # <<<<<<<<<<<<<<
@@ -17169,7 +17107,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_4initialized(struct _
  *     def set_model_path(self, model_path):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->neural_eval), __pyx_n_s_initialized); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1076, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->neural_eval), __pyx_n_s_initialized); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1074, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -17183,14 +17121,14 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_4initialized(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1076, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1074, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "tablut.pyx":1075
+  /* "tablut.pyx":1073
  *         self.neural_eval.init_tflite()
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
@@ -17211,7 +17149,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_4initialized(struct _
   return __pyx_r;
 }
 
-/* "tablut.pyx":1078
+/* "tablut.pyx":1076
  *         return self.neural_eval.initialized()
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
@@ -17245,14 +17183,14 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_6set_model_path(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_model_path", 0);
 
-  /* "tablut.pyx":1079
+  /* "tablut.pyx":1077
  * 
  *     def set_model_path(self, model_path):
  *         self.neural_eval.set_model_path(model_path)             # <<<<<<<<<<<<<<
  * 
  *     def set_alpha(self, alpha):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->neural_eval), __pyx_n_s_set_model_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1079, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->neural_eval), __pyx_n_s_set_model_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1077, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -17266,12 +17204,12 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_6set_model_path(struc
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_model_path) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_model_path);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1079, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1077, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1078
+  /* "tablut.pyx":1076
  *         return self.neural_eval.initialized()
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
@@ -17294,7 +17232,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_6set_model_path(struc
   return __pyx_r;
 }
 
-/* "tablut.pyx":1081
+/* "tablut.pyx":1079
  *         self.neural_eval.set_model_path(model_path)
  * 
  *     def set_alpha(self, alpha):             # <<<<<<<<<<<<<<
@@ -17333,7 +17271,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_alpha", 0);
 
-  /* "tablut.pyx":1082
+  /* "tablut.pyx":1080
  * 
  *     def set_alpha(self, alpha):
  *         self.alpha = min(max(alpha, 1.0), 0.0)             # <<<<<<<<<<<<<<
@@ -17344,14 +17282,14 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
   __pyx_t_2 = 1.0;
   __Pyx_INCREF(__pyx_v_alpha);
   __pyx_t_3 = __pyx_v_alpha;
-  __pyx_t_5 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (__pyx_t_7) {
-    __pyx_t_6 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1082, __pyx_L1_error)
+    __pyx_t_6 = PyFloat_FromDouble(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1080, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_4 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -17363,14 +17301,14 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
   __Pyx_INCREF(__pyx_t_4);
   __pyx_t_3 = __pyx_t_4;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_6 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_7) {
-    __pyx_t_5 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1082, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1080, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_4 = __pyx_t_5;
     __pyx_t_5 = 0;
@@ -17379,11 +17317,11 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
     __pyx_t_4 = __pyx_t_3;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_8 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_8 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 1082, __pyx_L1_error)
+  __pyx_t_8 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_8 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 1080, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_self->alpha = __pyx_t_8;
 
-  /* "tablut.pyx":1081
+  /* "tablut.pyx":1079
  *         self.neural_eval.set_model_path(model_path)
  * 
  *     def set_alpha(self, alpha):             # <<<<<<<<<<<<<<
@@ -17407,7 +17345,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
   return __pyx_r;
 }
 
-/* "tablut.pyx":1084
+/* "tablut.pyx":1082
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -17421,7 +17359,7 @@ static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("evalutate", 0);
 
-  /* "tablut.pyx":1085
+  /* "tablut.pyx":1083
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         if self.neural_eval.interpreter_initialized:             # <<<<<<<<<<<<<<
@@ -17431,7 +17369,7 @@ static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj
   __pyx_t_1 = (__pyx_v_self->neural_eval->interpreter_initialized != 0);
   if (__pyx_t_1) {
 
-    /* "tablut.pyx":1086
+    /* "tablut.pyx":1084
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         if self.neural_eval.interpreter_initialized:
  *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)             # <<<<<<<<<<<<<<
@@ -17441,7 +17379,7 @@ static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj
     __pyx_r = ((((struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *)__pyx_v_self->neural_eval->__pyx_base.__pyx_vtab)->tflite_eval(__pyx_v_self->neural_eval, __pyx_v_parent_state, __pyx_v_state, __pyx_v_player) * __pyx_v_self->alpha) + (((struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *)__pyx_v_self->old_eval->__pyx_base.__pyx_vtab)->__pyx_base.evalutate(((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_v_self->old_eval), __pyx_v_parent_state, __pyx_v_state, __pyx_v_player) * (1.0 - __pyx_v_self->alpha)));
     goto __pyx_L0;
 
-    /* "tablut.pyx":1085
+    /* "tablut.pyx":1083
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
  *         if self.neural_eval.interpreter_initialized:             # <<<<<<<<<<<<<<
@@ -17450,7 +17388,7 @@ static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj
  */
   }
 
-  /* "tablut.pyx":1088
+  /* "tablut.pyx":1086
  *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
  * 
  *         return self.old_eval.evalutate(parent_state, state, player)             # <<<<<<<<<<<<<<
@@ -17460,7 +17398,7 @@ static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj
   __pyx_r = ((struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *)__pyx_v_self->old_eval->__pyx_base.__pyx_vtab)->__pyx_base.evalutate(((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_v_self->old_eval), __pyx_v_parent_state, __pyx_v_state, __pyx_v_player);
   goto __pyx_L0;
 
-  /* "tablut.pyx":1084
+  /* "tablut.pyx":1082
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  * 
  *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
@@ -17790,7 +17728,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_12__setstate_cython__
   return __pyx_r;
 }
 
-/* "tablut.pyx":1091
+/* "tablut.pyx":1089
  * 
  * #------------------------------ Utils ---------------------------------------------------------
  * cdef inline double get_time():             # <<<<<<<<<<<<<<
@@ -17805,7 +17743,7 @@ static CYTHON_INLINE double __pyx_f_6tablut_get_time(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_time", 0);
 
-  /* "tablut.pyx":1094
+  /* "tablut.pyx":1092
  *     cdef timespec ts
  *     cdef double current
  *     clock_gettime(CLOCK_REALTIME, &ts)             # <<<<<<<<<<<<<<
@@ -17814,7 +17752,7 @@ static CYTHON_INLINE double __pyx_f_6tablut_get_time(void) {
  */
   (void)(clock_gettime(CLOCK_REALTIME, (&__pyx_v_ts)));
 
-  /* "tablut.pyx":1095
+  /* "tablut.pyx":1093
  *     cdef double current
  *     clock_gettime(CLOCK_REALTIME, &ts)
  *     current = ts.tv_sec + (ts.tv_nsec / 1000000000.)             # <<<<<<<<<<<<<<
@@ -17823,7 +17761,7 @@ static CYTHON_INLINE double __pyx_f_6tablut_get_time(void) {
  */
   __pyx_v_current = (__pyx_v_ts.tv_sec + (((double)__pyx_v_ts.tv_nsec) / 1000000000.));
 
-  /* "tablut.pyx":1096
+  /* "tablut.pyx":1094
  *     clock_gettime(CLOCK_REALTIME, &ts)
  *     current = ts.tv_sec + (ts.tv_nsec / 1000000000.)
  *     return current             # <<<<<<<<<<<<<<
@@ -17833,7 +17771,7 @@ static CYTHON_INLINE double __pyx_f_6tablut_get_time(void) {
   __pyx_r = __pyx_v_current;
   goto __pyx_L0;
 
-  /* "tablut.pyx":1091
+  /* "tablut.pyx":1089
  * 
  * #------------------------------ Utils ---------------------------------------------------------
  * cdef inline double get_time():             # <<<<<<<<<<<<<<
@@ -17847,7 +17785,7 @@ static CYTHON_INLINE double __pyx_f_6tablut_get_time(void) {
   return __pyx_r;
 }
 
-/* "tablut.pyx":1099
+/* "tablut.pyx":1097
  * 
  * #------------------------------ Test ---------------------------------------------------------
  * def test():             # <<<<<<<<<<<<<<
@@ -17903,14 +17841,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("test", 0);
 
-  /* "tablut.pyx":1102
+  /* "tablut.pyx":1100
  *     cdef AshtonTablut g, fake_state
  * 
  *     g = AshtonTablut.get_initial()             # <<<<<<<<<<<<<<
  * 
  *     st = get_time()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_n_s_get_initial); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1102, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_n_s_get_initial); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -17924,14 +17862,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1102, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 1102, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 1100, __pyx_L1_error)
   __pyx_v_g = ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1104
+  /* "tablut.pyx":1102
  *     g = AshtonTablut.get_initial()
  * 
  *     st = get_time()             # <<<<<<<<<<<<<<
@@ -17940,32 +17878,32 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
  */
   __pyx_v_st = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":1105
+  /* "tablut.pyx":1103
  * 
  *     st = get_time()
  *     AshtonTablut.legal_actions_white(g.board())             # <<<<<<<<<<<<<<
  *     print("White legal actions: {0} ms".format(1000*(get_time()-st)))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1105, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1105, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   (void)(__pyx_f_6tablut_12AshtonTablut_legal_actions_white(__pyx_t_4));
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "tablut.pyx":1106
+  /* "tablut.pyx":1104
  *     st = get_time()
  *     AshtonTablut.legal_actions_white(g.board())
  *     print("White legal actions: {0} ms".format(1000*(get_time()-st)))             # <<<<<<<<<<<<<<
  * 
  *     st = get_time()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_White_legal_actions_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1106, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_White_legal_actions_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1106, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -17980,15 +17918,15 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1106, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1106, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":1108
+  /* "tablut.pyx":1106
  *     print("White legal actions: {0} ms".format(1000*(get_time()-st)))
  * 
  *     st = get_time()             # <<<<<<<<<<<<<<
@@ -17997,32 +17935,32 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
  */
   __pyx_v_st = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":1109
+  /* "tablut.pyx":1107
  * 
  *     st = get_time()
  *     AshtonTablut.legal_actions_black(g.board())             # <<<<<<<<<<<<<<
  *     print("Black legal actions: {0} ms".format(1000*(get_time()-st)))
  * 
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1109, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1109, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1107, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   (void)(__pyx_f_6tablut_12AshtonTablut_legal_actions_black(__pyx_t_4));
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "tablut.pyx":1110
+  /* "tablut.pyx":1108
  *     st = get_time()
  *     AshtonTablut.legal_actions_black(g.board())
  *     print("Black legal actions: {0} ms".format(1000*(get_time()-st)))             # <<<<<<<<<<<<<<
  * 
  *     st = get_time()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Black_legal_actions_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1110, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Black_legal_actions_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1110, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -18037,15 +17975,15 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1110, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1110, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1112
+  /* "tablut.pyx":1110
  *     print("Black legal actions: {0} ms".format(1000*(get_time()-st)))
  * 
  *     st = get_time()             # <<<<<<<<<<<<<<
@@ -18054,32 +17992,32 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
  */
   __pyx_v_st = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":1113
+  /* "tablut.pyx":1111
  * 
  *     st = get_time()
  *     AshtonTablut.check_black_eat(g.board(), 0)             # <<<<<<<<<<<<<<
  *     print("Black eat check: {0} ms".format(1000*(get_time()-st)))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1113, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1113, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   (void)(__pyx_f_6tablut_12AshtonTablut_check_black_eat(__pyx_t_4, 0));
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "tablut.pyx":1114
+  /* "tablut.pyx":1112
  *     st = get_time()
  *     AshtonTablut.check_black_eat(g.board(), 0)
  *     print("Black eat check: {0} ms".format(1000*(get_time()-st)))             # <<<<<<<<<<<<<<
  * 
  *     st = get_time()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Black_eat_check_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1114, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Black_eat_check_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1114, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -18094,15 +18032,15 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1114, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1114, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":1116
+  /* "tablut.pyx":1114
  *     print("Black eat check: {0} ms".format(1000*(get_time()-st)))
  * 
  *     st = get_time()             # <<<<<<<<<<<<<<
@@ -18111,32 +18049,32 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
  */
   __pyx_v_st = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":1117
+  /* "tablut.pyx":1115
  * 
  *     st = get_time()
  *     AshtonTablut.check_white_eat(g.board(), 0)             # <<<<<<<<<<<<<<
  *     print("White eat check: {0} ms".format(1000*(get_time()-st)))
  * 
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1117, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_g->__pyx_vtab)->board(__pyx_v_g, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1117, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_nn___pyx_t_6tablut_DTYPE_t(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(0, 1115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   (void)(__pyx_f_6tablut_12AshtonTablut_check_white_eat(__pyx_t_4, 0));
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "tablut.pyx":1118
+  /* "tablut.pyx":1116
  *     st = get_time()
  *     AshtonTablut.check_white_eat(g.board(), 0)
  *     print("White eat check: {0} ms".format(1000*(get_time()-st)))             # <<<<<<<<<<<<<<
  * 
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_White_eat_check_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_White_eat_check_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -18151,52 +18089,52 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1120
+  /* "tablut.pyx":1118
  *     print("White eat check: {0} ms".format(1000*(get_time()-st)))
  * 
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1120, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1120, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1120, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1120, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 1120, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__9, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1120, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__9, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_fake_board = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "tablut.pyx":1122
+  /* "tablut.pyx":1120
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18226,14 +18164,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1123
+  /* "tablut.pyx":1121
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1123, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18263,14 +18201,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1124
+  /* "tablut.pyx":1122
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1124, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18300,14 +18238,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1125
+  /* "tablut.pyx":1123
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1125, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18337,14 +18275,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1126
+  /* "tablut.pyx":1124
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1126, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18374,14 +18312,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1127
+  /* "tablut.pyx":1125
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1127, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18411,14 +18349,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1128
+  /* "tablut.pyx":1126
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1128, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18448,14 +18386,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1129
+  /* "tablut.pyx":1127
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1129, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18485,14 +18423,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1130
+  /* "tablut.pyx":1128
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1130, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18522,14 +18460,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1122
+  /* "tablut.pyx":1120
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  */
-  __pyx_t_12 = PyList_New(9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_t_12 = PyList_New(9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_GIVEREF(__pyx_t_3);
   PyList_SET_ITEM(__pyx_t_12, 0, __pyx_t_3);
@@ -18558,54 +18496,54 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_9 = 0;
   __pyx_t_10 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_12);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_12);
   __pyx_t_12 = 0;
 
-  /* "tablut.pyx":1130
+  /* "tablut.pyx":1128
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_12 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1130, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1130, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 1130, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 1128, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":1122
+  /* "tablut.pyx":1120
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  */
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, __pyx_t_12); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, __pyx_t_12); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__11, __pyx_t_10) < 0)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__11, __pyx_t_10) < 0)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":1132
+  /* "tablut.pyx":1130
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18635,14 +18573,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1133
+  /* "tablut.pyx":1131
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [1, 0, 1, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1133, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18672,14 +18610,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1134
+  /* "tablut.pyx":1132
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [1, 0, 1, 0, 0, 0, 0, 0, 0],
  *                               [1, 0, 0, 1, 0, 1, 0, 1, 1],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1134, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18709,14 +18647,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1135
+  /* "tablut.pyx":1133
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [1, 0, 1, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [1, 0, 0, 1, 0, 1, 0, 1, 1],
  *                               [1, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1135, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -18746,14 +18684,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1136
+  /* "tablut.pyx":1134
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [1, 0, 1, 0, 0, 0, 0, 0, 0],
  *                               [1, 0, 0, 1, 0, 1, 0, 1, 1],             # <<<<<<<<<<<<<<
  *                               [1, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 1, 1, 0, 0, 0, 0, 0],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1136, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -18783,14 +18721,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":1137
+  /* "tablut.pyx":1135
  *                               [1, 0, 1, 0, 0, 0, 0, 0, 0],
  *                               [1, 0, 0, 1, 0, 1, 0, 1, 1],
  *                               [1, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 1, 1, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1137, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -18820,14 +18758,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1138
+  /* "tablut.pyx":1136
  *                               [1, 0, 0, 1, 0, 1, 0, 1, 1],
  *                               [1, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 1, 1, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1138, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18857,14 +18795,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1139
+  /* "tablut.pyx":1137
  *                               [1, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 1, 1, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1139, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18894,14 +18832,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1140
+  /* "tablut.pyx":1138
  *                               [0, 0, 1, 1, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1140, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -18931,14 +18869,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1132
+  /* "tablut.pyx":1130
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_10);
   PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_10);
@@ -18967,54 +18905,54 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_6 = 0;
   __pyx_t_5 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "tablut.pyx":1140
+  /* "tablut.pyx":1138
  *                               [0, 0, 1, 1, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1140, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1140, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 1140, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 1138, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "tablut.pyx":1132
+  /* "tablut.pyx":1130
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__12, __pyx_t_5) < 0)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__12, __pyx_t_5) < 0)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "tablut.pyx":1142
+  /* "tablut.pyx":1140
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19044,14 +18982,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1143
+  /* "tablut.pyx":1141
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1143, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19081,14 +19019,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1144
+  /* "tablut.pyx":1142
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_12 = PyList_New(9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1144, __pyx_L1_error)
+  __pyx_t_12 = PyList_New(9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19118,14 +19056,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_12, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1145
+  /* "tablut.pyx":1143
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1145, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19155,14 +19093,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1146
+  /* "tablut.pyx":1144
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1146, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19192,14 +19130,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1147
+  /* "tablut.pyx":1145
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1147, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19229,14 +19167,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1148
+  /* "tablut.pyx":1146
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1148, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19266,14 +19204,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1149
+  /* "tablut.pyx":1147
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1149, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19303,14 +19241,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1150
+  /* "tablut.pyx":1148
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,3] = whiteConstraints
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1150, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -19340,14 +19278,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":1142
+  /* "tablut.pyx":1140
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_5);
   PyList_SET_ITEM(__pyx_t_10, 0, __pyx_t_5);
@@ -19376,60 +19314,60 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_9 = 0;
   __pyx_t_1 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "tablut.pyx":1150
+  /* "tablut.pyx":1148
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,3] = whiteConstraints
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1150, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1150, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 1150, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 1148, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1142
+  /* "tablut.pyx":1140
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__13, __pyx_t_1) < 0)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__13, __pyx_t_1) < 0)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1152
+  /* "tablut.pyx":1150
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,3] = whiteConstraints             # <<<<<<<<<<<<<<
  * 
  *     fake_state = AshtonTablut.parse_board(fake_board, 'W', 21, OldSchoolHeuristicFunction())
  */
-  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__14, ((PyObject *)__pyx_v_6tablut_whiteConstraints)) < 0)) __PYX_ERR(0, 1152, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_fake_board, __pyx_tuple__14, ((PyObject *)__pyx_v_6tablut_whiteConstraints)) < 0)) __PYX_ERR(0, 1150, __pyx_L1_error)
 
-  /* "tablut.pyx":1154
+  /* "tablut.pyx":1152
  *     fake_board[0,:,:,3] = whiteConstraints
  * 
  *     fake_state = AshtonTablut.parse_board(fake_board, 'W', 21, OldSchoolHeuristicFunction())             # <<<<<<<<<<<<<<
  * 
  *     print(fake_state.actions())
  */
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_n_s_parse_board); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1154, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_n_s_parse_board); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_11 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_OldSchoolHeuristicFunction)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1154, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_OldSchoolHeuristicFunction)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_t_3 = NULL;
   __pyx_t_13 = 0;
@@ -19446,7 +19384,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_10)) {
     PyObject *__pyx_temp[5] = {__pyx_t_3, __pyx_v_fake_board, __pyx_n_u_W, __pyx_int_21, __pyx_t_11};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_13, 4+__pyx_t_13); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1154, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_13, 4+__pyx_t_13); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1152, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -19455,14 +19393,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
     PyObject *__pyx_temp[5] = {__pyx_t_3, __pyx_v_fake_board, __pyx_n_u_W, __pyx_int_21, __pyx_t_11};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_13, 4+__pyx_t_13); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1154, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_13, 4+__pyx_t_13); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1152, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(4+__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1154, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(4+__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1152, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -19479,23 +19417,23 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_GIVEREF(__pyx_t_11);
     PyTuple_SET_ITEM(__pyx_t_9, 3+__pyx_t_13, __pyx_t_11);
     __pyx_t_11 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1154, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1152, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 1154, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 1152, __pyx_L1_error)
   __pyx_v_fake_state = ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1156
+  /* "tablut.pyx":1154
  *     fake_state = AshtonTablut.parse_board(fake_board, 'W', 21, OldSchoolHeuristicFunction())
  * 
  *     print(fake_state.actions())             # <<<<<<<<<<<<<<
  * 
  *     st = get_time()
  */
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_fake_state), __pyx_n_s_actions); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1156, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_fake_state), __pyx_n_s_actions); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
@@ -19509,15 +19447,15 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   }
   __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1156, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1156, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":1158
+  /* "tablut.pyx":1156
  *     print(fake_state.actions())
  * 
  *     st = get_time()             # <<<<<<<<<<<<<<
@@ -19526,7 +19464,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
  */
   __pyx_v_st = __pyx_f_6tablut_get_time();
 
-  /* "tablut.pyx":1159
+  /* "tablut.pyx":1157
  * 
  *     st = get_time()
  *     get_time()             # <<<<<<<<<<<<<<
@@ -19535,16 +19473,16 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
  */
   (void)(__pyx_f_6tablut_get_time());
 
-  /* "tablut.pyx":1160
+  /* "tablut.pyx":1158
  *     st = get_time()
  *     get_time()
  *     print("Time: {0} ms".format(1000*(get_time()-st)))             # <<<<<<<<<<<<<<
  * 
  *     #st = get_time()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Time_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1160, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Time_0_ms, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_9 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1160, __pyx_L1_error)
+  __pyx_t_9 = PyFloat_FromDouble((1000.0 * (__pyx_f_6tablut_get_time() - __pyx_v_st))); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_11 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -19559,57 +19497,57 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_t_10 = (__pyx_t_11) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_11, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1160, __pyx_L1_error)
+  if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1160, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1170
+  /* "tablut.pyx":1168
  *     #print("Time: {0} ms".format(1000*(get_time()-st)))
  * 
  *     search = Search()             # <<<<<<<<<<<<<<
  *     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
  *                     state=fake_state, initial_cutoff_depth=3, cutoff_time=5)
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_Search)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1170, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_6tablut_Search)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_search = ((struct __pyx_obj_6tablut_Search *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1171
+  /* "tablut.pyx":1169
  * 
  *     search = Search()
  *     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(             # <<<<<<<<<<<<<<
  *                     state=fake_state, initial_cutoff_depth=3, cutoff_time=5)
  *     best_action = AshtonTablut.num_to_coords(best_action)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_search), __pyx_n_s_iterative_deepening_search); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1171, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_search), __pyx_n_s_iterative_deepening_search); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "tablut.pyx":1172
+  /* "tablut.pyx":1170
  *     search = Search()
  *     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
  *                     state=fake_state, initial_cutoff_depth=3, cutoff_time=5)             # <<<<<<<<<<<<<<
  *     best_action = AshtonTablut.num_to_coords(best_action)
  *     print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(fake_state.to_move(), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, 0))
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1172, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_state, ((PyObject *)__pyx_v_fake_state)) < 0) __PYX_ERR(0, 1172, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_initial_cutoff_depth, __pyx_int_3) < 0) __PYX_ERR(0, 1172, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_cutoff_time, __pyx_int_5) < 0) __PYX_ERR(0, 1172, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_state, ((PyObject *)__pyx_v_fake_state)) < 0) __PYX_ERR(0, 1170, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_initial_cutoff_depth, __pyx_int_3) < 0) __PYX_ERR(0, 1170, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_cutoff_time, __pyx_int_5) < 0) __PYX_ERR(0, 1170, __pyx_L1_error)
 
-  /* "tablut.pyx":1171
+  /* "tablut.pyx":1169
  * 
  *     search = Search()
  *     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(             # <<<<<<<<<<<<<<
  *                     state=fake_state, initial_cutoff_depth=3, cutoff_time=5)
  *     best_action = AshtonTablut.num_to_coords(best_action)
  */
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1171, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -19619,7 +19557,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
     if (unlikely(size != 6)) {
       if (size > 6) __Pyx_RaiseTooManyValuesError(6);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 1171, __pyx_L1_error)
+      __PYX_ERR(0, 1169, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -19648,7 +19586,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
       Py_ssize_t i;
       PyObject** temps[6] = {&__pyx_t_10,&__pyx_t_1,&__pyx_t_11,&__pyx_t_3,&__pyx_t_8,&__pyx_t_7};
       for (i=0; i < 6; i++) {
-        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 1171, __pyx_L1_error)
+        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 1169, __pyx_L1_error)
         __Pyx_GOTREF(item);
         *(temps[i]) = item;
       }
@@ -19658,7 +19596,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   } else {
     Py_ssize_t index = -1;
     PyObject** temps[6] = {&__pyx_t_10,&__pyx_t_1,&__pyx_t_11,&__pyx_t_3,&__pyx_t_8,&__pyx_t_7};
-    __pyx_t_6 = PyObject_GetIter(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1171, __pyx_L1_error)
+    __pyx_t_6 = PyObject_GetIter(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __pyx_t_14 = Py_TYPE(__pyx_t_6)->tp_iternext;
@@ -19667,7 +19605,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_GOTREF(item);
       *(temps[index]) = item;
     }
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_14(__pyx_t_6), 6) < 0) __PYX_ERR(0, 1171, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_14(__pyx_t_6), 6) < 0) __PYX_ERR(0, 1169, __pyx_L1_error)
     __pyx_t_14 = NULL;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     goto __pyx_L4_unpacking_done;
@@ -19675,7 +19613,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_14 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 1171, __pyx_L1_error)
+    __PYX_ERR(0, 1169, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
   __pyx_v_best_next_state = __pyx_t_10;
@@ -19691,14 +19629,14 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   __pyx_v_search_time = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "tablut.pyx":1173
+  /* "tablut.pyx":1171
  *     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
  *                     state=fake_state, initial_cutoff_depth=3, cutoff_time=5)
  *     best_action = AshtonTablut.num_to_coords(best_action)             # <<<<<<<<<<<<<<
  *     print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(fake_state.to_move(), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, 0))
  * 
  */
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_n_s_num_to_coords); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1173, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6tablut_AshtonTablut), __pyx_n_s_num_to_coords); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_8 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -19712,28 +19650,28 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   }
   __pyx_t_9 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, __pyx_v_best_action) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_best_action);
   __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1173, __pyx_L1_error)
+  if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF_SET(__pyx_v_best_action, __pyx_t_9);
   __pyx_t_9 = 0;
 
-  /* "tablut.pyx":1174
+  /* "tablut.pyx":1172
  *                     state=fake_state, initial_cutoff_depth=3, cutoff_time=5)
  *     best_action = AshtonTablut.num_to_coords(best_action)
  *     print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(fake_state.to_move(), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, 0))             # <<<<<<<<<<<<<<
  * 
- *     fake_state.display()
+ *     print(fake_state.display())
  */
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Game_move_0_1_2_Search_time_3_Ma, __pyx_n_s_format); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Game_move_0_1_2_Search_time_3_Ma, __pyx_n_s_format); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_fake_state->__pyx_vtab)->to_move(__pyx_v_fake_state, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_8 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_fake_state->__pyx_vtab)->to_move(__pyx_v_fake_state, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_best_action, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_best_action, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_best_action, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_best_action, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -19741,11 +19679,11 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_11);
   __pyx_t_3 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_best_action, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_best_action, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_best_action, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_best_action, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_11);
   PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_11);
@@ -19768,7 +19706,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_7)) {
     PyObject *__pyx_temp[9] = {__pyx_t_3, __pyx_t_8, __pyx_t_1, __pyx_t_10, __pyx_v_search_time, __pyx_v_max_depth, __pyx_v_nodes_explored, __pyx_v_best_score, __pyx_int_0};
-    __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_13, 8+__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1174, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_13, 8+__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1172, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -19779,7 +19717,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
     PyObject *__pyx_temp[9] = {__pyx_t_3, __pyx_t_8, __pyx_t_1, __pyx_t_10, __pyx_v_search_time, __pyx_v_max_depth, __pyx_v_nodes_explored, __pyx_v_best_score, __pyx_int_0};
-    __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_13, 8+__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1174, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_13, 8+__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1172, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -19788,7 +19726,7 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   } else
   #endif
   {
-    __pyx_t_11 = PyTuple_New(8+__pyx_t_13); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1174, __pyx_L1_error)
+    __pyx_t_11 = PyTuple_New(8+__pyx_t_13); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1172, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -19817,23 +19755,23 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
     __pyx_t_8 = 0;
     __pyx_t_1 = 0;
     __pyx_t_10 = 0;
-    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_11, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1174, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_11, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1172, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "tablut.pyx":1176
+  /* "tablut.pyx":1174
  *     print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(fake_state.to_move(), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, 0))
  * 
- *     fake_state.display()             # <<<<<<<<<<<<<<
+ *     print(fake_state.display())             # <<<<<<<<<<<<<<
  * 
  */
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_fake_state), __pyx_n_s_display); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1176, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_fake_state), __pyx_n_s_display); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_11 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -19847,12 +19785,15 @@ static PyObject *__pyx_pf_6tablut_4test(CYTHON_UNUSED PyObject *__pyx_self) {
   }
   __pyx_t_7 = (__pyx_t_11) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_11) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1176, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":1099
+  /* "tablut.pyx":1097
  * 
  * #------------------------------ Test ---------------------------------------------------------
  * def test():             # <<<<<<<<<<<<<<
@@ -38551,7 +38492,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_allocate_tensors, __pyx_k_allocate_tensors, sizeof(__pyx_k_allocate_tensors), 0, 0, 1, 1},
   {&__pyx_n_s_alpha, __pyx_k_alpha, sizeof(__pyx_k_alpha), 0, 0, 1, 1},
   {&__pyx_n_s_array, __pyx_k_array, sizeof(__pyx_k_array), 0, 0, 1, 1},
-  {&__pyx_n_s_astype, __pyx_k_astype, sizeof(__pyx_k_astype), 0, 0, 1, 1},
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_batch_size, __pyx_k_batch_size, sizeof(__pyx_k_batch_size), 0, 0, 1, 1},
   {&__pyx_n_s_best_action, __pyx_k_best_action, sizeof(__pyx_k_best_action), 0, 0, 1, 1},
@@ -38620,7 +38560,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_initialized, __pyx_k_initialized, sizeof(__pyx_k_initialized), 0, 0, 1, 1},
   {&__pyx_n_s_insert, __pyx_k_insert, sizeof(__pyx_k_insert), 0, 0, 1, 1},
   {&__pyx_n_s_int32, __pyx_k_int32, sizeof(__pyx_k_int32), 0, 0, 1, 1},
-  {&__pyx_n_s_int8, __pyx_k_int8, sizeof(__pyx_k_int8), 0, 0, 1, 1},
   {&__pyx_n_s_invoke, __pyx_k_invoke, sizeof(__pyx_k_invoke), 0, 0, 1, 1},
   {&__pyx_n_s_isfile, __pyx_k_isfile, sizeof(__pyx_k_isfile), 0, 0, 1, 1},
   {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
@@ -38651,6 +38590,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ndim, __pyx_k_ndim, sizeof(__pyx_k_ndim), 0, 0, 1, 1},
   {&__pyx_n_s_network_input_shape, __pyx_k_network_input_shape, sizeof(__pyx_k_network_input_shape), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
+  {&__pyx_n_s_new_games_per_epoch, __pyx_k_new_games_per_epoch, sizeof(__pyx_k_new_games_per_epoch), 0, 0, 1, 1},
   {&__pyx_n_s_next_state, __pyx_k_next_state, sizeof(__pyx_k_next_state), 0, 0, 1, 1},
   {&__pyx_n_s_next_store, __pyx_k_next_store, sizeof(__pyx_k_next_store), 0, 0, 1, 1},
   {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
@@ -38697,7 +38637,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_random, __pyx_k_random, sizeof(__pyx_k_random), 0, 0, 1, 1},
   {&__pyx_n_s_random_player, __pyx_k_random_player, sizeof(__pyx_k_random_player), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
-  {&__pyx_n_s_ravel, __pyx_k_ravel, sizeof(__pyx_k_ravel), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
@@ -38760,10 +38699,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 313, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 47, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 669, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 1104, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(2, 109, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(3, 884, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 133, __pyx_L1_error)
@@ -38843,83 +38782,83 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "tablut.pyx":870
+  /* "tablut.pyx":871
  * 
  *     def __init__(self):
  *         self.actions = array.array('i')             # <<<<<<<<<<<<<<
  *         self.utils = array.array('f')
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_u_i); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 870, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_u_i); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "tablut.pyx":871
+  /* "tablut.pyx":872
  *     def __init__(self):
  *         self.actions = array.array('i')
  *         self.utils = array.array('f')             # <<<<<<<<<<<<<<
  * 
  *     cpdef add(self, int action, float value):
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_u_f); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 871, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_u_f); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 872, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "tablut.pyx":1120
+  /* "tablut.pyx":1118
  *     print("White eat check: {0} ms".format(1000*(get_time()-st)))
  * 
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_tuple_); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 1120, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_tuple_); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 1118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "tablut.pyx":1122
+  /* "tablut.pyx":1120
  *     fake_board = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  *     fake_board[0,:,:,0] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 1, 0, 0],
  */
-  __pyx_slice__10 = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice__10)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_slice__10 = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice__10)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__10);
   __Pyx_GIVEREF(__pyx_slice__10);
-  __pyx_tuple__11 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_0); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 1122, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_0); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 1120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "tablut.pyx":1132
+  /* "tablut.pyx":1130
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,1] = np.array([[0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__12 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_1); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 1132, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_1); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 1130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "tablut.pyx":1142
+  /* "tablut.pyx":1140
  *                               [0, 0, 0, 1, 1, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,2] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__13 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_2); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 1142, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_2); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 1140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "tablut.pyx":1152
+  /* "tablut.pyx":1150
  *                               [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  *     fake_board[0,:,:,3] = whiteConstraints             # <<<<<<<<<<<<<<
  * 
  *     fake_state = AshtonTablut.parse_board(fake_board, 'W', 21, OldSchoolHeuristicFunction())
  */
-  __pyx_tuple__14 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_3); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 1152, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(4, __pyx_int_0, __pyx_slice__10, __pyx_slice__10, __pyx_int_3); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 1150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
@@ -39127,7 +39066,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__33);
 
   /* "tablut.pyx":30
- * ctypedef signed char DTYPE_t
+ * ctypedef float DTYPE_t
  * 
  * def init_rand():             # <<<<<<<<<<<<<<
  *     cdef long int seed = <long int>get_time()
@@ -39150,274 +39089,274 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__37);
   __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_init, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 38, __pyx_L1_error)
 
-  /* "tablut.pyx":114
+  /* "tablut.pyx":115
  * # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
  * # Maschere speciali per la verifica delle mosse attuabili dal nero
  * cdef np.ndarray blackConstraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_tuple__39 = PyTuple_Pack(4, __pyx_int_9, __pyx_int_9, __pyx_int_9, __pyx_int_9); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(4, __pyx_int_9, __pyx_int_9, __pyx_int_9, __pyx_int_9); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_tuple__39); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_tuple__39); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
 
-  /* "tablut.pyx":116
+  /* "tablut.pyx":117
  * cdef np.ndarray blackConstraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__41 = PyTuple_Pack(2, __pyx_slice__10, __pyx_slice__10); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(2, __pyx_slice__10, __pyx_slice__10); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
 
-  /* "tablut.pyx":126
+  /* "tablut.pyx":127
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_slice__42 = PySlice_New(__pyx_int_3, __pyx_int_6, Py_None); if (unlikely(!__pyx_slice__42)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_slice__42 = PySlice_New(__pyx_int_3, __pyx_int_6, Py_None); if (unlikely(!__pyx_slice__42)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__42);
   __Pyx_GIVEREF(__pyx_slice__42);
-  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_int_0, __pyx_slice__42); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_int_0, __pyx_slice__42); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
 
-  /* "tablut.pyx":136
+  /* "tablut.pyx":137
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__44 = PyTuple_Pack(2, __pyx_int_1, __pyx_int_4); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_tuple__44 = PyTuple_Pack(2, __pyx_int_1, __pyx_int_4); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__44);
   __Pyx_GIVEREF(__pyx_tuple__44);
 
-  /* "tablut.pyx":146
+  /* "tablut.pyx":147
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__45 = PyTuple_Pack(2, __pyx_int_8, __pyx_slice__42); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_tuple__45 = PyTuple_Pack(2, __pyx_int_8, __pyx_slice__42); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__45);
   __Pyx_GIVEREF(__pyx_tuple__45);
 
-  /* "tablut.pyx":156
+  /* "tablut.pyx":157
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__46 = PyTuple_Pack(2, __pyx_int_7, __pyx_int_4); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(2, __pyx_int_7, __pyx_int_4); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
 
-  /* "tablut.pyx":166
+  /* "tablut.pyx":167
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__47 = PyTuple_Pack(2, __pyx_slice__42, __pyx_int_0); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_tuple__47 = PyTuple_Pack(2, __pyx_slice__42, __pyx_int_0); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
 
-  /* "tablut.pyx":176
+  /* "tablut.pyx":177
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__48 = PyTuple_Pack(2, __pyx_int_4, __pyx_int_1); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_tuple__48 = PyTuple_Pack(2, __pyx_int_4, __pyx_int_1); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__48);
   __Pyx_GIVEREF(__pyx_tuple__48);
 
-  /* "tablut.pyx":186
+  /* "tablut.pyx":187
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__49 = PyTuple_Pack(2, __pyx_slice__42, __pyx_int_8); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(2, __pyx_slice__42, __pyx_int_8); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
 
-  /* "tablut.pyx":196
+  /* "tablut.pyx":197
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_tuple__50 = PyTuple_Pack(2, __pyx_int_4, __pyx_int_7); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(2, __pyx_int_4, __pyx_int_7); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__50);
   __Pyx_GIVEREF(__pyx_tuple__50);
 
-  /* "tablut.pyx":313
+  /* "tablut.pyx":314
  * 
  *     @staticmethod
  *     def get_initial(heuristic=None):             # <<<<<<<<<<<<<<
  *         return AshtonTablut(initialBoard, 'W', 0, heuristic)
  * 
  */
-  __pyx_tuple__51 = PyTuple_Pack(1, __pyx_n_s_heuristic); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_tuple__51 = PyTuple_Pack(1, __pyx_n_s_heuristic); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__51);
   __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_get_initial, 313, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_get_initial, 314, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 314, __pyx_L1_error)
 
-  /* "tablut.pyx":317
+  /* "tablut.pyx":318
  * 
  *     @staticmethod
  *     def get_initial_board():             # <<<<<<<<<<<<<<
  *         return initialBoard.copy()
  * 
  */
-  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_get_initial_board, 317, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_get_initial_board, 318, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 318, __pyx_L1_error)
 
-  /* "tablut.pyx":321
+  /* "tablut.pyx":322
  * 
  *     @staticmethod
  *     def parse_board(board, player, turn, heuristic):             # <<<<<<<<<<<<<<
  *         if board.shape == (1, 9, 9, 4):
  *             return AshtonTablut(board, player[0], turn, heuristic)
  */
-  __pyx_tuple__54 = PyTuple_Pack(4, __pyx_n_s_board, __pyx_n_s_player, __pyx_n_s_turn, __pyx_n_s_heuristic); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 321, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(4, __pyx_n_s_board, __pyx_n_s_player, __pyx_n_s_turn, __pyx_n_s_heuristic); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__54);
   __Pyx_GIVEREF(__pyx_tuple__54);
-  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_parse_board, 321, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 321, __pyx_L1_error)
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_parse_board, 322, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 322, __pyx_L1_error)
 
-  /* "tablut.pyx":327
+  /* "tablut.pyx":328
  * 
  *     @staticmethod
  *     def coords_to_num(l,k,j,i):             # <<<<<<<<<<<<<<
  *         return coords_to_number(l,k,j,i)
  * 
  */
-  __pyx_tuple__56 = PyTuple_Pack(4, __pyx_n_s_l, __pyx_n_s_k, __pyx_n_s_j, __pyx_n_s_i); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_tuple__56 = PyTuple_Pack(4, __pyx_n_s_l, __pyx_n_s_k, __pyx_n_s_j, __pyx_n_s_i); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__56);
   __Pyx_GIVEREF(__pyx_tuple__56);
-  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_coords_to_num, 327, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_coords_to_num, 328, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 328, __pyx_L1_error)
 
-  /* "tablut.pyx":331
+  /* "tablut.pyx":332
  * 
  *     @staticmethod
  *     def num_to_coords(number):             # <<<<<<<<<<<<<<
  *         return number_to_coords(number)
  * 
  */
-  __pyx_tuple__58 = PyTuple_Pack(1, __pyx_n_s_number); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_tuple__58 = PyTuple_Pack(1, __pyx_n_s_number); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__58);
   __Pyx_GIVEREF(__pyx_tuple__58);
-  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_num_to_coords, 331, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_num_to_coords, 332, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 332, __pyx_L1_error)
 
-  /* "tablut.pyx":599
+  /* "tablut.pyx":600
  *         return -1.0, 1.0
  * 
  *     def actions(self):             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[int, ndim=1] actions = np.zeros((self._moves_length, ), dtype=np.int32)
  * 
  */
-  __pyx_tuple__60 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_actions, __pyx_n_s_i); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __pyx_tuple__60 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_actions, __pyx_n_s_i); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 600, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__60);
   __Pyx_GIVEREF(__pyx_tuple__60);
-  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_actions, 599, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_actions, 600, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 600, __pyx_L1_error)
 
-  /* "tablut.pyx":610
+  /* "tablut.pyx":611
  *         return self._moves_length
  * 
  *     cpdef result(self, int move):             # <<<<<<<<<<<<<<
  *         """Return the state that results from making a move from a state."""
  *         cdef unicode next_to_move
  */
-  __pyx_tuple__62 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_move, __pyx_n_s_move); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_tuple__62 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_move, __pyx_n_s_move); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(0, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__62);
   __Pyx_GIVEREF(__pyx_tuple__62);
-  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_result, 610, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_result, 611, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 611, __pyx_L1_error)
 
-  /* "tablut.pyx":645
+  /* "tablut.pyx":646
  *         return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)
  * 
  *     cpdef int utility(self, unicode player):             # <<<<<<<<<<<<<<
  *         """A state is terminal if it is won or there are no empty squares."""
  *         return self._utility if player == 'W' else -self._utility
  */
-  __pyx_tuple__64 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_player); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(0, 645, __pyx_L1_error)
+  __pyx_tuple__64 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_player); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__64);
   __Pyx_GIVEREF(__pyx_tuple__64);
-  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_utility, 645, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(0, 645, __pyx_L1_error)
+  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_utility, 646, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(0, 646, __pyx_L1_error)
 
-  /* "tablut.pyx":649
+  /* "tablut.pyx":650
  *         return self._utility if player == 'W' else -self._utility
  * 
  *     cpdef bint terminal_test(self):             # <<<<<<<<<<<<<<
  *         """A state is terminal if it is won or there are no empty squares."""
  *         return self._utility <= -1 or self._utility >= 1
  */
-  __pyx_tuple__66 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(0, 649, __pyx_L1_error)
+  __pyx_tuple__66 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__66);
   __Pyx_GIVEREF(__pyx_tuple__66);
-  __pyx_codeobj__67 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__66, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_terminal_test, 649, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__67)) __PYX_ERR(0, 649, __pyx_L1_error)
+  __pyx_codeobj__67 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__66, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_terminal_test, 650, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__67)) __PYX_ERR(0, 650, __pyx_L1_error)
 
-  /* "tablut.pyx":653
+  /* "tablut.pyx":654
  *         return self._utility <= -1 or self._utility >= 1
  * 
  *     cpdef to_move(self):             # <<<<<<<<<<<<<<
  *         """Return the player whose move it is in this state."""
  *         return self._to_move
  */
-  __pyx_tuple__68 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(0, 653, __pyx_L1_error)
+  __pyx_tuple__68 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__68);
   __Pyx_GIVEREF(__pyx_tuple__68);
-  __pyx_codeobj__69 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__68, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_to_move, 653, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__69)) __PYX_ERR(0, 653, __pyx_L1_error)
+  __pyx_codeobj__69 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__68, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_to_move, 654, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__69)) __PYX_ERR(0, 654, __pyx_L1_error)
 
-  /* "tablut.pyx":657
+  /* "tablut.pyx":658
  *         return self._to_move
  * 
  *     cpdef board(self):             # <<<<<<<<<<<<<<
  *         return self._board
  * 
  */
-  __pyx_tuple__70 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_tuple__70 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__70);
   __Pyx_GIVEREF(__pyx_tuple__70);
-  __pyx_codeobj__71 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__70, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_board, 657, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__71)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_codeobj__71 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__70, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_board, 658, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__71)) __PYX_ERR(0, 658, __pyx_L1_error)
 
-  /* "tablut.pyx":660
+  /* "tablut.pyx":661
  *         return self._board
  * 
  *     cpdef turn(self):             # <<<<<<<<<<<<<<
  *         return self._turn
  * 
  */
-  __pyx_tuple__72 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_tuple__72 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(0, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__72);
   __Pyx_GIVEREF(__pyx_tuple__72);
-  __pyx_codeobj__73 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__72, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_turn, 660, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__73)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_codeobj__73 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__72, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_turn, 661, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__73)) __PYX_ERR(0, 661, __pyx_L1_error)
 
-  /* "tablut.pyx":666
+  /* "tablut.pyx":667
  *         return self._heuristic.evalutate(parent_state, self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
  *         """Print or otherwise display the state."""
  *         cdef np.ndarray[DTYPE_t, ndim = 3] board = np.moveaxis(self._board[0], -1, 0)
  */
-  __pyx_tuple__74 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_board); if (unlikely(!__pyx_tuple__74)) __PYX_ERR(0, 666, __pyx_L1_error)
+  __pyx_tuple__74 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_board); if (unlikely(!__pyx_tuple__74)) __PYX_ERR(0, 667, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__74);
   __Pyx_GIVEREF(__pyx_tuple__74);
-  __pyx_codeobj__75 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__74, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_display, 666, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__75)) __PYX_ERR(0, 666, __pyx_L1_error)
+  __pyx_codeobj__75 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__74, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_display, 667, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__75)) __PYX_ERR(0, 667, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -39440,41 +39379,41 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__78);
   __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__78, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(1, 3, __pyx_L1_error)
 
-  /* "tablut.pyx":674
+  /* "tablut.pyx":675
  * ### Players for Games
  * 
  * def random_player(AshtonTablut game):             # <<<<<<<<<<<<<<
  *     """A player that chooses a legal move at random."""
  *     cdef int action
  */
-  __pyx_tuple__80 = PyTuple_Pack(5, __pyx_n_s_game, __pyx_n_s_action, __pyx_n_s_index, __pyx_n_s_actions_length, __pyx_n_s_actions); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_tuple__80 = PyTuple_Pack(5, __pyx_n_s_game, __pyx_n_s_action, __pyx_n_s_index, __pyx_n_s_actions_length, __pyx_n_s_actions); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(0, 675, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__80);
   __Pyx_GIVEREF(__pyx_tuple__80);
-  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_random_player, 674, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_random_player, 675, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(0, 675, __pyx_L1_error)
 
-  /* "tablut.pyx":756
+  /* "tablut.pyx":757
  *         return v
  * 
  *     def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
  *         """Search game to determine best action; use alpha-beta pruning.
  *         This version cuts off search using time and uses an evaluation function."""
  */
-  __pyx_tuple__82 = PyTuple_Pack(15, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_cutoff_depth, __pyx_n_s_cutoff_time, __pyx_n_s_player, __pyx_n_s_best_score, __pyx_n_s_beta, __pyx_n_s_best_action, __pyx_n_s_best_next_state, __pyx_n_s_next_state, __pyx_n_s_moves, __pyx_n_s_moves_length, __pyx_n_s_v, __pyx_n_s_a, __pyx_n_s_i); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(0, 756, __pyx_L1_error)
+  __pyx_tuple__82 = PyTuple_Pack(15, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_cutoff_depth, __pyx_n_s_cutoff_time, __pyx_n_s_player, __pyx_n_s_best_score, __pyx_n_s_beta, __pyx_n_s_best_action, __pyx_n_s_best_next_state, __pyx_n_s_next_state, __pyx_n_s_moves, __pyx_n_s_moves_length, __pyx_n_s_v, __pyx_n_s_a, __pyx_n_s_i); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(0, 757, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__82);
   __Pyx_GIVEREF(__pyx_tuple__82);
-  __pyx_codeobj__83 = (PyObject*)__Pyx_PyCode_New(4, 0, 15, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_cutoff_search, 756, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__83)) __PYX_ERR(0, 756, __pyx_L1_error)
+  __pyx_codeobj__83 = (PyObject*)__Pyx_PyCode_New(4, 0, 15, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_cutoff_search, 757, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__83)) __PYX_ERR(0, 757, __pyx_L1_error)
 
-  /* "tablut.pyx":798
+  /* "tablut.pyx":799
  *         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
  * 
  *     def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
  *         """Search game to determine best action; use alpha-beta pruning.
  *         This version cuts off search using time and uses an evaluation function."""
  */
-  __pyx_tuple__84 = PyTuple_Pack(18, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_initial_cutoff_depth, __pyx_n_s_cutoff_time, __pyx_n_s_player, __pyx_n_s_best_score, __pyx_n_s_beta, __pyx_n_s_best_action, __pyx_n_s_moves, __pyx_n_s_moves_length, __pyx_n_s_v, __pyx_n_s_a, __pyx_n_s_store, __pyx_n_s_next_store, __pyx_n_s_tmp_best_next_state, __pyx_n_s_best_next_state, __pyx_n_s_next_state, __pyx_n_s_i); if (unlikely(!__pyx_tuple__84)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_tuple__84 = PyTuple_Pack(18, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_initial_cutoff_depth, __pyx_n_s_cutoff_time, __pyx_n_s_player, __pyx_n_s_best_score, __pyx_n_s_beta, __pyx_n_s_best_action, __pyx_n_s_moves, __pyx_n_s_moves_length, __pyx_n_s_v, __pyx_n_s_a, __pyx_n_s_store, __pyx_n_s_next_store, __pyx_n_s_tmp_best_next_state, __pyx_n_s_best_next_state, __pyx_n_s_next_state, __pyx_n_s_i); if (unlikely(!__pyx_tuple__84)) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__84);
   __Pyx_GIVEREF(__pyx_tuple__84);
-  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(4, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__84, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_iterative_deepening_search, 798, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(4, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__84, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_iterative_deepening_search, 799, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(0, 799, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -39497,29 +39436,29 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__88);
   __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "tablut.pyx":873
+  /* "tablut.pyx":874
  *         self.utils = array.array('f')
  * 
  *     cpdef add(self, int action, float value):             # <<<<<<<<<<<<<<
  *         cdef int idx = 0
  * 
  */
-  __pyx_tuple__90 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_action, __pyx_n_s_value); if (unlikely(!__pyx_tuple__90)) __PYX_ERR(0, 873, __pyx_L1_error)
+  __pyx_tuple__90 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_action, __pyx_n_s_value); if (unlikely(!__pyx_tuple__90)) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__90);
   __Pyx_GIVEREF(__pyx_tuple__90);
-  __pyx_codeobj__91 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__90, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_add, 873, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__91)) __PYX_ERR(0, 873, __pyx_L1_error)
+  __pyx_codeobj__91 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__90, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_add, 874, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__91)) __PYX_ERR(0, 874, __pyx_L1_error)
 
-  /* "tablut.pyx":882
+  /* "tablut.pyx":883
  *         self.utils.insert(idx, value)
  * 
  *     cpdef size(self):             # <<<<<<<<<<<<<<
  *         return len(self.actions)
  * 
  */
-  __pyx_tuple__92 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__92)) __PYX_ERR(0, 882, __pyx_L1_error)
+  __pyx_tuple__92 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__92)) __PYX_ERR(0, 883, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__92);
   __Pyx_GIVEREF(__pyx_tuple__92);
-  __pyx_codeobj__93 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__92, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_size, 882, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__93)) __PYX_ERR(0, 882, __pyx_L1_error)
+  __pyx_codeobj__93 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__92, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_size, 883, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__93)) __PYX_ERR(0, 883, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -39584,41 +39523,41 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__104);
   __pyx_codeobj__105 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__104, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__105)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "tablut.pyx":1012
+  /* "tablut.pyx":1013
  *         self.model_path = os.path.join(folder, filename)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
  *         if not os.path.isfile(self.model_path):
  *             return False
  */
-  __pyx_tuple__106 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_tflite_input_details, __pyx_n_s_tflite_output_details); if (unlikely(!__pyx_tuple__106)) __PYX_ERR(0, 1012, __pyx_L1_error)
+  __pyx_tuple__106 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_tflite_input_details, __pyx_n_s_tflite_output_details); if (unlikely(!__pyx_tuple__106)) __PYX_ERR(0, 1013, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__106);
   __Pyx_GIVEREF(__pyx_tuple__106);
-  __pyx_codeobj__107 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__106, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_init_tflite, 1012, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__107)) __PYX_ERR(0, 1012, __pyx_L1_error)
+  __pyx_codeobj__107 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__106, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_init_tflite, 1013, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__107)) __PYX_ERR(0, 1013, __pyx_L1_error)
 
-  /* "tablut.pyx":1033
+  /* "tablut.pyx":1034
  *         return True
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
  *         self.model_path = model_path
  * 
  */
-  __pyx_tuple__108 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_model_path); if (unlikely(!__pyx_tuple__108)) __PYX_ERR(0, 1033, __pyx_L1_error)
+  __pyx_tuple__108 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_model_path); if (unlikely(!__pyx_tuple__108)) __PYX_ERR(0, 1034, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__108);
   __Pyx_GIVEREF(__pyx_tuple__108);
-  __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_set_model_path, 1033, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(0, 1033, __pyx_L1_error)
+  __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_set_model_path, 1034, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(0, 1034, __pyx_L1_error)
 
-  /* "tablut.pyx":1036
+  /* "tablut.pyx":1037
  *         self.model_path = model_path
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
  *         return self.interpreter_initialized
  * 
  */
-  __pyx_tuple__110 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__110)) __PYX_ERR(0, 1036, __pyx_L1_error)
+  __pyx_tuple__110 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__110)) __PYX_ERR(0, 1037, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__110);
   __Pyx_GIVEREF(__pyx_tuple__110);
-  __pyx_codeobj__111 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__110, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_initialized, 1036, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__111)) __PYX_ERR(0, 1036, __pyx_L1_error)
+  __pyx_codeobj__111 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__110, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_initialized, 1037, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__111)) __PYX_ERR(0, 1037, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -39641,53 +39580,53 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__114);
   __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "tablut.pyx":1072
+  /* "tablut.pyx":1070
  *         self.neural_eval = NeuralHeuristicFunction(config)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
  *         self.neural_eval.init_tflite()
  * 
  */
-  __pyx_tuple__116 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 1072, __pyx_L1_error)
+  __pyx_tuple__116 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__116);
   __Pyx_GIVEREF(__pyx_tuple__116);
-  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__116, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_init_tflite, 1072, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(0, 1072, __pyx_L1_error)
+  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__116, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_init_tflite, 1070, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(0, 1070, __pyx_L1_error)
 
-  /* "tablut.pyx":1075
+  /* "tablut.pyx":1073
  *         self.neural_eval.init_tflite()
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
  *         return self.neural_eval.initialized()
  * 
  */
-  __pyx_tuple__118 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__118)) __PYX_ERR(0, 1075, __pyx_L1_error)
+  __pyx_tuple__118 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__118)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__118);
   __Pyx_GIVEREF(__pyx_tuple__118);
-  __pyx_codeobj__119 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__118, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_initialized, 1075, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__119)) __PYX_ERR(0, 1075, __pyx_L1_error)
+  __pyx_codeobj__119 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__118, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_initialized, 1073, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__119)) __PYX_ERR(0, 1073, __pyx_L1_error)
 
-  /* "tablut.pyx":1078
+  /* "tablut.pyx":1076
  *         return self.neural_eval.initialized()
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
  *         self.neural_eval.set_model_path(model_path)
  * 
  */
-  __pyx_tuple__120 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_model_path); if (unlikely(!__pyx_tuple__120)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  __pyx_tuple__120 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_model_path); if (unlikely(!__pyx_tuple__120)) __PYX_ERR(0, 1076, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__120);
   __Pyx_GIVEREF(__pyx_tuple__120);
-  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__120, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_set_model_path, 1078, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__120, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_set_model_path, 1076, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 1076, __pyx_L1_error)
 
-  /* "tablut.pyx":1081
+  /* "tablut.pyx":1079
  *         self.neural_eval.set_model_path(model_path)
  * 
  *     def set_alpha(self, alpha):             # <<<<<<<<<<<<<<
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  * 
  */
-  __pyx_tuple__122 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_alpha); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 1081, __pyx_L1_error)
+  __pyx_tuple__122 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_alpha); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 1079, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__122);
   __Pyx_GIVEREF(__pyx_tuple__122);
-  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_set_alpha, 1081, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 1081, __pyx_L1_error)
+  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_set_alpha, 1079, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 1079, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -39710,17 +39649,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__126);
   __pyx_codeobj__127 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__126, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__127)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "tablut.pyx":1099
+  /* "tablut.pyx":1097
  * 
  * #------------------------------ Test ---------------------------------------------------------
  * def test():             # <<<<<<<<<<<<<<
  *     cdef AshtonTablut g, fake_state
  * 
  */
-  __pyx_tuple__128 = PyTuple_Pack(11, __pyx_n_s_g, __pyx_n_s_fake_state, __pyx_n_s_st, __pyx_n_s_fake_board, __pyx_n_s_search, __pyx_n_s_best_next_state, __pyx_n_s_best_action, __pyx_n_s_best_score, __pyx_n_s_max_depth, __pyx_n_s_nodes_explored, __pyx_n_s_search_time); if (unlikely(!__pyx_tuple__128)) __PYX_ERR(0, 1099, __pyx_L1_error)
+  __pyx_tuple__128 = PyTuple_Pack(11, __pyx_n_s_g, __pyx_n_s_fake_state, __pyx_n_s_st, __pyx_n_s_fake_board, __pyx_n_s_search, __pyx_n_s_best_next_state, __pyx_n_s_best_action, __pyx_n_s_best_score, __pyx_n_s_max_depth, __pyx_n_s_nodes_explored, __pyx_n_s_search_time); if (unlikely(!__pyx_tuple__128)) __PYX_ERR(0, 1097, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__128);
   __Pyx_GIVEREF(__pyx_tuple__128);
-  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_test, 1099, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 1099, __pyx_L1_error)
+  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_test, 1097, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 1097, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Search(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
@@ -39848,11 +39787,11 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_21 = PyInt_FromLong(21); if (unlikely(!__pyx_int_21)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_32 = PyInt_FromLong(32); if (unlikely(!__pyx_int_32)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_60 = PyInt_FromLong(60); if (unlikely(!__pyx_int_60)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_64 = PyInt_FromLong(64); if (unlikely(!__pyx_int_64)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_100 = PyInt_FromLong(100); if (unlikely(!__pyx_int_100)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_512 = PyInt_FromLong(512); if (unlikely(!__pyx_int_512)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_2048 = PyInt_FromLong(2048); if (unlikely(!__pyx_int_2048)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_4096 = PyInt_FromLong(4096); if (unlikely(!__pyx_int_4096)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_6561 = PyInt_FromLong(6561); if (unlikely(!__pyx_int_6561)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_300000 = PyInt_FromLong(300000L); if (unlikely(!__pyx_int_300000)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_10000 = PyInt_FromLong(10000L); if (unlikely(!__pyx_int_10000)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_3224722 = PyInt_FromLong(3224722L); if (unlikely(!__pyx_int_3224722)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_16787844 = PyInt_FromLong(16787844L); if (unlikely(!__pyx_int_16787844)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_37840215 = PyInt_FromLong(37840215L); if (unlikely(!__pyx_int_37840215)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -39931,103 +39870,103 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6tablut_AshtonTablut.board = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch))__pyx_f_6tablut_12AshtonTablut_board;
   __pyx_vtable_6tablut_AshtonTablut.turn = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch))__pyx_f_6tablut_12AshtonTablut_turn;
   __pyx_vtable_6tablut_AshtonTablut.eval_fn = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, PyObject *))__pyx_f_6tablut_12AshtonTablut_eval_fn;
-  if (PyType_Ready(&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 273, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_AshtonTablut.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_AshtonTablut.tp_dictoffset && __pyx_type_6tablut_AshtonTablut.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_AshtonTablut.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_AshtonTablut.tp_dict, __pyx_vtabptr_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 273, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AshtonTablut, (PyObject *)&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 273, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 273, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_AshtonTablut.tp_dict, __pyx_vtabptr_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AshtonTablut, (PyObject *)&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
   __pyx_ptype_6tablut_AshtonTablut = &__pyx_type_6tablut_AshtonTablut;
   __pyx_vtabptr_6tablut_Search = &__pyx_vtable_6tablut_Search;
   __pyx_vtable_6tablut_Search.max_value = (float (*)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long))__pyx_f_6tablut_6Search_max_value;
   __pyx_vtable_6tablut_Search.min_value = (float (*)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long))__pyx_f_6tablut_6Search_min_value;
-  if (PyType_Ready(&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 687, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 688, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_Search.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_Search.tp_dictoffset && __pyx_type_6tablut_Search.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_Search.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_Search.tp_dict, __pyx_vtabptr_6tablut_Search) < 0) __PYX_ERR(0, 687, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Search, (PyObject *)&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 687, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 687, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_Search.tp_dict, __pyx_vtabptr_6tablut_Search) < 0) __PYX_ERR(0, 688, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Search, (PyObject *)&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 688, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 688, __pyx_L1_error)
   __pyx_ptype_6tablut_Search = &__pyx_type_6tablut_Search;
   __pyx_vtabptr_6tablut_ActionStore = &__pyx_vtable_6tablut_ActionStore;
   __pyx_vtable_6tablut_ActionStore.add = (PyObject *(*)(struct __pyx_obj_6tablut_ActionStore *, int, float, int __pyx_skip_dispatch))__pyx_f_6tablut_11ActionStore_add;
   __pyx_vtable_6tablut_ActionStore.size = (PyObject *(*)(struct __pyx_obj_6tablut_ActionStore *, int __pyx_skip_dispatch))__pyx_f_6tablut_11ActionStore_size;
-  if (PyType_Ready(&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_ActionStore.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_ActionStore.tp_dictoffset && __pyx_type_6tablut_ActionStore.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_ActionStore.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_ActionStore.tp_dict, __pyx_vtabptr_6tablut_ActionStore) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ActionStore, (PyObject *)&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_ActionStore.tp_dict, __pyx_vtabptr_6tablut_ActionStore) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ActionStore, (PyObject *)&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
   __pyx_ptype_6tablut_ActionStore = &__pyx_type_6tablut_ActionStore;
   __pyx_vtabptr_6tablut_HeuristicFunction = &__pyx_vtable_6tablut_HeuristicFunction;
   __pyx_vtable_6tablut_HeuristicFunction.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_17HeuristicFunction_evalutate;
-  if (PyType_Ready(&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 888, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 889, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_HeuristicFunction.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_HeuristicFunction.tp_dictoffset && __pyx_type_6tablut_HeuristicFunction.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_HeuristicFunction.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_HeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 888, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_HeuristicFunction, (PyObject *)&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 888, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 888, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_HeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 889, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_HeuristicFunction, (PyObject *)&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 889, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 889, __pyx_L1_error)
   __pyx_ptype_6tablut_HeuristicFunction = &__pyx_type_6tablut_HeuristicFunction;
   __pyx_vtabptr_6tablut_OldSchoolHeuristicFunction = &__pyx_vtable_6tablut_OldSchoolHeuristicFunction;
   __pyx_vtable_6tablut_OldSchoolHeuristicFunction.__pyx_base = *__pyx_vtabptr_6tablut_HeuristicFunction;
   __pyx_vtable_6tablut_OldSchoolHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate;
   __pyx_type_6tablut_OldSchoolHeuristicFunction.tp_base = __pyx_ptype_6tablut_HeuristicFunction;
-  if (PyType_Ready(&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 894, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_OldSchoolHeuristicFunction.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_OldSchoolHeuristicFunction.tp_dictoffset && __pyx_type_6tablut_OldSchoolHeuristicFunction.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_OldSchoolHeuristicFunction.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_OldSchoolHeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_OldSchoolHeuristicFunction, (PyObject *)&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_OldSchoolHeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 894, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_OldSchoolHeuristicFunction, (PyObject *)&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 894, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 894, __pyx_L1_error)
   __pyx_ptype_6tablut_OldSchoolHeuristicFunction = &__pyx_type_6tablut_OldSchoolHeuristicFunction;
   __pyx_vtabptr_6tablut_NeuralHeuristicFunction = &__pyx_vtable_6tablut_NeuralHeuristicFunction;
   __pyx_vtable_6tablut_NeuralHeuristicFunction.__pyx_base = *__pyx_vtabptr_6tablut_HeuristicFunction;
   __pyx_vtable_6tablut_NeuralHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_23NeuralHeuristicFunction_evalutate;
   __pyx_vtable_6tablut_NeuralHeuristicFunction.tflite_eval = (float (*)(struct __pyx_obj_6tablut_NeuralHeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval;
   __pyx_type_6tablut_NeuralHeuristicFunction.tp_base = __pyx_ptype_6tablut_HeuristicFunction;
-  if (PyType_Ready(&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 994, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 995, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_NeuralHeuristicFunction.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_NeuralHeuristicFunction.tp_dictoffset && __pyx_type_6tablut_NeuralHeuristicFunction.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_NeuralHeuristicFunction.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_NeuralHeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 994, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_NeuralHeuristicFunction, (PyObject *)&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 994, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 994, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_NeuralHeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 995, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_NeuralHeuristicFunction, (PyObject *)&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 995, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 995, __pyx_L1_error)
   __pyx_ptype_6tablut_NeuralHeuristicFunction = &__pyx_type_6tablut_NeuralHeuristicFunction;
   __pyx_vtabptr_6tablut_MixedHeuristicFunction = &__pyx_vtable_6tablut_MixedHeuristicFunction;
   __pyx_vtable_6tablut_MixedHeuristicFunction.__pyx_base = *__pyx_vtabptr_6tablut_HeuristicFunction;
   __pyx_vtable_6tablut_MixedHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_22MixedHeuristicFunction_evalutate;
   __pyx_type_6tablut_MixedHeuristicFunction.tp_base = __pyx_ptype_6tablut_HeuristicFunction;
-  if (PyType_Ready(&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1061, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1059, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_MixedHeuristicFunction.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6tablut_MixedHeuristicFunction.tp_dictoffset && __pyx_type_6tablut_MixedHeuristicFunction.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_6tablut_MixedHeuristicFunction.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_6tablut_MixedHeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1061, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MixedHeuristicFunction, (PyObject *)&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1061, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1061, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6tablut_MixedHeuristicFunction.tp_dict, __pyx_vtabptr_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1059, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MixedHeuristicFunction, (PyObject *)&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1059, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1059, __pyx_L1_error)
   __pyx_ptype_6tablut_MixedHeuristicFunction = &__pyx_type_6tablut_MixedHeuristicFunction;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
@@ -40464,20 +40403,20 @@ if (!__Pyx_RefNanny) {
   /* "tablut.pyx":27
  * 
  * # We now need to fix a datatype for our arrays.
- * DTYPE = np.int8             # <<<<<<<<<<<<<<
- * ctypedef signed char DTYPE_t
+ * DTYPE = np.float32             # <<<<<<<<<<<<<<
+ * ctypedef float DTYPE_t
  * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_int8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_float32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_DTYPE, __pyx_t_1) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "tablut.pyx":30
- * ctypedef signed char DTYPE_t
+ * ctypedef float DTYPE_t
  * 
  * def init_rand():             # <<<<<<<<<<<<<<
  *     cdef long int seed = <long int>get_time()
@@ -40523,19 +40462,19 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":101
+  /* "tablut.pyx":102
  * # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
  * 
  * cdef np.ndarray whiteConstraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40565,14 +40504,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":102
+  /* "tablut.pyx":103
  * 
  * cdef np.ndarray whiteConstraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40602,14 +40541,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":103
+  /* "tablut.pyx":104
  * cdef np.ndarray whiteConstraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40639,14 +40578,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":104
+  /* "tablut.pyx":105
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -40676,14 +40615,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_1);
 
-  /* "tablut.pyx":105
+  /* "tablut.pyx":106
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40713,14 +40652,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":106
+  /* "tablut.pyx":107
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -40750,14 +40689,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_1);
 
-  /* "tablut.pyx":107
+  /* "tablut.pyx":108
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40787,14 +40726,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":108
+  /* "tablut.pyx":109
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40824,14 +40763,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":109
+  /* "tablut.pyx":110
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * # Celle non calpestabili: citadels, trono 1 calpestabili 0
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -40861,14 +40800,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":101
+  /* "tablut.pyx":102
  * # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
  * 
  * cdef np.ndarray whiteConstraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_11, 0, __pyx_t_1);
@@ -40897,85 +40836,85 @@ if (!__Pyx_RefNanny) {
   __pyx_t_8 = 0;
   __pyx_t_9 = 0;
   __pyx_t_10 = 0;
-  __pyx_t_10 = PyTuple_New(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_11);
   PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_11);
   __pyx_t_11 = 0;
 
-  /* "tablut.pyx":109
+  /* "tablut.pyx":110
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * # Celle non calpestabili: citadels, trono 1 calpestabili 0
  */
-  __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":101
+  /* "tablut.pyx":102
  * # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
  * 
  * cdef np.ndarray whiteConstraints = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_XGOTREF(((PyObject *)__pyx_v_6tablut_whiteConstraints));
   __Pyx_DECREF_SET(__pyx_v_6tablut_whiteConstraints, ((PyArrayObject *)__pyx_t_9));
   __Pyx_GIVEREF(__pyx_t_9);
   __pyx_t_9 = 0;
 
-  /* "tablut.pyx":114
+  /* "tablut.pyx":115
  * # Rimozione di alcune citadels ((0,4), (4,0), (4,8), (8,4)): per evitare che il nero sia mangiato quando dentro alla citadels
  * # Maschere speciali per la verifica delle mosse attuabili dal nero
  * cdef np.ndarray blackConstraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_zeros); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_zeros); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__40, __pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__40, __pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (!(likely(((__pyx_t_10) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_10, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (!(likely(((__pyx_t_10) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_10, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_XGOTREF(((PyObject *)__pyx_v_6tablut_blackConstraints));
   __Pyx_DECREF_SET(__pyx_v_6tablut_blackConstraints, ((PyArrayObject *)__pyx_t_10));
   __Pyx_GIVEREF(__pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "tablut.pyx":116
+  /* "tablut.pyx":117
  * cdef np.ndarray blackConstraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41005,14 +40944,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":117
+  /* "tablut.pyx":118
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41042,14 +40981,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":118
+  /* "tablut.pyx":119
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                   [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41079,14 +41018,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":119
+  /* "tablut.pyx":120
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                   [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -41116,14 +41055,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":120
+  /* "tablut.pyx":121
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                   [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41153,14 +41092,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":121
+  /* "tablut.pyx":122
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                   [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -41190,14 +41129,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_1);
 
-  /* "tablut.pyx":122
+  /* "tablut.pyx":123
  *                                   [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41227,14 +41166,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":123
+  /* "tablut.pyx":124
  *                                   [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41264,14 +41203,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":124
+  /* "tablut.pyx":125
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41301,14 +41240,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":116
+  /* "tablut.pyx":117
  * cdef np.ndarray blackConstraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_10);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_10);
@@ -41337,54 +41276,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_5 = 0;
   __pyx_t_4 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":124
+  /* "tablut.pyx":125
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":116
+  /* "tablut.pyx":117
  * cdef np.ndarray blackConstraints = np.zeros((9, 9, 9, 9), dtype=DTYPE)
  * 
  * blackConstraints[:, :] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                   [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                   [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__41, __pyx_t_4) < 0)) __PYX_ERR(0, 116, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__41, __pyx_t_4) < 0)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":126
+  /* "tablut.pyx":127
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41414,14 +41353,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":127
+  /* "tablut.pyx":128
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41451,14 +41390,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":128
+  /* "tablut.pyx":129
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41488,14 +41427,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":129
+  /* "tablut.pyx":130
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -41525,14 +41464,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_1);
 
-  /* "tablut.pyx":130
+  /* "tablut.pyx":131
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41562,14 +41501,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":131
+  /* "tablut.pyx":132
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -41599,14 +41538,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_1);
 
-  /* "tablut.pyx":132
+  /* "tablut.pyx":133
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41636,14 +41575,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":133
+  /* "tablut.pyx":134
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41673,14 +41612,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":134
+  /* "tablut.pyx":135
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41710,14 +41649,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":126
+  /* "tablut.pyx":127
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_4);
   PyList_SET_ITEM(__pyx_t_10, 0, __pyx_t_4);
@@ -41746,54 +41685,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_8 = 0;
   __pyx_t_2 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "tablut.pyx":134
+  /* "tablut.pyx":135
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 134, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":126
+  /* "tablut.pyx":127
  *                                   [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[0, 3:6] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__43, __pyx_t_2) < 0)) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__43, __pyx_t_2) < 0)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":136
+  /* "tablut.pyx":137
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41823,14 +41762,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":137
+  /* "tablut.pyx":138
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41860,14 +41799,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":138
+  /* "tablut.pyx":139
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41897,14 +41836,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":139
+  /* "tablut.pyx":140
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -41934,14 +41873,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":140
+  /* "tablut.pyx":141
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -41971,14 +41910,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":141
+  /* "tablut.pyx":142
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -42008,14 +41947,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_1);
 
-  /* "tablut.pyx":142
+  /* "tablut.pyx":143
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42045,14 +41984,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":143
+  /* "tablut.pyx":144
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42082,14 +42021,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":144
+  /* "tablut.pyx":145
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 144, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42119,14 +42058,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":136
+  /* "tablut.pyx":137
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
@@ -42155,54 +42094,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_5 = 0;
   __pyx_t_9 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tablut.pyx":144
+  /* "tablut.pyx":145
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 144, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":136
+  /* "tablut.pyx":137
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[1, 4] = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__44, __pyx_t_9) < 0)) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__44, __pyx_t_9) < 0)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":146
+  /* "tablut.pyx":147
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42232,14 +42171,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":147
+  /* "tablut.pyx":148
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42269,14 +42208,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":148
+  /* "tablut.pyx":149
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42306,14 +42245,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":149
+  /* "tablut.pyx":150
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -42343,14 +42282,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_1);
 
-  /* "tablut.pyx":150
+  /* "tablut.pyx":151
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42380,14 +42319,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":151
+  /* "tablut.pyx":152
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -42417,14 +42356,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_1);
 
-  /* "tablut.pyx":152
+  /* "tablut.pyx":153
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42454,14 +42393,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":153
+  /* "tablut.pyx":154
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42491,14 +42430,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":154
+  /* "tablut.pyx":155
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42528,14 +42467,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":146
+  /* "tablut.pyx":147
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_9);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_t_9);
@@ -42564,54 +42503,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_8 = 0;
   __pyx_t_1 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "tablut.pyx":154
+  /* "tablut.pyx":155
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":146
+  /* "tablut.pyx":147
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[8, 3:6] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__45, __pyx_t_1) < 0)) __PYX_ERR(0, 146, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__45, __pyx_t_1) < 0)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":156
+  /* "tablut.pyx":157
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42641,14 +42580,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":157
+  /* "tablut.pyx":158
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42678,14 +42617,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":158
+  /* "tablut.pyx":159
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42715,14 +42654,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":159
+  /* "tablut.pyx":160
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -42752,14 +42691,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":160
+  /* "tablut.pyx":161
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42789,14 +42728,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":161
+  /* "tablut.pyx":162
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -42826,14 +42765,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_1);
 
-  /* "tablut.pyx":162
+  /* "tablut.pyx":163
  *                                    [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42863,14 +42802,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":163
+  /* "tablut.pyx":164
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42900,14 +42839,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":164
+  /* "tablut.pyx":165
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -42937,14 +42876,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":156
+  /* "tablut.pyx":157
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_9, 0, __pyx_t_1);
@@ -42973,54 +42912,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_5 = 0;
   __pyx_t_10 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9);
   __pyx_t_9 = 0;
 
-  /* "tablut.pyx":164
+  /* "tablut.pyx":165
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 164, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":156
+  /* "tablut.pyx":157
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[7, 4] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__46, __pyx_t_10) < 0)) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__46, __pyx_t_10) < 0)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":166
+  /* "tablut.pyx":167
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43050,14 +42989,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":167
+  /* "tablut.pyx":168
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43087,14 +43026,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":168
+  /* "tablut.pyx":169
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43124,14 +43063,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":169
+  /* "tablut.pyx":170
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43161,14 +43100,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_1);
 
-  /* "tablut.pyx":170
+  /* "tablut.pyx":171
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43198,14 +43137,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":171
+  /* "tablut.pyx":172
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43235,14 +43174,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_1);
 
-  /* "tablut.pyx":172
+  /* "tablut.pyx":173
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43272,14 +43211,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":173
+  /* "tablut.pyx":174
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43309,14 +43248,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":174
+  /* "tablut.pyx":175
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43346,14 +43285,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":166
+  /* "tablut.pyx":167
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_10);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_10);
@@ -43382,54 +43321,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_8 = 0;
   __pyx_t_4 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":174
+  /* "tablut.pyx":175
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":166
+  /* "tablut.pyx":167
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 0] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_11, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_11, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__47, __pyx_t_4) < 0)) __PYX_ERR(0, 166, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__47, __pyx_t_4) < 0)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":176
+  /* "tablut.pyx":177
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43459,14 +43398,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":177
+  /* "tablut.pyx":178
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43496,14 +43435,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":178
+  /* "tablut.pyx":179
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 1],
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43533,14 +43472,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":179
+  /* "tablut.pyx":180
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 179, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43570,14 +43509,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":180
+  /* "tablut.pyx":181
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43607,14 +43546,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_1);
 
-  /* "tablut.pyx":181
+  /* "tablut.pyx":182
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43644,14 +43583,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_1);
 
-  /* "tablut.pyx":182
+  /* "tablut.pyx":183
  *                                    [0, 0, 0, 0, 1, 0, 0, 1, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43681,14 +43620,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":183
+  /* "tablut.pyx":184
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 1],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43718,14 +43657,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":184
+  /* "tablut.pyx":185
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43755,14 +43694,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":176
+  /* "tablut.pyx":177
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_4);
   PyList_SET_ITEM(__pyx_t_10, 0, __pyx_t_4);
@@ -43791,54 +43730,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_5 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "tablut.pyx":184
+  /* "tablut.pyx":185
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":176
+  /* "tablut.pyx":177
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 1] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__48, __pyx_t_2) < 0)) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__48, __pyx_t_2) < 0)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tablut.pyx":186
+  /* "tablut.pyx":187
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43868,14 +43807,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":187
+  /* "tablut.pyx":188
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43905,14 +43844,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":188
+  /* "tablut.pyx":189
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -43942,14 +43881,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":189
+  /* "tablut.pyx":190
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -43979,14 +43918,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":190
+  /* "tablut.pyx":191
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 191, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44016,14 +43955,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":191
+  /* "tablut.pyx":192
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -44053,14 +43992,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":192
+  /* "tablut.pyx":193
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44090,14 +44029,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":193
+  /* "tablut.pyx":194
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44127,14 +44066,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":194
+  /* "tablut.pyx":195
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44164,14 +44103,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":186
+  /* "tablut.pyx":187
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
@@ -44200,54 +44139,54 @@ if (!__Pyx_RefNanny) {
   __pyx_t_8 = 0;
   __pyx_t_9 = 0;
   __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tablut.pyx":194
+  /* "tablut.pyx":195
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 194, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":186
+  /* "tablut.pyx":187
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[3:6, 8] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_11, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_11, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__49, __pyx_t_9) < 0)) __PYX_ERR(0, 186, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__49, __pyx_t_9) < 0)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":196
+  /* "tablut.pyx":197
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44277,14 +44216,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":197
+  /* "tablut.pyx":198
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44314,14 +44253,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":198
+  /* "tablut.pyx":199
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44351,14 +44290,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":199
+  /* "tablut.pyx":200
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -44388,14 +44327,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":200
+  /* "tablut.pyx":201
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44425,14 +44364,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":201
+  /* "tablut.pyx":202
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 201, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 202, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -44462,14 +44401,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":202
+  /* "tablut.pyx":203
  *                                    [0, 1, 0, 0, 1, 0, 0, 0, 0],
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44499,14 +44438,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":203
+  /* "tablut.pyx":204
  *                                    [1, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44536,14 +44475,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":204
+  /* "tablut.pyx":205
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * #Effettuo reshaping: Cos ho la rete neurale con ingresso diretto
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44573,14 +44512,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":196
+  /* "tablut.pyx":197
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_9);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_t_9);
@@ -44609,90 +44548,90 @@ if (!__Pyx_RefNanny) {
   __pyx_t_5 = 0;
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "tablut.pyx":204
+  /* "tablut.pyx":205
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * #Effettuo reshaping: Cos ho la rete neurale con ingresso diretto
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 204, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":196
+  /* "tablut.pyx":197
  *                                    [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * blackConstraints[4, 7] = np.array([[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                                    [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__50, __pyx_t_1) < 0)) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_blackConstraints), __pyx_tuple__50, __pyx_t_1) < 0)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":207
+  /* "tablut.pyx":208
  * 
  * #Effettuo reshaping: Cos ho la rete neurale con ingresso diretto
  * cdef np.ndarray initialBoard = np.zeros((1, 9, 9, 4), dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 0] = np.array(
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 207, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__9, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__9, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 207, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_XGOTREF(((PyObject *)__pyx_v_6tablut_initialBoard));
   __Pyx_DECREF_SET(__pyx_v_6tablut_initialBoard, ((PyArrayObject *)__pyx_t_3));
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "tablut.pyx":209
+  /* "tablut.pyx":210
  * cdef np.ndarray initialBoard = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 0] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tablut.pyx":210
+  /* "tablut.pyx":211
  * 
  * initialBoard[0, :, :, 0] = np.array(
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44722,14 +44661,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":211
+  /* "tablut.pyx":212
  * initialBoard[0, :, :, 0] = np.array(
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44759,14 +44698,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":212
+  /* "tablut.pyx":213
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 1, 1, 0, 1, 1, 0, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 213, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44796,14 +44735,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":213
+  /* "tablut.pyx":214
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 1, 1, 0, 1, 1, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44833,14 +44772,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":214
+  /* "tablut.pyx":215
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 1, 1, 0, 1, 1, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44870,14 +44809,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":215
+  /* "tablut.pyx":216
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 1, 1, 0, 1, 1, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44907,14 +44846,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":216
+  /* "tablut.pyx":217
  *                             [0, 0, 1, 1, 0, 1, 1, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44944,14 +44883,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":217
+  /* "tablut.pyx":218
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -44981,14 +44920,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":218
+  /* "tablut.pyx":219
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 1] = np.array(
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45018,14 +44957,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":210
+  /* "tablut.pyx":211
  * 
  * initialBoard[0, :, :, 0] = np.array(
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_GIVEREF(__pyx_t_3);
   PyList_SET_ITEM(__pyx_t_9, 0, __pyx_t_3);
@@ -45055,69 +44994,69 @@ if (!__Pyx_RefNanny) {
   __pyx_t_10 = 0;
   __pyx_t_11 = 0;
 
-  /* "tablut.pyx":209
+  /* "tablut.pyx":210
  * cdef np.ndarray initialBoard = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 0] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9);
   __pyx_t_9 = 0;
 
-  /* "tablut.pyx":218
+  /* "tablut.pyx":219
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 1] = np.array(
  */
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 218, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":209
+  /* "tablut.pyx":210
  * cdef np.ndarray initialBoard = np.zeros((1, 9, 9, 4), dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 0] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, __pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, __pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__11, __pyx_t_10) < 0)) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__11, __pyx_t_10) < 0)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":220
+  /* "tablut.pyx":221
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 1] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_np); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_array); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "tablut.pyx":221
+  /* "tablut.pyx":222
  * 
  * initialBoard[0, :, :, 1] = np.array(
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45147,14 +45086,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_10, 8, __pyx_int_0);
 
-  /* "tablut.pyx":222
+  /* "tablut.pyx":223
  * initialBoard[0, :, :, 1] = np.array(
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45184,14 +45123,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":223
+  /* "tablut.pyx":224
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [1, 1, 0, 0, 0, 0, 0, 1, 1],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45221,14 +45160,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":224
+  /* "tablut.pyx":225
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                             [1, 1, 0, 0, 0, 0, 0, 1, 1],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -45258,14 +45197,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":225
+  /* "tablut.pyx":226
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [1, 1, 0, 0, 0, 0, 0, 1, 1],             # <<<<<<<<<<<<<<
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -45295,14 +45234,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_1);
 
-  /* "tablut.pyx":226
+  /* "tablut.pyx":227
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [1, 1, 0, 0, 0, 0, 0, 1, 1],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -45332,14 +45271,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_1);
 
-  /* "tablut.pyx":227
+  /* "tablut.pyx":228
  *                             [1, 1, 0, 0, 0, 0, 0, 1, 1],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45369,14 +45308,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":228
+  /* "tablut.pyx":229
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45406,14 +45345,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":229
+  /* "tablut.pyx":230
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 2] = np.array(
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45443,14 +45382,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":221
+  /* "tablut.pyx":222
  * 
  * initialBoard[0, :, :, 1] = np.array(
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_10);
   PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_10);
@@ -45480,69 +45419,69 @@ if (!__Pyx_RefNanny) {
   __pyx_t_4 = 0;
   __pyx_t_2 = 0;
 
-  /* "tablut.pyx":220
+  /* "tablut.pyx":221
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 1] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "tablut.pyx":229
+  /* "tablut.pyx":230
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 2] = np.array(
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 229, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":220
+  /* "tablut.pyx":221
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 1] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__12, __pyx_t_4) < 0)) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__12, __pyx_t_4) < 0)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":231
+  /* "tablut.pyx":232
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 2] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":232
+  /* "tablut.pyx":233
  * 
  * initialBoard[0, :, :, 2] = np.array(
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45572,14 +45511,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_4, 8, __pyx_int_0);
 
-  /* "tablut.pyx":233
+  /* "tablut.pyx":234
  * initialBoard[0, :, :, 2] = np.array(
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45609,14 +45548,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":234
+  /* "tablut.pyx":235
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45646,14 +45585,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":235
+  /* "tablut.pyx":236
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45683,14 +45622,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":236
+  /* "tablut.pyx":237
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45720,14 +45659,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_0);
 
-  /* "tablut.pyx":237
+  /* "tablut.pyx":238
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45757,14 +45696,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":238
+  /* "tablut.pyx":239
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45794,14 +45733,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_0);
 
-  /* "tablut.pyx":239
+  /* "tablut.pyx":240
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45831,14 +45770,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":240
+  /* "tablut.pyx":241
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 3] = np.array(
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45868,14 +45807,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":232
+  /* "tablut.pyx":233
  * 
  * initialBoard[0, :, :, 2] = np.array(
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_10 = PyList_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_4);
   PyList_SET_ITEM(__pyx_t_10, 0, __pyx_t_4);
@@ -45905,69 +45844,69 @@ if (!__Pyx_RefNanny) {
   __pyx_t_1 = 0;
   __pyx_t_11 = 0;
 
-  /* "tablut.pyx":231
+  /* "tablut.pyx":232
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 2] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_10);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "tablut.pyx":240
+  /* "tablut.pyx":241
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * initialBoard[0, :, :, 3] = np.array(
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":231
+  /* "tablut.pyx":232
  *                             [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 2] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__13, __pyx_t_1) < 0)) __PYX_ERR(0, 231, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__13, __pyx_t_1) < 0)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":242
+  /* "tablut.pyx":243
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 3] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":243
+  /* "tablut.pyx":244
  * 
  * initialBoard[0, :, :, 3] = np.array(
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -45997,14 +45936,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_1, 8, __pyx_int_0);
 
-  /* "tablut.pyx":244
+  /* "tablut.pyx":245
  * initialBoard[0, :, :, 3] = np.array(
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_11 = PyList_New(9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 245, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -46034,14 +45973,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_11, 8, __pyx_int_0);
 
-  /* "tablut.pyx":245
+  /* "tablut.pyx":246
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  */
-  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -46071,14 +46010,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_int_0);
 
-  /* "tablut.pyx":246
+  /* "tablut.pyx":247
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  */
-  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -46108,14 +46047,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_8, 8, __pyx_int_1);
 
-  /* "tablut.pyx":247
+  /* "tablut.pyx":248
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],             # <<<<<<<<<<<<<<
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -46145,14 +46084,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_7, 8, __pyx_int_0);
 
-  /* "tablut.pyx":248
+  /* "tablut.pyx":249
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -46182,14 +46121,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_1);
   PyList_SET_ITEM(__pyx_t_6, 8, __pyx_int_1);
 
-  /* "tablut.pyx":249
+  /* "tablut.pyx":250
  *                             [0, 1, 0, 0, 1, 0, 0, 1, 0],
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  */
-  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -46219,14 +46158,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_5, 8, __pyx_int_0);
 
-  /* "tablut.pyx":250
+  /* "tablut.pyx":251
  *                             [1, 0, 0, 0, 0, 0, 0, 0, 1],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)
  * 
  */
-  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_9 = PyList_New(9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -46256,14 +46195,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_9, 8, __pyx_int_0);
 
-  /* "tablut.pyx":251
+  /* "tablut.pyx":252
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * # ______________________________________________________________________________
  */
-  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -46293,14 +46232,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_int_0);
   PyList_SET_ITEM(__pyx_t_2, 8, __pyx_int_0);
 
-  /* "tablut.pyx":243
+  /* "tablut.pyx":244
  * 
  * initialBoard[0, :, :, 3] = np.array(
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],             # <<<<<<<<<<<<<<
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  */
-  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 244, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -46330,294 +46269,294 @@ if (!__Pyx_RefNanny) {
   __pyx_t_9 = 0;
   __pyx_t_2 = 0;
 
-  /* "tablut.pyx":242
+  /* "tablut.pyx":243
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 3] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tablut.pyx":251
+  /* "tablut.pyx":252
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  *                             [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=DTYPE)             # <<<<<<<<<<<<<<
  * 
  * # ______________________________________________________________________________
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":242
+  /* "tablut.pyx":243
  *                             [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=DTYPE)
  * 
  * initialBoard[0, :, :, 3] = np.array(             # <<<<<<<<<<<<<<
  *                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],
  *                             [0, 0, 0, 0, 1, 0, 0, 0, 0],
  */
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__14, __pyx_t_9) < 0)) __PYX_ERR(0, 242, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_6tablut_initialBoard), __pyx_tuple__14, __pyx_t_9) < 0)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "tablut.pyx":313
+  /* "tablut.pyx":314
  * 
  *     @staticmethod
  *     def get_initial(heuristic=None):             # <<<<<<<<<<<<<<
  *         return AshtonTablut(initialBoard, 'W', 0, heuristic)
  * 
  */
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_5get_initial, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_get_initial, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_5get_initial, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_get_initial, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial, __pyx_t_9) < 0) __PYX_ERR(0, 313, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial, __pyx_t_9) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":312
+  /* "tablut.pyx":313
  *             PyMem_Free(self._moves)
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_initial(heuristic=None):
  *         return AshtonTablut(initialBoard, 'W', 0, heuristic)
  */
-  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_get_initial); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_get_initial); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial, __pyx_t_4) < 0) __PYX_ERR(0, 313, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial, __pyx_t_4) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":317
+  /* "tablut.pyx":318
  * 
  *     @staticmethod
  *     def get_initial_board():             # <<<<<<<<<<<<<<
  *         return initialBoard.copy()
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_7get_initial_board, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_get_initial_board, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_7get_initial_board, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_get_initial_board, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial_board, __pyx_t_4) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial_board, __pyx_t_4) < 0) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":316
+  /* "tablut.pyx":317
  *         return AshtonTablut(initialBoard, 'W', 0, heuristic)
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def get_initial_board():
  *         return initialBoard.copy()
  */
-  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_get_initial_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_get_initial_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial_board, __pyx_t_9) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_get_initial_board, __pyx_t_9) < 0) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":321
+  /* "tablut.pyx":322
  * 
  *     @staticmethod
  *     def parse_board(board, player, turn, heuristic):             # <<<<<<<<<<<<<<
  *         if board.shape == (1, 9, 9, 4):
  *             return AshtonTablut(board, player[0], turn, heuristic)
  */
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_9parse_board, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_parse_board, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 321, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_9parse_board, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_parse_board, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_parse_board, __pyx_t_9) < 0) __PYX_ERR(0, 321, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_parse_board, __pyx_t_9) < 0) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":320
+  /* "tablut.pyx":321
  *         return initialBoard.copy()
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def parse_board(board, player, turn, heuristic):
  *         if board.shape == (1, 9, 9, 4):
  */
-  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_parse_board); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 321, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_parse_board); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 320, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_parse_board, __pyx_t_4) < 0) __PYX_ERR(0, 321, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_parse_board, __pyx_t_4) < 0) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":327
+  /* "tablut.pyx":328
  * 
  *     @staticmethod
  *     def coords_to_num(l,k,j,i):             # <<<<<<<<<<<<<<
  *         return coords_to_number(l,k,j,i)
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_11coords_to_num, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_coords_to_num, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__57)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_11coords_to_num, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_coords_to_num, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__57)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_coords_to_num, __pyx_t_4) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_coords_to_num, __pyx_t_4) < 0) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":326
+  /* "tablut.pyx":327
  *         return None
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def coords_to_num(l,k,j,i):
  *         return coords_to_number(l,k,j,i)
  */
-  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_coords_to_num); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_coords_to_num); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 326, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_coords_to_num, __pyx_t_9) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_coords_to_num, __pyx_t_9) < 0) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":331
+  /* "tablut.pyx":332
  * 
  *     @staticmethod
  *     def num_to_coords(number):             # <<<<<<<<<<<<<<
  *         return number_to_coords(number)
  * 
  */
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_13num_to_coords, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_num_to_coords, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__59)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_13num_to_coords, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_num_to_coords, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__59)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_num_to_coords, __pyx_t_9) < 0) __PYX_ERR(0, 331, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_num_to_coords, __pyx_t_9) < 0) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":330
+  /* "tablut.pyx":331
  *         return coords_to_number(l,k,j,i)
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def num_to_coords(number):
  *         return number_to_coords(number)
  */
-  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_num_to_coords); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_9, (PyObject *)__pyx_ptype_6tablut_AshtonTablut, __pyx_n_s_num_to_coords); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 330, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_num_to_coords, __pyx_t_4) < 0) __PYX_ERR(0, 331, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_num_to_coords, __pyx_t_4) < 0) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":599
+  /* "tablut.pyx":600
  *         return -1.0, 1.0
  * 
  *     def actions(self):             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[int, ndim=1] actions = np.zeros((self._moves_length, ), dtype=np.int32)
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_15actions, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_actions, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__61)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_15actions, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_actions, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__61)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 600, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_actions, __pyx_t_4) < 0) __PYX_ERR(0, 599, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_actions, __pyx_t_4) < 0) __PYX_ERR(0, 600, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":610
+  /* "tablut.pyx":611
  *         return self._moves_length
  * 
  *     cpdef result(self, int move):             # <<<<<<<<<<<<<<
  *         """Return the state that results from making a move from a state."""
  *         cdef unicode next_to_move
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_17result, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_result, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__63)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_17result, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_result, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__63)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_result, __pyx_t_4) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_result, __pyx_t_4) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":645
+  /* "tablut.pyx":646
  *         return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)
  * 
  *     cpdef int utility(self, unicode player):             # <<<<<<<<<<<<<<
  *         """A state is terminal if it is won or there are no empty squares."""
  *         return self._utility if player == 'W' else -self._utility
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_19utility, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_utility, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__65)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 645, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_19utility, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_utility, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__65)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_utility, __pyx_t_4) < 0) __PYX_ERR(0, 645, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_utility, __pyx_t_4) < 0) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":649
+  /* "tablut.pyx":650
  *         return self._utility if player == 'W' else -self._utility
  * 
  *     cpdef bint terminal_test(self):             # <<<<<<<<<<<<<<
  *         """A state is terminal if it is won or there are no empty squares."""
  *         return self._utility <= -1 or self._utility >= 1
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_21terminal_test, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_terminal_test, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__67)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 649, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_21terminal_test, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_terminal_test, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__67)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_terminal_test, __pyx_t_4) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_terminal_test, __pyx_t_4) < 0) __PYX_ERR(0, 650, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":653
+  /* "tablut.pyx":654
  *         return self._utility <= -1 or self._utility >= 1
  * 
  *     cpdef to_move(self):             # <<<<<<<<<<<<<<
  *         """Return the player whose move it is in this state."""
  *         return self._to_move
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_23to_move, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_to_move, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__69)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 653, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_23to_move, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_to_move, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__69)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_to_move, __pyx_t_4) < 0) __PYX_ERR(0, 653, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_to_move, __pyx_t_4) < 0) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":657
+  /* "tablut.pyx":658
  *         return self._to_move
  * 
  *     cpdef board(self):             # <<<<<<<<<<<<<<
  *         return self._board
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_25board, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_board, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__71)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 657, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_25board, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_board, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__71)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_board, __pyx_t_4) < 0) __PYX_ERR(0, 657, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_board, __pyx_t_4) < 0) __PYX_ERR(0, 658, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":660
+  /* "tablut.pyx":661
  *         return self._board
  * 
  *     cpdef turn(self):             # <<<<<<<<<<<<<<
  *         return self._turn
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_27turn, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_turn, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__73)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_27turn, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_turn, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__73)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_turn, __pyx_t_4) < 0) __PYX_ERR(0, 660, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_turn, __pyx_t_4) < 0) __PYX_ERR(0, 661, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
-  /* "tablut.pyx":666
+  /* "tablut.pyx":667
  *         return self._heuristic.evalutate(parent_state, self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
  *         """Print or otherwise display the state."""
  *         cdef np.ndarray[DTYPE_t, ndim = 3] board = np.moveaxis(self._board[0], -1, 0)
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_29display, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_display, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__75)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 666, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_12AshtonTablut_29display, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AshtonTablut_display, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__75)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 667, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_display, __pyx_t_4) < 0) __PYX_ERR(0, 666, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_AshtonTablut->tp_dict, __pyx_n_s_display, __pyx_t_4) < 0) __PYX_ERR(0, 667, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
@@ -46642,41 +46581,41 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":674
+  /* "tablut.pyx":675
  * ### Players for Games
  * 
  * def random_player(AshtonTablut game):             # <<<<<<<<<<<<<<
  *     """A player that chooses a legal move at random."""
  *     cdef int action
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_3random_player, 0, __pyx_n_s_random_player, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__81)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_3random_player, 0, __pyx_n_s_random_player, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__81)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 675, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_random_player, __pyx_t_4) < 0) __PYX_ERR(0, 674, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_random_player, __pyx_t_4) < 0) __PYX_ERR(0, 675, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tablut.pyx":756
+  /* "tablut.pyx":757
  *         return v
  * 
  *     def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
  *         """Search game to determine best action; use alpha-beta pruning.
  *         This version cuts off search using time and uses an evaluation function."""
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_6Search_3cutoff_search, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Search_cutoff_search, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 756, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_6Search_3cutoff_search, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Search_cutoff_search, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 757, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_Search->tp_dict, __pyx_n_s_cutoff_search, __pyx_t_4) < 0) __PYX_ERR(0, 756, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_Search->tp_dict, __pyx_n_s_cutoff_search, __pyx_t_4) < 0) __PYX_ERR(0, 757, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_Search);
 
-  /* "tablut.pyx":798
+  /* "tablut.pyx":799
  *         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
  * 
  *     def iterative_deepening_search(self, AshtonTablut state, long initial_cutoff_depth=2, double cutoff_time=55.0):             # <<<<<<<<<<<<<<
  *         """Search game to determine best action; use alpha-beta pruning.
  *         This version cuts off search using time and uses an evaluation function."""
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_6Search_5iterative_deepening_search, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Search_iterative_deepening_searc, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_6Search_5iterative_deepening_search, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Search_iterative_deepening_searc, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_Search->tp_dict, __pyx_n_s_iterative_deepening_search, __pyx_t_4) < 0) __PYX_ERR(0, 798, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_Search->tp_dict, __pyx_n_s_iterative_deepening_search, __pyx_t_4) < 0) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_Search);
 
@@ -46703,29 +46642,29 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_Search);
 
-  /* "tablut.pyx":873
+  /* "tablut.pyx":874
  *         self.utils = array.array('f')
  * 
  *     cpdef add(self, int action, float value):             # <<<<<<<<<<<<<<
  *         cdef int idx = 0
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_11ActionStore_3add, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ActionStore_add, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__91)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 873, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_11ActionStore_3add, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ActionStore_add, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__91)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_ActionStore->tp_dict, __pyx_n_s_add, __pyx_t_4) < 0) __PYX_ERR(0, 873, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_ActionStore->tp_dict, __pyx_n_s_add, __pyx_t_4) < 0) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_ActionStore);
 
-  /* "tablut.pyx":882
+  /* "tablut.pyx":883
  *         self.utils.insert(idx, value)
  * 
  *     cpdef size(self):             # <<<<<<<<<<<<<<
  *         return len(self.actions)
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_11ActionStore_5size, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ActionStore_size, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 882, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_11ActionStore_5size, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ActionStore_size, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 883, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_ActionStore->tp_dict, __pyx_n_s_size, __pyx_t_4) < 0) __PYX_ERR(0, 882, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_ActionStore->tp_dict, __pyx_n_s_size, __pyx_t_4) < 0) __PYX_ERR(0, 883, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_ActionStore);
 
@@ -46798,42 +46737,42 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_OldSchoolHeuristicFunction);
 
-  /* "tablut.pyx":1012
+  /* "tablut.pyx":1013
  *         self.model_path = os.path.join(folder, filename)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
  *         if not os.path.isfile(self.model_path):
  *             return False
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_23NeuralHeuristicFunction_3init_tflite, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NeuralHeuristicFunction_init_tfl, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__107)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1012, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_23NeuralHeuristicFunction_3init_tflite, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NeuralHeuristicFunction_init_tfl, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__107)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1013, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction->tp_dict, __pyx_n_s_init_tflite, __pyx_t_4) < 0) __PYX_ERR(0, 1012, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction->tp_dict, __pyx_n_s_init_tflite, __pyx_t_4) < 0) __PYX_ERR(0, 1013, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_NeuralHeuristicFunction);
 
-  /* "tablut.pyx":1033
+  /* "tablut.pyx":1034
  *         return True
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
  *         self.model_path = model_path
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_23NeuralHeuristicFunction_5set_model_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NeuralHeuristicFunction_set_mode, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__109)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1033, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_23NeuralHeuristicFunction_5set_model_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NeuralHeuristicFunction_set_mode, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__109)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1034, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction->tp_dict, __pyx_n_s_set_model_path, __pyx_t_4) < 0) __PYX_ERR(0, 1033, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction->tp_dict, __pyx_n_s_set_model_path, __pyx_t_4) < 0) __PYX_ERR(0, 1034, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_NeuralHeuristicFunction);
 
-  /* "tablut.pyx":1036
+  /* "tablut.pyx":1037
  *         self.model_path = model_path
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
  *         return self.interpreter_initialized
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_23NeuralHeuristicFunction_7initialized, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NeuralHeuristicFunction_initiali, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__111)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1036, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_23NeuralHeuristicFunction_7initialized, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NeuralHeuristicFunction_initiali, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__111)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1037, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction->tp_dict, __pyx_n_s_initialized, __pyx_t_4) < 0) __PYX_ERR(0, 1036, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_NeuralHeuristicFunction->tp_dict, __pyx_n_s_initialized, __pyx_t_4) < 0) __PYX_ERR(0, 1037, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_NeuralHeuristicFunction);
 
@@ -46860,55 +46799,55 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_NeuralHeuristicFunction);
 
-  /* "tablut.pyx":1072
+  /* "tablut.pyx":1070
  *         self.neural_eval = NeuralHeuristicFunction(config)
  * 
  *     def init_tflite(self):             # <<<<<<<<<<<<<<
  *         self.neural_eval.init_tflite()
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_3init_tflite, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_init_tfli, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1072, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_3init_tflite, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_init_tfli, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_init_tflite, __pyx_t_4) < 0) __PYX_ERR(0, 1072, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_init_tflite, __pyx_t_4) < 0) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_MixedHeuristicFunction);
 
-  /* "tablut.pyx":1075
+  /* "tablut.pyx":1073
  *         self.neural_eval.init_tflite()
  * 
  *     def initialized(self):             # <<<<<<<<<<<<<<
  *         return self.neural_eval.initialized()
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_5initialized, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_initializ, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__119)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1075, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_5initialized, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_initializ, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__119)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_initialized, __pyx_t_4) < 0) __PYX_ERR(0, 1075, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_initialized, __pyx_t_4) < 0) __PYX_ERR(0, 1073, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_MixedHeuristicFunction);
 
-  /* "tablut.pyx":1078
+  /* "tablut.pyx":1076
  *         return self.neural_eval.initialized()
  * 
  *     def set_model_path(self, model_path):             # <<<<<<<<<<<<<<
  *         self.neural_eval.set_model_path(model_path)
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_7set_model_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_set_model, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1078, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_7set_model_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_set_model, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1076, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_set_model_path, __pyx_t_4) < 0) __PYX_ERR(0, 1078, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_set_model_path, __pyx_t_4) < 0) __PYX_ERR(0, 1076, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_MixedHeuristicFunction);
 
-  /* "tablut.pyx":1081
+  /* "tablut.pyx":1079
  *         self.neural_eval.set_model_path(model_path)
  * 
  *     def set_alpha(self, alpha):             # <<<<<<<<<<<<<<
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_9set_alpha, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_set_alpha, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__123)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1081, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_22MixedHeuristicFunction_9set_alpha, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MixedHeuristicFunction_set_alpha, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__123)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1079, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_set_alpha, __pyx_t_4) < 0) __PYX_ERR(0, 1081, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6tablut_MixedHeuristicFunction->tp_dict, __pyx_n_s_set_alpha, __pyx_t_4) < 0) __PYX_ERR(0, 1079, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_MixedHeuristicFunction);
 
@@ -46935,16 +46874,16 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_6tablut_MixedHeuristicFunction);
 
-  /* "tablut.pyx":1099
+  /* "tablut.pyx":1097
  * 
  * #------------------------------ Test ---------------------------------------------------------
  * def test():             # <<<<<<<<<<<<<<
  *     cdef AshtonTablut g, fake_state
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_5test, 0, __pyx_n_s_test, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__129)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1099, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_5test, 0, __pyx_n_s_test, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__129)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1097, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_4) < 0) __PYX_ERR(0, 1099, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_4) < 0) __PYX_ERR(0, 1097, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1

@@ -39,7 +39,7 @@ class ActionBuffer:
             raise Exception("Board shape mismatch")
 
         if np.array_equal(board0, board1):
-            pass
+            return
 
         action_hash = hash(board0.tobytes()+board1.tobytes())
 
@@ -79,7 +79,7 @@ class ActionBuffer:
             (keys, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[3]), dtype=np.float32)
 
         # Y Data
-        values = np.zeros((keys), dtype=np.float32)
+        values = np.zeros((keys, 1), dtype=np.float32)
 
         # Itero le chiavi del buffer
         i = 0
@@ -88,9 +88,10 @@ class ActionBuffer:
             board0[i] = self.buffer[key][CURRENT_STATE]
             board1[i] = self.buffer[key][NEXT_STATE]
             values[i] = self.buffer[key][REWARD]
+            i+=1
 
         def generator():
-            for s1, s2, l in zip(sent1, sent2, labels):
+            for s1, s2, l in zip(board0, board1, values):
                 yield {"input_1": s1, "input_2": s2}, l
 
         #tf.data.Dataset.from_tensor_slices((board0, board1, values))
@@ -105,7 +106,7 @@ class ActionBuffer:
         filepath = os.path.join(folder, filename)
         
         with open(filepath, "wb") as f:
-            pickle.dump([self.buffer, self.config], f)
+            pickle.dump([self.buffer, self.game_counter, self.config], f)
 
     def load_buffer(self):
         folder = self.config.folder
@@ -115,7 +116,7 @@ class ActionBuffer:
         config = self.config
 
         with open(filepath, "rb") as f:
-            self.buffer, config = pickle.load(f)
+            self.buffer, self.game_counter, config = pickle.load(f)
         
         if config.observation_shape != self.config.observation_shape:
             raise Exception("Observation shape dismatch!")

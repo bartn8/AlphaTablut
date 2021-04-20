@@ -1,15 +1,15 @@
 import os
 import sys
 import time
-import json
+import pickle
 import logging
 
 import numpy as np
 import tensorflow as tf
 
 from treeresnet import TreeResNetBuilder
-
 from tablut import TablutConfig
+from actionbuffer import ActionBuffer
 
 # https://github.com/suragnair/alpha-zero-general
 
@@ -91,12 +91,14 @@ class TreeResNNet(NeuralNet):
         """
 
         logging.info("Training step: {0}".format(self.training_steps))
-        self.history = self.nnet.fit(
-            data, epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps)
+        history_callback = self.nnet.fit(
+            data, epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps, verbose=0)
+
+        self.history = history_callback.history["loss"]
 
         self.training_steps += self.config.epochs
 
-        return history
+        return self.history
 
     def predict(self, board0, board1):
         """
@@ -104,19 +106,10 @@ class TreeResNNet(NeuralNet):
         board1: np array with next board
         """
 
-        # TODO: da aggiustare la shape
-
-        # preparing input
-        board0 = tf.reshape(
-            board0, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
-        board1 = tf.reshape(
-            board1, (-1, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[0]))
-
         # run
         v = self.nnet([board0, board1])
-        v = tf.reshape(v, (-1))
 
-        return v[0]
+        return v[0][0]
 
     def predicts(self, boards0, boards1):
         """
@@ -126,14 +119,6 @@ class TreeResNNet(NeuralNet):
 
         if boards0.shape[0] != boardss1.shape[0]:
             raise Exception("Batch elements must be the same")
-
-        # TODO: da aggiustare la shape
-
-        # preparing input
-        boards0 = tf.reshape(boards0, (boards0.shape[0], self.config.observation_shape[1],
-                                       self.config.observation_shape[2], self.config.observation_shape[0]))
-        boards1 = tf.reshape(boards1, (boards1.shape[0], self.config.observation_shape[1],
-                                       self.config.observation_shape[2], self.config.observation_shape[0]))
 
         v = self.nnet.predict([boards0, boards1])
 
@@ -156,11 +141,8 @@ class TreeResNNet(NeuralNet):
         if self.nnet is not None:
             self.nnet.save(filepath)
 
-            data = {'training_steps': self.training_steps,
-                    'history': self.history}
-
-            with open(filepath_meta, "w") as f:
-                json.dump(data, f)
+            with open(filepath_meta, "wb") as f:
+                pickle.dump([self.config, self.training_steps], f)
 
     def load_checkpoint(self):
         folder = self.config.folder
@@ -171,10 +153,11 @@ class TreeResNNet(NeuralNet):
 
         self.nnet = tf.keras.models.load_model(filepath)
 
-        with open(filepath_meta, "r") as f:
-            data = json.load(f)
-            self.training_steps = data['training_steps']
-            self.history = data['history']
+        with open(filepath_meta, "rb") as f:
+            config, self.training_steps = pickle.load(f)
+        
+        if config.observation_shape != self.config.observation_shape:
+            raise Exception("Observation shape dismatch!")
 
     def tflite_optimization(self):
         folder = self.config.folder
@@ -188,3 +171,73 @@ class TreeResNNet(NeuralNet):
 
         with open(filepath, "wb") as f:
             f.write(quantized_tflite_model)
+
+
+if __name__ == '__main__':
+    config = TablutConfig()
+    buf = ActionBuffer(config)
+    buf.load_buffer()
+    batch_size = config.batch_size
+    batch_size = min(batch_size, buf.size())
+    dataset = buf.generate_dataset(batch_size)
+    for k in dataset:
+        
+        print(np.moveaxis(k[0]['input_1'][2], -1, 0))
+        print(np.moveaxis(k[0]['input_2'][2], -1, 0))
+        print(k[1][2])
+
+    net = TreeResNNet(config)
+    net.train(dataset)
+
+    board = np.zeros((1, 9, 9, 4), dtype=np.int8)
+
+    board[0, :, :, 0] = np.array(
+                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 1, 1, 0, 1, 1, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)
+
+    board[0, :, :, 1] = np.array(
+                            [[0, 0, 0, 1, 1, 1, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                                [1, 1, 0, 0, 0, 0, 0, 1, 1],
+                                [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 1, 1, 1, 0, 0, 0]], dtype=np.int8)
+
+    board[0, :, :, 2] = np.array(
+                            [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int8)
+
+    board[0, :, :, 3] = np.array(
+                            [[0, 0, 0, 1, 0, 1, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                                [0, 1, 0, 0, 1, 0, 0, 1, 0],
+                                [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                [0, 0, 0, 1, 0, 1, 0, 0, 0]], dtype=np.int8)
+
+    next_board = board.copy()
+    next_board[0,3,4,0] = 0
+    next_board[0,3,0,0] = 1
+
+    print(net.predict(board, next_board))
+

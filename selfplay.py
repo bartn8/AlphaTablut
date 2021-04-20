@@ -3,7 +3,7 @@ import time
 import logging
 import copy
 
-from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction, random_player, init_rand
+from tablut import AshtonTablut, TablutConfig, Search, NeuralHeuristicFunction, OldSchoolHeuristicFunction, random_player, init_rand
 
 import numpy as np
 
@@ -74,13 +74,13 @@ class SelfPlay():
                 self.draw_queue = []
 
             best_action = AshtonTablut.num_to_coords(best_action)
-            #logging.info("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(
-            #), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
+            logging.info("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(
+            ), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
 
             current_state = best_next_state
             self.game_history.append(current_state.board())
 
-            #current_state.display()
+            logging.debug(current_state.display())
 
             have_draw = self.have_draw(current_state.board())
 
@@ -97,8 +97,8 @@ class SelfPlay():
                 winner = 'W' if player == 'B' else 'B'
                 result = "LOST"
 
-        logging.info("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s".format(
-            player, result, current_state.turn(), end-start))
+        logging.info("Game ended: Player {0} {1}, Moves: {2}, Time: {3} s, Utility: {4}".format(
+            player, result, current_state.turn(), end-start, current_state.utility(player)))
 
         return winner, current_state.utility(player), self.game_history
 
@@ -106,5 +106,14 @@ class SelfPlay():
 if __name__ == '__main__':
     # test()
     init_rand()
-    self_play = SelfPlay(TablutConfig(), OldSchoolHeuristicFunction(), 1, 10)
+
+    logging.basicConfig(
+        format='%(levelname)s:%(asctime)s: %(message)s', level=logging.INFO)
+
+    heuristic = NeuralHeuristicFunction(TablutConfig())
+    heuristic.init_tflite()
+
+    #heuristic = OldSchoolHeuristicFunction()
+
+    self_play = SelfPlay(TablutConfig(), heuristic, 1, 10)
     self_play.play(False)

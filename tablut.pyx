@@ -24,8 +24,8 @@ import numpy as np
 cimport numpy as np
 
 # We now need to fix a datatype for our arrays.
-DTYPE = np.int8
-ctypedef signed char DTYPE_t
+DTYPE = np.float32
+ctypedef float DTYPE_t
 
 def init_rand():
     cdef long int seed = <long int>get_time()
@@ -55,9 +55,9 @@ class TablutConfig:
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
         self.num_workers = 8
-        self.threads_per_worker = 1
+        self.threads_per_worker = 2
         self.max_moves = 60  # Maximum number of moves if game is not finished before
-        self.max_time = 0.1
+        self.max_time = 60
 
         # Exploration noise
         self.enable_noise_on_training = True
@@ -66,16 +66,17 @@ class TablutConfig:
 
         # Training
         # Total number of training steps (ie weights update according to a batch)
-        self.training_steps = 300000
+        self.training_steps = 10000
         # Number of parts of games to train on at each training step
-        self.batch_size = 512  
-        self.min_batch_size = 64
+        self.batch_size = 4096  
+        self.min_batch_size = 2048
         # Number of training steps before using the model for self-playing
         self.checkpoint_interval = 100
         # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
         self.value_loss_weight = 0.25
         # checkpoint_interval % epochs == 0!
         self.epochs = 10
+        self.new_games_per_epoch = 100
 
         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
         self.weight_decay = 1e-4  # L2 weights regularization
@@ -666,7 +667,7 @@ cdef class AshtonTablut:
     def display(self):
         """Print or otherwise display the state."""
         cdef np.ndarray[DTYPE_t, ndim = 3] board = np.moveaxis(self._board[0], -1, 0)
-        print(-board[0]+board[1]-20*board[2]+10*board[3])
+        return str(-board[0]+board[1]-20*board[2]+10*board[3])
 
 # ______________________________________________________________________________
 ### Players for Games
@@ -1037,11 +1038,8 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
         return self.interpreter_initialized
 
     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
-        #cdef np.ndarray board0 = np.reshape(state.convert_board(), self.input_shape)
-        #cdef np.ndarray board1 = np.reshape(next_state.convert_board(), self.input_shape)
-        cdef np.ndarray board0 = state.board().astype(np.float32)
-        cdef np.ndarray board1 = next_state.board().astype(np.float32)
-
+        cdef np.ndarray board0 = state.board()
+        cdef np.ndarray board1 = next_state.board()
         cdef float v
 
         self.interpreter.set_tensor(self.index_in_0, board0)
@@ -1049,7 +1047,7 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
 
         self.interpreter.invoke()
 
-        v = np.ravel(self.interpreter.get_tensor(self.index_out_0))[0]
+        v = self.interpreter.get_tensor(self.index_out_0)[0][0]
 
         return v if player == 'W' else -v
 
@@ -1173,5 +1171,5 @@ def test():
     best_action = AshtonTablut.num_to_coords(best_action)
     print("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(fake_state.to_move(), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, 0))
 
-    fake_state.display()
+    print(fake_state.display())
     

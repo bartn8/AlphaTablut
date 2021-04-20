@@ -4,8 +4,8 @@ import logging
 import json
 import numpy as np
 
-#from tablut import AshtonTablut, TablutConfig, Search, NeuralHeuristicFunction
-from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
+from tablut import AshtonTablut, TablutConfig, Search, NeuralHeuristicFunction
+#from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
 
 # Modified from: https://github.com/Jippiter/TablutGo/blob/main/src/TablutGoClient.py
 
@@ -123,14 +123,13 @@ def game_loop(args):
     port = 5800 if player == 'W' else 5801
 
     # Network loading
-    #heuristic = NeuralHeuristicFunction()
+    heuristic = NeuralHeuristicFunction(TablutConfig())
 
-    # if heuristic.init_tflite():
-    #    logging.info("Netowrk loaded successfully")
-    # else:
-    #    logging.info("Netowrk loading error")
+    if heuristic.init_tflite():
+        logging.info("Netowrk loaded successfully")
+    else:
+        logging.info("Netowrk loading error")
 
-    heuristic = OldSchoolHeuristicFunction()
     turn = 0
 
     # Start connection
