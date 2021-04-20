@@ -1370,7 +1370,7 @@ struct __pyx_obj_6tablut_ActionStore {
  * 
  * cdef class HeuristicFunction:             # <<<<<<<<<<<<<<
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  */
 struct __pyx_obj_6tablut_HeuristicFunction {
   PyObject_HEAD
@@ -1383,7 +1383,7 @@ struct __pyx_obj_6tablut_HeuristicFunction {
  * 
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  */
 struct __pyx_obj_6tablut_OldSchoolHeuristicFunction {
   struct __pyx_obj_6tablut_HeuristicFunction __pyx_base;
@@ -1405,7 +1405,6 @@ struct __pyx_obj_6tablut_NeuralHeuristicFunction {
   PyObject *interpreter;
   PyArrayObject *input_shape;
   int index_in_0;
-  int index_in_1;
   int index_out_0;
 };
 
@@ -1529,7 +1528,7 @@ struct __pyx_vtabstruct_6tablut_AshtonTablut {
   PyObject *(*to_move)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch);
   PyObject *(*board)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch);
   PyObject *(*turn)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch);
-  PyObject *(*eval_fn)(struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, PyObject *);
+  PyObject *(*eval_fn)(struct __pyx_obj_6tablut_AshtonTablut *, PyObject *);
 };
 static struct __pyx_vtabstruct_6tablut_AshtonTablut *__pyx_vtabptr_6tablut_AshtonTablut;
 
@@ -1543,8 +1542,8 @@ static struct __pyx_vtabstruct_6tablut_AshtonTablut *__pyx_vtabptr_6tablut_Ashto
  */
 
 struct __pyx_vtabstruct_6tablut_Search {
-  float (*max_value)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long);
-  float (*min_value)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long);
+  float (*max_value)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long);
+  float (*min_value)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long);
 };
 static struct __pyx_vtabstruct_6tablut_Search *__pyx_vtabptr_6tablut_Search;
 
@@ -1569,11 +1568,11 @@ static struct __pyx_vtabstruct_6tablut_ActionStore *__pyx_vtabptr_6tablut_Action
  * 
  * cdef class HeuristicFunction:             # <<<<<<<<<<<<<<
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  */
 
 struct __pyx_vtabstruct_6tablut_HeuristicFunction {
-  float (*evalutate)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *);
+  float (*evalutate)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *);
 };
 static struct __pyx_vtabstruct_6tablut_HeuristicFunction *__pyx_vtabptr_6tablut_HeuristicFunction;
 
@@ -1583,7 +1582,7 @@ static struct __pyx_vtabstruct_6tablut_HeuristicFunction *__pyx_vtabptr_6tablut_
  * 
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):             # <<<<<<<<<<<<<<
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  */
 
 struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction {
@@ -1602,7 +1601,7 @@ static struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *__pyx_vtabptr
 
 struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction {
   struct __pyx_vtabstruct_6tablut_HeuristicFunction __pyx_base;
-  float (*tflite_eval)(struct __pyx_obj_6tablut_NeuralHeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *);
+  float (*tflite_eval)(struct __pyx_obj_6tablut_NeuralHeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *);
 };
 static struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *__pyx_vtabptr_6tablut_NeuralHeuristicFunction;
 
@@ -2687,16 +2686,16 @@ static int __pyx_f_6tablut_12AshtonTablut_terminal_test(struct __pyx_obj_6tablut
 static PyObject *__pyx_f_6tablut_12AshtonTablut_to_move(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_6tablut_12AshtonTablut_board(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_6tablut_12AshtonTablut_turn(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, PyObject *__pyx_v_parent_state, PyObject *__pyx_v_player); /* proto*/
-static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth); /* proto*/
-static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth); /* proto*/
+static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, PyObject *__pyx_v_player); /* proto*/
+static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth); /* proto*/
+static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth); /* proto*/
 static PyObject *__pyx_f_6tablut_11ActionStore_add(struct __pyx_obj_6tablut_ActionStore *__pyx_v_self, int __pyx_v_action, float __pyx_v_value, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_6tablut_11ActionStore_size(struct __pyx_obj_6tablut_ActionStore *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
-static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_HeuristicFunction *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
-static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_OldSchoolHeuristicFunction *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
-static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_next_state, PyObject *__pyx_v_player); /* proto*/
-static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
-static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj_6tablut_MixedHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
+static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_HeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
+static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_OldSchoolHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
+static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
+static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
+static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj_6tablut_MixedHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player); /* proto*/
 static PyObject *__pyx_array_get_memview(struct __pyx_array_obj *__pyx_v_self); /* proto*/
 static char *__pyx_memoryview_get_item_pointer(struct __pyx_memoryview_obj *__pyx_v_self, PyObject *__pyx_v_index); /* proto*/
 static PyObject *__pyx_memoryview_is_slice(struct __pyx_memoryview_obj *__pyx_v_self, PyObject *__pyx_v_obj); /* proto*/
@@ -3175,7 +3174,7 @@ static const char __pyx_k_HeuristicFunction___setstate_cyt[] = "HeuristicFunctio
 static const char __pyx_k_Incompatible_checksums_s_vs_0x03[] = "Incompatible checksums (%s vs 0x0313492 = (current_cutoff_depth, cutoff_time, max_depth, nodes_explored, start_time))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x10[] = "Incompatible checksums (%s vs 0x1002984 = (actions, utils))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x24[] = "Incompatible checksums (%s vs 0x2416557 = (alpha, neural_eval, old_eval))";
-static const char __pyx_k_Incompatible_checksums_s_vs_0x45[] = "Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0x60[] = "Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xb0[] = "Incompatible checksums (%s vs 0xb068931 = (name))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xd4[] = "Incompatible checksums (%s vs 0xd41d8cd = ())";
 static const char __pyx_k_Indirect_dimensions_not_supporte[] = "Indirect dimensions not supported";
@@ -3241,7 +3240,7 @@ static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x03;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x10;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x24;
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x45;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x60;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xb0;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xd4;
 static PyObject *__pyx_n_s_IndexError;
@@ -3636,14 +3635,14 @@ static PyObject *__pyx_int_21;
 static PyObject *__pyx_int_32;
 static PyObject *__pyx_int_60;
 static PyObject *__pyx_int_100;
+static PyObject *__pyx_int_1000;
 static PyObject *__pyx_int_2048;
 static PyObject *__pyx_int_4096;
 static PyObject *__pyx_int_6561;
-static PyObject *__pyx_int_10000;
 static PyObject *__pyx_int_3224722;
 static PyObject *__pyx_int_16787844;
 static PyObject *__pyx_int_37840215;
-static PyObject *__pyx_int_72864990;
+static PyObject *__pyx_int_101198353;
 static PyObject *__pyx_int_184977713;
 static PyObject *__pyx_int_222419149;
 static PyObject *__pyx_int_neg_1;
@@ -3904,22 +3903,22 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
  *         # Game
  *         # Dimensions of the game observation
  *         self.observation_shape = (1, 9, 9, 4)             # <<<<<<<<<<<<<<
- *         #(nb_t, nb_channels, nb_rows, nb_cols) (nb_t >= 2)
- *         self.network_input_shape = (2, 4, 9, 9)
+ *         #(nb_channels, nb_rows, nb_cols)
+ *         self.network_input_shape = (4, 9, 9)
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_observation_shape, __pyx_tuple_) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
 
   /* "tablut.pyx":45
  *         self.observation_shape = (1, 9, 9, 4)
- *         #(nb_t, nb_channels, nb_rows, nb_cols) (nb_t >= 2)
- *         self.network_input_shape = (2, 4, 9, 9)             # <<<<<<<<<<<<<<
+ *         #(nb_channels, nb_rows, nb_cols)
+ *         self.network_input_shape = (4, 9, 9)             # <<<<<<<<<<<<<<
  *         # Fixed list of all possible actions. You should only edit the length
  *         self.action_space = list(range(6561))
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_network_input_shape, __pyx_tuple__2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
 
   /* "tablut.pyx":47
- *         self.network_input_shape = (2, 4, 9, 9)
+ *         self.network_input_shape = (4, 9, 9)
  *         # Fixed list of all possible actions. You should only edit the length
  *         self.action_space = list(range(6561))             # <<<<<<<<<<<<<<
  *         # List of players. You should only edit the length
@@ -3969,26 +3968,26 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
   /* "tablut.pyx":57
  *         # Self-Play
  *         # Number of simultaneous threads/workers self-playing to feed the replay buffer
- *         self.num_workers = 8             # <<<<<<<<<<<<<<
+ *         self.num_workers = 4             # <<<<<<<<<<<<<<
  *         self.threads_per_worker = 2
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_num_workers, __pyx_int_8) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_num_workers, __pyx_int_4) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
 
   /* "tablut.pyx":58
  *         # Number of simultaneous threads/workers self-playing to feed the replay buffer
- *         self.num_workers = 8
+ *         self.num_workers = 4
  *         self.threads_per_worker = 2             # <<<<<<<<<<<<<<
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before
- *         self.max_time = 60
+ *         self.max_time = 10
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_threads_per_worker, __pyx_int_2) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
 
   /* "tablut.pyx":59
- *         self.num_workers = 8
+ *         self.num_workers = 4
  *         self.threads_per_worker = 2
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before             # <<<<<<<<<<<<<<
- *         self.max_time = 60
+ *         self.max_time = 10
  * 
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_moves, __pyx_int_60) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
@@ -3996,11 +3995,11 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
   /* "tablut.pyx":60
  *         self.threads_per_worker = 2
  *         self.max_moves = 60  # Maximum number of moves if game is not finished before
- *         self.max_time = 60             # <<<<<<<<<<<<<<
+ *         self.max_time = 10             # <<<<<<<<<<<<<<
  * 
  *         # Exploration noise
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_time, __pyx_int_60) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_time, __pyx_int_10) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
 
   /* "tablut.pyx":63
  * 
@@ -4032,14 +4031,14 @@ static PyObject *__pyx_pf_6tablut_12TablutConfig___init__(CYTHON_UNUSED PyObject
   /* "tablut.pyx":69
  *         # Training
  *         # Total number of training steps (ie weights update according to a batch)
- *         self.training_steps = 10000             # <<<<<<<<<<<<<<
+ *         self.training_steps = 1000             # <<<<<<<<<<<<<<
  *         # Number of parts of games to train on at each training step
  *         self.batch_size = 4096
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_training_steps, __pyx_int_10000) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_training_steps, __pyx_int_1000) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
 
   /* "tablut.pyx":71
- *         self.training_steps = 10000
+ *         self.training_steps = 1000
  *         # Number of parts of games to train on at each training step
  *         self.batch_size = 4096             # <<<<<<<<<<<<<<
  *         self.min_batch_size = 2048
@@ -9657,7 +9656,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_turn(struct __pyx_obj_6tablut_As
  *     cpdef turn(self):
  *         return self._turn             # <<<<<<<<<<<<<<
  * 
- *     cdef eval_fn(self, parent_state, player):
+ *     cdef eval_fn(self, player):
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v_self->_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 662, __pyx_L1_error)
@@ -9732,12 +9731,12 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_26turn(struct __pyx_obj_6tablut
 /* "tablut.pyx":664
  *         return self._turn
  * 
- *     cdef eval_fn(self, parent_state, player):             # <<<<<<<<<<<<<<
- *         return self._heuristic.evalutate(parent_state, self, player)
+ *     cdef eval_fn(self, player):             # <<<<<<<<<<<<<<
+ *         return self._heuristic.evalutate(self, player)
  * 
  */
 
-static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, PyObject *__pyx_v_parent_state, PyObject *__pyx_v_player) {
+static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_self, PyObject *__pyx_v_player) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9748,15 +9747,14 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut
 
   /* "tablut.pyx":665
  * 
- *     cdef eval_fn(self, parent_state, player):
- *         return self._heuristic.evalutate(parent_state, self, player)             # <<<<<<<<<<<<<<
+ *     cdef eval_fn(self, player):
+ *         return self._heuristic.evalutate(self, player)             # <<<<<<<<<<<<<<
  * 
  *     def display(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(((__pyx_v_parent_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_parent_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 665, __pyx_L1_error)
   if (!(likely(PyUnicode_CheckExact(__pyx_v_player))||((__pyx_v_player) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_player)->tp_name), 0))) __PYX_ERR(0, 665, __pyx_L1_error)
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_vtabstruct_6tablut_HeuristicFunction *)__pyx_v_self->_heuristic->__pyx_vtab)->evalutate(__pyx_v_self->_heuristic, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_parent_state), __pyx_v_self, ((PyObject*)__pyx_v_player))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_vtabstruct_6tablut_HeuristicFunction *)__pyx_v_self->_heuristic->__pyx_vtab)->evalutate(__pyx_v_self->_heuristic, __pyx_v_self, ((PyObject*)__pyx_v_player))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 665, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9765,8 +9763,8 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut
   /* "tablut.pyx":664
  *         return self._turn
  * 
- *     cdef eval_fn(self, parent_state, player):             # <<<<<<<<<<<<<<
- *         return self._heuristic.evalutate(parent_state, self, player)
+ *     cdef eval_fn(self, player):             # <<<<<<<<<<<<<<
+ *         return self._heuristic.evalutate(self, player)
  * 
  */
 
@@ -9782,7 +9780,7 @@ static PyObject *__pyx_f_6tablut_12AshtonTablut_eval_fn(struct __pyx_obj_6tablut
 }
 
 /* "tablut.pyx":667
- *         return self._heuristic.evalutate(parent_state, self, player)
+ *         return self._heuristic.evalutate(self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
  *         """Print or otherwise display the state."""
@@ -9949,7 +9947,7 @@ static PyObject *__pyx_pf_6tablut_12AshtonTablut_28display(struct __pyx_obj_6tab
   goto __pyx_L0;
 
   /* "tablut.pyx":667
- *         return self._heuristic.evalutate(parent_state, self, player)
+ *         return self._heuristic.evalutate(self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
  *         """Print or otherwise display the state."""
@@ -10333,7 +10331,7 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
  *         self.cutoff_time = 0.0
  *         self.current_cutoff_depth = 0             # <<<<<<<<<<<<<<
  * 
- *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+ *     cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  */
   __pyx_v_self->current_cutoff_depth = 0;
 
@@ -10354,12 +10352,12 @@ static int __pyx_pf_6tablut_6Search___init__(struct __pyx_obj_6tablut_Search *__
 /* "tablut.pyx":703
  *         self.current_cutoff_depth = 0
  * 
- *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
+ *     cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length
  */
 
-static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth) {
+static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth) {
   int *__pyx_v_moves;
   int __pyx_v_moves_length;
   float __pyx_v_v;
@@ -10390,7 +10388,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
 
   /* "tablut.pyx":704
  * 
- *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+ *     cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves             # <<<<<<<<<<<<<<
  *         cdef int moves_length = state._moves_length
  *         cdef float v = -np.inf
@@ -10399,7 +10397,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   __pyx_v_moves = __pyx_t_1;
 
   /* "tablut.pyx":705
- *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+ *     cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length             # <<<<<<<<<<<<<<
  *         cdef float v = -np.inf
@@ -10500,7 +10498,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  *             if terminal:
  *                 return state.utility(player)             # <<<<<<<<<<<<<<
  * 
- *             return state.eval_fn(parent_state, player)
+ *             return state.eval_fn(player)
  */
       __pyx_r = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->utility(__pyx_v_state, __pyx_v_player, 0);
       goto __pyx_L0;
@@ -10517,11 +10515,11 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     /* "tablut.pyx":717
  *                 return state.utility(player)
  * 
- *             return state.eval_fn(parent_state, player)             # <<<<<<<<<<<<<<
+ *             return state.eval_fn(player)             # <<<<<<<<<<<<<<
  * 
  *         for i in range(moves_length):
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, ((PyObject *)__pyx_v_parent_state), __pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 717, __pyx_L1_error)
+    __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, __pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 717, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 717, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10538,7 +10536,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   }
 
   /* "tablut.pyx":719
- *             return state.eval_fn(parent_state, player)
+ *             return state.eval_fn(player)
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
  *             a = moves[i]
@@ -10563,7 +10561,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
- *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = max(self.min_value(next_state, player, alpha, beta, depth + 1),v)
  */
     __pyx_t_3 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 721, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -10573,13 +10571,13 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     /* "tablut.pyx":723
  *             next_state = state.result(a)
  * 
- *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)             # <<<<<<<<<<<<<<
+ *             v = max(self.min_value(next_state, player, alpha, beta, depth + 1),v)             # <<<<<<<<<<<<<<
  *             if v >= beta:
  *                 return v
  */
     __pyx_t_5 = __pyx_v_v;
     if (!(likely(((__pyx_v_next_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_next_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 723, __pyx_L1_error)
-    __pyx_t_13 = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_next_state), __pyx_v_player, __pyx_v_alpha, __pyx_v_beta, (__pyx_v_depth + 1));
+    __pyx_t_13 = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_next_state), __pyx_v_player, __pyx_v_alpha, __pyx_v_beta, (__pyx_v_depth + 1));
     if (((__pyx_t_5 > __pyx_t_13) != 0)) {
       __pyx_t_14 = __pyx_t_5;
     } else {
@@ -10589,7 +10587,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
 
     /* "tablut.pyx":724
  * 
- *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = max(self.min_value(next_state, player, alpha, beta, depth + 1),v)
  *             if v >= beta:             # <<<<<<<<<<<<<<
  *                 return v
  *             alpha = max(alpha, v)
@@ -10598,7 +10596,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
     if (__pyx_t_9) {
 
       /* "tablut.pyx":725
- *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = max(self.min_value(next_state, player, alpha, beta, depth + 1),v)
  *             if v >= beta:
  *                 return v             # <<<<<<<<<<<<<<
  *             alpha = max(alpha, v)
@@ -10609,7 +10607,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
 
       /* "tablut.pyx":724
  * 
- *             v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = max(self.min_value(next_state, player, alpha, beta, depth + 1),v)
  *             if v >= beta:             # <<<<<<<<<<<<<<
  *                 return v
  *             alpha = max(alpha, v)
@@ -10638,7 +10636,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
  * 
  *         return v             # <<<<<<<<<<<<<<
  * 
- *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+ *     cdef float min_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  */
   __pyx_r = __pyx_v_v;
   goto __pyx_L0;
@@ -10646,7 +10644,7 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
   /* "tablut.pyx":703
  *         self.current_cutoff_depth = 0
  * 
- *     cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
+ *     cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length
  */
@@ -10666,12 +10664,12 @@ static float __pyx_f_6tablut_6Search_max_value(struct __pyx_obj_6tablut_Search *
 /* "tablut.pyx":730
  *         return v
  * 
- *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
+ *     cdef float min_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length
  */
 
-static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth) {
+static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player, float __pyx_v_alpha, float __pyx_v_beta, long __pyx_v_depth) {
   int *__pyx_v_moves;
   int __pyx_v_moves_length;
   float __pyx_v_v;
@@ -10702,7 +10700,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
 
   /* "tablut.pyx":731
  * 
- *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+ *     cdef float min_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves             # <<<<<<<<<<<<<<
  *         cdef int moves_length = state._moves_length
  *         cdef float v = np.inf
@@ -10711,7 +10709,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   __pyx_v_moves = __pyx_t_1;
 
   /* "tablut.pyx":732
- *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+ *     cdef float min_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length             # <<<<<<<<<<<<<<
  *         cdef float v = np.inf
@@ -10809,7 +10807,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  *             if terminal:
  *                 return state.utility(player)             # <<<<<<<<<<<<<<
  * 
- *             return state.eval_fn(parent_state, player)
+ *             return state.eval_fn(player)
  */
       __pyx_r = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->utility(__pyx_v_state, __pyx_v_player, 0);
       goto __pyx_L0;
@@ -10826,11 +10824,11 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     /* "tablut.pyx":744
  *                 return state.utility(player)
  * 
- *             return state.eval_fn(parent_state, player)             # <<<<<<<<<<<<<<
+ *             return state.eval_fn(player)             # <<<<<<<<<<<<<<
  * 
  *         for i in range(moves_length):
  */
-    __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, ((PyObject *)__pyx_v_parent_state), __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 744, __pyx_L1_error)
+    __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 744, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_5 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 744, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -10847,7 +10845,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   }
 
   /* "tablut.pyx":746
- *             return state.eval_fn(parent_state, player)
+ *             return state.eval_fn(player)
  * 
  *         for i in range(moves_length):             # <<<<<<<<<<<<<<
  *             a = moves[i]
@@ -10872,7 +10870,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
- *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)
  */
     __pyx_t_4 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 748, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
@@ -10882,13 +10880,13 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     /* "tablut.pyx":750
  *             next_state = state.result(a)
  * 
- *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)             # <<<<<<<<<<<<<<
+ *             v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)             # <<<<<<<<<<<<<<
  *             if v <= alpha:
  *                 return v
  */
     __pyx_t_5 = __pyx_v_v;
     if (!(likely(((__pyx_v_next_state) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_next_state, __pyx_ptype_6tablut_AshtonTablut))))) __PYX_ERR(0, 750, __pyx_L1_error)
-    __pyx_t_13 = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->max_value(__pyx_v_self, __pyx_v_state, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_next_state), __pyx_v_player, __pyx_v_alpha, __pyx_v_beta, (__pyx_v_depth + 1));
+    __pyx_t_13 = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->max_value(__pyx_v_self, ((struct __pyx_obj_6tablut_AshtonTablut *)__pyx_v_next_state), __pyx_v_player, __pyx_v_alpha, __pyx_v_beta, (__pyx_v_depth + 1));
     if (((__pyx_t_5 < __pyx_t_13) != 0)) {
       __pyx_t_14 = __pyx_t_5;
     } else {
@@ -10898,7 +10896,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
 
     /* "tablut.pyx":751
  * 
- *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)
  *             if v <= alpha:             # <<<<<<<<<<<<<<
  *                 return v
  *             beta = min(beta, v)
@@ -10907,7 +10905,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
     if (__pyx_t_9) {
 
       /* "tablut.pyx":752
- *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)
  *             if v <= alpha:
  *                 return v             # <<<<<<<<<<<<<<
  *             beta = min(beta, v)
@@ -10918,7 +10916,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
 
       /* "tablut.pyx":751
  * 
- *             v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+ *             v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)
  *             if v <= alpha:             # <<<<<<<<<<<<<<
  *                 return v
  *             beta = min(beta, v)
@@ -10955,7 +10953,7 @@ static float __pyx_f_6tablut_6Search_min_value(struct __pyx_obj_6tablut_Search *
   /* "tablut.pyx":730
  *         return v
  * 
- *     cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
+ *     cdef float min_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):             # <<<<<<<<<<<<<<
  *         cdef int* moves = state._moves
  *         cdef int moves_length = state._moves_length
  */
@@ -11295,7 +11293,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
  *             if next_state.utility(player) >= 1:
  *                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)             # <<<<<<<<<<<<<<
  * 
- *             v = self.min_value(state, next_state, player, best_score, beta, 1)
+ *             v = self.min_value(next_state, player, best_score, beta, 1)
  */
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_a); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 785, __pyx_L1_error)
@@ -11338,14 +11336,14 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
     /* "tablut.pyx":787
  *                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
  * 
- *             v = self.min_value(state, next_state, player, best_score, beta, 1)             # <<<<<<<<<<<<<<
+ *             v = self.min_value(next_state, player, best_score, beta, 1)             # <<<<<<<<<<<<<<
  * 
  *             if v >= 1:
  */
-    __pyx_v_v = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_state, __pyx_v_next_state, __pyx_v_player, __pyx_v_best_score, __pyx_v_beta, 1);
+    __pyx_v_v = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_next_state, __pyx_v_player, __pyx_v_best_score, __pyx_v_beta, 1);
 
     /* "tablut.pyx":789
- *             v = self.min_value(state, next_state, player, best_score, beta, 1)
+ *             v = self.min_value(next_state, player, best_score, beta, 1)
  * 
  *             if v >= 1:             # <<<<<<<<<<<<<<
  *                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
@@ -11395,7 +11393,7 @@ static PyObject *__pyx_pf_6tablut_6Search_2cutoff_search(struct __pyx_obj_6tablu
       goto __pyx_L0;
 
       /* "tablut.pyx":789
- *             v = self.min_value(state, next_state, player, best_score, beta, 1)
+ *             v = self.min_value(next_state, player, best_score, beta, 1)
  * 
  *             if v >= 1:             # <<<<<<<<<<<<<<
  *                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
@@ -11880,7 +11878,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  *         for i in range(moves_length):
  *             a = moves[i]             # <<<<<<<<<<<<<<
  *             next_state = state.result(a)
- *             store.add(a, next_state.eval_fn(state, player))
+ *             store.add(a, state.eval_fn(player))
  */
     __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 828, __pyx_L1_error)
     __pyx_v_a = (__pyx_v_moves[__pyx_t_8]);
@@ -11889,7 +11887,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  *         for i in range(moves_length):
  *             a = moves[i]
  *             next_state = state.result(a)             # <<<<<<<<<<<<<<
- *             store.add(a, next_state.eval_fn(state, player))
+ *             store.add(a, state.eval_fn(player))
  * 
  */
     __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 829, __pyx_L1_error)
@@ -11901,11 +11899,11 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
     /* "tablut.pyx":830
  *             a = moves[i]
  *             next_state = state.result(a)
- *             store.add(a, next_state.eval_fn(state, player))             # <<<<<<<<<<<<<<
+ *             store.add(a, state.eval_fn(player))             # <<<<<<<<<<<<<<
  * 
  *         while (get_time()-self.start_time) <= self.cutoff_time:
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->eval_fn(__pyx_v_next_state, ((PyObject *)__pyx_v_state), __pyx_v_player); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 830, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->eval_fn(__pyx_v_state, __pyx_v_player); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 830, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_3 = __pyx_PyFloat_AsFloat(__pyx_t_1); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 830, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11924,7 +11922,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "tablut.pyx":832
- *             store.add(a, next_state.eval_fn(state, player))
+ *             store.add(a, state.eval_fn(player))
  * 
  *         while (get_time()-self.start_time) <= self.cutoff_time:             # <<<<<<<<<<<<<<
  *             next_store = ActionStore()
@@ -12019,7 +12017,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
  *                 a = store.actions[i]
  *                 next_state = state.result(a)             # <<<<<<<<<<<<<<
  * 
- *                 v = self.min_value(state, next_state, player, best_score, beta, 1)
+ *                 v = self.min_value(next_state, player, best_score, beta, 1)
  */
       __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->result(__pyx_v_state, __pyx_v_a, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 837, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -12030,14 +12028,14 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
       /* "tablut.pyx":839
  *                 next_state = state.result(a)
  * 
- *                 v = self.min_value(state, next_state, player, best_score, beta, 1)             # <<<<<<<<<<<<<<
+ *                 v = self.min_value(next_state, player, best_score, beta, 1)             # <<<<<<<<<<<<<<
  * 
  *                 if (get_time()-self.start_time) > self.cutoff_time:
  */
-      __pyx_v_v = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_state, __pyx_v_next_state, __pyx_v_player, __pyx_v_best_score, __pyx_v_beta, 1);
+      __pyx_v_v = ((struct __pyx_vtabstruct_6tablut_Search *)__pyx_v_self->__pyx_vtab)->min_value(__pyx_v_self, __pyx_v_next_state, __pyx_v_player, __pyx_v_best_score, __pyx_v_beta, 1);
 
       /* "tablut.pyx":841
- *                 v = self.min_value(state, next_state, player, best_score, beta, 1)
+ *                 v = self.min_value(next_state, player, best_score, beta, 1)
  * 
  *                 if (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
  *                     break
@@ -12056,7 +12054,7 @@ static PyObject *__pyx_pf_6tablut_6Search_4iterative_deepening_search(struct __p
         goto __pyx_L8_break;
 
         /* "tablut.pyx":841
- *                 v = self.min_value(state, next_state, player, best_score, beta, 1)
+ *                 v = self.min_value(next_state, player, best_score, beta, 1)
  * 
  *                 if (get_time()-self.start_time) > self.cutoff_time:             # <<<<<<<<<<<<<<
  *                     break
@@ -13635,19 +13633,19 @@ static PyObject *__pyx_pf_6tablut_11ActionStore_8__setstate_cython__(struct __py
 /* "tablut.pyx":891
  * cdef class HeuristicFunction:
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         return state.utility(player)
  * 
  */
 
-static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_HeuristicFunction *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
+static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_HeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
   float __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("evalutate", 0);
 
   /* "tablut.pyx":892
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         return state.utility(player)             # <<<<<<<<<<<<<<
  * 
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):
@@ -13658,7 +13656,7 @@ static float __pyx_f_6tablut_17HeuristicFunction_evalutate(CYTHON_UNUSED struct 
   /* "tablut.pyx":891
  * cdef class HeuristicFunction:
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         return state.utility(player)
  * 
  */
@@ -13963,12 +13961,12 @@ static PyObject *__pyx_pf_6tablut_17HeuristicFunction_2__setstate_cython__(struc
 /* "tablut.pyx":896
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         # Spurio's evaluation function ( Modificata :) )
  * 
  */
 
-static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_OldSchoolHeuristicFunction *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
+static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSED struct __pyx_obj_6tablut_OldSchoolHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
   __Pyx_memviewslice __pyx_v_board = { 0, 0, { 0 }, { 0 }, { 0 } };
   float __pyx_v_count;
   float __pyx_v_countKing;
@@ -15103,7 +15101,7 @@ static float __pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate(CYTHON_UNUSE
   /* "tablut.pyx":896
  * cdef class OldSchoolHeuristicFunction(HeuristicFunction):
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         # Spurio's evaluation function ( Modificata :) )
  * 
  */
@@ -15415,7 +15413,7 @@ static PyObject *__pyx_pf_6tablut_26OldSchoolHeuristicFunction_2__setstate_cytho
 }
 
 /* "tablut.pyx":1005
- *     cdef int index_in_0, index_in_1, index_out_0
+ *     cdef int index_in_0, index_out_0
  * 
  *     def __init__(self, config):             # <<<<<<<<<<<<<<
  *         self.config = config
@@ -15604,7 +15602,7 @@ static int __pyx_pf_6tablut_23NeuralHeuristicFunction___init__(struct __pyx_obj_
   __pyx_t_1 = 0;
 
   /* "tablut.pyx":1005
- *     cdef int index_in_0, index_in_1, index_out_0
+ *     cdef int index_in_0, index_out_0
  * 
  *     def __init__(self, config):             # <<<<<<<<<<<<<<
  *         self.config = config
@@ -15853,7 +15851,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
  * 
  *         self.input_shape = tflite_input_details[0]['shape']             # <<<<<<<<<<<<<<
  *         self.index_in_0 = tflite_input_details[0]['index']
- *         self.index_in_1 = tflite_input_details[1]['index']
+ *         #self.index_in_1 = tflite_input_details[1]['index']
  */
   __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1025, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15871,7 +15869,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
  * 
  *         self.input_shape = tflite_input_details[0]['shape']
  *         self.index_in_0 = tflite_input_details[0]['index']             # <<<<<<<<<<<<<<
- *         self.index_in_1 = tflite_input_details[1]['index']
+ *         #self.index_in_1 = tflite_input_details[1]['index']
  *         self.index_out_0 = tflite_output_details[0]['index']
  */
   __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1026, __pyx_L1_error)
@@ -15883,36 +15881,20 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_2init_tflite(struct 
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_self->index_in_0 = __pyx_t_6;
 
-  /* "tablut.pyx":1027
- *         self.input_shape = tflite_input_details[0]['shape']
- *         self.index_in_0 = tflite_input_details[0]['index']
- *         self.index_in_1 = tflite_input_details[1]['index']             # <<<<<<<<<<<<<<
- *         self.index_out_0 = tflite_output_details[0]['index']
- * 
- */
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_input_details, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1027, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_n_u_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1027, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1027, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_self->index_in_1 = __pyx_t_6;
-
   /* "tablut.pyx":1028
  *         self.index_in_0 = tflite_input_details[0]['index']
- *         self.index_in_1 = tflite_input_details[1]['index']
+ *         #self.index_in_1 = tflite_input_details[1]['index']
  *         self.index_out_0 = tflite_output_details[0]['index']             # <<<<<<<<<<<<<<
  * 
  *         self.interpreter_initialized = True
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_tflite_output_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1028, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1028, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_tflite_output_details, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1028, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1028, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_n_u_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1028, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1028, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->index_out_0 = __pyx_t_6;
 
   /* "tablut.pyx":1030
@@ -16065,7 +16047,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_6initialized(struct 
  *     def initialized(self):
  *         return self.interpreter_initialized             # <<<<<<<<<<<<<<
  * 
- *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
+ *     cdef float tflite_eval(self, AshtonTablut state, unicode player):
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->interpreter_initialized); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1038, __pyx_L1_error)
@@ -16096,14 +16078,13 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_6initialized(struct 
 /* "tablut.pyx":1040
  *         return self.interpreter_initialized
  * 
- *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float tflite_eval(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         cdef np.ndarray board0 = state.board()
- *         cdef np.ndarray board1 = next_state.board()
+ *         #cdef np.ndarray board1 = next_state.board()
  */
 
-static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_next_state, PyObject *__pyx_v_player) {
+static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
   PyArrayObject *__pyx_v_board0 = 0;
-  PyArrayObject *__pyx_v_board1 = 0;
   float __pyx_v_v;
   float __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -16122,9 +16103,9 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
 
   /* "tablut.pyx":1041
  * 
- *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
+ *     cdef float tflite_eval(self, AshtonTablut state, unicode player):
  *         cdef np.ndarray board0 = state.board()             # <<<<<<<<<<<<<<
- *         cdef np.ndarray board1 = next_state.board()
+ *         #cdef np.ndarray board1 = next_state.board()
  *         cdef float v
  */
   __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_state->__pyx_vtab)->board(__pyx_v_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1041, __pyx_L1_error)
@@ -16133,24 +16114,11 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   __pyx_v_board0 = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1042
- *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
- *         cdef np.ndarray board0 = state.board()
- *         cdef np.ndarray board1 = next_state.board()             # <<<<<<<<<<<<<<
- *         cdef float v
- * 
- */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_6tablut_AshtonTablut *)__pyx_v_next_state->__pyx_vtab)->board(__pyx_v_next_state, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __pyx_v_board1 = ((PyArrayObject *)__pyx_t_1);
-  __pyx_t_1 = 0;
-
   /* "tablut.pyx":1045
  *         cdef float v
  * 
  *         self.interpreter.set_tensor(self.index_in_0, board0)             # <<<<<<<<<<<<<<
- *         self.interpreter.set_tensor(self.index_in_1, board1)
+ *         #self.interpreter.set_tensor(self.index_in_1, board1)
  * 
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_set_tensor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1045, __pyx_L1_error)
@@ -16206,68 +16174,8 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tablut.pyx":1046
- * 
- *         self.interpreter.set_tensor(self.index_in_0, board0)
- *         self.interpreter.set_tensor(self.index_in_1, board1)             # <<<<<<<<<<<<<<
- * 
- *         self.interpreter.invoke()
- */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_set_tensor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1046, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1046, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = NULL;
-  __pyx_t_5 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-      __pyx_t_5 = 1;
-    }
-  }
-  #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_2)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_6, ((PyObject *)__pyx_v_board1)};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  } else
-  #endif
-  #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_6, ((PyObject *)__pyx_v_board1)};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  } else
-  #endif
-  {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1046, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (__pyx_t_3) {
-      __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
-    }
-    __Pyx_GIVEREF(__pyx_t_6);
-    PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_5, __pyx_t_6);
-    __Pyx_INCREF(((PyObject *)__pyx_v_board1));
-    __Pyx_GIVEREF(((PyObject *)__pyx_v_board1));
-    PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_5, ((PyObject *)__pyx_v_board1));
-    __pyx_t_6 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
   /* "tablut.pyx":1048
- *         self.interpreter.set_tensor(self.index_in_1, board1)
+ *         #self.interpreter.set_tensor(self.index_in_1, board1)
  * 
  *         self.interpreter.invoke()             # <<<<<<<<<<<<<<
  * 
@@ -16275,18 +16183,18 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_invoke); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1048, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = NULL;
+  __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_4)) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_6)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_6);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1048, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -16301,21 +16209,21 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->interpreter, __pyx_n_s_get_tensor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->index_out_0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1050, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = NULL;
+  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->index_out_0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_6)) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_6);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_6, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -16334,7 +16242,7 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
  * 
  *         return v if player == 'W' else -v             # <<<<<<<<<<<<<<
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  */
   __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_player, __pyx_n_u_W, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1052, __pyx_L1_error)
   if ((__pyx_t_8 != 0)) {
@@ -16348,9 +16256,9 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   /* "tablut.pyx":1040
  *         return self.interpreter_initialized
  * 
- *     cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float tflite_eval(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         cdef np.ndarray board0 = state.board()
- *         cdef np.ndarray board1 = next_state.board()
+ *         #cdef np.ndarray board1 = next_state.board()
  */
 
   /* function exit code */
@@ -16364,7 +16272,6 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_board0);
-  __Pyx_XDECREF((PyObject *)__pyx_v_board1);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -16372,12 +16279,12 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval(struct __pyx_
 /* "tablut.pyx":1054
  *         return v if player == 'W' else -v
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         if self.interpreter_initialized:
- *             return self.tflite_eval(parent_state, state, player)
+ *             return self.tflite_eval(state, player)
  */
 
-static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
+static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
   float __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -16385,36 +16292,36 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
 
   /* "tablut.pyx":1055
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         if self.interpreter_initialized:             # <<<<<<<<<<<<<<
- *             return self.tflite_eval(parent_state, state, player)
+ *             return self.tflite_eval(state, player)
  *         return state.utility(player)
  */
   __pyx_t_1 = (__pyx_v_self->interpreter_initialized != 0);
   if (__pyx_t_1) {
 
     /* "tablut.pyx":1056
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         if self.interpreter_initialized:
- *             return self.tflite_eval(parent_state, state, player)             # <<<<<<<<<<<<<<
+ *             return self.tflite_eval(state, player)             # <<<<<<<<<<<<<<
  *         return state.utility(player)
  * 
  */
-    __pyx_r = ((struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *)__pyx_v_self->__pyx_base.__pyx_vtab)->tflite_eval(__pyx_v_self, __pyx_v_parent_state, __pyx_v_state, __pyx_v_player);
+    __pyx_r = ((struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *)__pyx_v_self->__pyx_base.__pyx_vtab)->tflite_eval(__pyx_v_self, __pyx_v_state, __pyx_v_player);
     goto __pyx_L0;
 
     /* "tablut.pyx":1055
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         if self.interpreter_initialized:             # <<<<<<<<<<<<<<
- *             return self.tflite_eval(parent_state, state, player)
+ *             return self.tflite_eval(state, player)
  *         return state.utility(player)
  */
   }
 
   /* "tablut.pyx":1057
  *         if self.interpreter_initialized:
- *             return self.tflite_eval(parent_state, state, player)
+ *             return self.tflite_eval(state, player)
  *         return state.utility(player)             # <<<<<<<<<<<<<<
  * 
  * cdef class MixedHeuristicFunction(HeuristicFunction):
@@ -16425,9 +16332,9 @@ static float __pyx_f_6tablut_23NeuralHeuristicFunction_evalutate(struct __pyx_ob
   /* "tablut.pyx":1054
  *         return v if player == 'W' else -v
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         if self.interpreter_initialized:
- *             return self.tflite_eval(parent_state, state, player)
+ *             return self.tflite_eval(state, player)
  */
 
   /* function exit code */
@@ -16467,10 +16374,9 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_5;
   int __pyx_t_6;
   int __pyx_t_7;
-  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -16479,69 +16385,64 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self.config, self.index_in_0, self.index_in_1, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)             # <<<<<<<<<<<<<<
+ *     state = (self.config, self.index_in_0, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
   __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->index_in_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->index_out_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->index_out_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_self->interpreter_initialized); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->interpreter_initialized); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(7); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(8); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_self->config);
   __Pyx_GIVEREF(__pyx_v_self->config);
-  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_self->config);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_self->config);
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_v_self->input_shape));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self->input_shape));
-  PyTuple_SET_ITEM(__pyx_t_5, 4, ((PyObject *)__pyx_v_self->input_shape));
+  PyTuple_SET_ITEM(__pyx_t_4, 3, ((PyObject *)__pyx_v_self->input_shape));
   __Pyx_INCREF(__pyx_v_self->interpreter);
   __Pyx_GIVEREF(__pyx_v_self->interpreter);
-  PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_v_self->interpreter);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_5, 6, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_4, 4, __pyx_v_self->interpreter);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 5, __pyx_t_3);
   __Pyx_INCREF(__pyx_v_self->model_path);
   __Pyx_GIVEREF(__pyx_v_self->model_path);
-  PyTuple_SET_ITEM(__pyx_t_5, 7, __pyx_v_self->model_path);
+  PyTuple_SET_ITEM(__pyx_t_4, 6, __pyx_v_self->model_path);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
+  __pyx_v_state = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_v_state = ((PyObject*)__pyx_t_5);
-  __pyx_t_5 = 0;
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self.config, self.index_in_0, self.index_in_1, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)
+ *     state = (self.config, self.index_in_0, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
  */
-  __pyx_t_5 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_v__dict = __pyx_t_5;
-  __pyx_t_5 = 0;
+  __pyx_t_4 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_v__dict = __pyx_t_4;
+  __pyx_t_4 = 0;
 
   /* "(tree fragment)":7
- *     state = (self.config, self.index_in_0, self.index_in_1, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)
+ *     state = (self.config, self.index_in_0, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
  *         use_setstate = True
  */
-  __pyx_t_6 = (__pyx_v__dict != Py_None);
-  __pyx_t_7 = (__pyx_t_6 != 0);
-  if (__pyx_t_7) {
+  __pyx_t_5 = (__pyx_v__dict != Py_None);
+  __pyx_t_6 = (__pyx_t_5 != 0);
+  if (__pyx_t_6) {
 
     /* "(tree fragment)":8
  *     _dict = getattr(self, '__dict__', None)
@@ -16550,16 +16451,16 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
  *         use_setstate = True
  *     else:
  */
-    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v__dict);
     __Pyx_GIVEREF(__pyx_v__dict);
-    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v__dict);
-    __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_4));
-    __pyx_t_4 = 0;
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v__dict);
+    __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_3));
+    __pyx_t_3 = 0;
 
     /* "(tree fragment)":9
  *     if _dict is not None:
@@ -16571,7 +16472,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self.config, self.index_in_0, self.index_in_1, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)
+ *     state = (self.config, self.index_in_0, self.index_out_0, self.input_shape, self.interpreter, self.interpreter_initialized, self.model_path)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -16585,35 +16486,35 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
  *     else:
  *         use_setstate = self.config is not None or self.input_shape is not None or self.interpreter is not None or self.model_path is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, None), state
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, None), state
  */
   /*else*/ {
-    __pyx_t_6 = (__pyx_v_self->config != Py_None);
-    __pyx_t_8 = (__pyx_t_6 != 0);
-    if (!__pyx_t_8) {
+    __pyx_t_5 = (__pyx_v_self->config != Py_None);
+    __pyx_t_7 = (__pyx_t_5 != 0);
+    if (!__pyx_t_7) {
     } else {
-      __pyx_t_7 = __pyx_t_8;
+      __pyx_t_6 = __pyx_t_7;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_8 = (((PyObject *)__pyx_v_self->input_shape) != Py_None);
-    __pyx_t_6 = (__pyx_t_8 != 0);
-    if (!__pyx_t_6) {
+    __pyx_t_7 = (((PyObject *)__pyx_v_self->input_shape) != Py_None);
+    __pyx_t_5 = (__pyx_t_7 != 0);
+    if (!__pyx_t_5) {
     } else {
-      __pyx_t_7 = __pyx_t_6;
+      __pyx_t_6 = __pyx_t_5;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_6 = (__pyx_v_self->interpreter != Py_None);
-    __pyx_t_8 = (__pyx_t_6 != 0);
-    if (!__pyx_t_8) {
+    __pyx_t_5 = (__pyx_v_self->interpreter != Py_None);
+    __pyx_t_7 = (__pyx_t_5 != 0);
+    if (!__pyx_t_7) {
     } else {
-      __pyx_t_7 = __pyx_t_8;
+      __pyx_t_6 = __pyx_t_7;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_8 = (__pyx_v_self->model_path != ((PyObject*)Py_None));
-    __pyx_t_6 = (__pyx_t_8 != 0);
-    __pyx_t_7 = __pyx_t_6;
+    __pyx_t_7 = (__pyx_v_self->model_path != ((PyObject*)Py_None));
+    __pyx_t_5 = (__pyx_t_7 != 0);
+    __pyx_t_6 = __pyx_t_5;
     __pyx_L4_bool_binop_done:;
-    __pyx_v_use_setstate = __pyx_t_7;
+    __pyx_v_use_setstate = __pyx_t_6;
   }
   __pyx_L3:;
 
@@ -16621,89 +16522,89 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
  *     else:
  *         use_setstate = self.config is not None or self.input_shape is not None or self.interpreter is not None or self.model_path is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, None), state
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, None), state
  *     else:
  */
-  __pyx_t_7 = (__pyx_v_use_setstate != 0);
-  if (__pyx_t_7) {
+  __pyx_t_6 = (__pyx_v_use_setstate != 0);
+  if (__pyx_t_6) {
 
     /* "(tree fragment)":13
  *         use_setstate = self.config is not None or self.input_shape is not None or self.interpreter is not None or self.model_path is not None
  *     if use_setstate:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle_NeuralHeuristicFu); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pyx_unpickle_NeuralHeuristicFu); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_72864990);
-    __Pyx_GIVEREF(__pyx_int_72864990);
-    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_int_72864990);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_101198353);
+    __Pyx_GIVEREF(__pyx_int_101198353);
+    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_101198353);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
-    PyTuple_SET_ITEM(__pyx_t_5, 2, Py_None);
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_4, 2, Py_None);
+    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_state);
-    __pyx_t_4 = 0;
-    __pyx_t_5 = 0;
-    __pyx_r = __pyx_t_3;
+    PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_state);
     __pyx_t_3 = 0;
+    __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
     goto __pyx_L0;
 
     /* "(tree fragment)":12
  *     else:
  *         use_setstate = self.config is not None or self.input_shape is not None or self.interpreter is not None or self.model_path is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, None), state
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, None), state
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, None), state
  *     else:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_NeuralHeuristicFunction__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pyx_unpickle_NeuralHeuristicFu); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_NeuralHeuristicFu); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_72864990);
-    __Pyx_GIVEREF(__pyx_int_72864990);
-    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_int_72864990);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_101198353);
+    __Pyx_GIVEREF(__pyx_int_101198353);
+    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_101198353);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_state);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_5);
-    __pyx_t_3 = 0;
-    __pyx_t_5 = 0;
-    __pyx_r = __pyx_t_4;
+    PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_state);
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_GIVEREF(__pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4);
+    __pyx_t_2 = 0;
     __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_3;
+    __pyx_t_3 = 0;
     goto __pyx_L0;
   }
 
@@ -16719,7 +16620,6 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("tablut.NeuralHeuristicFunction.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -16732,7 +16632,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_8__reduce_cython__(s
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_NeuralHeuristicFunction__set_state(self, __pyx_state)
  */
@@ -16762,7 +16662,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_10__setstate_cython_
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_NeuralHeuristicFunction__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
@@ -16773,7 +16673,7 @@ static PyObject *__pyx_pf_6tablut_23NeuralHeuristicFunction_10__setstate_cython_
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_NeuralHeuristicFunction__set_state(self, __pyx_state)
  */
@@ -17276,7 +17176,7 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
  *     def set_alpha(self, alpha):
  *         self.alpha = min(max(alpha, 1.0), 0.0)             # <<<<<<<<<<<<<<
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  */
   __pyx_t_1 = 0.0;
   __pyx_t_2 = 1.0;
@@ -17348,12 +17248,12 @@ static PyObject *__pyx_pf_6tablut_22MixedHeuristicFunction_8set_alpha(struct __p
 /* "tablut.pyx":1082
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         if self.neural_eval.interpreter_initialized:
- *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
+ *             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
  */
 
-static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj_6tablut_MixedHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_parent_state, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
+static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj_6tablut_MixedHeuristicFunction *__pyx_v_self, struct __pyx_obj_6tablut_AshtonTablut *__pyx_v_state, PyObject *__pyx_v_player) {
   float __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -17361,49 +17261,49 @@ static float __pyx_f_6tablut_22MixedHeuristicFunction_evalutate(struct __pyx_obj
 
   /* "tablut.pyx":1083
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         if self.neural_eval.interpreter_initialized:             # <<<<<<<<<<<<<<
- *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
+ *             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
  * 
  */
   __pyx_t_1 = (__pyx_v_self->neural_eval->interpreter_initialized != 0);
   if (__pyx_t_1) {
 
     /* "tablut.pyx":1084
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         if self.neural_eval.interpreter_initialized:
- *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)             # <<<<<<<<<<<<<<
+ *             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)             # <<<<<<<<<<<<<<
  * 
- *         return self.old_eval.evalutate(parent_state, state, player)
+ *         return self.old_eval.evalutate(state, player)
  */
-    __pyx_r = ((((struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *)__pyx_v_self->neural_eval->__pyx_base.__pyx_vtab)->tflite_eval(__pyx_v_self->neural_eval, __pyx_v_parent_state, __pyx_v_state, __pyx_v_player) * __pyx_v_self->alpha) + (((struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *)__pyx_v_self->old_eval->__pyx_base.__pyx_vtab)->__pyx_base.evalutate(((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_v_self->old_eval), __pyx_v_parent_state, __pyx_v_state, __pyx_v_player) * (1.0 - __pyx_v_self->alpha)));
+    __pyx_r = ((((struct __pyx_vtabstruct_6tablut_NeuralHeuristicFunction *)__pyx_v_self->neural_eval->__pyx_base.__pyx_vtab)->tflite_eval(__pyx_v_self->neural_eval, __pyx_v_state, __pyx_v_player) * __pyx_v_self->alpha) + (((struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *)__pyx_v_self->old_eval->__pyx_base.__pyx_vtab)->__pyx_base.evalutate(((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_v_self->old_eval), __pyx_v_state, __pyx_v_player) * (1.0 - __pyx_v_self->alpha)));
     goto __pyx_L0;
 
     /* "tablut.pyx":1083
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):
  *         if self.neural_eval.interpreter_initialized:             # <<<<<<<<<<<<<<
- *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
+ *             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
  * 
  */
   }
 
   /* "tablut.pyx":1086
- *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
+ *             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
  * 
- *         return self.old_eval.evalutate(parent_state, state, player)             # <<<<<<<<<<<<<<
+ *         return self.old_eval.evalutate(state, player)             # <<<<<<<<<<<<<<
  * 
  * #------------------------------ Utils ---------------------------------------------------------
  */
-  __pyx_r = ((struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *)__pyx_v_self->old_eval->__pyx_base.__pyx_vtab)->__pyx_base.evalutate(((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_v_self->old_eval), __pyx_v_parent_state, __pyx_v_state, __pyx_v_player);
+  __pyx_r = ((struct __pyx_vtabstruct_6tablut_OldSchoolHeuristicFunction *)__pyx_v_self->old_eval->__pyx_base.__pyx_vtab)->__pyx_base.evalutate(((struct __pyx_obj_6tablut_HeuristicFunction *)__pyx_v_self->old_eval), __pyx_v_state, __pyx_v_player);
   goto __pyx_L0;
 
   /* "tablut.pyx":1082
  *         self.alpha = min(max(alpha, 1.0), 0.0)
  * 
- *     cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
+ *     cdef float evalutate(self, AshtonTablut state, unicode player):             # <<<<<<<<<<<<<<
  *         if self.neural_eval.interpreter_initialized:
- *             return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
+ *             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
  */
 
   /* function exit code */
@@ -21505,18 +21405,18 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x457d4de:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x6082a11:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x457d4de) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x6082a11) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x457d4de:
+ *     if __pyx_checksum != 0x6082a11:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
  *     __pyx_result = NeuralHeuristicFunction.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -21535,15 +21435,15 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0x457d4de:
+ *     if __pyx_checksum != 0x6082a11:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = NeuralHeuristicFunction.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x45, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x60, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -21570,15 +21470,15 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x457d4de:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x6082a11:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
  *     __pyx_result = NeuralHeuristicFunction.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
@@ -21604,7 +21504,7 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
  *     __pyx_result = NeuralHeuristicFunction.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
@@ -21627,7 +21527,7 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x457d4de = (config, index_in_0, index_in_1, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x6082a11 = (config, index_in_0, index_out_0, input_shape, interpreter, interpreter_initialized, model_path))" % __pyx_checksum)
  *     __pyx_result = NeuralHeuristicFunction.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
@@ -21640,7 +21540,7 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -21673,8 +21573,8 @@ static PyObject *__pyx_pf_6tablut_14__pyx_unpickle_NeuralHeuristicFunction(CYTHO
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
 
 static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_state(struct __pyx_obj_6tablut_NeuralHeuristicFunction *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
@@ -21696,9 +21596,9 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[8])
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[7])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -21722,19 +21622,13 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
   __pyx_t_2 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 2)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->index_in_1 = __pyx_t_2;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_2 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 3)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
   __pyx_v___pyx_result->index_out_0 = __pyx_t_2;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  if (!(likely(((PyTuple_GET_ITEM(__pyx_v___pyx_state, 4)) == Py_None) || likely(__Pyx_TypeTest(PyTuple_GET_ITEM(__pyx_v___pyx_state, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(1, 12, __pyx_L1_error)
-  __pyx_t_1 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 4);
+  if (!(likely(((PyTuple_GET_ITEM(__pyx_v___pyx_state, 3)) == Py_None) || likely(__Pyx_TypeTest(PyTuple_GET_ITEM(__pyx_v___pyx_state, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 3);
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->input_shape);
@@ -21745,7 +21639,7 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_1 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 5);
+  __pyx_t_1 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 4);
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->interpreter);
@@ -21756,14 +21650,14 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(PyTuple_GET_ITEM(__pyx_v___pyx_state, 6)); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(PyTuple_GET_ITEM(__pyx_v___pyx_state, 5)); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
   __pyx_v___pyx_result->interpreter_initialized = __pyx_t_3;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  if (!(likely(PyUnicode_CheckExact(PyTuple_GET_ITEM(__pyx_v___pyx_state, 7)))||((PyTuple_GET_ITEM(__pyx_v___pyx_state, 7)) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(PyTuple_GET_ITEM(__pyx_v___pyx_state, 7))->tp_name), 0))) __PYX_ERR(1, 12, __pyx_L1_error)
-  __pyx_t_1 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 7);
+  if (!(likely(PyUnicode_CheckExact(PyTuple_GET_ITEM(__pyx_v___pyx_state, 6)))||((PyTuple_GET_ITEM(__pyx_v___pyx_state, 6)) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(PyTuple_GET_ITEM(__pyx_v___pyx_state, 6))->tp_name), 0))) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 6);
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->model_path);
@@ -21773,16 +21667,16 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[8])
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[7])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
     __PYX_ERR(1, 13, __pyx_L1_error)
   }
   __pyx_t_4 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 13, __pyx_L1_error)
-  __pyx_t_5 = ((__pyx_t_4 > 8) != 0);
+  __pyx_t_5 = ((__pyx_t_4 > 7) != 0);
   if (__pyx_t_5) {
   } else {
     __pyx_t_3 = __pyx_t_5;
@@ -21795,9 +21689,9 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
   if (__pyx_t_3) {
 
     /* "(tree fragment)":14
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[8])             # <<<<<<<<<<<<<<
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[7])             # <<<<<<<<<<<<<<
  */
     __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
@@ -21818,7 +21712,7 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
         __Pyx_DECREF_SET(__pyx_t_8, function);
       }
     }
-    __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_7, PyTuple_GET_ITEM(__pyx_v___pyx_state, 8)) : __Pyx_PyObject_CallOneArg(__pyx_t_8, PyTuple_GET_ITEM(__pyx_v___pyx_state, 8));
+    __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_7, PyTuple_GET_ITEM(__pyx_v___pyx_state, 7)) : __Pyx_PyObject_CallOneArg(__pyx_t_8, PyTuple_GET_ITEM(__pyx_v___pyx_state, 7));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -21827,9 +21721,9 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[8])
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[7])
  */
   }
 
@@ -21837,8 +21731,8 @@ static PyObject *__pyx_f_6tablut___pyx_unpickle_NeuralHeuristicFunction__set_sta
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
 
   /* function exit code */
@@ -38434,7 +38328,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x03, __pyx_k_Incompatible_checksums_s_vs_0x03, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x03), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x10, __pyx_k_Incompatible_checksums_s_vs_0x10, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x10), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x24, __pyx_k_Incompatible_checksums_s_vs_0x24, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x24), 0, 0, 1, 0},
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x45, __pyx_k_Incompatible_checksums_s_vs_0x45, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x45), 0, 0, 1, 0},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x60, __pyx_k_Incompatible_checksums_s_vs_0x60, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x60), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xb0, __pyx_k_Incompatible_checksums_s_vs_0xb0, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xb0), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xd4, __pyx_k_Incompatible_checksums_s_vs_0xd4, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xd4), 0, 0, 1, 0},
   {&__pyx_n_s_IndexError, __pyx_k_IndexError, sizeof(__pyx_k_IndexError), 0, 0, 1, 1},
@@ -38723,8 +38617,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         # Game
  *         # Dimensions of the game observation
  *         self.observation_shape = (1, 9, 9, 4)             # <<<<<<<<<<<<<<
- *         #(nb_t, nb_channels, nb_rows, nb_cols) (nb_t >= 2)
- *         self.network_input_shape = (2, 4, 9, 9)
+ *         #(nb_channels, nb_rows, nb_cols)
+ *         self.network_input_shape = (4, 9, 9)
  */
   __pyx_tuple_ = PyTuple_Pack(4, __pyx_int_1, __pyx_int_9, __pyx_int_9, __pyx_int_4); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
@@ -38732,17 +38626,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "tablut.pyx":45
  *         self.observation_shape = (1, 9, 9, 4)
- *         #(nb_t, nb_channels, nb_rows, nb_cols) (nb_t >= 2)
- *         self.network_input_shape = (2, 4, 9, 9)             # <<<<<<<<<<<<<<
+ *         #(nb_channels, nb_rows, nb_cols)
+ *         self.network_input_shape = (4, 9, 9)             # <<<<<<<<<<<<<<
  *         # Fixed list of all possible actions. You should only edit the length
  *         self.action_space = list(range(6561))
  */
-  __pyx_tuple__2 = PyTuple_Pack(4, __pyx_int_2, __pyx_int_4, __pyx_int_9, __pyx_int_9); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_int_4, __pyx_int_9, __pyx_int_9); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
   /* "tablut.pyx":47
- *         self.network_input_shape = (2, 4, 9, 9)
+ *         self.network_input_shape = (4, 9, 9)
  *         # Fixed list of all possible actions. You should only edit the length
  *         self.action_space = list(range(6561))             # <<<<<<<<<<<<<<
  *         # List of players. You should only edit the length
@@ -39347,7 +39241,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_codeobj__73 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__72, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tablut_pyx, __pyx_n_s_turn, 661, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__73)) __PYX_ERR(0, 661, __pyx_L1_error)
 
   /* "tablut.pyx":667
- *         return self._heuristic.evalutate(parent_state, self, player)
+ *         return self._heuristic.evalutate(self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
  *         """Print or otherwise display the state."""
@@ -39571,7 +39465,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_NeuralHeuristicFunction__set_state(self, __pyx_state)
  */
@@ -39788,14 +39682,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_32 = PyInt_FromLong(32); if (unlikely(!__pyx_int_32)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_60 = PyInt_FromLong(60); if (unlikely(!__pyx_int_60)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_100 = PyInt_FromLong(100); if (unlikely(!__pyx_int_100)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_1000 = PyInt_FromLong(1000); if (unlikely(!__pyx_int_1000)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_2048 = PyInt_FromLong(2048); if (unlikely(!__pyx_int_2048)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_4096 = PyInt_FromLong(4096); if (unlikely(!__pyx_int_4096)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_6561 = PyInt_FromLong(6561); if (unlikely(!__pyx_int_6561)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_10000 = PyInt_FromLong(10000L); if (unlikely(!__pyx_int_10000)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_3224722 = PyInt_FromLong(3224722L); if (unlikely(!__pyx_int_3224722)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_16787844 = PyInt_FromLong(16787844L); if (unlikely(!__pyx_int_16787844)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_37840215 = PyInt_FromLong(37840215L); if (unlikely(!__pyx_int_37840215)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_72864990 = PyInt_FromLong(72864990L); if (unlikely(!__pyx_int_72864990)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_101198353 = PyInt_FromLong(101198353L); if (unlikely(!__pyx_int_101198353)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_184977713 = PyInt_FromLong(184977713L); if (unlikely(!__pyx_int_184977713)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_222419149 = PyInt_FromLong(222419149L); if (unlikely(!__pyx_int_222419149)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -39869,7 +39763,7 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_6tablut_AshtonTablut.to_move = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch))__pyx_f_6tablut_12AshtonTablut_to_move;
   __pyx_vtable_6tablut_AshtonTablut.board = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch))__pyx_f_6tablut_12AshtonTablut_board;
   __pyx_vtable_6tablut_AshtonTablut.turn = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, int __pyx_skip_dispatch))__pyx_f_6tablut_12AshtonTablut_turn;
-  __pyx_vtable_6tablut_AshtonTablut.eval_fn = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, PyObject *))__pyx_f_6tablut_12AshtonTablut_eval_fn;
+  __pyx_vtable_6tablut_AshtonTablut.eval_fn = (PyObject *(*)(struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_12AshtonTablut_eval_fn;
   if (PyType_Ready(&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_AshtonTablut.tp_print = 0;
@@ -39882,8 +39776,8 @@ static int __Pyx_modinit_type_init_code(void) {
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_AshtonTablut) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
   __pyx_ptype_6tablut_AshtonTablut = &__pyx_type_6tablut_AshtonTablut;
   __pyx_vtabptr_6tablut_Search = &__pyx_vtable_6tablut_Search;
-  __pyx_vtable_6tablut_Search.max_value = (float (*)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long))__pyx_f_6tablut_6Search_max_value;
-  __pyx_vtable_6tablut_Search.min_value = (float (*)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long))__pyx_f_6tablut_6Search_min_value;
+  __pyx_vtable_6tablut_Search.max_value = (float (*)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long))__pyx_f_6tablut_6Search_max_value;
+  __pyx_vtable_6tablut_Search.min_value = (float (*)(struct __pyx_obj_6tablut_Search *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *, float, float, long))__pyx_f_6tablut_6Search_min_value;
   if (PyType_Ready(&__pyx_type_6tablut_Search) < 0) __PYX_ERR(0, 688, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_Search.tp_print = 0;
@@ -39910,7 +39804,7 @@ static int __Pyx_modinit_type_init_code(void) {
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6tablut_ActionStore) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
   __pyx_ptype_6tablut_ActionStore = &__pyx_type_6tablut_ActionStore;
   __pyx_vtabptr_6tablut_HeuristicFunction = &__pyx_vtable_6tablut_HeuristicFunction;
-  __pyx_vtable_6tablut_HeuristicFunction.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_17HeuristicFunction_evalutate;
+  __pyx_vtable_6tablut_HeuristicFunction.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_17HeuristicFunction_evalutate;
   if (PyType_Ready(&__pyx_type_6tablut_HeuristicFunction) < 0) __PYX_ERR(0, 889, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6tablut_HeuristicFunction.tp_print = 0;
@@ -39924,7 +39818,7 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_ptype_6tablut_HeuristicFunction = &__pyx_type_6tablut_HeuristicFunction;
   __pyx_vtabptr_6tablut_OldSchoolHeuristicFunction = &__pyx_vtable_6tablut_OldSchoolHeuristicFunction;
   __pyx_vtable_6tablut_OldSchoolHeuristicFunction.__pyx_base = *__pyx_vtabptr_6tablut_HeuristicFunction;
-  __pyx_vtable_6tablut_OldSchoolHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate;
+  __pyx_vtable_6tablut_OldSchoolHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_26OldSchoolHeuristicFunction_evalutate;
   __pyx_type_6tablut_OldSchoolHeuristicFunction.tp_base = __pyx_ptype_6tablut_HeuristicFunction;
   if (PyType_Ready(&__pyx_type_6tablut_OldSchoolHeuristicFunction) < 0) __PYX_ERR(0, 894, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
@@ -39939,8 +39833,8 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_ptype_6tablut_OldSchoolHeuristicFunction = &__pyx_type_6tablut_OldSchoolHeuristicFunction;
   __pyx_vtabptr_6tablut_NeuralHeuristicFunction = &__pyx_vtable_6tablut_NeuralHeuristicFunction;
   __pyx_vtable_6tablut_NeuralHeuristicFunction.__pyx_base = *__pyx_vtabptr_6tablut_HeuristicFunction;
-  __pyx_vtable_6tablut_NeuralHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_23NeuralHeuristicFunction_evalutate;
-  __pyx_vtable_6tablut_NeuralHeuristicFunction.tflite_eval = (float (*)(struct __pyx_obj_6tablut_NeuralHeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval;
+  __pyx_vtable_6tablut_NeuralHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_23NeuralHeuristicFunction_evalutate;
+  __pyx_vtable_6tablut_NeuralHeuristicFunction.tflite_eval = (float (*)(struct __pyx_obj_6tablut_NeuralHeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_23NeuralHeuristicFunction_tflite_eval;
   __pyx_type_6tablut_NeuralHeuristicFunction.tp_base = __pyx_ptype_6tablut_HeuristicFunction;
   if (PyType_Ready(&__pyx_type_6tablut_NeuralHeuristicFunction) < 0) __PYX_ERR(0, 995, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
@@ -39955,7 +39849,7 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_ptype_6tablut_NeuralHeuristicFunction = &__pyx_type_6tablut_NeuralHeuristicFunction;
   __pyx_vtabptr_6tablut_MixedHeuristicFunction = &__pyx_vtable_6tablut_MixedHeuristicFunction;
   __pyx_vtable_6tablut_MixedHeuristicFunction.__pyx_base = *__pyx_vtabptr_6tablut_HeuristicFunction;
-  __pyx_vtable_6tablut_MixedHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_22MixedHeuristicFunction_evalutate;
+  __pyx_vtable_6tablut_MixedHeuristicFunction.__pyx_base.evalutate = (float (*)(struct __pyx_obj_6tablut_HeuristicFunction *, struct __pyx_obj_6tablut_AshtonTablut *, PyObject *))__pyx_f_6tablut_22MixedHeuristicFunction_evalutate;
   __pyx_type_6tablut_MixedHeuristicFunction.tp_base = __pyx_ptype_6tablut_HeuristicFunction;
   if (PyType_Ready(&__pyx_type_6tablut_MixedHeuristicFunction) < 0) __PYX_ERR(0, 1059, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
@@ -46548,7 +46442,7 @@ if (!__Pyx_RefNanny) {
   PyType_Modified(__pyx_ptype_6tablut_AshtonTablut);
 
   /* "tablut.pyx":667
- *         return self._heuristic.evalutate(parent_state, self, player)
+ *         return self._heuristic.evalutate(self, player)
  * 
  *     def display(self):             # <<<<<<<<<<<<<<
  *         """Print or otherwise display the state."""
@@ -46789,7 +46683,7 @@ if (!__Pyx_RefNanny) {
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x457d4de, state)
+ *         return __pyx_unpickle_NeuralHeuristicFunction, (type(self), 0x6082a11, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_NeuralHeuristicFunction__set_state(self, __pyx_state)
  */
@@ -46944,8 +46838,8 @@ if (!__Pyx_RefNanny) {
  *         __pyx_unpickle_NeuralHeuristicFunction__set_state(<NeuralHeuristicFunction> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_NeuralHeuristicFunction__set_state(NeuralHeuristicFunction __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_in_1 = __pyx_state[2]; __pyx_result.index_out_0 = __pyx_state[3]; __pyx_result.input_shape = __pyx_state[4]; __pyx_result.interpreter = __pyx_state[5]; __pyx_result.interpreter_initialized = __pyx_state[6]; __pyx_result.model_path = __pyx_state[7]
- *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result.config = __pyx_state[0]; __pyx_result.index_in_0 = __pyx_state[1]; __pyx_result.index_out_0 = __pyx_state[2]; __pyx_result.input_shape = __pyx_state[3]; __pyx_result.interpreter = __pyx_state[4]; __pyx_result.interpreter_initialized = __pyx_state[5]; __pyx_result.model_path = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_6tablut_17__pyx_unpickle_MixedHeuristicFunction, 0, __pyx_n_s_pyx_unpickle_MixedHeuristicFun, NULL, __pyx_n_s_tablut, __pyx_d, ((PyObject *)__pyx_codeobj__141)); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);

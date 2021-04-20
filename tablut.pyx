@@ -41,8 +41,8 @@ class TablutConfig:
         # Game
         # Dimensions of the game observation
         self.observation_shape = (1, 9, 9, 4)
-        #(nb_t, nb_channels, nb_rows, nb_cols) (nb_t >= 2)
-        self.network_input_shape = (2, 4, 9, 9)
+        #(nb_channels, nb_rows, nb_cols)
+        self.network_input_shape = (4, 9, 9)
         # Fixed list of all possible actions. You should only edit the length
         self.action_space = list(range(6561))
         # List of players. You should only edit the length
@@ -54,10 +54,10 @@ class TablutConfig:
 
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
-        self.num_workers = 8
+        self.num_workers = 4
         self.threads_per_worker = 2
         self.max_moves = 60  # Maximum number of moves if game is not finished before
-        self.max_time = 60
+        self.max_time = 10
 
         # Exploration noise
         self.enable_noise_on_training = True
@@ -66,7 +66,7 @@ class TablutConfig:
 
         # Training
         # Total number of training steps (ie weights update according to a batch)
-        self.training_steps = 10000
+        self.training_steps = 1000
         # Number of parts of games to train on at each training step
         self.batch_size = 4096  
         self.min_batch_size = 2048
@@ -661,8 +661,8 @@ cdef class AshtonTablut:
     cpdef turn(self):
         return self._turn
 
-    cdef eval_fn(self, parent_state, player):
-        return self._heuristic.evalutate(parent_state, self, player)
+    cdef eval_fn(self, player):
+        return self._heuristic.evalutate(self, player)
 
     def display(self):
         """Print or otherwise display the state."""
@@ -700,7 +700,7 @@ cdef class Search:
         self.cutoff_time = 0.0
         self.current_cutoff_depth = 0
 
-    cdef float max_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+    cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
         cdef float v = -np.inf
@@ -714,20 +714,20 @@ cdef class Search:
             if terminal:
                 return state.utility(player)
             
-            return state.eval_fn(parent_state, player)
+            return state.eval_fn(player)
                 
         for i in range(moves_length):
             a = moves[i]
             next_state = state.result(a)             
 
-            v = max(self.min_value(state, next_state, player, alpha, beta, depth + 1),v)
+            v = max(self.min_value(next_state, player, alpha, beta, depth + 1),v)
             if v >= beta:
                 return v
             alpha = max(alpha, v)
 
         return v
 
-    cdef float min_value(self, AshtonTablut parent_state, AshtonTablut state, unicode player, float alpha, float beta, long depth):
+    cdef float min_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
         cdef float v = np.inf
@@ -741,13 +741,13 @@ cdef class Search:
             if terminal:
                 return state.utility(player)
             
-            return state.eval_fn(parent_state, player)
+            return state.eval_fn(player)
 
         for i in range(moves_length):
             a = moves[i]
             next_state = state.result(a)           
 
-            v = min(self.max_value(state, next_state, player, alpha, beta, depth + 1),v)
+            v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)
             if v <= alpha:
                 return v
             beta = min(beta, v)
@@ -784,7 +784,7 @@ cdef class Search:
             if next_state.utility(player) >= 1:
                 return next_state, a, 1.0, 1, 1, (get_time()-self.start_time)
 
-            v = self.min_value(state, next_state, player, best_score, beta, 1)
+            v = self.min_value(next_state, player, best_score, beta, 1)
 
             if v >= 1:
                 return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
@@ -827,7 +827,7 @@ cdef class Search:
         for i in range(moves_length):
             a = moves[i]
             next_state = state.result(a)
-            store.add(a, next_state.eval_fn(state, player))
+            store.add(a, state.eval_fn(player))
         
         while (get_time()-self.start_time) <= self.cutoff_time:
             next_store = ActionStore()
@@ -836,7 +836,7 @@ cdef class Search:
                 a = store.actions[i]
                 next_state = state.result(a)
 
-                v = self.min_value(state, next_state, player, best_score, beta, 1)
+                v = self.min_value(next_state, player, best_score, beta, 1)
 
                 if (get_time()-self.start_time) > self.cutoff_time:
                     break
@@ -846,8 +846,10 @@ cdef class Search:
             if next_store.size() > 0:
                 store = next_store
                 if (get_time()-self.start_time) <= self.cutoff_time:
+                    a = store.actions[0]
+                    v = store.utils[0]
                     if v >= 1.0:
-                        return next_state, a, 1.0, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
+                        return state.result(a), a, v, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
 
             self.current_cutoff_depth += 1
@@ -857,8 +859,7 @@ cdef class Search:
         if store.size() > 0:
             best_action = store.actions[0]
             best_score = store.utils[0]
-            best_next_state = next_state = state.result(best_action)
-
+            best_next_state = state.result(best_action)
 
         return best_next_state, best_action, best_score, self.max_depth, self.nodes_explored, (get_time()-self.start_time)
 
@@ -888,12 +889,12 @@ cdef class ActionStore:
 
 cdef class HeuristicFunction:
 
-    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+    cdef float evalutate(self, AshtonTablut state, unicode player):
         return state.utility(player)
 
 cdef class OldSchoolHeuristicFunction(HeuristicFunction):
 
-    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+    cdef float evalutate(self, AshtonTablut state, unicode player):
         # Spurio's evaluation function ( Modificata :) )
 
         cdef DTYPE_t[:,:,:,:] board = state.board()
@@ -1000,7 +1001,7 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
 
     cdef object interpreter
     cdef np.ndarray input_shape
-    cdef int index_in_0, index_in_1, index_out_0
+    cdef int index_in_0, index_out_0
 
     def __init__(self, config):
         self.config = config
@@ -1024,7 +1025,7 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
 
         self.input_shape = tflite_input_details[0]['shape']
         self.index_in_0 = tflite_input_details[0]['index']
-        self.index_in_1 = tflite_input_details[1]['index']
+        #self.index_in_1 = tflite_input_details[1]['index']
         self.index_out_0 = tflite_output_details[0]['index']
 
         self.interpreter_initialized = True
@@ -1037,13 +1038,13 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
     def initialized(self):
         return self.interpreter_initialized
 
-    cdef float tflite_eval(self, AshtonTablut state, AshtonTablut next_state, unicode player):
+    cdef float tflite_eval(self, AshtonTablut state, unicode player):
         cdef np.ndarray board0 = state.board()
-        cdef np.ndarray board1 = next_state.board()
+        #cdef np.ndarray board1 = next_state.board()
         cdef float v
 
         self.interpreter.set_tensor(self.index_in_0, board0)
-        self.interpreter.set_tensor(self.index_in_1, board1)
+        #self.interpreter.set_tensor(self.index_in_1, board1)
 
         self.interpreter.invoke()
 
@@ -1051,9 +1052,9 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
 
         return v if player == 'W' else -v
 
-    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+    cdef float evalutate(self, AshtonTablut state, unicode player):
         if self.interpreter_initialized:
-            return self.tflite_eval(parent_state, state, player)
+            return self.tflite_eval(state, player)
         return state.utility(player)
 
 cdef class MixedHeuristicFunction(HeuristicFunction):
@@ -1079,11 +1080,11 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
     def set_alpha(self, alpha):
         self.alpha = min(max(alpha, 1.0), 0.0)
 
-    cdef float evalutate(self, AshtonTablut parent_state, AshtonTablut state, unicode player):
+    cdef float evalutate(self, AshtonTablut state, unicode player):
         if self.neural_eval.interpreter_initialized:
-            return self.neural_eval.tflite_eval(parent_state, state, player) * self.alpha + self.old_eval.evalutate(parent_state, state, player) * (1-self.alpha)
+            return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
 
-        return self.old_eval.evalutate(parent_state, state, player)
+        return self.old_eval.evalutate(state, player)
 
 #------------------------------ Utils ---------------------------------------------------------
 cdef inline double get_time():

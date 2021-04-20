@@ -1,4 +1,4 @@
-from network import TreeResNNet
+from network import ResNNet
 from actionbuffer import ActionBuffer
 from selfplay import SelfPlay
 from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction, NeuralHeuristicFunction, MixedHeuristicFunction
@@ -19,7 +19,7 @@ class AlphaTablut:
     def __init__(self):
         self.config = TablutConfig()
         self.action_buffer = ActionBuffer(self.config)
-        self.nnet = TreeResNNet(self.config)
+        self.nnet = ResNNet(self.config)
 
     def check_saving_folder(self):
         folder = self.config.folder
@@ -87,17 +87,17 @@ def self_play_worker(priority, heuristic_alpha, random=False):
     filename = config.tflite_model
     filepath = os.path.join(folder, filename)
 
-    heuristic = None
+    heuristic = OldSchoolHeuristicFunction()
 
-    if not random:
-        if os.path.exists(filepath) and os.path.isfile(filepath):
-            heuristic = MixedHeuristicFunction(config, heuristic_alpha)
-            heuristic.init_tflite()
-            if heuristic.initialized():
-                logging.info("Tflite model loaded")
-        else:
-            logging.info("Tflite model not found... Using OldSchoolHeuristic")
-            heuristic = OldSchoolHeuristicFunction()
+    #if not random:
+    #    if os.path.exists(filepath) and os.path.isfile(filepath):
+    #        heuristic = MixedHeuristicFunction(config, heuristic_alpha)
+    #        heuristic.init_tflite()
+    #        if heuristic.initialized():
+    #            logging.info("Tflite model loaded")
+    #    else:
+    #        logging.info("Tflite model not found... Using OldSchoolHeuristic")
+    #        heuristic = OldSchoolHeuristicFunction()
 
     time_per_move = config.max_time / (2*priority+1)
 
@@ -130,18 +130,18 @@ def menu_train(tablut):
     while tablut.nnet.training_steps < tablut.config.training_steps:
         heuristic_alpha = min(
             1.0, (2*tablut.nnet.training_steps/tablut.config.training_steps))
-        workers_alpha = 0.7 + \
-            min(0.2, tablut.nnet.training_steps/tablut.config.training_steps)
+        #workers_alpha = 0.7 + \
+        #    min(0.2, tablut.nnet.training_steps/tablut.config.training_steps)
 
-        num_search_workers = int(num_workers * workers_alpha)
-        num_random_workers = num_workers - num_search_workers
+        #num_search_workers = int(num_workers * workers_alpha)
+        #num_random_workers = num_workers - num_search_workers
 
         logging.info("Starting workers...")
 
         for priority in range(num_workers):
             if priority not in idtable:
                 id = self_play_worker.remote(
-                    priority, heuristic_alpha, priority >= num_search_workers)
+                    priority, heuristic_alpha, priority == num_workers-1)
                 idtable[priority] = id
 
         ready_ids, remaining_ids = ray.wait(
@@ -165,11 +165,10 @@ def menu_train(tablut):
             k = 1
             i = len(history)-1
             while i >= 0:
-                board0 = history[i-1]
                 board1 = history[i]
                 tablut.action_buffer.store_action(
-                    board0, board1, utility/k, 1/(priority+1))
-                i -= 2
+                    board1, utility/k, 1/(priority+1))
+                i -= 1
                 k += 1
 
             tablut.action_buffer.increment_game_counter()

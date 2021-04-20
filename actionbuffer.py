@@ -5,9 +5,7 @@ import os
 
 import tensorflow as tf
 
-
 CURRENT_STATE = 'current_state'
-NEXT_STATE = 'next_state'
 VISIT_COUNT = 'visit_count'
 REWARD = 'reward'
 WHITE_WINS = 'white_wins'
@@ -23,27 +21,23 @@ class ActionBuffer:
         self.game_counter = 0
 
     def increment_game_counter(self):
-        self.game_counter +=1
+        self.game_counter += 1
 
     def size(self):
         return len(self.buffer)
 
-    def store_action(self, board0, board1, reward, weight):
+    def store_action(self, board, reward, weight):
         """
-        board0: current state of the game
-        board1: next state of the game
+        board: current state of the game
         reward: 1 if white wins, -1 if black wins, 0 otherwise
         weight: [0,1] reward update weight
         """
-        if (board0.shape, board1.shape) != (self.config.observation_shape, self.config.observation_shape):
+        if (board.shape) != (self.config.observation_shape):
             raise Exception("Board shape mismatch")
 
-        if np.array_equal(board0, board1):
-            return
+        action_hash = hash(board.tobytes())
 
-        action_hash = hash(board0.tobytes()+board1.tobytes())
-
-        #with self._lock:
+        # with self._lock:
         if action_hash in self.buffer:
             action = self.buffer[action_hash]
             action[VISIT_COUNT] += 1
@@ -56,8 +50,8 @@ class ActionBuffer:
             else:
                 action[DRAWS] += 1
         else:
-            action = {CURRENT_STATE: board0.copy(), NEXT_STATE: board1.copy(
-            ), VISIT_COUNT: 1, REWARD: float(reward), WHITE_WINS: 0, BLACK_WINS: 0, DRAWS: 0}
+            action = {CURRENT_STATE: board.copy(), VISIT_COUNT: 1, REWARD: float(
+                reward), WHITE_WINS: 0, BLACK_WINS: 0, DRAWS: 0}
 
             if reward == 1:
                 action[WHITE_WINS] += 1
@@ -73,8 +67,6 @@ class ActionBuffer:
         batch_size = min(batch_size, keys)
 
         # X Data
-        board0 = np.zeros(
-            (keys, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[3]), dtype=np.float32)
         board1 = np.zeros(
             (keys, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[3]), dtype=np.float32)
 
@@ -85,18 +77,18 @@ class ActionBuffer:
         i = 0
         for key in self.buffer:
             # Imposto i dati nei data
-            board0[i] = self.buffer[key][CURRENT_STATE]
-            board1[i] = self.buffer[key][NEXT_STATE]
+            board1[i] = self.buffer[key][CURRENT_STATE]
             values[i] = self.buffer[key][REWARD]
-            i+=1
+            i += 1
 
         def generator():
-            for s1, s2, l in zip(board0, board1, values):
-                yield {"input_1": s1, "input_2": s2}, l
+            for s1, l in zip(board1, values):
+                yield {"input_1": s1}, l
 
-        #tf.data.Dataset.from_tensor_slices((board0, board1, values))
         dataset = tf.data.Dataset.from_generator(generator, output_types=(
-            {"input_1": tf.float32, "input_2": tf.float32}, tf.float32))
+            {"input_1": tf.float32}, tf.float32))
+
+        dataset = dataset.shuffle(keys)
         dataset = dataset.batch(batch_size)
         return dataset
 
@@ -104,7 +96,7 @@ class ActionBuffer:
         folder = self.config.folder
         filename = self.config.action_buffer_name
         filepath = os.path.join(folder, filename)
-        
+
         with open(filepath, "wb") as f:
             pickle.dump([self.buffer, self.game_counter, self.config], f)
 
@@ -117,6 +109,6 @@ class ActionBuffer:
 
         with open(filepath, "rb") as f:
             self.buffer, self.game_counter, config = pickle.load(f)
-        
+
         if config.observation_shape != self.config.observation_shape:
             raise Exception("Observation shape dismatch!")

@@ -74,7 +74,7 @@ class SelfPlay():
                 self.draw_queue = []
 
             best_action = AshtonTablut.num_to_coords(best_action)
-            logging.info("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(
+            logging.debug("Game move ({0}): {1} -> {2}, Search time: {3}, Max Depth: {4}, Nodes explored: {5}, Score: {6}, Captured: {7}".format(current_state.to_move(
             ), (best_action[0], best_action[1]), (best_action[2], best_action[3]), search_time, max_depth, nodes_explored, best_score, captured))
 
             current_state = best_next_state
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     init_rand()
 
     logging.basicConfig(
-        format='%(levelname)s:%(asctime)s: %(message)s', level=logging.INFO)
+        format='%(levelname)s:%(asctime)s: %(message)s', level=logging.DEBUG)
 
     heuristic = NeuralHeuristicFunction(TablutConfig())
     heuristic.init_tflite()

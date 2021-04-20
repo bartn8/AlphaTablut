@@ -7,7 +7,7 @@ import logging
 import numpy as np
 import tensorflow as tf
 
-from treeresnet import TreeResNetBuilder
+from resnet import ResNetBuilder
 from tablut import TablutConfig
 from actionbuffer import ActionBuffer
 
@@ -69,7 +69,7 @@ class NeuralNet():
         pass
 
 
-class TreeResNNet(NeuralNet):
+class ResNNet(NeuralNet):
     def __init__(self, config, restoreFromCheckpoint=False):
         self.config = config
         self.history = None
@@ -77,7 +77,7 @@ class TreeResNNet(NeuralNet):
         if restoreFromCheckpoint:
             self.load_checkpoint()
         else:
-            self.nnet = TreeResNetBuilder.build(
+            self.nnet = ResNetBuilder.build(
                 self.config.network_input_shape, 1, self.config.num_filters)
 
             self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.lr_init),
@@ -92,7 +92,7 @@ class TreeResNNet(NeuralNet):
 
         logging.info("Training step: {0}".format(self.training_steps))
         history_callback = self.nnet.fit(
-            data, epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps, verbose=0)
+            data, epochs=self.config.epochs+self.training_steps, initial_epoch=self.training_steps, verbose=1)
 
         self.history = history_callback.history["loss"]
 
@@ -100,28 +100,21 @@ class TreeResNNet(NeuralNet):
 
         return self.history
 
-    def predict(self, board0, board1):
+    def predict(self, board0):
         """
         board0: np array with current board
         board1: np array with next board
         """
-
         # run
-        v = self.nnet([board0, board1])
-
+        v = self.nnet([board0])
         return v[0][0]
 
-    def predicts(self, boards0, boards1):
+    def predicts(self, boards0):
         """
         boards0: np array of a batch of current board
         boards1: np array of a batch of next board
         """
-
-        if boards0.shape[0] != boardss1.shape[0]:
-            raise Exception("Batch elements must be the same")
-
-        v = self.nnet.predict([boards0, boards1])
-
+        v = self.nnet.predict([boards0])
         return tf.reshape(v, (-1))
 
     def save_checkpoint(self):
@@ -180,13 +173,8 @@ if __name__ == '__main__':
     batch_size = config.batch_size
     batch_size = min(batch_size, buf.size())
     dataset = buf.generate_dataset(batch_size)
-    for k in dataset:
-        
-        print(np.moveaxis(k[0]['input_1'][2], -1, 0))
-        print(np.moveaxis(k[0]['input_2'][2], -1, 0))
-        print(k[1][2])
 
-    net = TreeResNNet(config)
+    net = ResNNet(config)
     net.train(dataset)
 
     board = np.zeros((1, 9, 9, 4), dtype=np.int8)
@@ -239,5 +227,5 @@ if __name__ == '__main__':
     next_board[0,3,4,0] = 0
     next_board[0,3,0,0] = 1
 
-    print(net.predict(board, next_board))
+    print(net.predict(next_board))
 
