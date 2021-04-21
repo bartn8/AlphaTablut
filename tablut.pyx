@@ -436,10 +436,10 @@ cdef class AshtonTablut:
         cdef int captured = 0
 
         # Controlli U,D,L,R
-        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] == 1
-        cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 0] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1
-        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] == 1
-        cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 0] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1
+        cdef bint lookUp = y-2 >= 0 and board[0, y-2, x, 0] + board[0, y-2, x, 2] + board[0, y-2, x, 3] > 0 and board[0, y-1, x, 1] == 1
+        cdef bint lookDown = y+2 < 9 and board[0, y+2, x, 0] + board[0, y+2, x, 2] + board[0, y+2, x, 3] > 0 and board[0, y+1, x, 1] == 1
+        cdef bint lookLeft = x-2 >= 0 and board[0, y, x-2, 0] + board[0, y, x-2, 2] + board[0, y, x-2, 3] > 0 and board[0, y, x-1, 1] == 1
+        cdef bint lookRight = x+2 < 9 and board[0, y, x+2, 0] + board[0, y, x+2, 2] + board[0, y, x+2, 3] > 0 and board[0, y, x+1, 1] == 1
 
         if lookUp:
             board[0, y-1, x, 1] = 0

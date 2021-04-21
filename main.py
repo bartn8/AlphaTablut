@@ -178,14 +178,14 @@ def menu_train(tablut):
 
         if tablut.action_buffer.size() >= min_batch_size and played_games >= tablut.config.new_games_per_epoch:
             played_games = 0
-            logging.info("Dataset generating...")
-            batch_size = min(batch_size, tablut.action_buffer.size())
+            logging.debug("Dataset generating...")
+            batch_size = min(tablut.config.batch_size, tablut.action_buffer.size())
             dataset = tablut.action_buffer.generate_dataset(batch_size)
-            logging.info("Done.")
-            logging.info("Network training...")
+            logging.debug("Done.")
+            logging.debug("Network training...")
             loss_history = tablut.nnet.train(dataset)
-            logging.debug("Training step {0}, Loss: {1}".format(tablut.nnet.training_steps, loss_history[-1]))
-            logging.info("Done.")
+            logging.info("Training step {0}, Loss: {1}".format(tablut.nnet.training_steps, loss_history[-1]))
+            logging.debug("Done.")
 
             if tablut.nnet.training_steps % tablut.config.checkpoint_interval == 0:
                 tablut.nnet.save_checkpoint()
