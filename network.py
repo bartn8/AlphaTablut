@@ -70,13 +70,20 @@ class NeuralNet():
 
 class CustomMSE(tf.keras.losses.MeanSquaredError):
 
-    def __init__(self, config):
+    def __init__(self, config = TablutConfig()):
         super().__init__()
         self.sample_weight = config.value_loss_weight
 
 
     def __call__(self, y_true, y_pred, sample_weight=None):
         return super().__call__(y_true, y_pred, self.sample_weight)
+
+    def get_config(self):
+        return {"sample_weight": self.sample_weight}
+
+    @classmethod
+    def from_config(cls, config):
+        return cls()
 
 class ResNNet(NeuralNet):
     def __init__(self, config, restoreFromCheckpoint=False):
@@ -153,7 +160,7 @@ class ResNNet(NeuralNet):
         filepath = os.path.join(folder, filename)
         filepath_meta = os.path.join(folder, filename_meta)
 
-        self.nnet = tf.keras.models.load_model(filepath)
+        self.nnet = tf.keras.models.load_model(filepath, custom_objects={"CustomMSE": CustomMSE})
 
         with open(filepath_meta, "rb") as f:
             config, self.training_steps = pickle.load(f)

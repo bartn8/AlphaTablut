@@ -138,14 +138,15 @@ if __name__ == '__main__':
 
     maxVisit = 0
     maxVisitValue = None
-    for key in buf.buffer:
-        if buf.buffer[key][WHITE_WINS] > maxVisit:
-            maxVisit = buf.buffer[key][WHITE_WINS]
-            maxVisitValue = buf.buffer[key]
+    #for key in buf.buffer:
+    #    if buf.buffer[key][WHITE_WINS] > maxVisit:
+    #        maxVisit = buf.buffer[key][WHITE_WINS]
+    #        maxVisitValue = buf.buffer[key]
 
+    maxVisitValue = buf.buffer[random.choice(list(buf.buffer.keys()))]
     board = maxVisitValue[CURRENT_STATE]
-    board[0,0,2,2] = 0
-    board[0,8,6,2] = 1
+    #board[0,0,2,2] = 0
+    #board[0,8,6,2] = 1
 
     print(np.moveaxis(maxVisitValue[CURRENT_STATE], -1, 0))
     print(maxVisitValue[REWARD])

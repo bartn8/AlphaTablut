@@ -1021,7 +1021,7 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
         self.alpha = min(max(alpha, 1.0), 0.0)
 
     cdef float evalutate(self, AshtonTablut state, unicode player):
-        if self.neural_eval.interpreter_initialized:
+        if self.neural_eval.interpreter_initialized and self.alpha > 0.1:
             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
 
         return self.old_eval.evalutate(state, player)

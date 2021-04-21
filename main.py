@@ -90,15 +90,18 @@ def self_play_worker(priority, heuristic_alpha, random=False):
 
     heuristic = OldSchoolHeuristicFunction()
 
-    #if not random:
-    #    if os.path.exists(filepath) and os.path.isfile(filepath):
-    #        heuristic = MixedHeuristicFunction(config, heuristic_alpha)
-    #        heuristic.init_tflite()
-    #        if heuristic.initialized():
-    #            logging.info("Tflite model loaded")
-    #    else:
-    #        logging.info("Tflite model not found... Using OldSchoolHeuristic")
-    #        heuristic = OldSchoolHeuristicFunction()
+    if not random:
+        if os.path.exists(filepath) and os.path.isfile(filepath):
+            heuristic = MixedHeuristicFunction(config, heuristic_alpha)
+            heuristic.init_tflite()
+            if heuristic.initialized():
+                logging.info("Tflite model loaded")
+            else:
+                logging.info("Tflite model not loaded... Using OldSchoolHeuristic")
+                heuristic = OldSchoolHeuristicFunction()
+        else:
+            logging.info("Tflite model not found... Using OldSchoolHeuristic")
+            heuristic = OldSchoolHeuristicFunction()
 
     time_per_move = config.max_time / (2*priority+1)
 
@@ -168,7 +171,7 @@ def menu_train(tablut):
             while i >= 0:
                 board1 = history[i]
                 tablut.action_buffer.store_action(
-                    board1, utility/k, 1/(priority+1))
+                    board1, utility/k, 1/(priority+1), utility)
                 i -= 1
                 k += 1
 
