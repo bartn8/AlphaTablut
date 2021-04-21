@@ -4,7 +4,8 @@ import logging
 import json
 import numpy as np
 
-from tablut import AshtonTablut, TablutConfig, Search, NeuralHeuristicFunction
+from tablut import AshtonTablut, Search, NeuralHeuristicFunction
+from tablutconfig import TablutConfig
 #from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
 
 # Modified from: https://github.com/Jippiter/TablutGo/blob/main/src/TablutGoClient.py

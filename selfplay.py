@@ -3,7 +3,8 @@ import time
 import logging
 import copy
 
-from tablut import AshtonTablut, TablutConfig, Search, NeuralHeuristicFunction, OldSchoolHeuristicFunction, random_player, init_rand
+from tablut import AshtonTablut, Search, NeuralHeuristicFunction, OldSchoolHeuristicFunction, random_player, init_rand
+from tablutconfig import TablutConfig
 
 import numpy as np
 

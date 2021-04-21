@@ -2,8 +2,12 @@ import numpy as np
 import pickle
 import threading
 import os
+import random
+
+from tablutconfig import TablutConfig
 
 import tensorflow as tf
+import tflite_runtime.interpreter as tflite
 
 CURRENT_STATE = 'current_state'
 VISIT_COUNT = 'visit_count'
@@ -26,7 +30,7 @@ class ActionBuffer:
     def size(self):
         return len(self.buffer)
 
-    def store_action(self, board, reward, weight):
+    def store_action(self, board, reward, weight, utility):
         """
         board: current state of the game
         reward: 1 if white wins, -1 if black wins, 0 otherwise
@@ -42,10 +46,10 @@ class ActionBuffer:
             action = self.buffer[action_hash]
             action[VISIT_COUNT] += 1
             action[REWARD] = action[REWARD] * \
-                (1 - float(weight)) + float(reward) * float(weight)
-            if reward == 1:
+                (1 - weight*0.5) + float(reward) * weight * 0.5
+            if utility == 1:
                 action[WHITE_WINS] += 1
-            elif reward == -1:
+            elif utility == -1:
                 action[BLACK_WINS] += 1
             else:
                 action[DRAWS] += 1
@@ -53,9 +57,9 @@ class ActionBuffer:
             action = {CURRENT_STATE: board.copy(), VISIT_COUNT: 1, REWARD: float(
                 reward), WHITE_WINS: 0, BLACK_WINS: 0, DRAWS: 0}
 
-            if reward == 1:
+            if utility == 1:
                 action[WHITE_WINS] += 1
-            elif reward == -1:
+            elif utility == -1:
                 action[BLACK_WINS] += 1
             else:
                 action[DRAWS] += 1
@@ -74,8 +78,18 @@ class ActionBuffer:
         values = np.zeros((keys, 1), dtype=np.float32)
 
         # Itero le chiavi del buffer
+        # Ne seleziono a caso pari al batch_size
+        k = 0
+        selected_keys = []
+        all_keys = list(self.buffer.keys())
+        while k < batch_size:
+            key = random.choice(all_keys)
+            if key not in selected_keys:
+                selected_keys.append(key)
+                k+=1
+
         i = 0
-        for key in self.buffer:
+        for key in selected_keys:
             # Imposto i dati nei data
             board1[i] = self.buffer[key][CURRENT_STATE]
             values[i] = self.buffer[key][REWARD]
@@ -88,7 +102,7 @@ class ActionBuffer:
         dataset = tf.data.Dataset.from_generator(generator, output_types=(
             {"input_1": tf.float32}, tf.float32))
 
-        dataset = dataset.shuffle(keys)
+        #dataset = dataset.shuffle(keys)
         dataset = dataset.batch(batch_size)
         return dataset
 
@@ -112,3 +126,45 @@ class ActionBuffer:
 
         if config.observation_shape != self.config.observation_shape:
             raise Exception("Observation shape dismatch!")
+
+
+if __name__ == '__main__':
+    config = TablutConfig()
+    buf = ActionBuffer(config)
+    buf.load_buffer()
+    batch_size = config.batch_size
+    batch_size = min(batch_size, buf.size())
+    dataset = buf.generate_dataset(batch_size)
+
+    maxVisit = 0
+    maxVisitValue = None
+    for key in buf.buffer:
+        if buf.buffer[key][WHITE_WINS] > maxVisit:
+            maxVisit = buf.buffer[key][WHITE_WINS]
+            maxVisitValue = buf.buffer[key]
+
+    board = maxVisitValue[CURRENT_STATE]
+    board[0,0,2,2] = 0
+    board[0,8,6,2] = 1
+
+    print(np.moveaxis(maxVisitValue[CURRENT_STATE], -1, 0))
+    print(maxVisitValue[REWARD])
+
+    folder = config.folder
+    filename = config.tflite_model
+    filepath = os.path.join(folder, filename)
+    interpreter = tflite.Interpreter(filepath, num_threads=2)
+    interpreter.allocate_tensors()
+
+    # Get input and output tensors.
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+
+    # Test the model on random input data.
+    input_shape = input_details[0]['shape']
+    interpreter.set_tensor(input_details[0]['index'], maxVisitValue[CURRENT_STATE])
+
+
+    interpreter.invoke()
+
+    print(interpreter.get_tensor(output_details[0]['index']))

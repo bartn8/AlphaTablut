@@ -1,7 +1,8 @@
 from network import ResNNet
 from actionbuffer import ActionBuffer
 from selfplay import SelfPlay
-from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction, NeuralHeuristicFunction, MixedHeuristicFunction
+from tablut import AshtonTablut, Search, OldSchoolHeuristicFunction, NeuralHeuristicFunction, MixedHeuristicFunction
+from tablutconfig import TablutConfig
 
 import ray
 import time

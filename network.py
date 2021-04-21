@@ -8,7 +8,7 @@ import numpy as np
 import tensorflow as tf
 
 from resnet import ResNetBuilder
-from tablut import TablutConfig
+from tablutconfig import TablutConfig
 from actionbuffer import ActionBuffer
 
 # https://github.com/suragnair/alpha-zero-general
@@ -68,6 +68,15 @@ class NeuralNet():
         """
         pass
 
+class CustomMSE(tf.keras.losses.MeanSquaredError):
+
+    def __init__(self, config):
+        super().__init__()
+        self.sample_weight = config.value_loss_weight
+
+
+    def __call__(self, y_true, y_pred, sample_weight=None):
+        return super().__call__(y_true, y_pred, self.sample_weight)
 
 class ResNNet(NeuralNet):
     def __init__(self, config, restoreFromCheckpoint=False):
@@ -81,7 +90,7 @@ class ResNNet(NeuralNet):
                 self.config.network_input_shape, 1, self.config.num_filters)
 
             self.nnet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.lr_init),
-                              loss=tf.keras.losses.MeanSquaredError())
+                              loss=CustomMSE(self.config))
 
             self.training_steps = 0
 
