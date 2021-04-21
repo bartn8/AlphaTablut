@@ -2,3 +2,5 @@ __pycache__/
 build/
 train.log
 checkpoint/
+tablut.c
+tablut.cpython-37m-x86_64-linux-gnu.so
