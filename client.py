@@ -4,7 +4,7 @@ import logging
 import json
 import numpy as np
 
-from tablut import AshtonTablut, Search, NeuralHeuristicFunction
+from tablut import AshtonTablut, Search, MixedHeuristicFunction
 from tablutconfig import TablutConfig
 #from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
 
@@ -124,7 +124,10 @@ def game_loop(args):
     port = 5800 if player == 'W' else 5801
 
     # Network loading
-    heuristic = NeuralHeuristicFunction(TablutConfig())
+    config = TablutConfig()
+    cutoff = 1/6
+    #Al sesto turno l'euristica hard coded diventa dominante
+    heuristic = MixedHeuristicFunction(config, 1.0, cutoff)
 
     if heuristic.init_tflite():
         logging.info("Netowrk loaded successfully")
@@ -150,16 +153,16 @@ def game_loop(args):
                 state, playing_player = JSON_to_local_state(
                     data, turn, heuristic)
 
-                logging.info("Turn {0}: {1} is playing".format(
-                    turn, playing_player))
+                logging.info("Turn {0}: {1} is playing. HeuAlpha {2} (Th: {3})".format(
+                    turn, playing_player, heuristic.alpha, cutoff))
 
-                state.display()
+                logging.info("\n"+state.display())
 
                 if playing_player == 'WHITEWIN':
                     logging.info("We {} GG WP!".format(
                         'WON' if playing_player[0] == player else 'LOST'))
                     break
-                elif playing_player == 'WHITEWIN':
+                elif playing_player == 'BLACKWIN':
                     logging.info("We {} GG WP!".format(
                         'WON' if playing_player[0] == player else 'LOST'))
                     break
@@ -189,6 +192,8 @@ def game_loop(args):
                     logging.info("Waiting...")
 
                 turn += 1
+                heuristic.set_alpha(2 / turn)
+
         except ConnectionException as e:
             logging.debug(e)
             logging.info("Coonection lost: {}".format(playing_player))

@@ -1001,15 +1001,16 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
     cdef OldSchoolHeuristicFunction old_eval
     cdef NeuralHeuristicFunction neural_eval
 
-    cdef float alpha
+    cdef public float alpha, cutoff
 
-    def __init__(self, config, alpha):
-        self.alpha = min(max(alpha, 1.0), 0.0)
+    def __init__(self, config, alpha, cutoff):
+        self.alpha = max(min(alpha, 1.0), 0.0)
+        self.cutoff = max(min(cutoff, 1.0), 0.0)
         self.old_eval = OldSchoolHeuristicFunction()
         self.neural_eval = NeuralHeuristicFunction(config)
 
     def init_tflite(self):
-        self.neural_eval.init_tflite()
+        return self.neural_eval.init_tflite()
 
     def initialized(self):
         return self.neural_eval.initialized()
@@ -1018,10 +1019,13 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
         self.neural_eval.set_model_path(model_path)
 
     def set_alpha(self, alpha):
-        self.alpha = min(max(alpha, 1.0), 0.0)
+        self.alpha = max(min(alpha, 1.0), 0.0)
+
+    def set_cutoff(self, cutoff):
+        self.cutoff = max(min(cutoff, 1.0), 0.0)
 
     cdef float evalutate(self, AshtonTablut state, unicode player):
-        if self.neural_eval.interpreter_initialized and self.alpha > 0.1:
+        if self.neural_eval.interpreter_initialized and self.alpha >= self.cutoff:
             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
 
         return self.old_eval.evalutate(state, player)

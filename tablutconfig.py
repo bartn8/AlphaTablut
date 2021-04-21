@@ -14,6 +14,9 @@ class TablutConfig:
         self.players = list(range(2))
         self.moves_for_draw = 10
 
+        #Heuristic
+        self.heuristic_cutoff = 1/6
+
         # Network
         self.num_filters = 32
 
