@@ -81,7 +81,7 @@ class SelfPlay():
             current_state = best_next_state
             self.game_history.append(current_state.board())
 
-            logging.debug(current_state.display())
+            logging.debug("\n"+current_state.display())
 
             have_draw = self.have_draw(current_state.board())
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
 
     heuristic = NeuralHeuristicFunction(TablutConfig())
     heuristic.init_tflite()
-
+    
     #heuristic = OldSchoolHeuristicFunction()
 
     self_play = SelfPlay(TablutConfig(), heuristic, 1, 10)

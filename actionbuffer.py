@@ -72,10 +72,10 @@ class ActionBuffer:
 
         # X Data
         board1 = np.zeros(
-            (keys, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[3]), dtype=np.float32)
+            (batch_size, self.config.observation_shape[1], self.config.observation_shape[2], self.config.observation_shape[3]), dtype=np.float32)
 
         # Y Data
-        values = np.zeros((keys, 1), dtype=np.float32)
+        values = np.zeros((batch_size, 1), dtype=np.float32)
 
         # Itero le chiavi del buffer
         # Ne seleziono a caso pari al batch_size

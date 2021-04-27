@@ -1003,7 +1003,7 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
 
     cdef public float alpha, cutoff
 
-    def __init__(self, config, alpha, cutoff):
+    def __init__(self, config, alpha = 1.0, cutoff = 0.0):
         self.alpha = max(min(alpha, 1.0), 0.0)
         self.cutoff = max(min(cutoff, 1.0), 0.0)
         self.old_eval = OldSchoolHeuristicFunction()

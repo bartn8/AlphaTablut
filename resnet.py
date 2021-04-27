@@ -146,7 +146,7 @@ class ResNetBuilder():
         #Final part
         res_block = basic_residual_block(filters=filters)(block2)
         flatten1 = Flatten()(res_block)
-        dense = Dense(units=256, activation="relu")(flatten1)
+        dense = Dense(units=512, activation="relu")(flatten1)
         out_value = Dense(units=num_outputs, activation="linear")(dense)
 
         model = Model(inputs=in1, outputs=out_value)
@@ -157,8 +157,17 @@ class ResNetBuilder():
     def build_resnet_32(input_shape, num_outputs):
         return ResNetBuilder.build(input_shape, num_outputs, 32)
 
+    @staticmethod
+    def build_resnet_16(input_shape, num_outputs):
+        return ResNetBuilder.build(input_shape, num_outputs, 16)
+
+    @staticmethod
+    def build_resnet_8(input_shape, num_outputs):
+        return ResNetBuilder.build(input_shape, num_outputs, 8)
+
+
 if __name__ == '__main__':
-    model = ResNetBuilder.build_resnet_32((4,9,9), 1)
+    model = ResNetBuilder.build_resnet_8((4,9,9), 1)
     #q_model = tfmot.quantization.keras.quantize_model(model)
 
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.003),
@@ -171,8 +180,17 @@ if __name__ == '__main__':
 
 
     start = time.time()
-    print(model([a]))
-    print("tf inference:{0} ms".format((time.time()-start)*1000))
+
+    n = 100
+    sum = 0
+
+    for i in range(n):
+        startTime = time.time()
+        print(model([a]))
+        deltaTime = time.time()-startTime
+        sum += deltaTime
+
+    print("tf inference:{0} ms".format((sum/n)*1000))
 
     #model.save('tablut')
 

@@ -18,12 +18,12 @@ class TablutConfig:
         self.heuristic_cutoff = 1/6
 
         # Network
-        self.num_filters = 32
+        self.num_filters = 8
 
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
         self.num_workers = 4
-        self.threads_per_worker = 2
+        self.threads_per_worker = 4
         self.max_moves = 60  # Maximum number of moves if game is not finished before
         self.max_time = 10
 
@@ -34,17 +34,17 @@ class TablutConfig:
 
         # Training
         # Total number of training steps (ie weights update according to a batch)
-        self.training_steps = 10
+        self.training_steps = 200
         # Number of parts of games to train on at each training step
         self.batch_size = 4096  
         self.min_batch_size = 2048
         # Number of training steps before using the model for self-playing
-        self.checkpoint_interval = 1
+        self.checkpoint_interval = 100
         # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
         self.value_loss_weight = 0.25
         # checkpoint_interval % epochs == 0!
         self.epochs = 1
-        self.new_games_per_epoch = 1000
+        self.new_games_per_epoch = 10
 
         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
         self.weight_decay = 1e-4  # L2 weights regularization

@@ -4,3 +4,4 @@ train.log
 checkpoint/
 tablut.c
 tablut.cpython-37m-x86_64-linux-gnu.so
+linux_x86-64_benchmark_model
