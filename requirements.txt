@@ -3,4 +3,4 @@ tensorflow
 ray
 cython
 tqdm
-https://github.com/iCorv/tflite-runtime/raw/master/tflite_runtime-2.4.0-cp37-cp37m-linux_x86_64.whl
+tflite_runtime-2.6.0-cp37-cp37m-linux_x86_64.whl
