@@ -56,7 +56,7 @@ class ActionBuffer:
                 #Ricerco uno stato da eliminare
                 validkeys = []
                 for key in self.buffer:
-                    if self.buffer[key][VISIT_COUNT] == 1:
+                    if self.buffer[key][VISIT_COUNT] == 1 and self.buffer[key][REWARD] > -1.0 and self.buffer[key][REWARD] < 1.0:
                         validkeys.append(key)
 
                 delkey = random.choice(validkeys)
