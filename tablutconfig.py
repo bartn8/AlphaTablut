@@ -14,45 +14,41 @@ class TablutConfig:
         self.players = list(range(2))
         self.moves_for_draw = 10
 
-        #Heuristic
+        # Heuristic
         self.heuristic_cutoff = 1/20
 
         # Network
         self.num_filters = 8
 
-        #TFlite e OpenMP
+        # TFlite e OpenMP
         self.cores = 4
         self.threads_per_worker = 1
 
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
-        self.num_workers = 4
+        self.num_workers = 6
         self.max_moves = 60  # Maximum number of moves if game is not finished before
-        self.max_time = 10
-
-        # Exploration noise
-        self.enable_noise_on_training = True
-        self.noise_mean = 0.0
-        self.noise_deviation = 0.1
+        self.max_time = 60
 
         # Training
         # Total number of training steps (ie weights update according to a batch)
-        self.training_steps = 200
+        self.training_steps = 300
         # Number of parts of games to train on at each training step
-        self.batch_size = 4096  
-        self.min_batch_size = 2048
+        self.batch_size = 32768
+        self.min_batch_size = 4096
         # Number of training steps before using the model for self-playing
-        self.checkpoint_interval = 100
+        self.checkpoint_interval = 5
         # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
         self.value_loss_weight = 0.25
         # checkpoint_interval % epochs == 0!
         self.epochs = 1
-        self.new_games_per_epoch = 10
+        self.new_games_per_epoch = 250
+
+        # ActionBuffer
+        self.action_buffer_maxsize = 1000000
 
         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
         self.weight_decay = 1e-4  # L2 weights regularization
-
-        # Exponential learning rate schedule
         self.lr_init = 0.003  # Initial learning rate
 
         # Save

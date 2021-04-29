@@ -20,7 +20,6 @@ class ActionBuffer:
 
     def __init__(self, config):
         self.buffer = {}
-        #self._lock = threading.Lock()
         self.config = config
         self.game_counter = 0
 
@@ -41,7 +40,6 @@ class ActionBuffer:
 
         action_hash = hash(board.tobytes())
 
-        # with self._lock:
         if action_hash in self.buffer:
             action = self.buffer[action_hash]
             action[VISIT_COUNT] += 1
@@ -54,6 +52,16 @@ class ActionBuffer:
             else:
                 action[DRAWS] += 1
         else:
+            if self.size() > self.config.action_buffer_maxsize:
+                #Ricerco uno stato da eliminare
+                validkeys = []
+                for key in self.buffer:
+                    if self.buffer[key][VISIT_COUNT] == 1:
+                        validkeys.append(key)
+
+                delkey = random.choice(validkeys)
+                del self.buffer[delkey]
+
             action = {CURRENT_STATE: board.copy(), VISIT_COUNT: 1, REWARD: float(
                 reward), WHITE_WINS: 0, BLACK_WINS: 0, DRAWS: 0}
 

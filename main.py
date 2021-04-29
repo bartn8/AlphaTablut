@@ -161,10 +161,10 @@ def menu_train(tablut):
             priority, winner, utility, history = result.priority, result.winner, result.utility, result.history
             played_games += 1
 
-            logging.info("Worker done.".format(priority))
+            logging.debug("Worker done.".format(priority))
 
             # Aggiornamento dell'action buffer e riavvio
-            logging.info("ActionBuffer updating...")
+            logging.debug("ActionBuffer updating...")
 
             k = 1
             i = len(history)-1
@@ -177,7 +177,7 @@ def menu_train(tablut):
 
             tablut.action_buffer.increment_game_counter()
 
-            logging.info("ActionBuffer updating done")
+            logging.info("ActionBuffer updating done: {0} elements".format(tablut.action_buffer.size()))
 
         if tablut.action_buffer.size() >= min_batch_size and played_games >= tablut.config.new_games_per_epoch:
             played_games = 0
@@ -220,6 +220,7 @@ def menu_load(tablut):
         print("Saved actionbuffer found.")
         print("Loading action buffer...")
         tablut.action_buffer.load_buffer()
+        print("Action buffer size: {0}".format(tablut.action_buffer.size()))
     else:
         print("No actionbuffer found")
 
