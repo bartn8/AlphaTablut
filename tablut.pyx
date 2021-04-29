@@ -1,7 +1,7 @@
 #!python 
 #cython: embedsignature=True, binding=True, language_level=3, boundscheck=False, wraparound=False, cdivision=False 
 #distutils: extra_compile_args = -march=native
-
+#tag: numpy
 
 import datetime
 import time as ptime
@@ -21,7 +21,6 @@ from cpython.mem cimport PyMem_Malloc, PyMem_Free
 from cpython cimport array
 import array
 
-# tag: numpy
 import numpy as np
 cimport numpy as np
 
@@ -956,7 +955,7 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
             return False
 
         self.interpreter = tflite.Interpreter(
-            model_path=self.model_path, num_threads=self.config.threads_per_worker)
+            model_path=self.model_path)
         self.interpreter.allocate_tensors()
 
         # Get input and output tensors.

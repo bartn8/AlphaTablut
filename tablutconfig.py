@@ -15,15 +15,18 @@ class TablutConfig:
         self.moves_for_draw = 10
 
         #Heuristic
-        self.heuristic_cutoff = 1/6
+        self.heuristic_cutoff = 1/20
 
         # Network
         self.num_filters = 8
 
+        #TFlite e OpenMP
+        self.cores = 4
+        self.threads_per_worker = 1
+
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
         self.num_workers = 4
-        self.threads_per_worker = 4
         self.max_moves = 60  # Maximum number of moves if game is not finished before
         self.max_time = 10
 

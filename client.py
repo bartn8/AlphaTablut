@@ -4,9 +4,8 @@ import logging
 import json
 import numpy as np
 
-from tablut import AshtonTablut, Search, MixedHeuristicFunction
+from tablut import AshtonTablut, Search, NeuralHeuristicFunction, OldSchoolHeuristicFunction
 from tablutconfig import TablutConfig
-#from tablut import AshtonTablut, TablutConfig, Search, OldSchoolHeuristicFunction
 
 # Modified from: https://github.com/Jippiter/TablutGo/blob/main/src/TablutGoClient.py
 
@@ -90,7 +89,6 @@ def send_move(connHandle, action, player):
     connHandle.send(jsonData)
     logging.debug("Sent Data JSON: {0}".format(jsonData))
 
-
 def JSON_to_local_state(data, turn, heuristic):
     logging.debug("Received Data JSON: {0}".format(data))
 
@@ -110,9 +108,8 @@ def JSON_to_local_state(data, turn, heuristic):
                 board[0, i, j, 1] = 1
             elif raw_board[i][j][0] == 'K':
                 board[0, i, j, 2] = 1
-
+    
     return AshtonTablut.parse_board(board, player, turn, heuristic), player
-
 
 def game_loop(args):
     # Args
@@ -120,19 +117,20 @@ def game_loop(args):
     playing_player = 'W'
     timeout = args.timeout
     host = args.host
+    cores = args.cores
 
     port = 5800 if player == 'W' else 5801
 
     # Network loading
     config = TablutConfig()
-    cutoff = 1/6
     #Al sesto turno l'euristica hard coded diventa dominante
-    heuristic = MixedHeuristicFunction(config, 1.0, cutoff)
+    heuristic = NeuralHeuristicFunction(config)
 
     if heuristic.init_tflite():
         logging.info("Netowrk loaded successfully")
     else:
         logging.info("Netowrk loading error")
+        heuristic = OldSchoolHeuristicFunction()
 
     turn = 0
 
@@ -153,8 +151,8 @@ def game_loop(args):
                 state, playing_player = JSON_to_local_state(
                     data, turn, heuristic)
 
-                logging.info("Turn {0}: {1} is playing. HeuAlpha {2} (Th: {3})".format(
-                    turn, playing_player, heuristic.alpha, cutoff))
+                logging.info("Turn {0}: {1} is playing.".format(
+                    turn, playing_player))
 
                 logging.info("\n"+state.display())
 
@@ -192,7 +190,7 @@ def game_loop(args):
                     logging.info("Waiting...")
 
                 turn += 1
-                heuristic.set_alpha(2 / turn)
+                #heuristic.set_alpha(2 / turn)
 
         except ConnectionException as e:
             logging.debug(e)
@@ -227,6 +225,13 @@ def main():
         metavar='H',
         default='127.0.0.1',
         help='IP of the server (default: 127.0.0.1)')
+
+    argparser.add_argument(
+        '-c', '--cores',
+        metavar='C',
+        default=4,
+        type=int,
+        help='Cores to use during Search (Default: 4)')
 
     argparser.add_argument(
         '-v', '--verbose',
