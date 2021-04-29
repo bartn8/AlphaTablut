@@ -145,7 +145,7 @@ def menu_train(tablut):
         for priority in range(num_workers):
             if priority not in idtable:
                 id = self_play_worker.remote(
-                    priority, heuristic_alpha, priority == num_workers-1)
+                    priority, heuristic_alpha, priority == num_workers-1 and tablut.action_buffer.size() < (tablut.config.action_buffer_maxsize / 2))
                 idtable[priority] = id
 
         ready_ids, remaining_ids = ray.wait(
