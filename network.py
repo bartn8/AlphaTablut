@@ -174,7 +174,7 @@ class ResNNet(NeuralNet):
         filepath = os.path.join(folder, filename)
 
         converter = tf.lite.TFLiteConverter.from_keras_model(self.nnet)
-        converter.optimizations = [tf.lite.Optimize.DEFAULT]
+        converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_LATENCY]
         converter.target_spec.supported_types = [tf.float16]
         quantized_tflite_model = converter.convert()
 

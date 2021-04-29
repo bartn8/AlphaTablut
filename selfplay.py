@@ -111,10 +111,10 @@ if __name__ == '__main__':
     logging.basicConfig(
         format='%(levelname)s:%(asctime)s: %(message)s', level=logging.DEBUG)
 
-    #heuristic = NeuralHeuristicFunction(TablutConfig())
-    #heuristic.init_tflite()
+    heuristic = NeuralHeuristicFunction(TablutConfig())
+    heuristic.init_tflite()
     
-    heuristic = OldSchoolHeuristicFunction()
+    #heuristic = OldSchoolHeuristicFunction()
 
     self_play = SelfPlay(TablutConfig(), heuristic, 1, 10)
     self_play.play(False)

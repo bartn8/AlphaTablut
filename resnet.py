@@ -195,7 +195,8 @@ if __name__ == '__main__':
     #model.save('tablut')
 
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
-    converter.optimizations = [tf.lite.Optimize.DEFAULT]
+    converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_LATENCY]
+    #converter.target_spec.supported_ops = [tf.lite.OpsSet.EXPERIMENTAL_TFLITE_BUILTINS_ACTIVATIONS_INT16_WEIGHTS_INT8]
     converter.target_spec.supported_types = [tf.float16]
     quantized_tflite_model = converter.convert()
 
