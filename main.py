@@ -363,7 +363,7 @@ def repl(args):
     tablut.check_saving_folder()
 
     if args.auto:
-        menu_train(tablut)
+        menu_load(tablut)
         try:
             menu_train(tablut)
         except KeyboardInterrupt:
@@ -371,7 +371,7 @@ def repl(args):
             tablut.nnet.tflite_optimization()
             tablut.action_buffer.save_buffer()
         
-        prinit("Done.")
+        print("Done.")
         return
 
     while True:
