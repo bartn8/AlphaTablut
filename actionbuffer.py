@@ -59,6 +59,9 @@ class ActionBuffer:
                     if self.buffer[key][VISIT_COUNT] == 1 and self.buffer[key][REWARD] > -1.0 and self.buffer[key][REWARD] < 1.0:
                         validkeys.append(key)
 
+                if len(validkeys) == 0:
+                    return
+
                 delkey = random.choice(validkeys)
                 del self.buffer[delkey]
 
