@@ -59,9 +59,13 @@ class SelfPlay():
         while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
 
             if random:
-                best_action = random_player(current_state)
-                best_next_state = current_state.result(best_action)
-                best_score, max_depth, nodes_explored, search_time = 0,0,0,0
+                best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.cutoff_search(
+                    state=current_state, cutoff_depth=1)
+
+                if best_score < 1.0:
+                    best_action = random_player(current_state)
+                    best_next_state = current_state.result(best_action)
+                    best_score, max_depth, nodes_explored, search_time = 0,0,0,0
             else:
                 best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                     state=current_state, initial_cutoff_depth=2, cutoff_time=self.time_per_move)
@@ -117,4 +121,4 @@ if __name__ == '__main__':
     #heuristic = OldSchoolHeuristicFunction()
 
     self_play = SelfPlay(TablutConfig(), heuristic, 1, 10)
-    self_play.play(False)
+    self_play.play(True)

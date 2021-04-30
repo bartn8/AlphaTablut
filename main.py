@@ -362,6 +362,18 @@ def repl(args):
     print("Checking saving folder...")
     tablut.check_saving_folder()
 
+    if args.auto:
+        menu_train(tablut)
+        try:
+            menu_train(tablut)
+        except KeyboardInterrupt:
+            tablut.nnet.save_checkpoint()
+            tablut.nnet.tflite_optimization()
+            tablut.action_buffer.save_buffer()
+        
+        prinit("Done.")
+        return
+
     while True:
         # Configure running options
         options = [
@@ -410,9 +422,16 @@ def main():
         dest='debug',
         help='print debug information')
 
+    argparser.add_argument(
+        '-a', '--auto',
+        action='store_true',
+        dest='auto',
+        help='Load and train')
+
     args = argparser.parse_args()
 
     log_level = logging.DEBUG if args.debug else logging.INFO
+
     logging.basicConfig(format='%(levelname)s:%(asctime)s: %(message)s',
                         filename='train.log', level=log_level)
 
