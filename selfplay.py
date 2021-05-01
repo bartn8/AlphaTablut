@@ -121,4 +121,4 @@ if __name__ == '__main__':
     #heuristic = OldSchoolHeuristicFunction()
 
     self_play = SelfPlay(TablutConfig(), heuristic, 1, 10)
-    self_play.play(True)
+    self_play.play(False)

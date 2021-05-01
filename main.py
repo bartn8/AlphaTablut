@@ -171,26 +171,27 @@ def menu_train(tablut):
             while i >= 0:
                 board1 = history[i]
                 tablut.action_buffer.store_action(
-                    board1, utility/k, 1/(priority+1), utility)
+                    board1, utility/(1+(9*k/tablut.config.max_moves), 1/(priority+1), utility)
                 i -= 1
                 k += 1
 
             tablut.action_buffer.increment_game_counter()
 
-            logging.info("ActionBuffer updating done: {0} elements".format(tablut.action_buffer.size()))
+            logging.info("ActionBuffer updating done: {0} elements. {1} games.".format(tablut.action_buffer.size(), tablut.action_buffer.game_counter))
 
         if tablut.action_buffer.size() >= min_batch_size and played_games >= tablut.config.new_games_per_epoch:
             played_games = 0
             logging.debug("Dataset generating...")
             batch_size = min(tablut.config.batch_size, tablut.action_buffer.size())
             dataset = tablut.action_buffer.generate_dataset(batch_size)
-            logging.debug("Done.")
             logging.debug("Network training...")
             loss_history = tablut.nnet.train(dataset)
             logging.info("Training step {0}, Loss: {1}".format(tablut.nnet.training_steps, loss_history[-1]))
-            logging.debug("Done.")
 
             if tablut.nnet.training_steps % tablut.config.checkpoint_interval == 0:
+                logging.debug("Trimming actionbuffer...")
+                tablut.action_buffer.trim()
+                logging.debug("Saving actionbuffer and checkpoint...")
                 tablut.nnet.save_checkpoint()
                 tablut.nnet.tflite_optimization()
                 tablut.action_buffer.save_buffer()

@@ -32,20 +32,21 @@ class TablutConfig:
 
         # Training
         # Total number of training steps (ie weights update according to a batch)
-        self.training_steps = 140
+        self.training_steps = 180
         # Number of parts of games to train on at each training step
-        self.batch_size = 131072
-        self.min_batch_size = 4096
+        self.batch_size = 8192
+        self.min_batch_size = 1024
         # Number of training steps before using the model for self-playing
         self.checkpoint_interval = 5
         # Scale the value loss to avoid overfitting of the value function, paper recommends 0.25 (See paper appendix Reanalyze)
         self.value_loss_weight = 0.25
         # checkpoint_interval % epochs == 0!
         self.epochs = 5
-        self.new_games_per_epoch = 250
+        self.new_games_per_epoch = 100
 
         # ActionBuffer
         self.action_buffer_maxsize = 1000000
+        self.action_buffer_trim_th = 0.2
 
         self.optimizer = "Adam"  # "Adam" or "SGD". Paper uses SGD
         self.weight_decay = 1e-4  # L2 weights regularization

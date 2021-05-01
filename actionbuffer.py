@@ -16,10 +16,12 @@ WHITE_WINS = 'white_wins'
 BLACK_WINS = 'black_wins'
 DRAWS = 'draws'
 
+
 class ActionBuffer:
 
     def __init__(self, config):
         self.buffer = {}
+        self.onetimebuffer = {}
         self.config = config
         self.game_counter = 0
 
@@ -51,19 +53,21 @@ class ActionBuffer:
                 action[BLACK_WINS] += 1
             else:
                 action[DRAWS] += 1
+
+            if action_hash in self.onetimebuffer:
+                del self.onetimebuffer[action_hash]
+
         else:
             if self.size() > self.config.action_buffer_maxsize:
-                #Ricerco uno stato da eliminare
-                validkeys = []
-                for key in self.buffer:
-                    if self.buffer[key][VISIT_COUNT] == 1 and self.buffer[key][REWARD] > -1.0 and self.buffer[key][REWARD] < 1.0:
-                        validkeys.append(key)
+                # Ricerco uno stato da eliminare
+                validkeys = self.onetimebuffer.keys()
 
                 if len(validkeys) == 0:
                     return
 
-                delkey = random.choice(validkeys)
+                delkey = random.choice(list(validkeys))
                 del self.buffer[delkey]
+                del self.onetimebuffer[delkey]
 
             action = {CURRENT_STATE: board.copy(), VISIT_COUNT: 1, REWARD: float(
                 reward), WHITE_WINS: 0, BLACK_WINS: 0, DRAWS: 0}
@@ -76,6 +80,9 @@ class ActionBuffer:
                 action[DRAWS] += 1
 
             self.buffer[action_hash] = action
+
+            if -self.config.action_buffer_trim_th < reward and reward < self.config.action_buffer_trim_th:
+                self.onetimebuffer[action_hash] = action
 
     def generate_dataset(self, batch_size):
         keys = len(self.buffer)
@@ -97,7 +104,7 @@ class ActionBuffer:
             key = random.choice(all_keys)
             if key not in selected_keys:
                 selected_keys.append(key)
-                k+=1
+                k += 1
 
         i = 0
         for key in selected_keys:
@@ -121,7 +128,9 @@ class ActionBuffer:
         folder = self.config.folder
         filename = self.config.action_buffer_name
         filepath = os.path.join(folder, filename)
+        self.save_buffer_to(filepath)
 
+    def save_buffer_to(self, filepath):
         with open(filepath, "wb") as f:
             pickle.dump([self.buffer, self.game_counter, self.config], f)
 
@@ -129,7 +138,9 @@ class ActionBuffer:
         folder = self.config.folder
         filename = self.config.action_buffer_name
         filepath = os.path.join(folder, filename)
+        self.load_buffer_from(filepath)
 
+    def load_buffer_from(self, filepath):
         config = self.config
 
         with open(filepath, "rb") as f:
@@ -137,6 +148,19 @@ class ActionBuffer:
 
         if config.observation_shape != self.config.observation_shape:
             raise Exception("Observation shape dismatch!")
+
+        # onetimebuffer rebuilding.
+        self.onetimebuffer = {}
+
+        for key in self.buffer:
+            if self.buffer[key][VISIT_COUNT] <= 1 and -self.config.action_buffer_trim_th < self.buffer[key][REWARD] and self.buffer[key][REWARD] < self.config.action_buffer_trim_th:
+                self.onetimebuffer[key] = self.buffer[key]
+
+    def trim(self):
+        for key in self.onetimebuffer:
+            del self.buffer[key]
+
+        self.onetimebuffer = {}
 
 
 if __name__ == '__main__':
@@ -149,7 +173,7 @@ if __name__ == '__main__':
 
     maxVisit = 0
     maxVisitValue = None
-    #for key in buf.buffer:
+    # for key in buf.buffer:
     #    if buf.buffer[key][WHITE_WINS] > maxVisit:
     #        maxVisit = buf.buffer[key][WHITE_WINS]
     #        maxVisitValue = buf.buffer[key]
@@ -174,8 +198,8 @@ if __name__ == '__main__':
 
     # Test the model on random input data.
     input_shape = input_details[0]['shape']
-    interpreter.set_tensor(input_details[0]['index'], maxVisitValue[CURRENT_STATE])
-
+    interpreter.set_tensor(
+        input_details[0]['index'], maxVisitValue[CURRENT_STATE])
 
     interpreter.invoke()
 
