@@ -166,12 +166,12 @@ def menu_train(tablut):
             # Aggiornamento dell'action buffer e riavvio
             logging.debug("ActionBuffer updating...")
 
-            k = 1
+            k = 0
             i = len(history)-1
             while i >= 0:
                 board1 = history[i]
                 tablut.action_buffer.store_action(
-                    board1, utility/(1+(9*k/tablut.config.max_moves), 1/(priority+1), utility)
+                    board1, utility/(1+(9*k/tablut.config.max_moves)), 1/(priority+1), utility)
                 i -= 1
                 k += 1
 

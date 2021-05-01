@@ -118,7 +118,7 @@ for datatxt in datatxts:
 
         if reward != 0:
 
-            k = 1
+            k = 0
             i = len(gamehistory)-1
             while i >= 0:
                 board1 = gamehistory[i]

@@ -988,6 +988,7 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
         self.interpreter.invoke()
 
         v = self.interpreter.get_tensor(self.index_out_0)[0][0]
+        v = min(max(v, -1.0), 1.0)
 
         return v if player == 'W' else -v
 
