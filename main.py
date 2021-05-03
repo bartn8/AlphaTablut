@@ -148,12 +148,11 @@ def menu_train(tablut):
         #num_search_workers = int(num_workers * workers_alpha)
         #num_random_workers = num_workers - num_search_workers
 
-        logging.info("Starting workers...")
-
         for priority in range(num_workers):
             if priority not in idtable:
-                id = self_play_worker.remote(
-                    priority, heuristic_alpha, priority == num_workers-1 and tablut.action_buffer.size() < (tablut.config.action_buffer_maxsize / 2))
+                logging.info("Starting worker: {0}".format(priority))
+                id = self_play_worker.remote(priority, heuristic_alpha, priority == num_workers-1)
+                    #priority, heuristic_alpha, priority == num_workers-1 and tablut.action_buffer.size() < (tablut.config.action_buffer_maxsize / 2))
                 idtable[priority] = id
 
         ready_ids, remaining_ids = ray.wait(
