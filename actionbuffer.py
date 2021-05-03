@@ -3,6 +3,7 @@ import pickle
 import threading
 import os
 import random
+from tqdm import tqdm
 
 from tablutconfig import TablutConfig
 
@@ -40,7 +41,7 @@ class ActionBuffer:
         if (board.shape) != (self.config.observation_shape):
             raise Exception("Board shape mismatch")
 
-        action_hash = hash(board.tobytes())
+        action_hash = hash(str(board.astype(np.int8)))
 
         if action_hash in self.buffer:
             action = self.buffer[action_hash]
@@ -156,6 +157,25 @@ class ActionBuffer:
             if self.buffer[key][VISIT_COUNT] <= 1 and -self.config.action_buffer_trim_th < self.buffer[key][REWARD] and self.buffer[key][REWARD] < self.config.action_buffer_trim_th:
                 self.onetimebuffer[key] = self.buffer[key]
 
+    def remove_duplicate(self):
+        keys = list(self.buffer.keys())
+        newbuffer = {}
+
+        for i in tqdm(range(len(keys))):
+            key = keys[i]
+            a = self.buffer[key]
+            newkey = hash(str(a[CURRENT_STATE].astype(np.int8)))
+
+            if newkey not in newbuffer:
+                newbuffer[newkey] = a
+            else:
+                b = newbuffer[newkey]
+                action = {CURRENT_STATE: a[CURRENT_STATE].copy(), VISIT_COUNT: a[VISIT_COUNT] + b[VISIT_COUNT], REWARD: float(
+                            0.5 * a[REWARD] + 0.5 * b[REWARD]), WHITE_WINS: a[WHITE_WINS] + b[WHITE_WINS], BLACK_WINS: a[BLACK_WINS] + b[BLACK_WINS], DRAWS: a[DRAWS] + b[DRAWS]}
+                newbuffer[newkey] = action
+
+        self.buffer = newbuffer
+
     def trim(self):
         for key in self.onetimebuffer:
             del self.buffer[key]
@@ -167,16 +187,25 @@ if __name__ == '__main__':
     config = TablutConfig()
     buf = ActionBuffer(config)
     buf.load_buffer()
+    buf.trim()
+    buf.remove_duplicate()
+    buf.save_buffer()
     batch_size = config.batch_size
     batch_size = min(batch_size, buf.size())
     #dataset = buf.generate_dataset(batch_size)
 
     maxVisit = 0
     maxVisitValue = None
+    maxVisit2 = 0
+    maxVisitValue2 = None
     for key in buf.buffer:
-        if buf.buffer[key][REWARD] < maxVisit:
-            maxVisit = buf.buffer[key][REWARD]
+        if buf.buffer[key][VISIT_COUNT] > maxVisit:
+            maxVisit = buf.buffer[key][VISIT_COUNT]
             maxVisitValue = buf.buffer[key]
+        if buf.buffer[key][VISIT_COUNT] > maxVisit2:
+            if buf.buffer[key][VISIT_COUNT] < maxVisit:
+                maxVisit2 = buf.buffer[key][VISIT_COUNT]
+                maxVisitValue2 = buf.buffer[key]
 
     #maxVisitValue = buf.buffer[random.choice(list(buf.buffer.keys()))]
     board = maxVisitValue[CURRENT_STATE]
@@ -185,12 +214,17 @@ if __name__ == '__main__':
 
     print(np.moveaxis(maxVisitValue[CURRENT_STATE], -1, 0))
     print(maxVisitValue[REWARD])
+    print(maxVisitValue[VISIT_COUNT])
 
-    folder = config.folder
-    filename = config.tflite_model
-    filepath = os.path.join(folder, filename)
+    print(np.moveaxis(maxVisitValue2[CURRENT_STATE], -1, 0))
+    print(maxVisitValue2[REWARD])
+    print(maxVisitValue2[VISIT_COUNT])
+
+    #folder = config.folder
+    #filename = config.tflite_model
+    #filepath = os.path.join(folder, filename)
     #interpreter = tflite.Interpreter(filepath, num_threads=2)
-    #interpreter.allocate_tensors()
+    # interpreter.allocate_tensors()
 
     # Get input and output tensors.
     #input_details = interpreter.get_input_details()
@@ -198,9 +232,9 @@ if __name__ == '__main__':
 
     # Test the model on random input data.
     #input_shape = input_details[0]['shape']
-    #interpreter.set_tensor(
+    # interpreter.set_tensor(
     #    input_details[0]['index'], maxVisitValue[CURRENT_STATE])
 
-    #interpreter.invoke()
+    # interpreter.invoke()
 
-    #print(interpreter.get_tensor(output_details[0]['index']))
+    # print(interpreter.get_tensor(output_details[0]['index']))
