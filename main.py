@@ -25,6 +25,9 @@ class AlphaTablut:
         self.sigInterrupt = False
 
     def sigusr1(self, signum, frame):
+        print("Received SIGUSR1: interrupt train.")
+        logging.info("Received SIGUSR1: interrupt train.")
+
         self.sigInterrupt = True
 
     def check_saving_folder(self):
@@ -136,7 +139,7 @@ def menu_train(tablut):
     pbar = tqdm(initial=steps_counter, desc='Game played {0}, Training steps'.format(
         tablut.action_buffer.game_counter), total=tablut.config.training_steps)
 
-    while tablut.nnet.training_steps < tablut.config.training_steps:
+    while tablut.nnet.training_steps < tablut.config.training_steps and not tablut.sigInterrupt:
         heuristic_alpha = min(
             1.0, (2*tablut.nnet.training_steps/tablut.config.training_steps))
         #workers_alpha = 0.7 + \
