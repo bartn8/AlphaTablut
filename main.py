@@ -409,6 +409,9 @@ def repl(args):
             try:
                 menu_train(tablut)
             except KeyboardInterrupt:
+                logging.info("Keyboard interrupt detected.")
+                print("Keyboard interrupt detected.")
+            finally:
                 tablut.nnet.save_checkpoint()
                 tablut.nnet.tflite_optimization()
                 tablut.action_buffer.save_buffer()
