@@ -4,6 +4,7 @@ import threading
 import os
 import random
 from tqdm import tqdm
+from hashlib import md5
 
 from tablutconfig import TablutConfig
 
@@ -41,7 +42,7 @@ class ActionBuffer:
         if (board.shape) != (self.config.observation_shape):
             raise Exception("Board shape mismatch")
 
-        action_hash = hash(str(board.astype(np.int8)))
+        action_hash = md5(str(board.astype(np.int8).tolist()).encode('utf-8')).hexdigest()
 
         if action_hash in self.buffer:
             action = self.buffer[action_hash]
@@ -164,7 +165,7 @@ class ActionBuffer:
         for i in tqdm(range(len(keys))):
             key = keys[i]
             a = self.buffer[key]
-            newkey = hash(str(a[CURRENT_STATE].astype(np.int8)))
+            newkey = md5(str(a[CURRENT_STATE].astype(np.int8).tolist()).encode('utf-8')).hexdigest()
 
             if newkey not in newbuffer:
                 newbuffer[newkey] = a
