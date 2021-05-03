@@ -26,7 +26,7 @@ class TablutConfig:
 
         # Self-Play
         # Number of simultaneous threads/workers self-playing to feed the replay buffer
-        self.num_workers = 7
+        self.num_workers = 8
         self.max_moves = 60  # Maximum number of moves if game is not finished before
         self.max_time = 60
 

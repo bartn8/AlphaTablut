@@ -11,6 +11,7 @@ import argparse
 import logging
 from tqdm import tqdm
 import queue
+import signal
 
 ray.init(log_to_driver=False)
 
@@ -21,6 +22,10 @@ class AlphaTablut:
         self.config = TablutConfig()
         self.action_buffer = ActionBuffer(self.config)
         self.nnet = ResNNet(self.config)
+        self.sigInterrupt = False
+
+    def sigusr1(self, signum, frame):
+        self.sigInterrupt = True
 
     def check_saving_folder(self):
         folder = self.config.folder
@@ -360,6 +365,9 @@ def repl(args):
     # Istanzio l'oggetto che gestisce il tutto
     tablut = AlphaTablut()
 
+    if args.signal:
+        signal.signal(signal.SIGUSR1, tablut.sigusr1)
+
     print("Checking saving folder...")
     tablut.check_saving_folder()
 
@@ -428,6 +436,12 @@ def main():
         action='store_true',
         dest='auto',
         help='Load and train')
+
+    argparser.add_argument(
+        '-s', '--signal',
+        action='store_true',
+        dest='signal',
+        help='Signal SIGUSR1 to interrupt train')
 
     args = argparser.parse_args()
 
