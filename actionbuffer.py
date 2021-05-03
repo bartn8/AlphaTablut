@@ -169,16 +169,16 @@ if __name__ == '__main__':
     buf.load_buffer()
     batch_size = config.batch_size
     batch_size = min(batch_size, buf.size())
-    dataset = buf.generate_dataset(batch_size)
+    #dataset = buf.generate_dataset(batch_size)
 
     maxVisit = 0
     maxVisitValue = None
-    # for key in buf.buffer:
-    #    if buf.buffer[key][WHITE_WINS] > maxVisit:
-    #        maxVisit = buf.buffer[key][WHITE_WINS]
-    #        maxVisitValue = buf.buffer[key]
+    for key in buf.buffer:
+        if buf.buffer[key][REWARD] < maxVisit:
+            maxVisit = buf.buffer[key][REWARD]
+            maxVisitValue = buf.buffer[key]
 
-    maxVisitValue = buf.buffer[random.choice(list(buf.buffer.keys()))]
+    #maxVisitValue = buf.buffer[random.choice(list(buf.buffer.keys()))]
     board = maxVisitValue[CURRENT_STATE]
     #board[0,0,2,2] = 0
     #board[0,8,6,2] = 1
@@ -189,18 +189,18 @@ if __name__ == '__main__':
     folder = config.folder
     filename = config.tflite_model
     filepath = os.path.join(folder, filename)
-    interpreter = tflite.Interpreter(filepath, num_threads=2)
-    interpreter.allocate_tensors()
+    #interpreter = tflite.Interpreter(filepath, num_threads=2)
+    #interpreter.allocate_tensors()
 
     # Get input and output tensors.
-    input_details = interpreter.get_input_details()
-    output_details = interpreter.get_output_details()
+    #input_details = interpreter.get_input_details()
+    #output_details = interpreter.get_output_details()
 
     # Test the model on random input data.
-    input_shape = input_details[0]['shape']
-    interpreter.set_tensor(
-        input_details[0]['index'], maxVisitValue[CURRENT_STATE])
+    #input_shape = input_details[0]['shape']
+    #interpreter.set_tensor(
+    #    input_details[0]['index'], maxVisitValue[CURRENT_STATE])
 
-    interpreter.invoke()
+    #interpreter.invoke()
 
-    print(interpreter.get_tensor(output_details[0]['index']))
+    #print(interpreter.get_tensor(output_details[0]['index']))
