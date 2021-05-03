@@ -214,6 +214,11 @@ def menu_train(tablut):
 
     pbar.close()
 
+    logging.debug("Saving actionbuffer and checkpoint...")
+    tablut.nnet.save_checkpoint()
+    tablut.nnet.tflite_optimization()
+    tablut.action_buffer.save_buffer()
+
     print("Done.")
 
 
