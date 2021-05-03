@@ -13,7 +13,7 @@ from tqdm import tqdm
 import queue
 import signal
 
-ray.init(log_to_driver=False)
+ray.init(log_to_driver=False, dashboard_host="0.0.0.0")
 
 
 class AlphaTablut:
