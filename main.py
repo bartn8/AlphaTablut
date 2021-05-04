@@ -123,13 +123,14 @@ def self_play_worker(priority, heuristic_alpha, random=False):
 
     logging.info("Done. Result: {0}".format(winner))
 
-    return SelfPlayResult(priority, winner, utility, history)
+    return SelfPlayResult(priority*(10*config.random_workers if random else 1), winner, utility, history)
 
 
 def menu_train(tablut):
     batch_size = tablut.config.batch_size
     min_batch_size = tablut.config.min_batch_size
     num_workers = tablut.config.num_workers
+    num_random_workers = tablut.config.random_workers
     steps_counter = tablut.nnet.training_steps
     idtable = {}
     next_idtable = {}
@@ -151,7 +152,7 @@ def menu_train(tablut):
         for priority in range(num_workers):
             if priority not in idtable:
                 logging.info("Starting worker: {0}".format(priority))
-                id = self_play_worker.remote(priority, heuristic_alpha, priority == num_workers-1)
+                id = self_play_worker.remote(priority, heuristic_alpha, priority >= num_workers-num_random_workers)
                     #priority, heuristic_alpha, priority == num_workers-1 and tablut.action_buffer.size() < (tablut.config.action_buffer_maxsize / 2))
                 idtable[priority] = id
 

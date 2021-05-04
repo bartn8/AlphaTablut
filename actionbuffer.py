@@ -188,12 +188,14 @@ if __name__ == '__main__':
     config = TablutConfig()
     buf = ActionBuffer(config)
     buf.load_buffer()
-    buf.trim()
-    buf.remove_duplicate()
-    buf.save_buffer()
+    #buf.trim()
+    #buf.remove_duplicate()
+    #buf.save_buffer()
     batch_size = config.batch_size
     batch_size = min(batch_size, buf.size())
     #dataset = buf.generate_dataset(batch_size)
+
+    print(buf.game_counter)
 
     maxVisit = 0
     maxVisitValue = None
@@ -210,6 +212,7 @@ if __name__ == '__main__':
 
     #maxVisitValue = buf.buffer[random.choice(list(buf.buffer.keys()))]
     board = maxVisitValue[CURRENT_STATE]
+    print(md5(str(board.astype(np.int8).tolist()).encode('utf-8')).hexdigest())
     #board[0,0,2,2] = 0
     #board[0,8,6,2] = 1
 
