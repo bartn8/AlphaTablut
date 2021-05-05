@@ -217,10 +217,8 @@ cdef class AshtonTablut:
     cdef int* _moves
     cdef int _moves_length
     cdef long _turn
-
-    cdef HeuristicFunction _heuristic
     
-    def __init__(self, np.ndarray board, unicode to_move, long turn = 0, HeuristicFunction heuristic=None):
+    def __init__(self, np.ndarray board, unicode to_move, long turn = 0):
         cdef bint winCheck
         cdef unicode prev_to_move = 'W' if to_move == 'B' else 'B'
         
@@ -228,11 +226,6 @@ cdef class AshtonTablut:
         self._to_move = to_move
         self._turn = turn
         self._utility = 0
-
-        if heuristic is None:
-            heuristic = HeuristicFunction()
-
-        self._heuristic = heuristic
 
         winCheck = AshtonTablut.have_winner(board, prev_to_move)
 
@@ -250,17 +243,17 @@ cdef class AshtonTablut:
             PyMem_Free(self._moves)
 
     @staticmethod
-    def get_initial(heuristic=None):
-        return AshtonTablut(initialBoard, 'W', 0, heuristic)
+    def get_initial():
+        return AshtonTablut(initialBoard, 'W', 0)
 
     @staticmethod
     def get_initial_board():
         return initialBoard.copy()
 
     @staticmethod
-    def parse_board(board, player, turn, heuristic):
+    def parse_board(board, player, turn):
         if board.shape == (1, 9, 9, 4):
-            return AshtonTablut(board, player[0], turn, heuristic)
+            return AshtonTablut(board, player[0], turn)
         return None
 
     @staticmethod
@@ -580,7 +573,7 @@ cdef class AshtonTablut:
 
         next_to_move = 'W' if self._to_move == 'B' else 'B'
 
-        return AshtonTablut(board, next_to_move, self._turn+1, self._heuristic)
+        return AshtonTablut(board, next_to_move, self._turn+1)
 
     cpdef int utility(self, unicode player):
         """A state is terminal if it is won or there are no empty squares."""
@@ -599,9 +592,6 @@ cdef class AshtonTablut:
 
     cpdef turn(self):
         return self._turn
-
-    cdef eval_fn(self, player):
-        return self._heuristic.evalutate(self, player)
 
     def display(self):
         """Print or otherwise display the state."""
@@ -827,6 +817,17 @@ cdef class ActionStore:
 #------------------------------ Heuristic function --------------------------------------------
 
 cdef class HeuristicFunction:
+
+    @staticmethod
+    def builder(name, config, alpha = 1.0, cutoff = 0.0):
+        if name == "oldschool":
+            return OldSchoolHeuristicFunction()
+        elif name == "neural":
+            return NeuralHeuristicFunction(config)
+        elif name == "mixed":
+            return MixedHeuristicFunction(config, alpha, cutoff)
+        else:
+            return HeuristicFunction()
 
     cdef float evalutate(self, AshtonTablut state, unicode player):
         return state.utility(player)
