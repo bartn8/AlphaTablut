@@ -133,6 +133,7 @@ class ActionBuffer:
         self.save_buffer_to(filepath)
 
     def save_buffer_to(self, filepath):
+        os.rename(filepath, filepath+".bak")
         with open(filepath, "wb") as f:
             pickle.dump([self.buffer, self.game_counter, self.config], f)
 
