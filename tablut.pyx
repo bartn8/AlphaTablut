@@ -622,12 +622,16 @@ cdef class Search:
     cdef double cutoff_time 
     cdef long current_cutoff_depth
 
-    def __init__(self):
+    cdef HeuristicFunction heuristic
+
+    def __init__(self, heuristic):
         self.nodes_explored = 0
         self.max_depth = 0
         self.start_time = 0.0
         self.cutoff_time = 0.0
         self.current_cutoff_depth = 0
+        self.heuristic = heuristic
+
 
     cdef float max_value(self, AshtonTablut state, unicode player, float alpha, float beta, long depth):
         cdef int* moves = state._moves
@@ -643,7 +647,7 @@ cdef class Search:
             if terminal:
                 return state.utility(player)
             
-            return state.eval_fn(player)
+            return self.heuristic.evalutate(state, player)
                 
         for i in range(moves_length):
             a = moves[i]
@@ -670,7 +674,7 @@ cdef class Search:
             if terminal:
                 return state.utility(player)
             
-            return state.eval_fn(player)
+            return self.heuristic.evalutate(state, player)
 
         for i in range(moves_length):
             a = moves[i]
@@ -756,7 +760,8 @@ cdef class Search:
         for i in range(moves_length):
             a = moves[i]
             next_state = state.result(a)
-            store.add(a, state.eval_fn(player))
+            v = self.heuristic.evalutate(next_state, player)
+            store.add(a, v)
         
         while (get_time()-self.start_time) <= self.cutoff_time:
             next_store = ActionStore()

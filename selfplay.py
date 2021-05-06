@@ -43,7 +43,7 @@ class SelfPlay():
         return False
 
     def play(self, random=False):
-        current_state = AshtonTablut.get_initial(self.heuristic)
+        current_state = AshtonTablut.get_initial()
         player = current_state.to_move()
         max_moves = self.config.max_moves
         self.game_history = [current_state.board()]
@@ -54,7 +54,7 @@ class SelfPlay():
 
         have_draw = False
 
-        search = Search()
+        search = Search(self.heuristic)
 
         while not current_state.terminal_test() and not have_draw and current_state.turn() < max_moves:
 

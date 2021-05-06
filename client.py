@@ -89,7 +89,7 @@ def send_move(connHandle, action, player):
     connHandle.send(jsonData)
     logging.debug("Sent Data JSON: {0}".format(jsonData))
 
-def JSON_to_local_state(data, turn, heuristic):
+def JSON_to_local_state(data, turn):
     logging.debug("Received Data JSON: {0}".format(data))
 
     raw_board = data['board']
@@ -109,7 +109,7 @@ def JSON_to_local_state(data, turn, heuristic):
             elif raw_board[i][j][0] == 'K':
                 board[0, i, j, 2] = 1
     
-    return AshtonTablut.parse_board(board, player, turn, heuristic), player
+    return AshtonTablut.parse_board(board, player, turn), player
 
 def game_loop(args):
     # Args
@@ -131,6 +131,8 @@ def game_loop(args):
     else:
         logging.info("Netowrk loading error")
         heuristic = OldSchoolHeuristicFunction()
+
+    search = Search(heuristic)
 
     turn = 0
 
@@ -170,7 +172,6 @@ def game_loop(args):
                 elif playing_player[0] == player:
                     logging.info("Computing and sending action.")
 
-                    search = Search()
                     best_next_state, best_action, best_score, max_depth, nodes_explored, search_time = search.iterative_deepening_search(
                         state=state, initial_cutoff_depth=2, cutoff_time=timeout)
 
