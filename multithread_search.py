@@ -198,7 +198,7 @@ class MultiThreadSearch:
                     i+=1
 
                 ready_ids, remaining_ids = ray.wait(
-                    list(workers.values()), timeout=0)
+                    list(workers.values()), timeout=(None if len(workers) == self.n_nodes else 0))
 
                 if len(ready_ids) > 0:
                     for job_id in ready_ids:
@@ -254,12 +254,12 @@ def general_test():
     # Test network loading
     heuristic_name = "oldschool"
 
-    #heuristic_test = NeuralHeuristicFunction(config)
-    #if heuristic_test.init_tflite():
-    #    print("Netowrk loaded successfully")
-    #    heuristic_name = "neural"
-    #else:
-    #    print("Netowrk loading error")
+    heuristic_test = NeuralHeuristicFunction(config)
+    if heuristic_test.init_tflite():
+        print("Netowrk loaded successfully")
+        heuristic_name = "neural"
+    else:
+        print("Netowrk loading error")
 
     search = MultiThreadSearch(config, heuristic_name)
 
