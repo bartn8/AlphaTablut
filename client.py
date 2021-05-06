@@ -3,9 +3,11 @@ import argparse
 import logging
 import json
 import numpy as np
+import ray
 
-from tablut import AshtonTablut, Search, NeuralHeuristicFunction, OldSchoolHeuristicFunction
+from tablut import AshtonTablut, NeuralHeuristicFunction, OldSchoolHeuristicFunction
 from tablutconfig import TablutConfig
+from multithread_search import MultiThreadSearch
 
 # Modified from: https://github.com/Jippiter/TablutGo/blob/main/src/TablutGoClient.py
 
@@ -89,6 +91,7 @@ def send_move(connHandle, action, player):
     connHandle.send(jsonData)
     logging.debug("Sent Data JSON: {0}".format(jsonData))
 
+
 def JSON_to_local_state(data, turn):
     logging.debug("Received Data JSON: {0}".format(data))
 
@@ -108,8 +111,9 @@ def JSON_to_local_state(data, turn):
                 board[0, i, j, 1] = 1
             elif raw_board[i][j][0] == 'K':
                 board[0, i, j, 2] = 1
-    
+
     return AshtonTablut.parse_board(board, player, turn), player
+
 
 def game_loop(args):
     # Args
@@ -121,18 +125,22 @@ def game_loop(args):
 
     port = 5800 if player == 'W' else 5801
 
+    ray.init()
+
     # Network loading
     config = TablutConfig()
-    #Al sesto turno l'euristica hard coded diventa dominante
-    heuristic = NeuralHeuristicFunction(config)
 
-    if heuristic.init_tflite():
+    #Test network loading
+    heuristic_name = "oldschool"
+
+    heuristic_test = NeuralHeuristicFunction(config)
+    if heuristic_test.init_tflite():
         logging.info("Netowrk loaded successfully")
+        heuristic_name = "neural"
     else:
         logging.info("Netowrk loading error")
-        heuristic = OldSchoolHeuristicFunction()
 
-    search = Search(heuristic)
+    search = MultiThreadSearch(config, heuristic_name)
 
     turn = 0
 
@@ -151,7 +159,7 @@ def game_loop(args):
                 # Sync local state with server state
                 data = json.loads(message)
                 state, playing_player = JSON_to_local_state(
-                    data, turn, heuristic)
+                    data, turn)
 
                 logging.info("Turn {0}: {1} is playing.".format(
                     turn, playing_player))

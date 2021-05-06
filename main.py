@@ -264,8 +264,8 @@ def menu_play(tablut):
             print("Model loading failed... Using OldSchoolHeuristic")
             heuristic = OldSchoolHeuristicFunction()
 
-    search = Search()
-    current_state = AshtonTablut.get_initial(heuristic)
+    search = Search(heuristic)
+    current_state = AshtonTablut.get_initial()
 
     # Faccio partire il game loop
     i = 0

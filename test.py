@@ -1,10 +1,11 @@
+import ray
 import tflite_runtime.interpreter as tflite
 import time
 import os
 import numpy as np
 from tablutconfig import TablutConfig
 
-if __name__ == '__main__':
+def test1():
     config = TablutConfig()
     folder = config.folder
     filename = config.tflite_model
@@ -33,3 +34,28 @@ if __name__ == '__main__':
         sum += deltaTime
 
     print("Inference time: {0} ms ({3} invokes), Input details: {1}, Output details: {2}".format((sum/n)*1000, input_details, output_details, n))
+
+
+def test2():
+    ray.init()
+
+    @ray.remote
+    class Counter(object):
+        def __init__(self):
+            self.value = 0
+
+        def increment(self):
+            self.value += 1
+            return self.value
+
+        def get_counter(self):
+            return self.value
+
+    counter_actor = Counter.remote()
+    counter_actor2 = Counter.remote()
+
+    print(ray.get(counter_actor.increment.remote()))
+    print(ray.get(counter_actor2.increment.remote()))
+
+if __name__ == '__main__':
+    test2()

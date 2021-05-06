@@ -3,10 +3,8 @@
 #distutils: extra_compile_args = -march=native
 #tag: numpy
 
-import datetime
-import time as ptime
+#import time as ptime
 import os
-import random
 
 import tflite_runtime.interpreter as tflite
 
@@ -687,7 +685,7 @@ cdef class Search:
 
         return v
 
-    def cutoff_search(self, AshtonTablut state, long cutoff_depth=5, double cutoff_time=55.0):
+    def cutoff_search(self, AshtonTablut state, long cutoff_depth=3, double cutoff_time=55.0):
         """Search game to determine best action; use alpha-beta pruning.
         This version cuts off search using time and uses an evaluation function."""
 
@@ -741,7 +739,7 @@ cdef class Search:
 
         cdef int* moves = state._moves
         cdef int moves_length = state._moves_length
-        cdef float v 
+        cdef float v
         cdef int a    
 
         cdef ActionStore store = ActionStore()
@@ -775,7 +773,8 @@ cdef class Search:
                 if (get_time()-self.start_time) > self.cutoff_time:
                     break
 
-                next_store.add(a, v)
+                if v > -1.0:
+                    next_store.add(a, v)
 
             if next_store.size() > 0:
                 store = next_store
@@ -799,8 +798,8 @@ cdef class Search:
 
 
 cdef class ActionStore:
-    cdef array.array actions
-    cdef array.array utils
+    cdef readonly array.array actions
+    cdef readonly array.array utils
 
     def __init__(self):
         self.actions = array.array('i')
@@ -828,18 +827,28 @@ cdef class HeuristicFunction:
         if name == "oldschool":
             return OldSchoolHeuristicFunction()
         elif name == "neural":
-            return NeuralHeuristicFunction(config)
+            h = NeuralHeuristicFunction(config)
+            h.init_tflite()
+            return h
         elif name == "mixed":
-            return MixedHeuristicFunction(config, alpha, cutoff)
+            h = MixedHeuristicFunction(config, alpha, cutoff)
+            h.init_tflite()
+            return h
         else:
             return HeuristicFunction()
 
-    cdef float evalutate(self, AshtonTablut state, unicode player):
+    def initialized(self):
+        return True
+
+    cpdef float evalutate(self, AshtonTablut state, unicode player):
         return state.utility(player)
 
 cdef class OldSchoolHeuristicFunction(HeuristicFunction):
 
-    cdef float evalutate(self, AshtonTablut state, unicode player):
+    def initialized(self):
+        return True
+
+    cpdef float evalutate(self, AshtonTablut state, unicode player):
         # Spurio's evaluation function ( Modificata :) )
 
         cdef DTYPE_t[:,:,:,:] board = state.board()
@@ -998,7 +1007,7 @@ cdef class NeuralHeuristicFunction(HeuristicFunction):
 
         return v if player == 'W' else -v
 
-    cdef float evalutate(self, AshtonTablut state, unicode player):
+    cpdef float evalutate(self, AshtonTablut state, unicode player):
         if self.interpreter_initialized:
             return self.tflite_eval(state, player)
         return state.utility(player)
@@ -1030,7 +1039,7 @@ cdef class MixedHeuristicFunction(HeuristicFunction):
     def set_cutoff(self, cutoff):
         self.cutoff = max(min(cutoff, 1.0), 0.0)
 
-    cdef float evalutate(self, AshtonTablut state, unicode player):
+    cpdef float evalutate(self, AshtonTablut state, unicode player):
         if self.neural_eval.interpreter_initialized and self.alpha >= self.cutoff:
             return self.neural_eval.tflite_eval(state, player) * self.alpha + self.old_eval.evalutate(state, player) * (1-self.alpha)
 
