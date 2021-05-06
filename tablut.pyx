@@ -614,8 +614,8 @@ def random_player(AshtonTablut game):
 #------------------------------ Search -------------------------------------------------------
 cdef class Search:
 
-    cdef long nodes_explored
-    cdef long max_depth
+    cdef readonly long nodes_explored
+    cdef readonly long max_depth
     cdef double start_time
     cdef double cutoff_time 
     cdef long current_cutoff_depth
@@ -667,6 +667,35 @@ cdef class Search:
 
         self.nodes_explored += 1
         self.max_depth = max(self.max_depth, depth)
+
+        if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
+            if terminal:
+                return state.utility(player)
+            
+            return self.heuristic.evalutate(state, player)
+
+        for i in range(moves_length):
+            a = moves[i]
+            next_state = state.result(a)           
+
+            v = min(self.max_value(next_state, player, alpha, beta, depth + 1),v)
+            if v <= alpha:
+                return v
+            beta = min(beta, v)
+
+        return v
+
+    cpdef min_branch(self, AshtonTablut state, unicode player, float alpha, float beta, long depth, current_cutoff_depth, start_time, cutoff_time):
+        cdef int* moves = state._moves
+        cdef int moves_length = state._moves_length
+        cdef float v = np.inf
+        cdef bint terminal = state.terminal_test()
+        
+        self.cutoff_time = cutoff_time
+        self.current_cutoff_depth = current_cutoff_depth
+        self.start_time = start_time
+        self.nodes_explored = 0
+        self.max_depth = 0
 
         if depth > self.current_cutoff_depth or terminal or (get_time()-self.start_time) > self.cutoff_time:
             if terminal:
@@ -1052,6 +1081,9 @@ cdef inline double get_time():
     clock_gettime(CLOCK_REALTIME, &ts)
     current = ts.tv_sec + (ts.tv_nsec / 1000000000.)
     return current
+
+def ptime():
+    return get_time()
 
 #------------------------------ Test ---------------------------------------------------------
 def test():

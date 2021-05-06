@@ -1,14 +1,13 @@
 import ray
-import time
 import numpy as np
 from tablutconfig import TablutConfig
-from tablut import AshtonTablut, ActionStore, HeuristicFunction, NeuralHeuristicFunction
+from tablut import Search, AshtonTablut, ActionStore, HeuristicFunction, NeuralHeuristicFunction, ptime
 
 
 class Metrics:
-    def __init__(self):
-        self.nodes_explored = 0
-        self.max_depth = 0
+    def __init__(self, nodes_explored = 0, max_depth = 0):
+        self.nodes_explored = nodes_explored
+        self.max_depth = max_depth
 
     def node_explored(self):
         self.nodes_explored += 1
@@ -58,7 +57,7 @@ class BrachActor:
         self.metric.node_explored()
         self.metric.update_max_depth(depth)
 
-        if depth > self.current_cutoff_depth or terminal or (time.time()-self.start_time) > self.cutoff_time:
+        if depth > self.current_cutoff_depth or terminal or (ptime()-self.start_time) > self.cutoff_time:
             if terminal:
                 return state.utility(player)
             return self.heuristic.evalutate(state, player)
@@ -81,7 +80,7 @@ class BrachActor:
         self.metric.node_explored()
         self.metric.update_max_depth(depth)
 
-        if depth > self.current_cutoff_depth or terminal or (time.time()-self.start_time) > self.cutoff_time:
+        if depth > self.current_cutoff_depth or terminal or (ptime()-self.start_time) > self.cutoff_time:
             if terminal:
                 return state.utility(player)
             return self.heuristic.evalutate(state, player)
@@ -97,21 +96,21 @@ class BrachActor:
 
         return v
 
-    def min_branch_worker(self, a, board, player, turn, alpha, beta, depth, current_cutoff_depth, start_time, cutoff_time):
-        state = AshtonTablut.parse_board(board.copy(), player, turn)
+    def min_branch_worker(self, a, board, to_move, turn, player, alpha, beta, depth, current_cutoff_depth, start_time, cutoff_time):
+        state = AshtonTablut.parse_board(board.copy(), to_move, turn)
         self.metric = Metrics()
         self.current_cutoff_depth = current_cutoff_depth
         self.start_time = start_time
         self.cutoff_time = cutoff_time
         v = np.inf
         terminal = state.terminal_test()
-        local_start_time = time.time()
+        local_start_time = ptime()
 
-        if depth > self.current_cutoff_depth or terminal or (time.time()-self.start_time) > self.cutoff_time:
+        if depth > self.current_cutoff_depth or terminal or (ptime()-self.start_time) > self.cutoff_time:
             if terminal:
-                return state.utility(player)
-            return self.heuristic.evalutate(state, player)
-
+                return BranchResult(self.metric, a, state.utility(player), ptime()-local_start_time)
+            return BranchResult(self.metric, a, self.heuristic.evalutate(state, player), ptime()-local_start_time)
+        
         actions = state.actions()
 
         for action in actions:
@@ -121,7 +120,23 @@ class BrachActor:
                 return BranchResult(self.metric, a, state, v)
             beta = min(beta, v)
 
-        return BranchResult(self.metric, a, v, time.time()-local_start_time)
+        return BranchResult(self.metric, a, v, ptime()-local_start_time)
+
+    def cython_min_branch_worker(self, a, board, to_move, turn, player, alpha, beta, depth, current_cutoff_depth, start_time, cutoff_time):
+        state = AshtonTablut.parse_board(board.copy(), to_move, turn)
+        search = Search(self.heuristic)
+
+        self.current_cutoff_depth = current_cutoff_depth
+        self.start_time = start_time
+        self.cutoff_time = cutoff_time
+        
+        local_start_time = ptime()
+
+        v = search.min_branch(state, player, alpha, beta, depth, current_cutoff_depth, start_time, cutoff_time)
+
+        self.metric = Metrics(search.nodes_explored, search.max_depth)
+        
+        return BranchResult(self.metric, a, v, ptime()-local_start_time) 
 
 
 class MultiThreadSearch:
@@ -146,7 +161,7 @@ class MultiThreadSearch:
         beta = np.inf
         store = ActionStore()
         metric = Metrics()
-        start_time = time.time()
+        start_time = ptime()
         actions = state.actions()
         current_cutoff_depth = initial_cutoff_depth
         workers = {}
@@ -158,7 +173,7 @@ class MultiThreadSearch:
             v = self.heuristic.evalutate(next_state, player)
             store.add(action, v)
 
-        timeout_occurred = (time.time()-start_time) > cutoff_time
+        timeout_occurred = (ptime()-start_time) > cutoff_time
 
         while not timeout_occurred:
             next_store = ActionStore()
@@ -176,8 +191,8 @@ class MultiThreadSearch:
                         break
 
                 if worker_id >= 0:
-                    job_id = self.nodes[worker_id].min_branch_worker.remote(action, next_state.board(
-                    ), player, next_state.turn(), best_score, beta, 1, current_cutoff_depth, start_time, cutoff_time)
+                    job_id = self.nodes[worker_id].cython_min_branch_worker.remote(action, next_state.board(
+                    ), next_state.to_move(), next_state.turn(), player, best_score, beta, 1, current_cutoff_depth, start_time, cutoff_time)
                     workers[worker_id] = job_id
                     #i-esimo elemento schedulato
                     i+=1
@@ -190,10 +205,10 @@ class MultiThreadSearch:
                         result = ray.get(job_id)
                         rMetric, rAction, rScore = result.metric, result.a, result.v
                         metric.update_from_metric(rMetric)
-                        print(result)
+                        #print(result)
 
                         timeout_occurred = (
-                            time.time()-start_time) > cutoff_time
+                            ptime()-start_time) > cutoff_time
 
                         if timeout_occurred:
                             break
@@ -212,22 +227,22 @@ class MultiThreadSearch:
 
             if next_store.size() > 0:
                 store = next_store
-                timeout_occurred = (time.time()-start_time) > cutoff_time
+                timeout_occurred = (ptime()-start_time) > cutoff_time
                 if not timeout_occurred:
                     action = store.actions[0]
                     score = store.utils[0]
                     if score >= 1.0:
-                        return state.result(action), action, score, metric.max_depth, metric.nodes_explored, (time.time()-start_time)
+                        return state.result(action), action, score, metric.max_depth, metric.nodes_explored, (ptime()-start_time)
 
             current_cutoff_depth += 1
-            timeout_occurred = (time.time()-start_time) > cutoff_time
+            timeout_occurred = (ptime()-start_time) > cutoff_time
 
         if store.size() > 0:
             best_action = store.actions[0]
             best_score = store.utils[0]
             best_next_state = state.result(best_action)
 
-        return best_next_state, best_action, best_score, metric.max_depth, metric.nodes_explored, (time.time()-start_time)
+        return best_next_state, best_action, best_score, metric.max_depth, metric.nodes_explored, (ptime()-start_time)
 
 
 def general_test():
@@ -239,12 +254,12 @@ def general_test():
     # Test network loading
     heuristic_name = "oldschool"
 
-    heuristic_test = NeuralHeuristicFunction(config)
-    if heuristic_test.init_tflite():
-        print("Netowrk loaded successfully")
-        heuristic_name = "neural"
-    else:
-        print("Netowrk loading error")
+    #heuristic_test = NeuralHeuristicFunction(config)
+    #if heuristic_test.init_tflite():
+    #    print("Netowrk loaded successfully")
+    #    heuristic_name = "neural"
+    #else:
+    #    print("Netowrk loading error")
 
     search = MultiThreadSearch(config, heuristic_name)
 
