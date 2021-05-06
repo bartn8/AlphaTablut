@@ -217,27 +217,27 @@ def main():
 
     argparser.add_argument(
         '-p', '--player',
-        metavar='P',
+        metavar='[W,B]',
         default='White',
         type=str,
         help='Player Black/White (default: White)')
 
     argparser.add_argument(
         '-t', '--timeout',
-        metavar='T',
+        metavar='[0,1,..]',
         default=59,
         type=int,
         help='Timeout (default: 59)')
 
     argparser.add_argument(
         '-i', '--host',
-        metavar='H',
+        metavar='IP',
         default='127.0.0.1',
         help='IP of the server (default: 127.0.0.1)')
 
     argparser.add_argument(
         '-c', '--cores',
-        metavar='C',
+        metavar='[0,1,..]',
         default=4,
         type=int,
         help='Cores to use during Search (Default: 4)')
